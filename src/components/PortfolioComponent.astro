@@ -1,0 +1,97 @@
+---
+import Layout2 from '../layouts/Layout2.astro';
+import AsideBarInfoPortfolio from './AsideBarInfoPortfolio.astro';
+
+import { getI18N } from '../i18n/index.ts'
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+---
+
+<Layout2 title={i18n?.SEO_TITLE_PORTFOLIO} description={i18n?.SEO_DESCRIPTION_PORTFOLIO}>
+
+    <AsideBarInfoPortfolio />
+    <section class="flex flex-col bg-indigo-600/10 px-8 w-full overflow-auto section-with-scroll scroll-content">
+
+        <article id="intro" class="my-4 max-w-[95%] md:max-w-[85%] leading-relaxed tracking-wide">
+            <h1 class="text-3xl font-semibold underline mb-6">{i18n?.INFO_PORTFOLIO.ASIDEBAR.intro}</h1>
+            <p class="pl-2 mb-4">{i18n?.INFO_PORTFOLIO.INTRO1}</p>
+            <p class="pl-2 mb-4">{i18n?.INFO_PORTFOLIO.INTRO2}</p>
+            <p class="pl-2">{i18n?.INFO_PORTFOLIO.INTRO3}</p>
+        </article>
+    
+        <article id="performance" class="my-4 max-w-[95%] md:max-w-[85%] leading-relaxed tracking-wide" >
+            <h2 class="text-3xl font-semibold underline mb-6">{i18n?.INFO_PORTFOLIO.ASIDEBAR.performance}</h2>
+            <p class="pl-2 mb-4">{i18n?.INFO_PORTFOLIO.PERFORMANCE1}</p>
+            <p class="pl-2 mb-4">{i18n?.INFO_PORTFOLIO.PERFORMANCE2}</p>
+            <p class="pl-2">{i18n?.INFO_PORTFOLIO.PERFORMANCE3}</p>
+            <img class="md:max-w-[70%] my-6" src="/imgs/Astro_Performance.webp" alt="Astro performace">
+        </article>
+
+        <article id="seo" class="my-4 max-w-[95%] md:max-w-[85%] leading-relaxed tracking-wide">
+            <h2 class="text-3xl font-semibold underline mb-6">{i18n?.INFO_PORTFOLIO.ASIDEBAR.seo}</h2>
+            <p class="pl-2 mb-4">{i18n?.INFO_PORTFOLIO.SEO1}</p>
+            <p class="pl-2 mb-4">{i18n?.INFO_PORTFOLIO.SEO2}</p>
+            <p class="pl-2 mb-4">{i18n?.INFO_PORTFOLIO.SEO3}</p>
+            <p class="pl-2 mb-4">{i18n?.INFO_PORTFOLIO.SEO4}</p>
+            <p class="pl-2">{i18n?.INFO_PORTFOLIO.SEO5}</p>
+        </article>
+
+        <article id="agnostic" class="my-4 max-w-[95%] md:max-w-[85%] leading-relaxed tracking-wide">
+            <h2 class="text-3xl font-semibold underline mb-6">{i18n?.INFO_PORTFOLIO.ASIDEBAR['ui-agnostic']}</h2>
+            <p class="pl-2 mb-4" id="agnostic">{i18n?.INFO_PORTFOLIO.UIAGNOSTIC1}</p>
+            <p class="pl-2 mb-4" id="agnostic">{i18n?.INFO_PORTFOLIO.UIAGNOSTIC2}</p>
+            <p class="pl-2" id="agnostic">{i18n?.INFO_PORTFOLIO.UIAGNOSTIC3}</p>
+            <img class="md:max-w-[40%] my-6" src="/imgs/Astro_Agnostic.webp" alt="Astro Agnostic">
+        </article>
+
+        <article id="scalability" class="my-4 max-w-[95%] md:max-w-[85%] leading-relaxed tracking-wide">
+            <h2 class="text-3xl font-semibold underline mb-6">{i18n?.INFO_PORTFOLIO.ASIDEBAR.scalability}</h2>
+            <p class="pl-2 mb-4">{i18n?.INFO_PORTFOLIO.SCALABILITY1}</p>
+            <p class="pl-2 mb-4">{i18n?.INFO_PORTFOLIO.SCALABILITY2}</p>
+            <p class="pl-2">{i18n?.INFO_PORTFOLIO.SCALABILITY3}</p>
+        </article>
+
+        <article id="internationalization" class="my-4 max-w-[95%] md:max-w-[85%] leading-relaxed tracking-wide">
+            <h2 class="text-3xl font-semibold underline mb-6">{i18n?.INFO_PORTFOLIO.ASIDEBAR.internationalization}</h2>
+            <p class="pl-2 mb-4">{i18n?.INFO_PORTFOLIO.INTERNATIONALIZATION1}</p>
+        </article>
+
+        <article id="view-transitions" class="my-4 max-w-[95%] md:max-w-[85%] leading-relaxed tracking-wide">
+            <h2 class="text-3xl font-semibold underline mb-6">{i18n?.INFO_PORTFOLIO.ASIDEBAR['view-transitions']}</h2>
+            <p class="pl-2 mb-4">{i18n?.INFO_PORTFOLIO.VIEWTRANSITIONS1}</p>
+            <ul class="list-disc pl-2 mb-4">
+                <li class="ml-8 mb-2">{i18n?.INFO_PORTFOLIO.VIEWTRANSITIONS2}</>
+                <li class="ml-8 mb-2">{i18n?.INFO_PORTFOLIO.VIEWTRANSITIONS3}</>
+                <li class="ml-8 mb-2">{i18n?.INFO_PORTFOLIO.VIEWTRANSITIONS4}</>
+            </ul>
+            <img class="md:max-w-[35%] my-6" src="/imgs/Astro_Transitions.gif" alt="Astro Transitions">
+            <p class="pl-2">{i18n?.INFO_PORTFOLIO.VIEWTRANSITIONS5}</p>
+        </article>
+
+    </section>
+    
+
+</Layout2>
+
+<style>
+
+    .section-with-scroll {
+        scrollbar-width: thin;
+        scrollbar-color: darkgray lightgray;
+    }
+
+    .section-with-scroll::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .section-with-scroll::-webkit-scrollbar-thumb {
+        background-color: darkgray;
+        border-radius: 10px;
+    }
+
+    .section-with-scroll::-webkit-scrollbar-track {
+        background-color: lightgray;
+        border-radius: 10px;
+    }
+
+</style>

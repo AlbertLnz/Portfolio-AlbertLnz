@@ -1,0 +1,375 @@
+{
+    "SEO_TITLE_HOMEPAGE": "Albert Lanza Rio Portfolio",
+    "SEO_DESCRIPTION_HOMEPAGE": "Explora el portafolio de Albert Lanza Rio, un apasionado desarrollador web con formación en economía. Descubre sus habilidades tecnológicas y su enfoque innovador en el desarrollo web, fusionando conocimientos técnicos con una perspectiva económica única. Explora proyectos excepcionales que reflejan su experiencia en ambas disciplinas, creando soluciones tecnológicas con un enfoque económico sólido. ¡Conoce más sobre cómo Albert combina lo mejor de la tecnología y la economía para crear experiencias web impactantes y funcionales!",
+    "SEO_TITLE_PORTFOLIO": "Info Portfolio - Albert Lanza Rio",
+    "SEO_DESCRIPTION_PORTFOLIO": "Descubre la elección detrás de mi portfolio: Explora los motivos que me llevaron a seleccionar Astro como mi framework principal. Desde su rendimiento excepcional hasta su enfoque en la velocidad y la eficiencia, te invito a explorar cómo Astro ha potenciado la creación de mi portfolio de manera única. ¡Explora los detalles en esta página informativa sobre mi elección del framework Astro 4!",
+    "SEO_TITLE_404": "Página no encontrada - Albert Lanza Rio Portfolio",
+    "SEO_DESCRIPTION_404": "¡Oh no! Parece que te has perdido en el espacio digital. La página que buscas en el portafolio de Albert Lanza Rio no ha sido encontrada. No te preocupes, puedes regresar a explorar proyectos fascinantes y descubrir cómo este apasionado desarrollador web fusiona su conocimiento técnico con una perspectiva económica única. ¡Vuelve al camino principal y sigue explorando el impactante mundo de Albert Lanza Rio en el desarrollo web y la economía!",
+    "BENTO_TITLES":{
+        "PROJECTS": "Proyectos",
+        "CHALLENGES": "Desafiándome!",
+        "COURSES": "Cursos",
+        "STUDIES": "Estudios",
+        "JOBS": "Trabajos",
+        "TOOLS": "Herramientas"
+    },
+    "OPEN_TO_WORK":{
+        "TEXT1": "Abierto al",
+        "TEXT2": "trabajo"
+    },
+    "SLOGAN":{
+        "text1": "Desarrollador Web",
+        "text2": "1 año de experiencia",
+        "text3": "Mejorando día a día",
+        "text4": "de Barcelona",
+        "abiliti1": "Trabajo en colaboración",
+        "abiliti2": "Perseverancia",
+        "abiliti3": "Ambicioso",
+        "abiliti4": "Creatividad",
+        "abiliti5": "Innovación",
+        "abiliti6": "Adaptabilidad"
+    },
+    "PROJECTS": {
+        "1":{
+            "name": "API Dice",
+            "description": "El juego consiste en el lanzamiento de 2 dados; si el usuario saca un 7 gana sino, pierde. Para jugar te has de registrar previamente ya sea como usuario anónimo o mediante un usuario y mail con la ventaja de poder consultar tus resultados (tiradas previas y promedio). Hay un ranking del mejor jugador, del peor y del general restringido por el usuario administrador. Todo esto siguiendo el patrón de diseño MVC.",
+            "github": "https://github.com/AlbertLnz/dice-API",
+            "deploy": "",
+            "technologies": ["Laravel"]
+        },
+        "2":{
+            "name": "Football Managment App",
+            "description": "La aplicación consiste en la gestión de una liga de fútbol, pudiendo visualizar y crear equipos, jugadores y partidos. Todos los datos están relacionados entre si mediante relaciones entre las diferentes tablas configuradas en una base de datos SQL. Cualquier usuario puede consultar los datos de la aplicación mediante queries pero es el administrador el único usuario capaz de crearlas.",
+            "github": "https://github.com/AlbertLnz/Football-managment-app",
+            "deploy": "",
+            "technologies": ["Laravel", "Blade"]
+        },
+        "3":{
+            "name": "CRUD Redux Toolkit",
+            "description": "Aplicación de tareas con React y Redux que permite al usuario visualizar, crear, editar y eliminar tareas ayudándolo a mantenerse organizado y productivo en sus actividades diarias.",
+            "github": "https://github.com/AlbertLnz/CRUD-Redux-Toolkit",
+            "deploy": "",
+            "technologies": ["React", "Redux"]
+        },
+        "4":{
+            "name": "ITA Landing",
+            "description": "Página de información sobre la academia de programación ITAcademy donde mediante una conexión con el Back-End, muestra información de la academia y participantes. También tiene una parte de gestión de la propia página una vez el usuario inicia sesión (backoffice).",
+            "github": "https://github.com/IT-Academy-BCN/ita-landing-frontend",
+            "deploy": "https://it-academy-landing.netlify.app/",
+            "technologies": ["React", "TypeScript", "Laravel"]
+        },  
+        "5":{
+            "name": "ReserveEat",
+            "description": "Web de gestión de reservas de diferentes restaurantes, la app permite crear varios usuarios donde cada uno puede manejar diferentes restaurantes, y donde posteriormente los usuarios clientes son capaces de crear reservas en día, turno y asignarle una mesa. El usuario también puede realizar reseñas del restaurante.",
+            "github": "https://github.com/No-Country/nc_c14-40-m-php-vue",
+            "deploy": "",
+            "technologies": ["Vue", "Laravel"]
+        },
+        "6":{
+            "name": "ITA Profiles",
+            "description": "Pàgina donde se muestra los colaboradorse que han participado en diferentes proyectos de la ITAcademy y que tiene com objectivo informar a los reclutadores los diferentes perfiles de los participantes.",
+            "github": "https://github.com/IT-Academy-BCN/ita-profiles-frontend",
+            "deploy": "",
+            "technologies": ["React", "TypeScript", "Laravel"]
+        },
+        "7":{
+            "name": "Jump2Digital",
+            "description": "¡Reto de desarrollar una aplicación de gestión del nivel de vegetación para los barrios de Barcelona en menos de 24 horas! Además, sin conocer previamente al equipo y distribuyendo el trabajo en Datos, Back y Front. ¡¡Un desafío apasionante!!",
+            "github": "https://github.com/J2D-Hackaton",
+            "deploy": "https://j2d-team7-deployment.vercel.app",
+            "technologies": ["React", "Laravel", "Python"]
+        }
+    },
+    "CHALLENGES":{
+        "CODE": "Código"
+    },
+    "COURSES":{
+        "BUTTONS":{
+            "NEWEST": "Más reciente",
+            "OLDEST": "Más antiguo",
+            "CERTIFICATE": "Certificado",
+            "COURSE_LINK": "Link del curso"
+        },
+        "1":{
+            "name": "Introducción a la programación C++",
+            "type": "Aprendizaje",
+            "timedate": "Febrero del 2019",
+            "certificate": "https://drive.google.com/file/d/1sSAXrmLGsNlCSPXOHmpOkH5-Pv5qRkid/view?usp=sharing",
+            "link_course": ""
+        },
+        "2":{
+            "name": "Aprende Low Code - CSS",
+            "type": "Aprendizaje",
+            "timedate": "Octubre del 2022",
+            "certificate": "https://drive.google.com/file/d/1wrSlkoPDYFSJJajmD4nY6Efm4BIVab44/view?usp=sharing",
+            "link_course": "https://cibernarium.barcelonactiva.cat/web/guest/ficha-actividad?activityId=1266830"
+        },
+        "3":{
+            "name": "Inteligencia artificial y datos en pleno boom de ChatGPT",
+            "type": "Charla",
+            "timedate": "Marzo del 2023",
+            "certificate": "https://drive.google.com/file/d/1Dx5HD6CbsAC77N09TOrhEVpCqfQb1_Ln/view?usp=sharing",
+            "link_course": "https://eurecat.org/el-boom-de-la-intelligencia-artificial-molt-mes-que-el-chatgpt/"
+        },
+        "4":{
+            "name": "Gestiona bases de datos con MySQL",
+            "type": "Aprendizaje",
+            "timedate": "Marzo del 2023",
+            "certificate": "https://drive.google.com/file/d/1aYdkTz4OlqY_69DEb0XRYbZFQDX_Y2oi/view?usp=sharing",
+            "link_course": "https://cibernarium.barcelonactiva.cat/web/guest/ficha-actividad?activityId=1267314"
+        },
+        "5":{
+            "name": "Crea una web con PHP, MySQL y Apache (LAMP)",
+            "type": "Aprendizaje",
+            "timedate": "Marzo del 2023",
+            "certificate": "https://drive.google.com/file/d/1HcDDo0-NYkKNbgqmPLnjqkuuONTZD60U/view?usp=sharing",
+            "link_course": "https://cibernarium.barcelonactiva.cat/web/guest/ficha-actividad?activityId=1267312"
+        },
+        "6":{
+            "name": "Introducción al lenguaje JavaScript",
+            "type": "Aprendizaje",
+            "timedate": "Abril del 2023",
+            "certificate": "https://drive.google.com/file/d/1RtrGSYVGaGNvHrlyNkEU2HWNKtxDwnqE/view?usp=sharing",
+            "link_course": "https://cibernarium.barcelonactiva.cat/web/guest/ficha-actividad?activityId=1267258"
+        },
+        "7":{
+            "name": "Crecimiento profesional en empresas multinacionales",
+            "type": "Charla",
+            "timedate": "Abril del 2023",
+            "certificate": "https://drive.google.com/file/d/1FQOFxE1v3Zof6hN7Gp3SgGNbWbW6_0d-/view?usp=sharing",
+            "link_course": ""
+        },
+        "8":{
+            "name": "Svelte, el gran desconocido",
+            "type": "Charla",
+            "timedate": "Abril del 2023",
+            "certificate": "https://drive.google.com/file/d/1e4ea_2dqzNt5qigifRS3CbR_vrHwoYjB/view?usp=sharing",
+            "link_course": ""
+        },
+        "9":{
+            "name": "Aprende a programar una API en PHP y MySQL",
+            "type": "Aprendizaje",
+            "timedate": "Mayo del 2023",
+            "certificate": "https://drive.google.com/file/d/1R1ZGuyOHBAR3VTVz4ZQod-dfnMgjzF7H/view?usp=sharing",
+            "link_course": "https://cibernarium.barcelonactiva.cat/web/guest/ficha-actividad?activityId=1274454"
+        },
+        "10":{
+            "name": "Hackathon Tech4Good",
+            "type": "Hackatón",
+            "timedate": "Junio del 2023",
+            "certificate": "https://drive.google.com/file/d/142Fc75X8MJWt5kjyCtEa2QVKdiHv5Am3/view?usp=sharing",
+            "link_course": "http://hackathon.techlabs.org/details.html"
+        },
+        "11":{
+            "name": "Figma - Haz tus mockups",
+            "type": "Aprendizaje",
+            "timedate": "Julio del 2023",
+            "certificate": "https://drive.google.com/file/d/1UOPOMw8P5qk_GJcKEMXLRAd2f2Aje4VQ/view?usp=sharing",
+            "link_course": "https://cibernarium.barcelonactiva.cat/web/guest/ficha-actividad?activityId=1266485"
+        },
+        "12":{
+            "name": "El desafío internacional de aplicaciones espaciales de la NASA",
+            "type": "Hackatón",
+            "timedate": "Octubre del 2023",
+            "certificate": "https://www.linkedin.com/posts/aar%C3%B3n-murillo-lort-b039b01a1_last-weekend-we-had-the-honour-to-be-a-part-activity-7118245275999059968-NN-d?utm_source=share&utm_medium=member_desktop",
+            "link_course": "https://www.spaceappschallenge.org/2023/locations/barcelona/"
+        },
+        "13":{
+            "name": "Jump2Digital Hackathon",
+            "type": "Hackatón",
+            "timedate": "Noviembre del 2023",
+            "certificate": "https://www.linkedin.com/posts/leandra-bujhamer_hoy-despu%C3%A9s-de-un-d%C3%ADa-de-trabajo-intenso-activity-7131405687565246464-XPgz?utm_source=share&utm_medium=member_desktop",
+            "link_course": "https://jump2digital.site/en/"
+        },
+        "14":{
+            "name": "Masterclass de desarrollo de Scala 3 - 2023",
+            "type": "Aprendizaje",
+            "timedate": "Noviembre del 2023",
+            "certificate": "https://drive.google.com/file/d/1MqGl5dz3m7Ufdx1KLFQIkBOtLHr32Kkn/view?usp=sharing",
+            "link_course": "https://www.udemy.com/course/completescala3/"
+        },
+        "15":{
+            "name": "Introducción a Docker",
+            "type": "Aprendizaje",
+            "timedate": "Enero del 2024",
+            "certificate": "https://drive.google.com/file/d/1oVIlv1-mXSMscpaXNA7fkaLyvteIOLtj/view?usp=sharing",
+            "link_course": "https://cibernarium.barcelonactiva.cat/es/ficha-actividad?activityId=1092021"
+        }
+    },
+    "REFERENCES":{
+        "1":{
+            "author": "Luis Vicente Burguillo (Senior Dev)",
+            "author_linkedin": "https://es.linkedin.com/in/luisvicenteburguillo",
+            "author_linkedin_image": "https://media.licdn.com/dms/image/C4D03AQFzX_I0Lf9p5g/profile-displayphoto-shrink_200_200/0/1590135912695?e=2147483647&v=beta&t=AJfPHlGP5Orjja1TQOERNGtJnjXI8dD1oeLspE_POWY",
+            "message": "Es un chico muy aplicado e inteligente, gran amigo y mejor persona"
+        },
+        "2":{
+            "author": "Xavi",
+            "author_linkedin": "https://es.linkedin.com/in/luisvicenteburguillo",
+            "author_linkedin_image": "https://media.licdn.com/dms/image/C4D03AQFzX_I0Lf9p5g/profile-displayphoto-shrink_200_200/0/1590135912695?e=2147483647&v=beta&t=AJfPHlGP5Orjja1TQOERNGtJnjXI8dD1oeLspE_POWY",
+            "message": "Soy Xavi"
+        }
+    },
+    "STUDIES":{
+        "BUTTON1": "Después",
+        "BUTTON2": "Antes",
+        "1":{
+            "name": "Bachillerato Social",
+            "school": "La Salle",
+            "location": "Montcada i Reixac",
+            "period": "2016-2018"
+        },
+        "2":{
+            "name": "Comercio Internacional",
+            "school": "CE Prat",
+            "location": "Barcelona",
+            "period": "2018-2020"
+        },
+        "3":{
+            "name": "Transporte y Logística",
+            "school": "CE Prat",
+            "location": "Barcelona",
+            "period": "2020-2021"
+        },
+        "4":{
+            "name": "Grado en Economicas",
+            "school": "Universitat de Barcelona",
+            "location": "Barcelona",
+            "period": "2020-2023"
+        },
+        "5":{
+            "name": "FullStack PHP Bootcamp",
+            "school": "IT Academy",
+            "location": "Barcelona",
+            "period": "2022-2023"
+        }
+    },
+    "JOBS":{
+        "SEPARATOR": "habilidades",
+        "1":{
+            "name": "Asistente de exportación",
+            "company": "TVS SCS International Freight",
+            "period": "01/2020 - 03/2020",
+            "abilities": ["Coordinación logística", "Incoterms"]
+        },
+        "2":{
+            "name": "Asistente de gestión de almacén",
+            "company": "Arlandis Logística SL",
+            "period": "01/2020 - 03/2020",
+            "abilities": ["Gestión ERP", "Control de existencias"]
+        },
+        "3":{
+            "name": "FrontEnd Developer",
+            "company": "IT Academy",
+            "period": "11/2022 - 10/2023",
+            "abilities": ["Comunicación diaria", "Autoorganización", "Mejora contínua"]
+        },
+        "4":{
+            "name": "BackEnd Developer",
+            "company": "No Country",
+            "period": "10/2023 - 12/2023",
+            "abilities": ["Solución de problemas", "Liderazgo", "Arquitectura de software"]
+        }
+    },
+    "WEBS":{
+        "Excalidraw":{
+            "name": "Excalidraw",
+            "description": "Dibujo colaborativo en línea",
+            "website": "https://excalidraw.com/"
+        },
+        "TablerIcons":{
+            "name": "TablerIcons",
+            "description": "Icons SVG",
+            "website": "https://tablericons.com/"
+        },
+        "SVGL":{
+            "name": "SVGL",
+            "description": "Iconos SVG de tecnología",
+            "website": "https://svgl.vercel.app/" 
+        },
+        "Shots":{
+            "name": "Shots",
+            "description": "Create amazing mockups",
+            "website": "https://shots.so/" 
+        },
+        "Squoosh":{
+            "name": "Squoosh",
+            "description": "Optimize your images",
+            "website": "https://squoosh.app/"
+        },
+        "Tailwindgen":{
+            "name": "Tailwindgen",
+            "description": "Tailwind Grid Generator",
+            "website": "https://www.tailwindgen.com/"
+        },
+        "Pexels":{
+            "name": "Pexels",
+            "description": "Free stock photos",
+            "website": "https://www.pexels.com/"
+        },
+        "PlanetScale":{
+            "name": "PlanetScale",
+            "description": "Deploy SQL Database",
+            "website": "https://planetscale.com/"
+        },
+        "Turso":{
+            "name": "Turso",
+            "description": "Deploy SQL Lite DB",
+            "website": "https://turso.tech/"
+        },
+        "Bentogrids":{
+            "name": "Bentogrids",
+            "description": "Bento grids ideas",
+            "website": "https://bentogrids.com"
+        },
+        "Fontsource":{
+            "name": "Fontsource",
+            "description": "Different fonts",
+            "website": "https://fontsource.org/"
+        },
+        "Flowbite":{
+            "name": "Flowbite",
+            "description": "Tailwind components",
+            "website": "https://flowbite.com/docs/components"
+        },
+        "PackagePhobia":{
+            "name": "PackagePhobia",
+            "description": "Cost of dev dependencies",
+            "website": "https://packagephobia.com/"
+        }
+    },
+    "INFO_PORTFOLIO": {
+        "ASIDEBAR":{
+            "intro": "¿Por qué Astro?",
+            "performance": "Rendimento",
+            "seo": "SEO",
+            "ui-agnostic": "UI-agnostico",
+            "scalability": "Escalabilidad",
+            "internationalization": "Internacionalización",
+            "view-transitions": "Transiciones"
+        },
+        "INTRO1": "Para el desarrollo de este portafolio he utilizado el Framework Astro en su versión 4.1.2, donde gracias a su simplicidad con el uso de los lenguajes más comunes (HTML, CSS y JS) y con el soporte de herramientas complementarias más enfocadas en la reactividad como React en determinadas situaciones, me ha ayudado a un desarrollo rápido y efectivo.",
+        "INTRO2": "La elección de escoger Astro no ha sido por un tema de conocimiento sino por un tema de razón de uso en una SPA (Single Page Application) sin un uso de un BackEnd. Esto me ha supuesto un reto de aprendizaje de una herramienta nueva que ha sido emocionante y desafiante.",
+        "INTRO3": "También he escogido Astro por los siguientes beneficios que aporta:",
+        "PERFORMANCE1": "La velocidad de carga de inicio rápido de Astro es un factor clave en una SPA, y esto lo logra gracias a una renderización en el servidor en lugar de una renderización en el navegador del cliente.",
+        "PERFORMANCE2": "De hecho, Astro es capaz de generar páginas estáticas con un uso cero de JavaScript y, por lo tanto, una carga rapidísima donde es el usuario el responsable de añadir interactividad a la web mediante componentes de Frameworks complementarios que se carguen en el lado del cliente.",
+        "PERFORMANCE3": "En resumen, Astro se basa en una página estática mediante 'componentes reactivos' (llamados por la gente de Astro como 'Astro Islands') y esto le permite una experiencia al usuario de manera fluida y agradable.",
+        "SEO1": "Otro aspecto importante es la capacidad de posicionamiento SEO que tienen las webs diseñadas con Astro. ¿Por qué? Pues porque Astro al generar páginas estáticas (HTML) durante la compilación, permite a los motores de búsqueda indexar y rastrear el contenido de manera eficiente evitando en gran medida la ejecución de archivos JavaScript que retrasen la carga.",
+        "SEO2": "Y esto se resume con un enfoque que le da Astro basado en la optimización de eficiencia del peso total de la página para una mejor experiencia de usuario y, al mismo tiempo, influir positivamente en la clasificación del SEO.",
+        "SEO3": "Además, hay 2 factores que durante el desarrollo ayudan a un mejor posicionamiento SEO:",
+        "SEO4": "La facilidad de crear páginas mediante URLs amigables",
+        "SEO5": "La compatibilidad de inserción de Metadatos en cada una de las páginas de forma independiente.",
+        "UIAGNOSTIC1": "Astro es agnóstico a otras herramientas de desarrollo web, pero, ¿qué significa ser agnóstico?",
+        "UIAGNOSTIC2": "Ser agnóstico en el mundo de la programación significa que no se limita a un uso concreto de herramientas o tecnologías específicas, sino que está abierto en su uso para proporcionar al usuario una manera flexible de trabajar según sus necesidades y preferencias que mejor se adapten.",
+        "UIAGNOSTIC3": "Y eso es lo que Astro ofrece mediante, además, una integración realmente sencilla y sorprendente de herramientas que todo desarrollador ha manejado al menos alguna vez, como por ejemplo:",
+        "SCALABILITY1": "El hecho de que Astro sea un Framework muy sencillo de utilizar, permite una escalabilidad fácil que ayuda a una mejor experiencia en el desarrollo en equipos de trabajo.",
+        "SCALABILITY2": "El uso de componentes reutilizables como arquitectura facilita la gestión de proyectos grandes donde los componentes son desarrollados de manera independiente. Además, con la optimización de los propios componentes separando los estáticos de los dinámicos (Astro Islands), permite una eficiencia de recursos en aquellas webs con una gran cantidad de contenido sin tener que perder rendimiento.",
+        "SCALABILITY3": "También, desde Astro 4.0, se añade una herramienta de desarrollo como es 'Astro Dev Toolbar' que permite inspeccionar de manera visual la página que estás desarrollando (Astro Islands, Testing, Accessibilty problems...)",
+        "INTERNATIONALIZATION1": "También con Astro 4.0 y adelante, se ha incorporado de manera nativa la librería de i18n que permite hacer las traducciones de forma fácil e intuitiva en la configuración del proyecto. Permiten un enrutamiento dinámico según el idioma y una gestión de las traducciones mediante archivos JSON.",
+        "VIEWTRANSITIONS1": "Las transiciones son una de las características más sorprendentes que se introdujo a partir de Astro 3, y no solo por su fácil uso sino también por su impacto en la web permiten:",
+        "VIEWTRANSITIONS2": "Animar la navegación entre diferentes páginas",
+        "VIEWTRANSITIONS3": "Compatibilidad entre dispositivos y tamaños de pantalla",
+        "VIEWTRANSITIONS4": "Personalización de diversos tipos de transiciones adaptándose al estilo de la página web",
+        "VIEWTRANSITIONS5": "Su implementación se realiza mediante añadir en cada componente (o en su Layout), un componente llamado <View Transitions /> y de esta manera, si 2 componentes están situados en páginas diferentes, se realizará una transición."
+    }
+}

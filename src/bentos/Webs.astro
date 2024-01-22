@@ -1,0 +1,29 @@
+---
+import ExternalLink from "../icons/ExternalLink.astro"
+
+import { getI18N } from '../i18n';
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+
+const WEBS = i18n?.WEBS as { [key: string]: any };
+
+function getRandomInt(min:number, max:number) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+const keys = Object.keys(WEBS)
+const values = Object.values(WEBS)
+const numeroRandom = getRandomInt(0, keys.length);
+const appName = values[numeroRandom]
+---
+<div class="flex">
+    <div class="ml-2">
+        <p class="font-semibold">{appName.name}</p>
+        <p class="text-xs font-light italic">
+            {appName.description}
+        </p>
+    </div>
+    <a href={appName.website} target="_blank" title="Tool for developers website">
+        <ExternalLink class="absolute right-0 mr-4 size-5 hover:text-yellow-300"/>
+    </a>
+</div>

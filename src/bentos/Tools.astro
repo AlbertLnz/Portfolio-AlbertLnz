@@ -1,0 +1,72 @@
+---
+import TitleComponent from "../components/TitleComponent.astro"
+import Docker from "../icons/Docker.astro";
+import Figma from "../icons/Figma.astro";
+import Git from "../icons/Git.astro";
+import JetBrains from "../icons/JetBrains.astro";
+import MongoDB from "../icons/MongoDB.astro";
+import MySQL from "../icons/MySQL.astro";
+import Node from "../icons/Node.astro";
+import Postman from "../icons/Postman.astro";
+import Swagger from "../icons/Swagger.astro";
+import Vite from "../icons/Vite.astro";
+import VSCode from "../icons/VSCode.astro";
+import Wordpress from "../icons/Wordpress.astro";
+
+import { getI18N } from '../i18n';
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+---
+
+<TitleComponent title={i18n?.BENTO_TITLES.TOOLS} />
+
+<div class="grid grid-cols-2">
+    <div class="flex items-center gap-2 py-1">
+        <Docker class="size-5" />
+        <p class="text-xs">Docker</p>
+    </div>
+    <div class="flex items-center gap-2 py-1">
+        <Figma class="size-5" />
+        <p class="text-xs">Figma</p>
+    </div>
+    <div class="flex items-center gap-2 py-1">
+        <Git class="size-5" />
+        <p class="text-xs">Git</p>
+    </div>
+    <div class="flex items-center gap-2 py-1">
+        <JetBrains class="size-5" />
+        <p class="text-xs">JetBrains</p>
+    </div>
+    <div class="flex items-center gap-2 py-1">
+        <MongoDB class="size-5" />
+        <p class="text-xs">MongoDB</p>
+    </div>
+    <div class="flex items-center gap-2 py-1">
+        <MySQL class="size-5" />
+        <p class="text-xs">MySQL</p>
+    </div>
+    <div class="flex items-center gap-2 py-1">
+        <Node class="size-5" />
+        <p class="text-xs">Node</p>
+    </div>
+    <div class="flex items-center gap-2 py-1">
+        <Postman class="size-5" />
+        <p class="text-xs">Postman</p>
+    </div>
+    <div class="flex items-center gap-2 py-1">
+        <Swagger class="size-5" />
+        <p class="text-xs">Swagger</p>
+    </div>
+    <div class="flex items-center gap-2 py-1">
+        <Vite class="size-5" />
+        <p class="text-xs">Vite</p>
+    </div>
+    <div class="flex items-center gap-2 py-1">
+        <VSCode class="size-5" />
+        <p class="text-xs">Vscode</p>
+    </div>
+    <div class="flex items-center gap-2 py-1">
+        <Wordpress class="size-5" />
+        <p class="text-xs">Wordpress</p>
+    </div>
+</div>
