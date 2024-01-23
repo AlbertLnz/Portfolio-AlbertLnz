@@ -193,23 +193,25 @@ const i18n = getI18N({ currentLocale })
 </Layout>
 
 <script>
-    const cardsContainer = document.getElementById("cards");
+    document.addEventListener("astro:page-load", () => {
+        const cardsContainer = document.getElementById("cards");
 
-    if (cardsContainer) {
-        cardsContainer.onmousemove = (e) => {
-            const cardList = document.getElementsByClassName("card");
+        if (cardsContainer) {
+            cardsContainer.onmousemove = (e) => {
+                const cardList = document.getElementsByClassName("card");
 
-            for (const cardElement of cardList) {
-                const card = cardElement as HTMLElement; // Explicitly cast to HTMLElement
-                const rect = card.getBoundingClientRect(),
-                    x = e.clientX - rect.left,
-                    y = e.clientY - rect.top;
+                for (const cardElement of cardList) {
+                    const card = cardElement as HTMLElement; // Explicitly cast to HTMLElement
+                    const rect = card.getBoundingClientRect(),
+                        x = e.clientX - rect.left,
+                        y = e.clientY - rect.top;
 
-                card.style.setProperty("--mouse-x", `${x}px`);
-                card.style.setProperty("--mouse-y", `${y}px`);
-            }
-        };
-    }
+                    card.style.setProperty("--mouse-x", `${x}px`);
+                    card.style.setProperty("--mouse-y", `${y}px`);
+                }
+            };
+        }
+    })
 </script>
 
 <style>
