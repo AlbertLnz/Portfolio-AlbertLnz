@@ -346,7 +346,8 @@
             "ui-agnostic": "UI-agnòstic",
             "scalability": "Escalabilitat",
             "internationalization": "Internacionalització",
-            "view-transitions": "Transicions"
+            "view-transitions": "Transicions",
+            "result": "Resultat"
         },
         "INTRO1": "Pel desenvolupament d'aquest portfoli he utilitzat el Framework Astro en la seva versió 4.1.2, on gràcies a la seva simplicitat amb l'ús dels llenguatges més comuns (HTML, CSS i JS) i amb el suport d'eines complementaries més enfocades en la reactivitat com React en determinades situacions, m'ha ajudat a un desenvolupament ràpid i efectiu.",
         "INTRO2": "L'elecció d'escollir Astro no ha sigut per un tema de coneixement sinó per un tema de raó d'ús en un SPA (Single Page Application) sense un ús d'un BackEnd. Això m'ha suposat un repte d'aprenentatge d'una eina nova que ha sigut emocionant i desafiant.",
@@ -370,6 +371,7 @@
         "VIEWTRANSITIONS2": "Animar la navegació entre diferents pàgines",
         "VIEWTRANSITIONS3": "Compatibilitat entre dispositius i tamanys de pantalla",
         "VIEWTRANSITIONS4": "Personalització de diversos tipos de transicions adaptan-se a l'estil de la pàgina web",
-        "VIEWTRANSITIONS5": "La seva implementació es realitza mitjançant afegint en cada component (o en el seu Layout), un component anomenat <View Transitions /> i d'aquesta manera, si 2 components estàn situats en pàgines diferents, s'hi realitzarà una transició."
+        "VIEWTRANSITIONS5": "La seva implementació es realitza mitjançant afegint en cada component (o en el seu Layout), un component anomenat <View Transitions /> i d'aquesta manera, si 2 components estàn situats en pàgines diferents, s'hi realitzarà una transició.",
+        "RESULT": "I aquest és el resultat final d'utilitzar Astro: 😁"
     }
 }
