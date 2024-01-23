@@ -39,8 +39,8 @@ const StudiesComponent = ({ currentLocale }) => {
                 <li className="line-clamp-1">{i18n.STUDIES[selectorStudies].location}</li>
             </ul>
             <div className="flex text-[10px] justify-between px-2 py-1">
-                <button onClick={handleIncrementCourse} className="bg-[#B0A695] dark:bg-gray-700 px-1 py-0.5 rounded-full">{i18n.STUDIES.BUTTON1}</button>
-                <button onClick={handleDecrementCourse} className="bg-[#B0A695] dark:bg-gray-700 px-1 py-0.5 rounded-full">{i18n.STUDIES.BUTTON2}</button>
+                <button onClick={handleIncrementCourse} className="bg-[#afa9e7] dark:bg-[#6b61c9] px-1 py-1 rounded-sm">{i18n.STUDIES.BUTTON1}</button>
+                <button onClick={handleDecrementCourse} className="bg-[#afa9e7] dark:bg-[#6b61c9] px-1 py-1 rounded-sm">{i18n.STUDIES.BUTTON2}</button>
             </div>
         </div>
         <img className="rounded-xl px-2 object-cover h-full" src={image} alt={i18n.STUDIES[selectorStudies].name} />

@@ -32,8 +32,8 @@ const CursosComponent = ({ currentLocale }) => {
   return (
     <>
       <div className="absolute top-0 right-0 flex gap-x-2 justify-end p-4 h-fit">
-        <button className="h-fit px-1 rounded-sm text-sm bg-[#B0A695] dark:bg-gray-700" onClick={handleIncrementCourse}>{i18n.COURSES.BUTTONS.NEWEST}</button>
-        <button className="h-fit px-1 rounded-sm text-sm bg-[#B0A695] dark:bg-gray-700" onClick={handleDecrementCourse}>{i18n.COURSES.BUTTONS.OLDEST}</button>
+        <button className="h-fit px-1 rounded-sm text-sm bg-[#B19470] dark:bg-[#83643e] hover:bg-[#ceaf89] hover:dark:bg-[#B19470]" onClick={handleIncrementCourse}>{i18n.COURSES.BUTTONS.NEWEST}</button>
+        <button className="h-fit px-1 rounded-sm text-sm bg-[#B19470] dark:bg-[#83643e] hover:bg-[#ceaf89] hover:dark:bg-[#B19470]" onClick={handleDecrementCourse}>{i18n.COURSES.BUTTONS.OLDEST}</button>
       </div>
       <p className="text-lg pl-4 line-clamp-1 pt-1">{i18n.COURSES[selectorCourse].name}</p>    
       <div className="flex items-center text-xs pl-6 pb-4">
@@ -42,8 +42,8 @@ const CursosComponent = ({ currentLocale }) => {
         <p>&nbsp;{i18n.COURSES[selectorCourse].type}</p>
       </div>
       <div className="flex items-center justify-around text-[10px] text-center mx-auto gap-x-8">
-        <a className="px-4 py-1 bg-[#CCC8AA] dark:bg-gray-500 rounded-md hover:scale-110 ease-in duration-300" href={i18n.COURSES[selectorCourse].certificate} target="_blank" title="View Course Certificate">{i18n.COURSES.BUTTONS.CERTIFICATE}</a>
-        <a className="px-4 py-1 bg-[#CCC8AA] dark:bg-gray-500 rounded-md hover:scale-110 ease-in duration-300" href={i18n.COURSES[selectorCourse].link_course} target="_blank" title="View Course Link">{i18n.COURSES.BUTTONS.COURSE_LINK}</a>
+        <a className="px-4 py-1 bg-[#97cb8d] dark:bg-[#597E52] rounded-md hover:scale-110 ease-in duration-300" href={i18n.COURSES[selectorCourse].certificate} target="_blank" title="View Course Certificate">{i18n.COURSES.BUTTONS.CERTIFICATE}</a>
+        <a className="px-4 py-1 bg-[#97cb8d] dark:bg-[#597E52] rounded-md hover:scale-110 ease-in duration-300" href={i18n.COURSES[selectorCourse].link_course} target="_blank" title="View Course Link">{i18n.COURSES.BUTTONS.COURSE_LINK}</a>
       </div>
     </>
   );
