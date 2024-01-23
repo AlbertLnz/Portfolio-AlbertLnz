@@ -1,0 +1,49 @@
+---
+// CHALLENGES2 -> PLYR FROM LOCAL
+import TitleComponent from "../components/TitleComponent.astro"
+import Html from "../icons/Html.astro";
+
+import { getI18N } from "../i18n";
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+---
+
+<head>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+</head>
+
+<div class="flex flex-col h-full text-xs overflow-y-hidden">
+    
+    <div class="flex h-fit justify-between items-center mr-4">
+        <TitleComponent title={i18n?.BENTO_TITLES.CHALLENGES} />
+        <a class="flex items-center justify-center rounded p-1 text-xs font-medium uppercase leading-normal text-primary hover:bg-secondary-100 focus:bg-secondary-100 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400 dark:hover:bg-white/10 dark:focus:bg-white/10 relative overflow-hidden align-bottom" href="https://github.com/AlbertLnz/ChallengingMeVideosRepo" target="_blank" title="GitHub Repository Challenge AlbertLnz">
+            <span class="flex mr-1 align-middle md:mr-2"><Html /></span>
+            {i18n?.CHALLENGES.CODE}
+        </a>
+    </div>
+
+    <video id="player" playsinline controls>
+        <source src="/videos/filters.webm" type="video/webm" />
+    </video>
+
+</div>
+
+<style>
+    #player{
+        --plyr-color-main: #bb2e3e;
+    }
+
+</style>
+
+<script>
+    import Plyr from 'plyr';
+    
+    document.addEventListener("astro:page-load", () => {
+        const windowWithPlayer = window as unknown as Window & { player: Plyr };
+        const player = new Plyr('#player', {
+            controls: ['play-large', 'play', 'progress', 'current-time', 'fullscreen']
+        });
+        windowWithPlayer.player = player;
+    })
+
+</script>
