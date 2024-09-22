@@ -1,18 +1,23 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import Title from "@/components/Title.astro";
+import Personal from '@/sections/Personal.astro'
+import Projects from '@/sections/Projects.astro'
+import Work from '@/sections/Work.astro'
+import Tools from '@/sections/Tools.astro'
+import Portfolio from '@/sections/Portfolio.astro'
+import Timezone from '@/sections/Timezone.astro'
+import Blog from '@/sections/Blog.astro'
+
 ---
 
 <Layout title="AlbertLnz portfolio" description="SEO description for my portfolio">
 
-	<section id="personal"></section>
-	<section id="projects"></section>
-	<section id="work">
-		<Title title="My Works"/>
-	</section>
-	<section id="tools"></section>
-	<section id="portfolio"></section>
-	<section id="timezone"></section>
-	<section id="blog"></section>
+	<Personal />
+	<Projects />
+	<Work />
+	<Tools />
+	<Portfolio />
+	<Timezone />
+	<Blog />
 
 </Layout>
