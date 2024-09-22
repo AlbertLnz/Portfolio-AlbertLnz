@@ -1,18 +1,9 @@
 ---
 import Title from "@/components/Title.astro"
-import { getCollection } from "astro:content"
-
-const projects = await getCollection('projects')
+import ProjectCard from "@/components/ProjectCard.astro"
 ---
 
 <section id="projects">
-
   <Title title="Proyectos" />
-
-  {
-    projects.map((project) => (
-      <li>{project.id}</li>
-    ))
-  }
-
+  <ProjectCard />
 </section>

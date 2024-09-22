@@ -3,6 +3,7 @@ name: PackagePhobia CLI
 author: AlbertLnz
 img: packagephobia_cli.jpg
 shortDescription: PackagePhobia CLI short description
+shortTechs: [Astro, Python]
 links:
   github: https://github.com/AlbertLnz/pkg-phobia-cli
   deploy: https://www.npmjs.com/package/pkg-phobia-cli

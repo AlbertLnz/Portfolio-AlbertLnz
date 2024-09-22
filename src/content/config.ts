@@ -7,6 +7,7 @@ const projects = defineCollection({
     author: z.string(),
     img: z.string(),
     shortDescription: z.string(),
+    shortTechs: z.array(z.string()),
     links: z.object({
       github: z.string().url(),
       deploy: z.string().url().nullable(),

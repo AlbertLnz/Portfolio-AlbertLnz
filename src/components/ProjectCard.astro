@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content"
+import AstroIcon from "@/assets/icons/AstroIcon.astro"
+import Python from "@/assets/icons/Python.astro"
+import GitHub from "@/assets/icons/GitHub.astro"
+import ArrowRight from "@/assets/symbols/ArrowRight.astro"
+
+const projects = await getCollection('projects')
+---
+
+<article class="">
+  <ul class="flex flex-col items-center justify-start gap-y-2 w-full max-h-fit">
+    {
+      projects.reverse().map((project) => (
+        <li class="relative list-none border-[1px] border-[#262626] rounded-[6px] w-full">
+          <h3 class="px-6 mt-2 mb-1 text-lg lowercase tracking-wide">{project.data.name}</h3>
+          <p class="text-xs mx-8 text-[#A3A3A3] text-center mb-4">{project.data.shortDescription}</p>
+
+          <div class="flex items-center justify-center gap-x-4 mb-2">
+            {
+              project.data.shortTechs.map((tech) => {
+                const techIcon = 'Astro' === tech ? <AstroIcon class="size-4" /> : <Python class="size-4" />
+                return (
+                <div class="flex items-center justify-center text-[#A3A3A3] bg-[#26262699] gap-x-1 rounded-[6px] px-2 py-0.5">
+                  {tech}
+                  {techIcon}
+                </div>
+              )
+              })
+            }
+          </div>
+
+          <a href={project.data.links.github} target="_blank" class="absolute top-3 right-3">
+            <GitHub className="size-4 fill-[#D1D5DB] hover:fill-white" />
+          </a>
+          <a href={`/projects/${project.slug} `} class="group absolute bottom-0 right-0 mr-3 mb-2 items-flex w-fit">
+            <ArrowRight class="size-4 stroke-current group-hover:stroke-black group-hover:dark:stroke-white" />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</article>
