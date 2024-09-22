@@ -1,7 +1,15 @@
 ---
+import { getCollection } from "astro:content"
 
+const projects = await getCollection('projects')
 ---
 
 <section id="projects">
+
+  {
+    projects.map((project) => (
+      <li>{project.id}</li>
+    ))
+  }
 
 </section>
