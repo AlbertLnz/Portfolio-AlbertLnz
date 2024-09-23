@@ -3,8 +3,8 @@ body {
   height: 100vh;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  padding: 2.5rem;
-  gap: 2rem;
+  padding: 2rem;
+  gap: 1rem;
 }
 
 #personal {
