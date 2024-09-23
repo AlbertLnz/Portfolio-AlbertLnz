@@ -7,6 +7,7 @@ import Computer from "@/assets/symbols/Computer.astro"
 import LinkedIn from "@/assets/rrss/LinkedIn.astro"
 import CV from "@/assets/rrss/CV.astro"
 import Gmail from "@/assets/rrss/Gmail.astro"
+import GitHubScore from '@/components/GitHubScore.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -42,18 +43,23 @@ const nextLang = t('nextLang')
   <div class="p-6 mx-10 space-y-4">
       <p class="text-lg">
         I'm <span class="font-bold text-xl">Albert Lanza</span>, a fullstack web developer from Barcelona with +2 years of experience.
-        Passionate about databases, UI/UX design, and building open-source software.
+        Passionate about databases, UI/UX design and building open-source software.
       </p>
-      <div class="flex flex-col w-fit p-2 border rounded-[6px] border-[#262626] space-y-4">
-        <a href="">
-          <LinkedIn class="group size-6 hover:scale-105" />
-        </a>
-        <a href="">
-          <CV class="group size-6 hover:scale-105" />
-        </a>
-        <a href="">
-          <Gmail class="group size-6 hover:scale-105" />
-        </a>
+      <div class="flex h-fit gap-x-6">
+        <div class="flex flex-col w-fit p-2 border rounded-[6px] border-[#262626] space-y-4">
+          <a href="">
+            <LinkedIn class="group size-6 hover:scale-105" />
+          </a>
+          <a href="">
+            <CV class="group size-6 hover:scale-105" />
+          </a>
+          <a href="">
+            <Gmail class="group size-6 hover:scale-105" />
+          </a>
+        </div>
+        <div class="flex flex-col p-2 border rounded-[6px] border-[#262626] space-y-4">
+          <GitHubScore />
+        </div>
       </div>
   </div>
 
