@@ -6,15 +6,15 @@ const posts = await getCollection('posts')
 const lastPost = posts[posts.length - 1];
 ---
 
-<section id="blog" class="flex flex-col justify-between items-start">
-  <a href="/posts" class="w-full h-full group">
-    <div class="relative flex">
-      <h2 class="text-3xl mr-2 transition-all duration-300">Blog</h2>
-      <ArrowRightUp class="size-4 transition-transform duration-300 transform group-hover:translate-x-1" />
+<section id="blog" class="relative p-0 group">
+  <a href="/posts" class="absolute h-full w-full z-0"></a>
+  <div class="h-full flex flex-col justify-between p-[2rem]">
+    <div class="flex">
+      <h2 class="text-3xl mr-2">Blog</h2>
+      <ArrowRightUp class="size-4 pointer-events-none transition-transform duration-300 transform group-hover:translate-x-1"/>
     </div>
-    
-    <a href={`/posts/${lastPost.data.title}`}>
-      <p class="text-[#737373]">Latest post: {lastPost.data.title}</p>
+    <a href={`/posts/${lastPost.data.title}`} class="z-10 w-fit">
+      <p class="ml-2 text-[#737373] hover:text-white">Latest post: {lastPost.data.title}</p>
     </a>
-  </a>
+  </div>
 </section>
