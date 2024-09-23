@@ -1,8 +1,8 @@
-export const workItems = [
+export const workItemsEN = [
   {
     company: 'Get in touch',
     title: 'Current available to work',
-    period: 'Oct 24 - Now',
+    period: 'Oct 24 - Nov 24',
     link: 'https://www.linkedin.com/in/albert-lanza-rio/',
   },
   {

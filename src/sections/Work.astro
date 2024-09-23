@@ -1,14 +1,20 @@
 ---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 import Title from "@/components/Title.astro"
 import WorkItem from "@/components/WorkItem.astro"
-import { workItems } from "@/data/works"
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const workTitle = t('work.title')
+const works = t('works')
 ---
 
 <section id="work" class="flex flex-col">
-  <Title title="Let's work!" />
+  <Title title={workTitle} />
   <ol class="border-s-2 border-neutral-800 overflow-auto ml-2">
     {
-      workItems.map(work => (
+      works.map(work => (
         <WorkItem {...work} />
       ))
     }

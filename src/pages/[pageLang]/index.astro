@@ -8,6 +8,14 @@ import Portfolio from '@/sections/Portfolio.astro'
 import Timezone from '@/sections/Timezone.astro'
 import Blog from '@/sections/Blog.astro'
 
+export function getStaticPaths() {
+  return [
+    {params: {pageLang: 'en'}},
+    {params: {pageLang: 'es'}},
+    {params: {pageLang: 'ca'}},
+  ];
+}
+// const { pageLang } = Astro.params;
 ---
 
 <Layout title="AlbertLnz portfolio" description="SEO description for my portfolio">
