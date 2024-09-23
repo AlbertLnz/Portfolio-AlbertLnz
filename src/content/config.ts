@@ -15,4 +15,14 @@ const projects = defineCollection({
   }),
 })
 
-export const collections = { projects }
+const posts = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    author: z.string(),
+    img: z.string(),
+    description: z.string(),
+  }),
+})
+
+export const collections = { projects, posts }

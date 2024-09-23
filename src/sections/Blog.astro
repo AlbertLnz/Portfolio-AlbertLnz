@@ -1,7 +1,20 @@
 ---
+import { getCollection } from "astro:content"
+import ArrowRightUp from "@/assets/symbols/ArrowRightUp.astro"
 
+const posts = await getCollection('posts')
+const lastPost = posts[posts.length - 1];
 ---
 
-<section id="blog">
-
+<section id="blog" class="flex flex-col justify-between items-start">
+  <a href="/posts" class="w-full h-full group">
+    <div class="relative flex">
+      <h2 class="text-3xl mr-2 transition-all duration-300">Blog</h2>
+      <ArrowRightUp class="size-4 transition-transform duration-300 transform group-hover:translate-x-1" />
+    </div>
+    
+    <a href={`/posts/${lastPost.data.title}`}>
+      <p class="text-[#737373]">Latest post: {lastPost.data.title}</p>
+    </a>
+  </a>
 </section>
