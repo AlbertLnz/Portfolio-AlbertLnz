@@ -31,7 +31,7 @@
     grid-row: auto;
   }
 
-  #timezone {
+  #weather {
     grid-column: 1;
     grid-row: auto;
   }
