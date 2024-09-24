@@ -1,7 +1,17 @@
 ---
-const timestamp = 1727195128
-const sunrise = 1727156464
-const sunset = 1727199930
+import { assignIconWeatherArr } from '@/data/weatherIcon.js'
+
+const timestamp = 1727203867
+const timezone = 7200
+const timezoneHours = timezone / 3600
+const totalSecondsInDay = 24 * 60 * 60
+const date = new Date(timestamp * 1000)
+const hours = date.getUTCHours()
+const isDay = hours < 21 ? 'day' : 'night'
+const hoursString = hours.toString().padStart(timezoneHours, '0')
+const minutes = date.getUTCMinutes().toString().padStart(timezoneHours, '0')
+const secondsElapsedToday = timestamp % totalSecondsInDay
+const progress = (secondsElapsedToday / totalSecondsInDay) * 100
 
 const city = 'Barcelona'
 const temp = '28'
@@ -9,18 +19,38 @@ const wind = '4.63'
 const humidity = '41'
 
 const mainWeather = 'Clouds'
-const secondaryWeather = 'few clouds'
+let secondaryWeather = 'few clouds'
 
+const iconsWithDoubleIcons = ['clear sky', 'few clouds', 'scattered clouds']
+if (iconsWithDoubleIcons.includes(secondaryWeather)){
+  secondaryWeather = isDay === 'day' ? `${secondaryWeather}_day` : `${secondaryWeather}_night`
+}
+
+let iconWeather = assignIconWeatherArr.find((weather) => weather.name === secondaryWeather) as typeof assignIconWeatherArr[0]
+if (!iconWeather) iconWeather = assignIconWeatherArr.find((weather) => weather.name === 'unknown') as typeof assignIconWeatherArr[0]
 ---
 
-<section id="weather">
+<section id="weather" class="p-0 flex items-center justify-center bg-gradient-to-b from-[#074A8E] to-[#5596D8] dark:from-[#020518] dark:to-[#283555]">
 
-  <div class="bg-gradient-to-b w-auto h-full aspect-square from-[#020518] to-[#283555]">
+  <div class="grid grid-cols-[70%_30%]  rounded-[22px] w-full h-full  py-2 px-4">
 
-    <h5>{city}</h5>
+    <h6 class="text-[14px] font-semibold">{city}</h6>
+    {<iconWeather.component class="size-6 flex justify-self-end" color="#fff" />}
 
+    <h5 class="ml-1 text-[24px] font-bold">{temp}º</h5>
+    <p class="flex justify-self-end self-start">{mainWeather}</p>
+
+    <p class="ml-1 text-[10px]">· Wind:</p>
+    <p class="text-[10px] flex justify-self-end self-start">{wind} mph</p>
+
+    <p class="ml-1 text-[10px]">· Humidity:</p>
+    <p class="text-[10px] flex justify-self-end self-start">{humidity}</p>
+
+    <p class="ml-1 text-[10px]">· {hoursString}:{minutes}h / 24h:</p>
+    <p class="text-[10px] flex justify-self-end self-start"></p>
+
+    <div class="rounded-full bg-red-400 col-span-2 relative">
+      <div class="absolute top-0 left-0 h-full bg-blue-500 rounded-full" style={`width: ${progress}%`}></div>
+    </div>
   </div>
-
 </section>
-
-<!-- rounded-[22px] -->
