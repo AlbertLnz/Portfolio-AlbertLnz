@@ -1,0 +1,19 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import IPadHorizontal2 from "@/assets/apple/IPad.astro";
+---
+
+<Layout title="iPad" description="SEO description for iPad section">
+   <div class="relative w-fit h-full col-span-full row-span-full mx-auto" >
+      <div class="absolute top-0 -left-10 flex flex-col z-20">
+        <button>
+          <a href="/en">
+            Back
+          </a>
+        </button>
+      </div>
+      <IPadHorizontal2 transition:name="iPad" class="absolute bg-slate-800 overflow-hidden">
+        <p>hi</p>
+      </IPadHorizontal2>
+  </div>
+</Layout>

@@ -8,6 +8,7 @@ import LinkedIn from "@/assets/rrss/LinkedIn.astro"
 import CV from "@/assets/rrss/CV.astro"
 import Gmail from "@/assets/rrss/Gmail.astro"
 import GitHubScore from '@/components/GitHubScore.astro'
+import IpadHorizontal2 from '@/assets/apple/IPad.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -60,6 +61,17 @@ const nextLang = t('nextLang')
         <div class="flex flex-col p-2 border rounded-[6px] border-[#262626] space-y-4">
           <GitHubScore />
         </div>
+        <div class="relative h-auto flex justify-center items-center border rounded-[6px] border-[#262626] w-1/4">
+          <h3 class="z-40 self-start justify-self-start w-full p-2">Being Responsive</h3>
+          <div class="absolute h-[50%] max-h-full w-auto">
+            <a href="/ipad">
+              <IpadHorizontal2 transition:name="iPad" class="absolute bg-slate-800 overflow-hidden">
+                <p>hi</p>
+              </IpadHorizontal2>
+            </a>
+          </div>
+          <p class="absolute bottom-0 right-0 text-[#737373] text-[10px] italic p-2">Using Astro View Transitions</p>
+        </div>
       </div>
   </div>
 
@@ -72,8 +84,6 @@ const nextLang = t('nextLang')
 </style>
 
 <script>
-  // import Astro from 'assets/services/noop'
-
   const $ = (el: string): HTMLElement | null => document.querySelector(el)
   const $lightThemeBtn = $(`#light-theme-button`)
   const $darkThemeBtn = $(`#dark-theme-button`)
