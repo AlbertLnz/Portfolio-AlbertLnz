@@ -8,7 +8,7 @@ import LinkedIn from "@/assets/rrss/LinkedIn.astro"
 import CV from "@/assets/rrss/CV.astro"
 import Gmail from "@/assets/rrss/Gmail.astro"
 import GitHubScore from '@/components/GitHubScore.astro'
-import IpadHorizontal2 from '@/assets/apple/IPad.astro'
+import Ipad from '@/assets/apple/IPad.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -65,9 +65,9 @@ const nextLang = t('nextLang')
           <h3 class="z-40 self-start justify-self-start w-full p-2">Being Responsive</h3>
           <div class="absolute h-[50%] max-h-full w-auto">
             <a href="/ipad">
-              <IpadHorizontal2 transition:name="iPad" class="absolute bg-slate-800 overflow-hidden">
+              <Ipad svgClass="h-full" contentClass="absolute bg-slate-800 overflow-hidden" transition:name="iPad" >
                 <p>hi</p>
-              </IpadHorizontal2>
+              </Ipad>
             </a>
           </div>
           <p class="absolute bottom-0 right-0 text-[#737373] text-[10px] italic p-2">Using Astro View Transitions</p>

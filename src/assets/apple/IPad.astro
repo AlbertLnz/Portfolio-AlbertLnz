@@ -1,8 +1,10 @@
 ---
 // Original Mockup: https://www.figma.com/design/YO6UdFVeUb8oj4ik3KFg2e/iPad-Pro-Mockup-(Community)?node-id=6-3&node-type=frame&t=Hs57VrPf5855MKUV-0
+
+const { id, svgClass, contentClass, ...props } = Astro.props
 ---
 
-<div class="h-full">
+<div id={id} class={svgClass} {...props}>
   <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="1382" height="1058" viewBox="0 0 1382 1058" fill="none">
     <rect x="7.58325" y="1052.55" width="1044.8" height="1369.3" rx="53.0738" transform="rotate(-90 7.58325 1052.55)" fill="#0B0B0B"/>
     <rect x="5.30866" y="1054.83" width="1049.35" height="1373.85" rx="55.3484" transform="rotate(-90 5.30866 1054.83)" stroke="url(#paint0_linear_25_23)" stroke-width="4.54919"/>
@@ -31,14 +33,15 @@
   </svg>
 
   <div
-    {...Astro.props}
+    id="iPadContent"
+    class={contentClass}
     style="
       left: calc((45.49 / 1382) * 100%);
       top: calc(100% - ((1014.64 / 1058)*100%)); 
       width: calc((1293.48 / 1382) * 100%); 
       height: calc((968.98 / 1058) * 100%);
-      border-radius: calc((22.75 / 1044.8) * 100%)"
+      border-radius: calc((22.75 / 1044.8) * 100%);"
     >
-      <slot />
+    <slot />
   </div>
 </div>

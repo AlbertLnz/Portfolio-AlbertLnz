@@ -1,19 +1,47 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import IPadHorizontal2 from "@/assets/apple/IPad.astro";
+import Layout from "@/layouts/Layout.astro"
+import IPad from "@/assets/apple/IPad.astro"
 ---
 
 <Layout title="iPad" description="SEO description for iPad section">
-   <div class="relative w-fit h-full col-span-full row-span-full mx-auto" >
+   <div class="relative flex items-center justify-center col-span-full row-span-full mx-auto max-h-full" >
       <div class="absolute top-0 -left-10 flex flex-col z-20">
         <button>
           <a href="/en">
             Back
           </a>
         </button>
+        <button id="flipBtn">Flip</button>
       </div>
-      <IPadHorizontal2 transition:name="iPad" class="absolute bg-slate-800 overflow-hidden">
-        <p>hi</p>
-      </IPadHorizontal2>
+      <IPad id="iPad" svgClass="h-full rotate-0" contentClass="absolute bg-slate-800 overflow-hidden p-5" transition:name="iPad">
+        <p>HELLO</p>
+      </IPad>
   </div>
 </Layout>
+
+<style>
+  #iPad {
+    transition: transform 0.5s ease, height 0.5s ease;
+  }
+</style>
+
+<script>
+  const $ = (el: string): HTMLElement | null => document.querySelector(el)
+  const $flipBtn = $(`#flipBtn`)
+  const $iPad = $(`#iPad`)
+  const $iPadContent = $(`#iPadContent`)
+
+  if ($iPad && $iPadContent) {
+    $flipBtn?.addEventListener('click', () => {
+      const isRotated = $iPad.classList.contains('rotate-0')
+      
+      $iPad.classList.toggle('rotate-0', !isRotated)
+      $iPad.classList.toggle('rotate-90', isRotated)
+      $iPad.classList.toggle('h-full', !isRotated)
+      $iPad.classList.toggle('h-[75%]', isRotated)
+
+      $iPadContent.style.writingMode = isRotated ? 'vertical-rl' : ''
+      $iPadContent.style.transform = isRotated ? 'rotate(-180deg)' : ''
+    })
+  }
+</script>
