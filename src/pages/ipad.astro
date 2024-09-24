@@ -1,17 +1,21 @@
 ---
 import Layout from "@/layouts/Layout.astro"
 import IPad from "@/assets/apple/IPad.astro"
+import Rotate from "@/assets/apple/Rotate.astro"
+import Back from "@/assets/apple/Back.astro"
 ---
 
 <Layout title="iPad" description="SEO description for iPad section">
    <div class="relative flex items-center justify-center col-span-full row-span-full mx-auto max-h-full" >
-      <div class="absolute top-0 -left-10 flex flex-col z-20">
-        <button>
+      <div class="absolute top-0 right-[100%] flex flex-col z-20 mt-1">
+        <button class="p-4 hover:scale-90">
           <a href="/en">
-            Back
+            <Back class="size-6" color="white" />
           </a>
         </button>
-        <button id="flipBtn">Flip</button>
+        <button id="flipBtn" class="p-4 hover:scale-90">
+          <Rotate class="size-6" color="white" />
+        </button>
       </div>
       <IPad id="iPad" svgClass="h-full rotate-0" contentClass="absolute bg-slate-800 overflow-hidden p-5" transition:name="iPad">
         <p>HELLO</p>
