@@ -9,6 +9,10 @@ export default defineConfig({
   experimental: {
     env: {
       schema: {
+        PRODUCTION: envField.boolean({
+          context: 'server',
+          access: 'public',
+        }),
         GITHUB_API_BASE_URL: envField.string({
           context: 'server',
           access: 'public',

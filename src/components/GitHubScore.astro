@@ -1,6 +1,14 @@
 ---
-import { GITHUB_API_BASE_URL, GITHUB_README_API } from "astro:env/server"
+import { PRODUCTION, GITHUB_API_BASE_URL, GITHUB_README_API } from "astro:env/server"
 import { githubScore } from '@/data/githubScore'
+
+if (PRODUCTION) {
+  await fetchData()
+} else {
+  githubScore.forEach((item) => {
+    item.value = '100'
+  })
+}
 
 
 function getLevelRankIcon(htmlString: string, option: string) {
@@ -11,11 +19,9 @@ function getLevelRankIcon(htmlString: string, option: string) {
 
 async function fetchData() {
   try {
-    let res = ''
-    let res2 = ''
-    // const res = await fetch(`${GITHUB_API_BASE_URL}/albertlnz`) // only repositories
+    const res = await fetch(`${GITHUB_API_BASE_URL}/albertlnz`) // only repositories
     const data = await res.json()
-    // const res2 = await fetch(`${GITHUB_README_API}albertlnz`) // the rest
+    const res2 = await fetch(`${GITHUB_README_API}albertlnz`) // the rest
     const data2 = await res2.text()
     
     githubScore.forEach((item) => {
@@ -27,7 +33,6 @@ async function fetchData() {
   }
 }
 
-await fetchData()
 ---
 
 <div class="relative flex flex-col w-full h-full">

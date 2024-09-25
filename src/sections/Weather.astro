@@ -1,6 +1,33 @@
 ---
-import { IP_INFO_API, OPEN_WEATHER_API_URL, OPEN_WEATHER_API_KEY } from "astro:env/server"
+import { PRODUCTION, IP_INFO_API, OPEN_WEATHER_API_URL, OPEN_WEATHER_API_KEY } from "astro:env/server"
 import { assignIconWeatherArr } from '@/data/weatherIcon.js'
+
+let timestamp, timezone, city, temp, humidity, wind, mainWeather, descriptWeather
+
+if (PRODUCTION) {
+  ({
+    timestamp,
+    timezone,
+    city,
+    temp,
+    humidity,
+    wind,
+    mainWeather,
+    descriptWeather,
+  } = await fetchData() || {})
+  console.log('Using fetch data')
+} else {
+  timestamp = 1727244822
+  timezone = 7200
+  city = 'Barcelona'
+  temp = 36.6
+  wind = 4.63
+  humidity = 41
+  mainWeather = 'Mist'
+  descriptWeather = 'few clouds'
+
+  console.log('Using mock data')
+}
 
 async function fetchData() {
   try {
@@ -24,16 +51,6 @@ async function fetchData() {
     return {}
   }
 }
-const {
-  timestamp = null,
-  timezone = null,
-  city = "Unknown",
-  temp = null,
-  humidity = null,
-  wind = null,
-  mainWeather = "unknown",
-  descriptWeather = "unknown"
-} = await fetchData() || {}
 
 const timezoneHours = timezone / 3600
 const totalSecondsInDay = 24 * 60 * 60
