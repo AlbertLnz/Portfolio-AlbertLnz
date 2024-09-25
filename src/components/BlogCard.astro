@@ -1,5 +1,5 @@
 ---
-
+const { id } = Astro.props
 ---
 
 <div class="card">
@@ -7,7 +7,7 @@
     <div class="content">
        <div class="iconBox relative h-[70px]">
           <div class="iconItem absolute flex items-center justify-center w-[60px] h-[60px] left-[5px] top-[5px] bg-red-500 rounded-2xl z-20 text-4xl">
-            1
+            {id}
           </div>
           <div class="absolute left-[70px] h-[70px] bg-red-200 w-auto flex items-center justify-center">
             title

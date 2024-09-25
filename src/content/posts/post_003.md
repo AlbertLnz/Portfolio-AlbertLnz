@@ -1,4 +1,5 @@
 ---
+id: 3
 title: Qué es el SSR?
 author: AlbertLnz
 img: post_003.jpg

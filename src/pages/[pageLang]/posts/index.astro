@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content"
 import BlogLayout from "@/layouts/BlogLayout.astro"
 import BlogCard from "@/components/BlogCard.astro"
 
@@ -10,6 +11,8 @@ export function getStaticPaths() {
 
   ]
 }
+
+const projects = await getCollection('posts')
 ---
 
 <BlogLayout title="Blog" description="SEO description for blog section">
@@ -19,15 +22,31 @@ export function getStaticPaths() {
   </section>
 
   <section id="aside">
-    aside
+    <button id="asc-desc" class="bg-red-400 px-2 py-1">Asc / Desc</button>
   </section>
 
   <section id="content" class="grid grid-cols-1 xl:grid-cols-2 grid-flow-row place-items-center gap-y-6 overflow-x-hidden">
-    <BlogCard />
-    <BlogCard />
-    <BlogCard />
-    <BlogCard />
-    <BlogCard />
+    {
+      projects.map((project) => (
+        <BlogCard id={project.data.id} />
+      ))
+    }
   </section>
 
 </BlogLayout>
+
+<script>
+  const $ = (el: string): HTMLElement | null => document.querySelector(el)
+  const $$ = (els: string): NodeListOf<Element> => document.querySelectorAll(els)
+
+  const $section = $(`#content`)
+  const $button = $(`#asc-desc`)
+  
+  $button?.addEventListener('click', () => {
+    const $$projects = $$('.card')
+    const reversedProjects = Array.from($$projects).reverse()
+      reversedProjects.forEach((project) => {
+        $section?.appendChild(project)
+      })
+  })
+</script>

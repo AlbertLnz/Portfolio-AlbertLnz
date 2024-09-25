@@ -1,4 +1,5 @@
 ---
+id: 1
 title: Post 1
 author: AlbertLnz
 img: post_001.jpg
