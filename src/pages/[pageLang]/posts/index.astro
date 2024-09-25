@@ -14,8 +14,8 @@ export function getStaticPaths() {
 }
 const { pageLang } = Astro.params;
 
-const allProjects = await getCollection('posts')
-const projects = allProjects.filter((project) => project.data.language === pageLang)
+const allPosts = await getCollection('posts')
+const posts = allPosts.filter((project) => project.data.language === pageLang)
 ---
 
 <BlogLayout title="Blog" description="SEO description for blog section">
@@ -30,7 +30,7 @@ const projects = allProjects.filter((project) => project.data.language === pageL
 
   <section id="content" class="grid grid-cols-1 xl:grid-cols-2 grid-flow-row place-items-center gap-6 overflow-x-hidden">
     {
-      projects.map((project) => (
+      posts.map((project) => (
         <BlogCard2
           id={project.data.id}
           title={project.data.title}
