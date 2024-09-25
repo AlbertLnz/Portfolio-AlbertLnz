@@ -7,21 +7,23 @@ export async function getStaticPaths() {
 
   for (const post of posts) {
     const { id, title, language } = post.data
-    const titleWithDash = title.replaceAll(' ', '-')
+    const titleCleaned = title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\w\s-]/g, '').replaceAll(' ', '-').toLowerCase()
     paths.push({
       params: {
         pageLang: language,
-        postIdTitle: `${id}-${titleWithDash}`,
+        postIdTitle: `${id}-${titleCleaned}`,
       },
     })
   }
   return paths
 }
 
+const posts = await getCollection('posts')
 const { pageLang, postIdTitle } = Astro.params
-const [id, title] = postIdTitle.split('/')
+const [id] = postIdTitle.split('/')[0]
+const post = posts.find((post) => post.data.id === Number(id) && post.data.language === pageLang)
 ---
 
 <h1>{pageLang}</h1>
 <h2>ID: {id}</h2>
-<h2>Título: {title}</h2>
+<h2>Titulo: {post.data.title}</h2>
