@@ -12,8 +12,10 @@ export function getStaticPaths() {
 
   ]
 }
+const { pageLang } = Astro.params;
 
-const projects = await getCollection('posts')
+const allProjects = await getCollection('posts')
+const projects = allProjects.filter((project) => project.data.language === pageLang)
 ---
 
 <BlogLayout title="Blog" description="SEO description for blog section">
