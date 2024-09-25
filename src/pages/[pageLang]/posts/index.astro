@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content"
 import BlogLayout from "@/layouts/BlogLayout.astro"
-import BlogCard from "@/components/BlogCard.astro"
+import BlogCard2 from "@/components/BlogCard2.astro"
 import BlogAside from "@/components/BlogAside.astro"
 
 export function getStaticPaths() {
@@ -26,10 +26,10 @@ const projects = await getCollection('posts')
     <BlogAside />
   </section>
 
-  <section id="content" class="grid grid-cols-1 xl:grid-cols-2 grid-flow-row place-items-center gap-y-6 overflow-x-hidden">
+  <section id="content" class="grid grid-cols-1 xl:grid-cols-2 grid-flow-row place-items-center gap-6 overflow-x-hidden">
     {
       projects.map((project) => (
-        <BlogCard id={project.data.id} />
+        <BlogCard2 id={project.data.id} />
       ))
     }
   </section>

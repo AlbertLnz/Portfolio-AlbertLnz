@@ -1,15 +1,17 @@
 ---
+// UNNUSED COMPONENT
+
 const { id } = Astro.props
 ---
 
-<div class="card" id=`post-${id}`>
-  <div class="box">
+<div id=`post-${id}` class="card">
+  <div class="box bg-gradient-to-b from-[#283037] to-[#465058]">
     <div class="content">
-       <div class="iconBox relative h-[70px]">
-          <div class="iconItem absolute flex items-center justify-center w-[60px] h-[60px] left-[5px] top-[5px] bg-red-500 rounded-2xl z-20 text-4xl">
+       <div class="iconBox">
+          <div class="iconItem">
             {id}
           </div>
-          <div class="absolute left-[70px] h-[70px] bg-red-200 w-auto flex items-center justify-center">
+          <div class="title">
             title
           </div>
        </div>
@@ -20,65 +22,102 @@ const { id } = Astro.props
 
 
 <style>
+  :root {
+    --backBgCard: #171717;
+    --sizeIconBox: 50px;
+    --sizeIconItem: 30px;
+    --remainingSpace: 10px;
+    --sizeIconItemBorderRadius: 3px;
+    --invertRadius: 20px;
+  }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+  }
 
 
-.card {
-  position: relative;
-  width: 400px;
-  height: 200px;
-  background-color: aqua;
-  border-radius: 15px;
-  overflow: hidden;
-}
+  .card {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    background-color: var(--backBgCard);
+    border-radius: var(--invertRadius);
+    overflow: hidden;
+  }
 
-.card .box {
-  position: absolute;
-  inset: 10px;
-  background-color: #000000;
-  border-radius: 10px;
-}
+  .card .box {
+    position: absolute;
+    inset: 10px;
+    background-color: var(--backBgCard);
+    border-radius: 10px;
+  }
 
-.card .box .content {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  background-color: aqua;
-  border-bottom-right-radius: 15px;
-  transition: 0.5s;
-  z-index: 10;
-}
+  .card .box .content {
+    position: absolute;
+    width: var(--sizeIconBox);
+    height: var(--sizeIconBox);
+    background-color: var(--backBgCard);
+    border-bottom-right-radius: var(--invertRadius);
+    transition: 0.5s;
+    z-index: 10;
+  }
 
-.card .box .content::before {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 0;
-  width: 15px;
-  height: 15px;
-  background-color: 000000;
-  border-top-left-radius: 15px;
-  box-shadow: -5px -5px 0 5px aqua;
-}
+  .card .box .content::before {
+    content: '';
+    position: absolute;
+    bottom: calc(-1 * var(--invertRadius));
+    left: 0;
+    width: var(--invertRadius);
+    height: var(--invertRadius);
+    background-color: 000000;
+    border-top-left-radius: var(--invertRadius);
+    box-shadow: -5px -5px 0 5px var(--backBgCard);
+  }
 
-.card .box .content::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -15px;
-  width: 15px;
-  height: 15px;
-  background-color: 000000;
-  border-top-left-radius: 15px;
-  box-shadow: -5px -5px 0 5px aqua;
-}
+  .card .box .content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: calc(-1 * var(--invertRadius));
+    width: var(--invertRadius);
+    height: var(--invertRadius);
+    background-color: 000000;
+    border-top-left-radius: var(--invertRadius);
+    box-shadow: -5px -5px 0 5px var(--backBgCard);
+  }
 
+  .card .box .content .iconBox {
+    postion: relative;
+    height: var(--sizeIconBox);
+    width: var(--sizeIconBox);
+  }
+
+  .card .box .content .iconBox .iconItem {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--sizeIconItem);
+    height: var(--sizeIconItem);
+    left: var(--remainingSpace);
+    top: var(--remainingSpace);
+    background-color: red;
+    border-radius: var(--sizeIconItemBorderRadius);
+    z-index: 10;
+  }
+
+  .card .box .content .iconBox .title {
+    position: absolute;
+    left: var(--sizeIconBox);
+    height: var(--sizeIconBox);
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 </style>

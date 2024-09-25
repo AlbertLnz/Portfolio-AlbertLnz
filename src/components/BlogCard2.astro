@@ -1,0 +1,46 @@
+---
+import ArrowUp from '@/assets/symbols/ArrowUp.astro'
+const { id } = Astro.props
+
+const title = 'Cómo renderizar un componente en Astro'
+const date = '2023-01-01'
+const author = '@AlbertLnz'
+const tag = 'Tutorial' // tutorial, snippet, theme
+const colorsTutorial = {
+  background: "to-[#1F4013]",
+  border: "border-[#2C2C2C]",
+}
+---
+<div id=`post-${id}` class={`card relative overflow-hidden border ${colorsTutorial.border} hover:cursor-pointer hover:border-double hover:border-white/30 w-full h-full rounded-md m-2 group bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% ${colorsTutorial.background} `}>
+  
+  <h2 class="text-lg absolute top-0 m-3 z-10 opacity-50 group-hover:opacity-100">{title}</h2>
+
+  <div class="flex items-end z-0 pl-4 pt-12">
+    <p class="cust-font font-bold opacity-50 group-hover:opacity-100 text-6xl">{id}</p>
+    <p class="mb-1 ml-2 opacity-50 group-hover:opacity-80">{tag}</p>
+  </div>
+
+  <p class="cust-font absolute top-0 right-0 m-2 opacity-50 group-hover:opacity-80">
+    {date}
+  </p>
+
+  <p class="absolute bottom-0 font-semibold text-xs right-0 m-2 opacity-50 group-hover:opacity-80">
+    {author}
+  </p>
+
+  <div class="absolute bottom-[-100%] w-full flex items-center justify-center -z-10 group group-hover:bottom-0 group-hover:z-30 transition-all duration-500 ease-in-out">
+    <a href="/en" class="w-full h-32 rounded-t-lg">
+      <button class="flex flex-col items-center pb-4 justify-end w-full h-full">
+        <ArrowUp class="size-4" />
+      </button>
+    </a>
+  </div>
+</div>
+
+<style>
+/* TO-DO: IMPORT FONT */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+  .cust-font {
+    font-family: 'Lora', arial;
+  }
+</style>
