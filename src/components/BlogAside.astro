@@ -5,6 +5,7 @@ const posts = await getCollection('posts')
 
 <aside class="space-y-6">
   <button id="asc-desc" class="bg-red-400 px-2 py-1">Asc / Desc</button>
+  <button id="view-all" class="bg-red-400 px-2 py-1">View all</button>
 
   <hr />
 
@@ -27,8 +28,11 @@ const posts = await getCollection('posts')
 
   const $section = $(`#content`)
   const $ascDescBtn = $(`#asc-desc`)
+  const $viewAllBtn = $(`#view-all`)
 
-  const $$checkboxes = $$('.posts-checkbox')
+  const $$allPosts = $$('.card')
+  const $$checkboxes = $$('.posts-checkbox') as NodeListOf<HTMLInputElement>
+
 
   // REVERSE posts
   $ascDescBtn?.addEventListener('click', () => {
@@ -37,6 +41,16 @@ const posts = await getCollection('posts')
       reversedposts.forEach((post) => {
         $section?.appendChild(post)
       })
+  })
+
+  // VIEW ALL
+  $viewAllBtn?.addEventListener('click', () => {
+    $$allPosts.forEach((post) => {
+      post.removeAttribute('hidden')
+    })
+    $$checkboxes.forEach((checkbox) => {
+      checkbox.checked = true
+    })
   })
 
   // SELECT 1 post
