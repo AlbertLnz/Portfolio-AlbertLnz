@@ -1,17 +1,14 @@
 ---
 import ArrowUp from '@/assets/symbols/ArrowUp.astro'
-const { id } = Astro.props
+import { blogCardAssignColor } from '@/data/blogCardAssignColor'
 
-const title = 'Cómo renderizar un componente en Astro'
-const date = '2023-01-01'
-const author = '@AlbertLnz'
-const tag = 'Tutorial' // tutorial, snippet, theme
-const colorsTutorial = {
-  background: "to-[#1F4013]",
-  border: "border-[#2C2C2C]",
-}
+const { id, title, date, tag, author } = Astro.props
+
+const titleWithDash = title.replaceAll(' ', '-')
+const colorsTutorial = blogCardAssignColor[tag]
+const { border, background } = colorsTutorial
 ---
-<div id=`post-${id}` class={`card relative overflow-hidden border ${colorsTutorial.border} hover:cursor-pointer hover:border-double hover:border-white/30 w-full h-full rounded-md m-2 group bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% ${colorsTutorial.background} `}>
+<div id=`post-${id}` class={`card relative overflow-hidden border ${border} hover:cursor-pointer hover:border-double hover:border-white/30 w-full h-full rounded-md m-2 group bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% ${background}`}>
   
   <h2 class="text-lg absolute top-0 m-3 z-10 opacity-50 group-hover:opacity-100">{title}</h2>
 
@@ -29,7 +26,7 @@ const colorsTutorial = {
   </p>
 
   <div class="absolute bottom-[-100%] w-full flex items-center justify-center -z-10 group group-hover:bottom-0 group-hover:z-30 transition-all duration-500 ease-in-out">
-    <a href="/en" class="w-full h-32 rounded-t-lg">
+    <a href={`posts/${id}-${titleWithDash}`} class="w-full h-32 rounded-t-lg">
       <button class="flex flex-col items-center pb-4 justify-end w-full h-full">
         <ArrowUp class="size-4" />
       </button>

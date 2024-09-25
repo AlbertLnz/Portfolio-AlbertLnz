@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts')
+  const paths = []
+
+  for (const post of posts) {
+    const { id, title, language } = post.data
+    const titleWithDash = title.replaceAll(' ', '-')
+    paths.push({
+      params: {
+        pageLang: language,
+        postIdTitle: `${id}-${titleWithDash}`,
+      },
+    })
+  }
+  return paths
+}
+
+const { pageLang, postIdTitle } = Astro.params
+const [id, title] = postIdTitle.split('/')
+---
+
+<h1>{pageLang}</h1>
+<h2>ID: {id}</h2>
+<h2>Título: {title}</h2>
