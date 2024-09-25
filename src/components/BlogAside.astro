@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content"
+const posts = await getCollection('posts')
+---
+
+<aside class="space-y-6">
+  <button id="asc-desc" class="bg-red-400 px-2 py-1">Asc / Desc</button>
+
+  <hr />
+
+  <ul>
+    {
+      posts.map((post) => (
+        <li>
+          <input id={`chk-post-${post.data.id}`} class="posts-checkbox" type="checkbox" checked />
+          {post.data.title}
+        </li>
+      ))
+    }
+  </ul>
+</aside>
+
+
+<script>
+  const $ = (el: string): HTMLElement | null => document.querySelector(el)
+  const $$ = (els: string): NodeListOf<Element> => document.querySelectorAll(els)
+
+  const $section = $(`#content`)
+  const $ascDescBtn = $(`#asc-desc`)
+
+  const $$checkboxes = $$('.posts-checkbox')
+
+  // REVERSE posts
+  $ascDescBtn?.addEventListener('click', () => {
+    const $$posts = $$('.card')
+    const reversedposts = Array.from($$posts).reverse()
+      reversedposts.forEach((post) => {
+        $section?.appendChild(post)
+      })
+  })
+
+  // SELECT 1 post
+  $$checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('click', () => {
+      const $$posts = $$('.card')
+      const selectedPost = Array.from($$posts).filter((post) => checkbox.id == `chk-${post.id}`)
+      selectedPost.forEach((post) => {
+        post.hasAttribute('hidden') ? post.removeAttribute('hidden') : post.setAttribute('hidden', 'true')
+      })
+    })
+  })
+</script>

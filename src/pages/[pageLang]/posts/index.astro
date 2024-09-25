@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content"
 import BlogLayout from "@/layouts/BlogLayout.astro"
 import BlogCard from "@/components/BlogCard.astro"
+import BlogAside from "@/components/BlogAside.astro"
 
 export function getStaticPaths() {
   return [
@@ -22,7 +23,7 @@ const projects = await getCollection('posts')
   </section>
 
   <section id="aside">
-    <button id="asc-desc" class="bg-red-400 px-2 py-1">Asc / Desc</button>
+    <BlogAside />
   </section>
 
   <section id="content" class="grid grid-cols-1 xl:grid-cols-2 grid-flow-row place-items-center gap-y-6 overflow-x-hidden">
@@ -34,19 +35,3 @@ const projects = await getCollection('posts')
   </section>
 
 </BlogLayout>
-
-<script>
-  const $ = (el: string): HTMLElement | null => document.querySelector(el)
-  const $$ = (els: string): NodeListOf<Element> => document.querySelectorAll(els)
-
-  const $section = $(`#content`)
-  const $button = $(`#asc-desc`)
-  
-  $button?.addEventListener('click', () => {
-    const $$projects = $$('.card')
-    const reversedProjects = Array.from($$projects).reverse()
-      reversedProjects.forEach((project) => {
-        $section?.appendChild(project)
-      })
-  })
-</script>
