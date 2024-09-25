@@ -17,6 +17,18 @@ export default defineConfig({
           context: 'server',
           access: 'public',
         }),
+        IP_INFO_API: envField.string({
+          context: 'server',
+          access: 'public',
+        }),
+        OPEN_WEATHER_API_URL: envField.string({
+          context: 'server',
+          access: 'public',
+        }),
+        OPEN_WEATHER_API_KEY: envField.string({
+          context: 'server',
+          access: 'secret',
+        }),
       },
     },
   },
