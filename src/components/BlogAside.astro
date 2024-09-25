@@ -1,6 +1,5 @@
 ---
-import { getCollection } from "astro:content"
-const posts = await getCollection('posts')
+const { posts } = Astro.props
 ---
 
 <aside class="space-y-6">
