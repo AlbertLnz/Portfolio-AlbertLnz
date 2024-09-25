@@ -15,7 +15,6 @@ if (PRODUCTION) {
     mainWeather,
     descriptWeather,
   } = await fetchData() || {})
-  console.log('Using fetch data')
 } else {
   timestamp = 1727244822
   timezone = 7200
@@ -25,8 +24,6 @@ if (PRODUCTION) {
   humidity = 41
   mainWeather = 'Mist'
   descriptWeather = 'few clouds'
-
-  console.log('Using mock data')
 }
 
 async function fetchData() {
@@ -53,14 +50,9 @@ async function fetchData() {
 }
 
 const timezoneHours = timezone / 3600
-const totalSecondsInDay = 24 * 60 * 60
 const date = new Date(timestamp * 1000)
 const hours = date.getUTCHours() + timezoneHours
 const isDay = hours < 21 ? 'day' : 'night'
-const hoursString = hours.toString().padStart(2, '0')
-const minutes = date.getUTCMinutes().toString().padStart(2, '0')
-const secondsElapsedToday = timestamp % totalSecondsInDay
-const progress = (secondsElapsedToday / totalSecondsInDay) * 100
 const roundTemp = Math.round(temp)
 
 let descriptWeatherFilter = ''
@@ -86,16 +78,59 @@ if (!iconWeather) iconWeather = assignIconWeatherArr.find((weather) => weather.n
     <p class="flex justify-self-end self-start font-medium">{mainWeather}</p>
 
     <p class="ml-1 text-[10px] flex self-center">· Wind:</p>
-    <p class="text-[10px] flex justify-self-end self-center">{wind} mph</p>
+    <p class="text-[10px] flex justify-self-end self-center">{wind} m/s</p>
 
     <p class="ml-1 text-[10px] flex self-center">· Humidity:</p>
     <p class="text-[10px] flex justify-self-end self-center">{humidity} %</p>
 
-    <p class="ml-1 text-[10px] flex self-center">· {hoursString}:{minutes}h / 24h:</p>
+    <p class="ml-1 text-[10px] flex self-center">· 
+      <span id="hours" data-timezone={timezone}></span>
+      :
+      <span id="minutes"></span>
+      h / 24h:
+    </p>
     <p class="text-[10px] flex justify-self-end self-center"></p>
 
     <div class="flex items-center justify-center place-content-center rounded-full bg-[#336BA3] dark:bg-[#0E1730] col-span-2 relative">
-      <div class="absolute top-0 left-0 h-full bg-[#85A7C9] dark:bg-[#606374] rounded-full" style={`width: ${progress}%`}></div>
+      <div id="progressBar" class="absolute top-0 left-0 h-full bg-[#85A7C9] dark:bg-[#606374] rounded-full"></div>
     </div>
   </div>
 </section>
+
+<script>
+  // Client-side rendering for updating hours, minutes & progressBar
+  const SECOND = 1000
+  const totalSecondsInDay = 24 * 60 * 60
+
+  const $ = (el: string): HTMLElement | null => document.querySelector(el)
+  const $hours = $(`#hours`)
+  const $minutes = $(`#minutes`)
+  const $progressBar = $(`#progressBar`)
+
+  const timezoneHours = $hours ? Number($hours.dataset.timezone) / 3600 : 2 // default: UTC-2
+
+  const updateTime = () => {
+    const date = new Date()
+    const hours = (date.getUTCHours() + timezoneHours) % 24
+    const minutes = date.getUTCMinutes().toString().padStart(2, '0')
+    const secondsElapsedUntilNow = (date.valueOf() / 1000) % totalSecondsInDay
+    const progress = (secondsElapsedUntilNow / totalSecondsInDay) * 100
+
+    $hours ? $hours.innerHTML = `&nbsp;${hours.toString().padStart(2, '0')}`  : '00'
+    $minutes ? $minutes.innerHTML = minutes : '00'
+    $progressBar ? $progressBar.style.width = `${progress}%` : ''
+  }
+
+  const scheduleUpdate = () => {
+    const now = new Date()
+    const millisecondsUntilNextMinute = (60 - now.getUTCSeconds()) * SECOND
+
+    setTimeout(() => {
+      updateTime()
+      scheduleUpdate()
+    }, millisecondsUntilNextMinute)
+  }
+
+  updateTime()
+  scheduleUpdate()
+</script>
