@@ -1,0 +1,33 @@
+---
+import BlogLayout from "@/layouts/BlogLayout.astro"
+import BlogCard from "@/components/BlogCard.astro"
+
+export function getStaticPaths() {
+  return [
+    { params: { pageLang: 'en' } },
+    { params: { pageLang: 'es' } },
+    { params: { pageLang: 'ca' } },
+
+  ]
+}
+---
+
+<BlogLayout title="Blog" description="SEO description for blog section">
+  
+  <section id="header">
+    a
+  </section>
+
+  <section id="aside">
+    aside
+  </section>
+
+  <section id="content" class="grid grid-cols-1 xl:grid-cols-2 grid-flow-row place-items-center gap-y-6 overflow-x-hidden">
+    <BlogCard />
+    <BlogCard />
+    <BlogCard />
+    <BlogCard />
+    <BlogCard />
+  </section>
+
+</BlogLayout>

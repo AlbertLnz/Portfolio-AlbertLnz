@@ -1,7 +1,6 @@
 ---
 import '@/globals.css'
-import '@/layouts/layout_desktop.css'
-import '@/layouts/layout_mobile.css'
+import '@/layouts/blog_layout_desktop.css'
 import { ViewTransitions } from 'astro:transitions'
 import { getLangFromUrl } from '../i18n/utils'
 
@@ -25,7 +24,9 @@ const { title, description } = Astro.props
     <ViewTransitions />
 	</head>
 	<body>
-    <slot />
+    <div id="blog-container">
+      <slot />
+    </div>
 	</body>
 </html>
 
@@ -47,15 +48,12 @@ const { title, description } = Astro.props
 
   body {
     background-color: #111111;
-    overflow: hidden;
-    display: grid;
     color: var(--text-color-dark-primary);
     font-size: 12px;
   }
 
-  body > section {
+  div > section {
     font-family: 'Outfit Variable', sans-serif;
-    overflow: hidden;
     background-color: #171717;
     border-radius: 8px;
     border-width: 1px;
