@@ -1,5 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
+import '@/styles/postContent.css'
+import LanguageAndThemeSelector from '@/components/LanguageAndThemeSelector.astro'
+import PostLayout from '@/layouts/PostLayout.astro'
+import { getCollection, render } from 'astro:content'
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts')
@@ -22,8 +25,33 @@ const posts = await getCollection('posts')
 const { pageLang, postIdTitle } = Astro.params
 const [id] = postIdTitle.split('/')[0]
 const post = posts.find((post) => post.data.id === Number(id) && post.data.language === pageLang)
+
+const { Content } = await render(post)
 ---
 
-<h1>{pageLang}</h1>
-<h2>ID: {id}</h2>
-<h2>Titulo: {post.data.title}</h2>
+<PostLayout class="relative">
+  <article id="post" class="relative overflow-hidden">
+    <div class="flex flex-col items-center justify-center mb-12">
+      <h1 class="font-semibold text-2xl text-center">
+        {post.data.title}
+      </h1>
+      <p class="italic">
+        {post.data.description}
+      </p>
+      <h3
+        transition:name={postIdTitle}
+        class="absolute top-0 left-0 p-8 cust-font font-bold opacity-50 group-hover:opacity-100 text-6xl z-0">
+          {id}
+      </h3>
+    </div>
+
+
+    <div id="content">
+      <Content />
+    </div>
+  </article>
+
+  <div class="absolute top-0 right-0 p-8">
+    <LanguageAndThemeSelector path={``} />
+  </div>
+</PostLayout>

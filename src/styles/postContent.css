@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+.cust-font {
+  font-family: 'Lora', arial;
+}
+
+#content h2 {
+  text-decoration: underline;
+  font-size: 18px;
+  color: white;
+  margin-top: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+#content a {
+  color: #0070f3;
+  text-decoration: underline;
+  transition: color 0.2s ease-in-out;
+}
+
+#content a:hover {
+  color: #0056b3;
+}
+
+#content p {
+  font-size: 14px;
+}
+
+#content li > code {
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+    Liberation Mono, monospace;
+  font-size: 12px;
+  background-color: #2f313f;
+  padding: 0.1rem;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+#content > pre {
+  margin: 1rem 0;
+  padding: 1rem;
+  scrollbar-color: #2f313f #111111;
+  border-radius: 6px;
+}
+
+#content > ol {
+  list-style-type: decimal;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  margin-bottom: -0.5rem;
+}

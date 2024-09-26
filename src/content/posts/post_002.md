@@ -9,4 +9,10 @@ img: post_002.jpg
 description: Post 2 description
 ---
 
-Post 2 content
+## Introduction
+
+I can link internally to [my conclusion](#conclusion) on the same page when writing Markdown.
+
+## Conclusion
+
+I can visit `https://example.com/page-1/#introduction` in a browser to navigate
