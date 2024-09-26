@@ -1,5 +1,6 @@
 ---
-const { posts } = Astro.props
+import type { Post } from '@/content/configTypes.d.ts'
+const { posts }: { posts: Post[] } = Astro.props as { posts: Post[] }
 ---
 
 <aside class="space-y-6">
