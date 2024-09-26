@@ -98,28 +98,35 @@ console.log(postsTags)
     })
   })
 
-  // SELECT 1 post
+  function updatePostsVisibility() {
+    const $$posts = $$('.card')
+
+    $$posts.forEach((post) => {
+      const postElement = post as HTMLElement
+      
+      const postCheckbox = $(`#chk-${post.id}`) as HTMLInputElement
+      const isPostChecked = postCheckbox && postCheckbox.checked
+
+      const tagCheckbox = $(`#chk-tag-${postElement.dataset.tag}`) as HTMLInputElement
+      const isTagChecked = tagCheckbox && tagCheckbox.checked
+
+      if (isPostChecked && isTagChecked) {
+        postElement.removeAttribute('hidden')
+      } else {
+        postElement.setAttribute('hidden', 'true')
+      }
+    })
+  }
+
   $$postCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener('click', () => {
-      const $$posts = $$('.card')
-      const selectedPost = Array.from($$posts).filter((post) => checkbox.id === `chk-${post.id}`)
-      selectedPost.forEach((post) => {
-        post.hasAttribute('hidden') ? post.removeAttribute('hidden') : post.setAttribute('hidden', 'true')
-      })
+      updatePostsVisibility()
     })
   })
 
-  // SELECT 1 tag
   $$postTagsCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener('click', () => {
-      const $$posts = $$('.card')
-      const selectedPost = Array.from($$posts).filter((post) => {
-        const element = post as HTMLElement
-        return checkbox.id === `chk-tag-${element.dataset.tag}`
-      })
-      selectedPost.forEach((post) => {
-        post.hasAttribute('hidden') ? post.removeAttribute('hidden') : post.setAttribute('hidden', 'true')
-      })
+      updatePostsVisibility()
     })
   })
 </script>
