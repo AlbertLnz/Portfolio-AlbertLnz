@@ -2,11 +2,13 @@
 import { getCollection } from "astro:content"
 import ArrowRightUp from "@/assets/symbols/ArrowRightUp.astro"
 import { getLangFromUrl } from '../i18n/utils'
+import { prepareCorrectSingleRoutePath } from "@/data/prepareCorrectRoutePaths"
 
 const lang = getLangFromUrl(Astro.url)
 const allPosts = await getCollection('posts')
 const posts = allPosts.filter((post) => post.data.language === lang)
-const lastPost = posts[posts.length - 1];
+const lastPost = posts[posts.length - 1]
+const path = prepareCorrectSingleRoutePath(lastPost)
 ---
 
 <section id="blog" class="relative p-0 group">
@@ -16,7 +18,7 @@ const lastPost = posts[posts.length - 1];
       <h2 class="text-3xl mr-2">Blog</h2>
       <ArrowRightUp class="size-4 pointer-events-none transition-transform duration-300 transform group-hover:translate-x-1"/>
     </div>
-    <a href={`${lang}/posts/${lastPost.data.title}`} class="z-10 w-fit">
+    <a href={`${lang}/posts/${path}`} class="z-10 w-fit">
       <p class="ml-2 text-[#737373] hover:text-white">Latest post: {lastPost.data.title}</p>
     </a>
   </div>
