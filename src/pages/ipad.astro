@@ -30,22 +30,24 @@ import Back from "@/assets/apple/Back.astro"
 </style>
 
 <script>
-  const $ = (el: string): HTMLElement | null => document.querySelector(el)
-  const $flipBtn = $(`#flipBtn`)
-  const $iPad = $(`#iPad`)
-  const $iPadContent = $(`#iPadContent`)
-
-  if ($iPad && $iPadContent) {
-    $flipBtn?.addEventListener('click', () => {
-      const isRotated = $iPad.classList.contains('rotate-0')
-      
-      $iPad.classList.toggle('rotate-0', !isRotated)
-      $iPad.classList.toggle('rotate-90', isRotated)
-      $iPad.classList.toggle('h-full', !isRotated)
-      $iPad.classList.toggle('h-[75%]', isRotated)
-
-      $iPadContent.style.writingMode = isRotated ? 'vertical-rl' : ''
-      $iPadContent.style.transform = isRotated ? 'rotate(-180deg)' : ''
-    })
-  }
+  document.addEventListener('astro:page-load', () => {
+    const $ = (el: string): HTMLElement | null => document.querySelector(el)
+    const $flipBtn = $(`#flipBtn`)
+    const $iPad = $(`#iPad`)
+    const $iPadContent = $(`#iPadContent`)
+  
+    if ($iPad && $iPadContent) {
+      $flipBtn?.addEventListener('click', () => {
+        const isRotated = $iPad.classList.contains('rotate-0')
+        
+        $iPad.classList.toggle('rotate-0', !isRotated)
+        $iPad.classList.toggle('rotate-90', isRotated)
+        $iPad.classList.toggle('h-full', !isRotated)
+        $iPad.classList.toggle('h-[75%]', isRotated)
+  
+        $iPadContent.style.writingMode = isRotated ? 'vertical-rl' : ''
+        $iPadContent.style.transform = isRotated ? 'rotate(-180deg)' : ''
+      })
+    }
+  })
 </script>
