@@ -68,65 +68,67 @@ console.log(postsTags)
 </style>
 
 <script>
-  const $ = (el: string): HTMLElement | null => document.querySelector(el)
-  const $$ = (els: string): NodeListOf<Element> => document.querySelectorAll(els)
-
-  const $section = $(`#content`)
-  const $ascDescBtn = $(`#asc-desc`)
-  const $viewAllBtn = $(`#view-all`)
-
-  const $$allPosts = $$('.card')
-  const $$postCheckboxes = $$('.posts-checkbox') as NodeListOf<HTMLInputElement>
-  const $$postTagsCheckboxes = $$('.posts-tags-checkbox') as NodeListOf<HTMLInputElement>
-
-  // REVERSE posts
-  $ascDescBtn?.addEventListener('click', () => {
-    const $$posts = $$('.card')
-    const reversedposts = Array.from($$posts).reverse()
-      reversedposts.forEach((post) => {
-        $section?.appendChild(post)
+  document.addEventListener('astro:page-load', () => {
+    const $ = (el: string): HTMLElement | null => document.querySelector(el)
+    const $$ = (els: string): NodeListOf<Element> => document.querySelectorAll(els)
+  
+    const $section = $(`#content`)
+    const $ascDescBtn = $(`#asc-desc`)
+    const $viewAllBtn = $(`#view-all`)
+  
+    const $$allPosts = $$('.card')
+    const $$postCheckboxes = $$('.posts-checkbox') as NodeListOf<HTMLInputElement>
+    const $$postTagsCheckboxes = $$('.posts-tags-checkbox') as NodeListOf<HTMLInputElement>
+  
+    // REVERSE posts
+    $ascDescBtn?.addEventListener('click', () => {
+      const $$posts = $$('.card')
+      const reversedposts = Array.from($$posts).reverse()
+        reversedposts.forEach((post) => {
+          $section?.appendChild(post)
+        })
+    })
+  
+    // VIEW ALL
+    $viewAllBtn?.addEventListener('click', () => {
+      $$allPosts.forEach((post) => {
+        post.removeAttribute('hidden')
       })
-  })
-
-  // VIEW ALL
-  $viewAllBtn?.addEventListener('click', () => {
-    $$allPosts.forEach((post) => {
-      post.removeAttribute('hidden')
+      $$postCheckboxes.forEach((checkbox) => {
+        checkbox.checked = true
+      })
     })
+  
+    function updatePostsVisibility() {
+      const $$posts = $$('.card')
+  
+      $$posts.forEach((post) => {
+        const postElement = post as HTMLElement
+        
+        const postCheckbox = $(`#chk-${post.id}`) as HTMLInputElement
+        const isPostChecked = postCheckbox && postCheckbox.checked
+  
+        const tagCheckbox = $(`#chk-tag-${postElement.dataset.tag}`) as HTMLInputElement
+        const isTagChecked = tagCheckbox && tagCheckbox.checked
+  
+        if (isPostChecked && isTagChecked) {
+          postElement.removeAttribute('hidden')
+        } else {
+          postElement.setAttribute('hidden', 'true')
+        }
+      })
+    }
+  
     $$postCheckboxes.forEach((checkbox) => {
-      checkbox.checked = true
+      checkbox.addEventListener('click', () => {
+        updatePostsVisibility()
+      })
     })
-  })
-
-  function updatePostsVisibility() {
-    const $$posts = $$('.card')
-
-    $$posts.forEach((post) => {
-      const postElement = post as HTMLElement
-      
-      const postCheckbox = $(`#chk-${post.id}`) as HTMLInputElement
-      const isPostChecked = postCheckbox && postCheckbox.checked
-
-      const tagCheckbox = $(`#chk-tag-${postElement.dataset.tag}`) as HTMLInputElement
-      const isTagChecked = tagCheckbox && tagCheckbox.checked
-
-      if (isPostChecked && isTagChecked) {
-        postElement.removeAttribute('hidden')
-      } else {
-        postElement.setAttribute('hidden', 'true')
-      }
-    })
-  }
-
-  $$postCheckboxes.forEach((checkbox) => {
-    checkbox.addEventListener('click', () => {
-      updatePostsVisibility()
-    })
-  })
-
-  $$postTagsCheckboxes.forEach((checkbox) => {
-    checkbox.addEventListener('click', () => {
-      updatePostsVisibility()
+  
+    $$postTagsCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener('click', () => {
+        updatePostsVisibility()
+      })
     })
   })
 </script>
