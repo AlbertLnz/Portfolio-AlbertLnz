@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+
+export function getStaticPaths() {
+  return [
+    { params: { pageLang: 'en' } },
+    { params: { pageLang: 'es' } },
+    { params: { pageLang: 'ca' } },
+
+  ]
+}
+
+const { pageLang } = Astro.params;
+const allProjects = await getCollection('projects')
+---
+
+<div class="relative">
+  <h1 class="text-3xl text-center py-[2rem]">AlbertLnz's Projects</h1>
+  <p class="italic">
+    {allProjects.length} projects / {pageLang}
+  </p>
+</div>
