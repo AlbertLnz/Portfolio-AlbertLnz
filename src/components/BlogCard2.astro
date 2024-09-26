@@ -30,12 +30,12 @@ const { border, backgroundPosts } = blogCardAssignColor[tag as keyof typeof blog
     {author}
   </p>
 
+  <a href={`posts/${postUrl}`} class="absolute top-0 h-full w-full"></a>
+  
   <div class="absolute bottom-[-100%] w-full flex items-center justify-center -z-10 group group-hover:bottom-0 group-hover:z-30 transition-all duration-500 ease-in-out">
-    <a href={`posts/${postUrl}`} class="w-full h-32 rounded-t-lg">
-      <button class="flex flex-col items-center pb-4 justify-end w-full h-full">
+    <button class="flex flex-col items-center pb-4 justify-end w-full h-full">
         <ArrowUp class="size-4" />
-      </button>
-    </a>
+     </button>
   </div>
 </div>
 

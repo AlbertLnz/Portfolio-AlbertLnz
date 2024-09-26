@@ -22,7 +22,7 @@ const posts = allPosts.filter((project) => project.data.language === pageLang)
 <BlogLayout title="Blog" description="SEO description for blog section">
   
   <section id="header" class="grid grid-cols-[0.2fr_0.6fr_0.2fr] gap-x-2 p-0">
-    <a class="flex items-center justify-center rounded-l-[8px] text-lg hover:bg-red-400" href={`/${pageLang}`}>
+    <a class="flex items-center justify-center rounded-l-[8px] text-lg transition-colors duration-500 hover:bg-black/20 hover:underline" href={`/${pageLang}`}>
       Back
     </a>
     <h1 class="font-semibold text-2xl text-center py-[2rem]">AlbertLnz's Blog</h1>
