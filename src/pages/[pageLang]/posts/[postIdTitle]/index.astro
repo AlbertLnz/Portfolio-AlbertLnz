@@ -3,6 +3,7 @@ import '@/styles/postContent.css'
 import LanguageAndThemeSelector from '@/components/LanguageAndThemeSelector.astro'
 import PostLayout from '@/layouts/PostLayout.astro'
 import { getCollection, render } from 'astro:content'
+import { blogCardAssignColor } from '@/data/blogCardAssignColor'
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts')
@@ -27,10 +28,12 @@ const [id] = postIdTitle.split('/')[0]
 const post = posts.find((post) => post.data.id === Number(id) && post.data.language === pageLang)
 
 const { Content } = await render(post)
+
+const { backgroundPost } = blogCardAssignColor[post?.data.tag]
 ---
 
 <PostLayout class="relative">
-  <article id="post" class="relative overflow-hidden">
+  <article id="post" class={`relative overflow-hidden bg-gradient-to-b ${backgroundPost} to-[120px] to-[#171717]`}>
     <div class="flex flex-col items-center justify-center mb-12">
       <h1 class="font-semibold text-2xl text-center">
         {post.data.title}

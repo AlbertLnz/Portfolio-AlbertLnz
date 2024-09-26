@@ -7,10 +7,9 @@ const { id, title, date, tag, author } = Astro.props
 const titleCleaned = title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\w\s-]/g, '').replaceAll(' ', '-').toLowerCase()
 const postUrl = id+'-'+titleCleaned
 
-const colorsTutorial = blogCardAssignColor[tag]
-const { border, background } = colorsTutorial
+const { border, backgroundPosts } = blogCardAssignColor[tag]
 ---
-<div id=`post-${id}` class={`card relative overflow-hidden border ${border} hover:cursor-pointer hover:border-double hover:border-white/30 w-full h-full rounded-md m-2 group bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% ${background}`}>
+<div id=`post-${id}` class={`card relative overflow-hidden border ${border} hover:cursor-pointer hover:border-double hover:border-white/30 w-full h-full rounded-md m-2 group bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% ${backgroundPosts}`}>
   
   <h2 class="text-lg absolute top-0 m-3 z-10 opacity-50 group-hover:opacity-100">{title}</h2>
 
