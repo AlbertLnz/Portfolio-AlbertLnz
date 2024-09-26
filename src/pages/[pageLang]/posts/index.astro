@@ -3,6 +3,7 @@ import { getCollection } from "astro:content"
 import BlogLayout from "@/layouts/BlogLayout.astro"
 import BlogCard2 from "@/components/BlogCard2.astro"
 import BlogAside from "@/components/BlogAside.astro"
+import LanguageAndThemeSelector from "@/components/LanguageAndThemeSelector.astro"
 
 export function getStaticPaths() {
   return [
@@ -20,8 +21,12 @@ const posts = allPosts.filter((project) => project.data.language === pageLang)
 
 <BlogLayout title="Blog" description="SEO description for blog section">
   
-  <section id="header">
-    a
+  <section id="header" class="flex items justify-between px-12">
+    <button>
+      <a href={`/${pageLang}`}>Back</a>
+    </button>
+    <h1 class="font-semibold text-2xl">AlbertLnz's Blog</h1>
+    <LanguageAndThemeSelector path="/posts" />
   </section>
 
   <section id="aside">

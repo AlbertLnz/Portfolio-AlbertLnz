@@ -1,44 +1,17 @@
 ---
-import { getLangFromUrl, useTranslations } from '@/i18n/utils'
-
-import Sun from "@/assets/symbols/Sun.astro"
-import Moon from "@/assets/symbols/Moon.astro"
-import Computer from "@/assets/symbols/Computer.astro"
 import LinkedIn from "@/assets/rrss/LinkedIn.astro"
 import CV from "@/assets/rrss/CV.astro"
 import Gmail from "@/assets/rrss/Gmail.astro"
 import GitHubScore from '@/components/GitHubScore.astro'
 import Ipad from '@/assets/apple/IPad.astro'
-
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
-
-const actualLang = t('lang')
-const nextLang = t('nextLang')
+import LanguageAndThemeSelector from "@/components/LanguageAndThemeSelector.astro"
 ---
 
 <section id="personal">
 
   <div class="flex item-center justify-between text-[#737373]">
     <h4 class="">Welcome</h4>
-
-    <div class="flex items-center justify-center space-x-3">
-      <a href={`/${nextLang}`}>
-        <button id="languageBtn" class="uppercase">{actualLang}</button>
-      </a>
-      <p>|</p>
-      <div class="h-full flex items-center justify-center gap-x-2">
-        <button id="light-theme-button">
-          <Sun class="size-4" />
-        </button>
-        <button id="dark-theme-button">
-          <Moon class="size-4" />
-        </button>
-        <button id="system-theme-button">
-          <Computer class="size-4" />
-        </button>
-      </div>
-    </div>
+    <LanguageAndThemeSelector path="" />
   </div>
 
   <div class="p-6 mx-10 space-y-4">
@@ -82,29 +55,3 @@ const nextLang = t('nextLang')
     color: white;
    }
 </style>
-
-<script>
-  const $ = (el: string): HTMLElement | null => document.querySelector(el)
-  const $lightThemeBtn = $(`#light-theme-button`)
-  const $darkThemeBtn = $(`#dark-theme-button`)
-  const $systemThemeBtn = $(`#system-theme-button`)
-
-  function toggleTheme(dark: boolean) {
-    dark ? document.body.classList.add("dark") : document.body.classList.remove("dark")
-  }
-
-  $lightThemeBtn?.addEventListener("click", () => {
-    localStorage.setItem("theme", "light")
-    toggleTheme(false)
-  })
-
-  $darkThemeBtn?.addEventListener("click", () => {
-    localStorage.setItem("theme", "dark")
-    toggleTheme(true)
-  })
-
-  $systemThemeBtn?.addEventListener("click", () => {
-    localStorage.setItem("theme", "system")
-    toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches)
-  })
-</script>
