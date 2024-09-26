@@ -9,7 +9,7 @@ const postUrl = id+'-'+titleCleaned
 
 const { border, backgroundPosts } = blogCardAssignColor[tag as keyof typeof blogCardAssignColor]
 ---
-<div id=`post-${id}` class={`card relative overflow-hidden border ${border} hover:cursor-pointer hover:border-double hover:border-white/30 w-full h-full rounded-md m-2 group bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% ${backgroundPosts}`}>
+<div id=`post-${id}` data-tag=`post-${tag}` class={`card relative overflow-hidden border ${border} hover:cursor-pointer hover:border-double hover:border-white/30 w-full h-full rounded-md m-2 group bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% ${backgroundPosts}`}>
   
   <h2 class="text-lg absolute top-0 m-3 z-10 opacity-50 group-hover:opacity-100">{title}</h2>
 

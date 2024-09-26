@@ -1,6 +1,9 @@
 ---
 import type { Post } from '@/content/configTypes.d.ts'
 const { posts }: { posts: Post[] } = Astro.props as { posts: Post[] }
+
+const postsTags = new Set(posts.map((post) => post.data.tag))
+console.log(postsTags)
 ---
 
 <aside class="space-y-6">
@@ -19,6 +22,18 @@ const { posts }: { posts: Post[] } = Astro.props as { posts: Post[] }
       ))
     }
   </ul>
+
+  <hr />
+
+  <ul>
+    {Array.from(postsTags).map((tag) => (
+      <li>
+        <input id={`chk-tag-post-${tag}`} class="posts-tags-checkbox" type="checkbox" checked />
+        {tag}
+      </li>
+    ))}
+  </ul>
+
 </aside>
 
 
@@ -31,8 +46,8 @@ const { posts }: { posts: Post[] } = Astro.props as { posts: Post[] }
   const $viewAllBtn = $(`#view-all`)
 
   const $$allPosts = $$('.card')
-  const $$checkboxes = $$('.posts-checkbox') as NodeListOf<HTMLInputElement>
-
+  const $$postCheckboxes = $$('.posts-checkbox') as NodeListOf<HTMLInputElement>
+  const $$postTagsCheckboxes = $$('.posts-tags-checkbox') as NodeListOf<HTMLInputElement>
 
   // REVERSE posts
   $ascDescBtn?.addEventListener('click', () => {
@@ -48,16 +63,30 @@ const { posts }: { posts: Post[] } = Astro.props as { posts: Post[] }
     $$allPosts.forEach((post) => {
       post.removeAttribute('hidden')
     })
-    $$checkboxes.forEach((checkbox) => {
+    $$postCheckboxes.forEach((checkbox) => {
       checkbox.checked = true
     })
   })
 
   // SELECT 1 post
-  $$checkboxes.forEach((checkbox) => {
+  $$postCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener('click', () => {
       const $$posts = $$('.card')
-      const selectedPost = Array.from($$posts).filter((post) => checkbox.id == `chk-${post.id}`)
+      const selectedPost = Array.from($$posts).filter((post) => checkbox.id === `chk-${post.id}`)
+      selectedPost.forEach((post) => {
+        post.hasAttribute('hidden') ? post.removeAttribute('hidden') : post.setAttribute('hidden', 'true')
+      })
+    })
+  })
+
+  // SELECT 1 tag
+  $$postTagsCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('click', () => {
+      const $$posts = $$('.card')
+      const selectedPost = Array.from($$posts).filter((post) => {
+        const element = post as HTMLElement
+        return checkbox.id === `chk-tag-${element.dataset.tag}`
+      })
       selectedPost.forEach((post) => {
         post.hasAttribute('hidden') ? post.removeAttribute('hidden') : post.setAttribute('hidden', 'true')
       })
