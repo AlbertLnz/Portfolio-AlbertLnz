@@ -98,6 +98,7 @@ if (!iconWeather) iconWeather = assignIconWeatherArr.find((weather) => weather.n
 </section>
 
 <script>
+  document.addEventListener('astro:page-load', () => {
   // Client-side rendering for updating hours, minutes & progressBar
   const SECOND = 1000
   const totalSecondsInDay = 24 * 60 * 60
@@ -133,4 +134,5 @@ if (!iconWeather) iconWeather = assignIconWeatherArr.find((weather) => weather.n
 
   updateTime()
   scheduleUpdate()
+  })
 </script>
