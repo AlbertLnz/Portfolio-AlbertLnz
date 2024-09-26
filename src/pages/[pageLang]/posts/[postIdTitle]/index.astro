@@ -47,6 +47,11 @@ const { Content } = await render(post)
 
     <div id="content">
       <Content />
+      <footer class="pt-4 pb-2 px-8 flex justify-between items-center">
+        <button class="opacity-65 hover:opacity-100 hover:font-semibold">Share</button>
+        <p class="font-bold">@{post.data.author}</p>
+        <button id="scrollToTop" class="opacity-65 hover:opacity-100 hover:font-semibold">Up</button>
+      </footer>
     </div>
 
     <div class="absolute top-0 right-0 p-6">
@@ -54,3 +59,17 @@ const { Content } = await render(post)
     </div>
   </article>
 </PostLayout>
+
+<script>
+  const $ = (el: string): HTMLElement | null => document.querySelector(el)
+  const $scrollToTop = $(`#scrollToTop`)
+
+  if($scrollToTop) {
+    $scrollToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
+    })
+  }
+</script>
