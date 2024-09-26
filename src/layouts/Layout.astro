@@ -43,5 +43,7 @@ const { title, description } = Astro.props
 </style>
 
 <script>
-  window.matchMedia("(prefers-color-scheme: dark)").matches ? document.body.classList.add("dark") : ''
+  document.addEventListener('astro:page-load', () => {
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? document.body.classList.add("dark") : ''
+  })
 </script>
