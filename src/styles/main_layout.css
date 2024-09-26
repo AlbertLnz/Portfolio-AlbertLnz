@@ -1,0 +1,104 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  padding: 2rem;
+  gap: 1rem;
+  background-color: #111111;
+  overflow: hidden;
+  display: grid;
+  color: var(--text-color-dark-primary);
+  font-size: 12px;
+}
+
+body > section {
+  font-family: 'Outfit Variable', sans-serif;
+  overflow: hidden;
+  background-color: #171717;
+  border-radius: 8px;
+  border-width: 1px;
+  border-color: #2c2c2c;
+  padding: 2rem;
+  padding-top: 1.2rem;
+}
+
+#personal {
+  grid-column: span 7;
+  grid-row: span 2;
+}
+
+#projects {
+  grid-column: 8 / span 3;
+  grid-row: span 3;
+}
+
+#work {
+  grid-column: span 3;
+  grid-row: 3 / span 2;
+}
+
+#tools {
+  grid-column: 4 / span 4;
+  grid-row: 3;
+}
+
+#portfolio {
+  grid-column: 4 / span 2;
+  grid-row: 4;
+}
+
+#weather {
+  grid-column: 6 / span 2;
+  grid-row: 4;
+}
+
+#blog {
+  grid-column: 8 / span 3;
+  grid-row: 4;
+}
+
+/* ~~~ RESPONSIVE ~~~ */
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  #personal {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  #projects {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  #work {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  #tools {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  #portfolio {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  #weather {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  #blog {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
