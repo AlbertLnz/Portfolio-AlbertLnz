@@ -32,27 +32,29 @@ const nextLang = t('nextLang')
 </div>
 
 <script>
-  const $ = (el: string): HTMLElement | null => document.querySelector(el)
-  const $lightThemeBtn = $(`#light-theme-button`)
-  const $darkThemeBtn = $(`#dark-theme-button`)
-  const $systemThemeBtn = $(`#system-theme-button`)
-
-  function toggleTheme(dark: boolean) {
-    dark ? document.body.classList.add("dark") : document.body.classList.remove("dark")
-  }
-
-  $lightThemeBtn?.addEventListener("click", () => {
-    localStorage.setItem("theme", "light")
-    toggleTheme(false)
-  })
-
-  $darkThemeBtn?.addEventListener("click", () => {
-    localStorage.setItem("theme", "dark")
-    toggleTheme(true)
-  })
-
-  $systemThemeBtn?.addEventListener("click", () => {
-    localStorage.setItem("theme", "system")
-    toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches)
+  document.addEventListener('astro:page-load', () => {
+    const $ = (el: string): HTMLElement | null => document.querySelector(el)
+    const $lightThemeBtn = $(`#light-theme-button`)
+    const $darkThemeBtn = $(`#dark-theme-button`)
+    const $systemThemeBtn = $(`#system-theme-button`)
+  
+    function toggleTheme(dark: boolean) {
+      dark ? document.body.classList.add("dark") : document.body.classList.remove("dark")
+    }
+  
+    $lightThemeBtn?.addEventListener("click", () => {
+      localStorage.setItem("theme", "light")
+      toggleTheme(false)
+    })
+  
+    $darkThemeBtn?.addEventListener("click", () => {
+      localStorage.setItem("theme", "dark")
+      toggleTheme(true)
+    })
+  
+    $systemThemeBtn?.addEventListener("click", () => {
+      localStorage.setItem("theme", "system")
+      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches)
+    })
   })
 </script>
