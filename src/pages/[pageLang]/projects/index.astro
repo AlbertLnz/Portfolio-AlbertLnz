@@ -46,18 +46,21 @@ const allProjects = await getCollection('projects')
 </ProjectsLayout>
 
 <script>
+  // TO-DO: ASTRO HYDRATION
   document.addEventListener('astro:page-load', function() {
-    const $$ = (els: string): HTMLElement[] => Array.from(document.querySelectorAll(els))
+    setTimeout(() => {
+      const $$ = (els: string): HTMLElement[] => Array.from(document.querySelectorAll(els))
 
-    const $$buttons = $$('button[id^="project-"]');
-    const $$projects = $$('article[id^="project-"]');
+      const $$buttons = $$('button[id^="project-"]')
+      const $$projects = $$('article[id^="project-"]')
 
-    $$buttons.forEach((button) => {
-      button.addEventListener('click', () => {
-        $$projects.forEach((project) => {
-          project.style.display = button.id === project.id ? '' : 'none'
+      $$buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          $$projects.forEach((project) => {
+            project.style.display = button.id === project.id ? '' : 'none'
+          })
         })
       })
-    })
+    }, 0)
   })
 </script>
