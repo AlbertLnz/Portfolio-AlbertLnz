@@ -1,6 +1,9 @@
 ---
+import '@/styles/markdownContent.css'
+import LanguageAndThemeSelector from '@/components/LanguageAndThemeSelector.astro';
+import ProjectLayout from '@/layouts/ProjectLayout.astro';
+import { getCollection, render } from 'astro:content'
 import { prepareCorrectVariousRoutesPaths } from '@/data/prepareCorrectRoutePaths';
-import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects')
@@ -10,6 +13,38 @@ export async function getStaticPaths() {
 
 const projects = await getCollection('projects')
 const { pageLang, projectIdTitle } = Astro.params
+const [id] = projectIdTitle.split('/')[0]
+const project = projects.find((project) => project.data.id === Number(id) && project.data.language === pageLang) as typeof projects[0]
+
+const { Content } = await render(project)
 ---
 
-{projectIdTitle} / {pageLang} / {projects}
+<ProjectLayout>
+  <article id="project" class={`relative overflow-hidden bg-gradient-to-b to-[120px] to-[#171717]`}>
+    <div class="flex flex-col items-center justify-center mb-12">
+      <h1 class="font-semibold text-2xl text-center">
+        {project.data.title}
+      </h1>
+      <p class="italic">
+        {project.data.shortDescription}
+      </p>
+      <h3
+        class="absolute top-0 left-0 p-8 cust-font font-bold opacity-50 group-hover:opacity-100 text-6xl z-0">
+          {project.data.id}
+      </h3>
+    </div>
+
+    <div id="content">
+      <Content />
+      <footer class="pt-4 pb-2 px-8 flex justify-between items-center">
+        <button class="opacity-65 hover:opacity-100 hover:font-semibold">Share</button>
+        <p class="font-bold">@{project.data.author}</p>
+        <button id="scrollToTop" class="opacity-65 hover:opacity-100 hover:font-semibold">Up</button>
+      </footer>
+    </div>
+
+    <div class="absolute top-0 right-0 p-6">
+      <LanguageAndThemeSelector path={``} />
+    </div>
+  </article>
+</ProjectLayout>

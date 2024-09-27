@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 2rem;
+  background-color: #111111;
+  color: var(--text-color-dark-primary);
+  font-size: 12px;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 0.2fr 0.6fr 0.2fr;
+  height: 100%;
+  gap: 1rem;
+  overflow-x: hidden;
+}
+
+body > article {
+  font-family: 'Outfit Variable', sans-serif;
+  background-color: #171717;
+  border-radius: 8px;
+  border-width: 1px;
+  border-color: #2c2c2c;
+  padding: 2rem;
+}
+
+#project {
+  grid-column: 2;
+}
