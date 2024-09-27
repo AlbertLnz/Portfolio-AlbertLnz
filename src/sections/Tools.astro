@@ -3,7 +3,7 @@ import { tools } from "@/data/tools"
 const MAX_TOOLS_ITEMS = 99
 ---
 
-<section id="tools" class="relative">
+<section id="tools" class="relative" transition:name="tools">
   <ul class="flex flex-wrap w-full h-full">
     {
       tools.slice(0, MAX_TOOLS_ITEMS).map((tool) => {

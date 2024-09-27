@@ -4,10 +4,15 @@ import CV from "@/assets/rrss/CV.astro"
 import Gmail from "@/assets/rrss/Gmail.astro"
 import GitHubScore from '@/components/GitHubScore.astro'
 import Ipad from '@/assets/apple/IPad.astro'
+import Houston from '@/components/Houston.astro'
 import LanguageAndThemeSelector from "@/components/LanguageAndThemeSelector.astro"
+import { getLangFromUrl } from "@/i18n/utils"
+
+const lang = getLangFromUrl(Astro.url)
+const { magicTrickAvailable } = Astro.props
 ---
 
-<section id="personal">
+<section id="personal" transition:name="personal">
 
   <div class="flex item-center justify-between text-[#737373]">
     <h4 class="">Welcome</h4>
@@ -45,6 +50,18 @@ import LanguageAndThemeSelector from "@/components/LanguageAndThemeSelector.astr
           </div>
           <p class="absolute bottom-0 right-0 text-[#737373] text-[10px] italic p-2">Using Astro View Transitions</p>
         </div>
+
+        { magicTrickAvailable ? 
+          (
+            <a href={`/${lang}/magic`}>
+              <Houston class="size-20"/>
+            </a>
+          ) : (
+            <a href={`/${lang}`}>
+              <Houston class="size-20"/>
+            </a>
+          )
+        }
       </div>
   </div>
 

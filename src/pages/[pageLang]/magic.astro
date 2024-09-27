@@ -1,5 +1,5 @@
 ---
-import Layout from '@/layouts/MainLayout.astro'
+import Layout from '@/layouts/MagicLayout.astro'
 import Personal from '@/sections/Personal.astro'
 import Projects from '@/sections/Projects.astro'
 import Work from '@/sections/Work.astro'
@@ -20,7 +20,7 @@ export function getStaticPaths() {
 
 <Layout title="AlbertLnz portfolio" description="SEO description for my portfolio">
 
-	<Personal magicTrickAvailable={true} />
+	<Personal magicTrickAvailable={false} />
 	<Projects />
 	<Work />
 	<Tools />

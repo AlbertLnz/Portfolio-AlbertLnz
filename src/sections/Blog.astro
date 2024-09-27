@@ -11,7 +11,7 @@ const lastPost = posts[posts.length - 1]
 const path = prepareCorrectSingleRoutePath(lastPost)
 ---
 
-<section id="blog" class="relative p-0 group">
+<section id="blog" class="relative p-0 group" transition:name="blog">
   <a href={`${lang}/posts`} class="absolute h-full w-full z-0"></a>
   <div class="h-full flex flex-col justify-between p-[2rem]">
     <div class="flex">

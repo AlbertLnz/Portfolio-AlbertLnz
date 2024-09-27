@@ -67,7 +67,7 @@ let iconWeather = assignIconWeatherArr.find((weather) => weather.name === descri
 if (!iconWeather) iconWeather = assignIconWeatherArr.find((weather) => weather.name === 'unknown') as typeof assignIconWeatherArr[0]
 ---
 
-<section id="weather" class="p-0 flex items-center justify-center bg-gradient-to-b from-[#074A8E] to-[#5596D8] dark:from-[#020518] dark:to-[#283555]">
+<section id="weather" transition:name="weather" class="p-0 flex items-center justify-center bg-gradient-to-b from-[#074A8E] to-[#5596D8] dark:from-[#020518] dark:to-[#283555]">
 
   <div class="grid grid-cols-[70%_30%]  rounded-[22px] w-full h-full  py-2 px-4">
 
