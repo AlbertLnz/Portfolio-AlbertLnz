@@ -14,7 +14,8 @@ export interface Post {
 export interface Project {
   data: {
     id: number
-    name: string
+    title: string
+    language: string
     author: string
     img: string
     shortDescription: string

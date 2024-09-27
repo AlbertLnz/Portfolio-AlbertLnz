@@ -1,0 +1,15 @@
+---
+import type { Project } from "@/content/configTypes"
+import { getLangFromUrl } from "@/i18n/utils"
+
+const { projects }: { projects: Project[] } = Astro.props as { projects: Project[] }
+const lang = getLangFromUrl(Astro.url)
+
+const filteredProjects = projects.filter((project) => project.data.language === lang);
+---
+
+{
+  filteredProjects.map((project) => (
+    <button id={`project-${project.data.id}`}>{project.data.title}</button>
+  ))
+}
