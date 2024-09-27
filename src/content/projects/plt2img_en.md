@@ -1,6 +1,7 @@
 ---
 id: 3
-name: Plt2Img
+title: Plt2Img
+language: en
 author: AlbertLnz
 img: plt2img.jpg
 shortDescription: A tool to convert Python charts to image, instantly

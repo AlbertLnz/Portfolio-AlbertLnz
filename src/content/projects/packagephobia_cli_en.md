@@ -1,6 +1,7 @@
 ---
 id: 2
-name: PackagePhobia CLI
+title: PackagePhobia CLI
+language: en
 author: AlbertLnz
 img: packagephobia_cli.jpg
 shortDescription: PackagePhobia CLI short description

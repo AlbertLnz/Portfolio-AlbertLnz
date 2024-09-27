@@ -1,6 +1,7 @@
 ---
 id: 1
-name: FixItNow
+title: FixItNow
+language: ca
 author: AlbertLnz
 img: fixitnow.webp
 shortDescription: FixItNow short description

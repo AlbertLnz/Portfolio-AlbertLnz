@@ -1,8 +1,11 @@
 ---
+import { prepareCorrectSingleRoutePath } from '@/data/prepareCorrectRoutePaths'
 import { render } from 'astro:content'
 
 const { project } = Astro.props
 const { Content } = await render(project)
+
+const path = prepareCorrectSingleRoutePath(project)
 ---
 
 <article id={`project-${project.data.id}`} class="z-20 relative grid grid-cols-[0.3fr_0.7fr] min-w-full h-full bg-slate-800">
@@ -11,13 +14,13 @@ const { Content } = await render(project)
     <img
     class="size-28 rounded-lg mt-2"
     src={'https://www.davidhechler.com/wp-content/uploads/2016/07/500x500-dummy-image.jpg'}
-    alt={project.data.name}
+    alt={project.data.title}
     />
 
   </div>
 
   <div class="flex flex-col justify-start items-center">
-    <p class="text-2xl">{project.data.name}</p>
+    <p class="text-2xl">{project.data.title}</p>
     <ul class="grid grid-cols-6">
       {
         project.data.techs.map((tech: string) => {
@@ -34,6 +37,12 @@ const { Content } = await render(project)
   <div class="col-span-2">
     <Content />
   </div>
+
+  <button>
+    <a href={`projects/${path}`}>
+      Get more info
+    </a>
+  </button>
 
   <h3 class="absolute bottom-0 left-0 right-0 rounded-full flex justify-self-center items-center justify-center bg-black bg-opacity-25 text-center text-2xl px-8 py-2 my-4">test</h3>
   <p class="absolute bottom-0 right-0 p-6">{project.data.author}</p>

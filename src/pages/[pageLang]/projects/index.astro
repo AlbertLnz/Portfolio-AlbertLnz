@@ -30,7 +30,7 @@ const allProjects = await getCollection('projects')
   <section id="aside" class="flex flex-col">
     {
       allProjects.map((project) => (
-        <button id={`project-${project.data.id}`}>{project.data.name}</button>
+        <button id={`project-${project.data.id}`}>{project.data.title}</button>
       ))
     }
   </section>

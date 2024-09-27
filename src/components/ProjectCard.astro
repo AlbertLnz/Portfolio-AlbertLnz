@@ -13,7 +13,7 @@ const projects = await getCollection('projects')
     {
       projects.reverse().slice(0, 3).map((project) => (
         <li class="relative list-none border-[1px] border-[#262626] rounded-[6px] w-full group">
-          <h3 class="px-6 mt-2 mb-1 text-lg lowercase tracking-wide">{project.data.name}</h3>
+          <h3 class="px-6 mt-2 mb-1 text-lg lowercase tracking-wide">{project.data.title}</h3>
           <p class="text-xs mx-8 text-[#A3A3A3] text-center mb-4 line-clamp-1">{project.data.shortDescription}</p>
 
           <div class="flex items-center justify-center gap-x-4 mb-2">

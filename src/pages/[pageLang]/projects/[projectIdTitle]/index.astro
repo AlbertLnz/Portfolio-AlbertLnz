@@ -1,0 +1,15 @@
+---
+import { prepareCorrectVariousRoutesPaths } from '@/data/prepareCorrectRoutePaths';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects')
+  const paths = prepareCorrectVariousRoutesPaths(projects)
+  return paths
+}
+
+const projects = await getCollection('projects')
+const { pageLang, projectIdTitle } = Astro.params
+---
+
+{projectIdTitle} / {pageLang} / {projects}
