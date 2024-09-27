@@ -1,14 +1,14 @@
 ---
 // Original Mockup: https://www.figma.com/design/YO6UdFVeUb8oj4ik3KFg2e/iPad-Pro-Mockup-(Community)?node-id=6-3&node-type=frame&t=Hs57VrPf5855MKUV-0
 
-const { id, svgClass, contentClass, ...props } = Astro.props
+const { id, svgClass, svgWidth = 1382, svgHeight = 1058, contentClass, ...props } = Astro.props
 ---
 
-<div id={id} class={svgClass} {...props}>
-  <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="1382" height="1058" viewBox="0 0 1382 1058" fill="none">
+<div id={id} class={`relative w-full h-full max-h-full ${svgClass}`} {...props}>
+  <svg id="iPadSVG" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg" width={svgWidth} height={svgHeight} viewBox="0 0 1382 1058" fill="none">
     <rect x="7.58325" y="1052.55" width="1044.8" height="1369.3" rx="53.0738" transform="rotate(-90 7.58325 1052.55)" fill="#0B0B0B"/>
     <rect x="5.30866" y="1054.83" width="1049.35" height="1373.85" rx="55.3484" transform="rotate(-90 5.30866 1054.83)" stroke="url(#paint0_linear_25_23)" stroke-width="4.54919"/>
-    <rect x="45.49" y="1014.64" width="968.98" height="1293.48" rx="22.75" transform="rotate(-90 45.49 1014.64)" fill="transparent"/>
+    <rect class="iPadRect" x="45.49" y="1014.64" width="968.98" height="1293.48" rx="22.75" transform="rotate(-90 45.49 1014.64)" fill="transparent"/>
     <rect y="124.517" width="59.8976" height="3.03279" transform="rotate(-90 0 124.517)" fill="url(#paint1_linear_25_23)"/>
     <rect x="147.09" y="3.20556" width="47.7664" height="3.03279" transform="rotate(180 147.09 3.20556)" fill="url(#paint2_linear_25_23)"/>
     <rect x="207.745" y="3.20556" width="47.7664" height="3.03279" transform="rotate(180 207.745 3.20556)" fill="url(#paint3_linear_25_23)"/>
@@ -34,14 +34,37 @@ const { id, svgClass, contentClass, ...props } = Astro.props
 
   <div
     id="iPadContent"
-    class={contentClass}
-    style="
-      left: calc((45.49 / 1382) * 100%);
-      top: calc(100% - ((1014.64 / 1058)*100%)); 
-      width: calc((1293.48 / 1382) * 100%); 
-      height: calc((968.98 / 1058) * 100%);
-      border-radius: calc((22.75 / 1044.8) * 100%);"
-    >
+    class={`overflow-hidden absolute ${contentClass}`}
+  >
     <slot />
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('astro:page-load', function() {
+      const svg = document.getElementById('iPadSVG')
+      const content = document.getElementById('iPadContent')
+      
+      const updateContentDimensions = () => {
+        if (svg && content) {
+          const svgRect = svg.getBoundingClientRect()
+          const iPadRect = svg?.getElementsByClassName('iPadRect')[0].getBoundingClientRect()
+    
+          content.style.left = `${iPadRect.left - svgRect.left}px`
+          content.style.top = `${iPadRect.top - svgRect.top}px`
+          content.style.width = `${iPadRect.width}px`
+          content.style.height = `${iPadRect.height}px`
+          content.style.borderRadius = '22.75px'
+        }
+      }
+
+      const resizeObserver = new ResizeObserver(() => {
+        updateContentDimensions()
+      })
+
+      resizeObserver.observe(svg as Element)
+      updateContentDimensions()
+    })
+  })
+</script>

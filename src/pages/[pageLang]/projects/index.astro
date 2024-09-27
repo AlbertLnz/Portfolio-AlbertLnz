@@ -1,5 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
+import LanguageAndThemeSelector from '@/components/LanguageAndThemeSelector.astro';
+import ProjectsLayout from '@/layouts/ProjectsLayout.astro'
+import { getCollection } from 'astro:content'
+import IPad from "@/assets/apple/IPad.astro"
 
 export function getStaticPaths() {
   return [
@@ -14,9 +17,22 @@ const { pageLang } = Astro.params;
 const allProjects = await getCollection('projects')
 ---
 
-<div class="relative">
-  <h1 class="text-3xl text-center py-[2rem]">AlbertLnz's Projects</h1>
-  <p class="italic">
-    {allProjects.length} projects / {pageLang}
-  </p>
-</div>
+<ProjectsLayout>
+  <section id="header" class="grid grid-cols-[0.2fr_0.6fr_0.2fr] gap-x-2 p-0">
+    <a class="flex items-center justify-center rounded-l-[8px] text-lg transition-colors duration-500 hover:bg-black/20 hover:underline" href={`/${pageLang}`}>
+      Back
+    </a>
+    <h1 class="font-semibold text-2xl text-center py-[2rem]">AlbertLnz's Projects</h1>
+    <LanguageAndThemeSelector path="/projects" />
+  </section>
+
+  <section id="aside">
+    aside
+  </section>
+
+  <section id="content" class="p-0 bg-slate-600 h-full max-h-full overflow-hidden">
+    <IPad svgClass="" contentClass="bg-slate-200">
+      <p>hi</p>
+    </IPad>
+  </section>
+</ProjectsLayout>
