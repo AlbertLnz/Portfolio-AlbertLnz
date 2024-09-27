@@ -1,7 +1,17 @@
 ---
 
-const { id, title } = Astro.props
-
+const { id, name, author, img, shortDescription, shortTechs, links } = Astro.props
 ---
 
-{title}
+<article id={`project-${id}`} class="min-w-full h-full bg-slate-800">
+
+  <h2>{id}</h2>
+  <h3>{name}</h3>
+  <p>{author}</p>
+  <img src={img} alt={name} />
+  <p>{shortDescription}</p>
+  <p>{shortTechs}</p>
+  <p>{links.github}</p>
+  <p>{links.deploy}</p>
+
+</article>

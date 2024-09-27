@@ -37,15 +37,19 @@ const allProjects = await getCollection('projects')
 
   <section id="content" class="p-0 bg-slate-600 h-full max-h-full overflow-hidden">
     <IPad svgClass="" contentClass="bg-slate-900 p-4 flex gap-x-4">
-      <article id="project-1" class="min-w-full h-full bg-red-400">
-        a
-      </article>
-      <article id="project-2" class="min-w-full h-full bg-green-400">
-        b
-      </article>
-      <article id="project-3" class="min-w-full h-full bg-blue-400">
-        c
-      </article>
+      {
+        allProjects.map((project) => (
+          <ProjectsPageCardIPad
+            id = {project.data.id}
+            name = {project.data.name}
+            author = {project.data.author}
+            img = {project.data.img}
+            shortDescription = {project.data.shortDescription}
+            shortTechs = {project.data.shortTechs}
+            links = {project.data.links}
+          />
+        ))
+      }
     </IPad>
   </section>
 </ProjectsLayout>
