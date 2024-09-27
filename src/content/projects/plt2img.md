@@ -4,7 +4,7 @@ name: Plt2Img
 author: AlbertLnz
 img: plt2img.jpg
 shortDescription: A tool to convert Python charts to image, instantly
-shortTechs: [Astro, Python]
+techs: [Astro, Python]
 links:
   github: https://github.com/AlbertLnz/plt2img
   deploy: https://plt2img.online

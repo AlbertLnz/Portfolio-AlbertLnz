@@ -4,7 +4,7 @@ name: FixItNow
 author: AlbertLnz
 img: fixitnow.webp
 shortDescription: FixItNow short description
-shortTechs: [Astro, Python]
+techs: [Astro, Python]
 links:
   github: https://github.com/AlbertLnz/fixitnow
   deploy:

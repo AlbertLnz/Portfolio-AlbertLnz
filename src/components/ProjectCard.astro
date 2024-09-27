@@ -18,7 +18,7 @@ const projects = await getCollection('projects')
 
           <div class="flex items-center justify-center gap-x-4 mb-2">
             {
-              project.data.shortTechs.map((tech) => {
+              project.data.techs.slice(0, 2).map((tech) => {
                 const techIcon = 'Astro' === tech ? <AstroIcon class="size-4" /> : <Python class="size-4" />
                 return (
                 <div class="z-50 flex items-center justify-center text-[#A3A3A3] bg-[#26262699] gap-x-1 rounded-[6px] px-2 py-0.5">

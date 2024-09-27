@@ -13,11 +13,12 @@ export interface Post {
 
 export interface Project {
   data: {
+    id: number
     name: string
     author: string
     img: string
     shortDescription: string
-    shortTechs: string[]
+    techs: string[]
     links: {
       github: string
       deploy: string

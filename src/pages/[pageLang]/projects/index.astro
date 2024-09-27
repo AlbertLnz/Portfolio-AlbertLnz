@@ -40,13 +40,7 @@ const allProjects = await getCollection('projects')
       {
         allProjects.map((project) => (
           <ProjectsPageCardIPad
-            id = {project.data.id}
-            name = {project.data.name}
-            author = {project.data.author}
-            img = {project.data.img}
-            shortDescription = {project.data.shortDescription}
-            shortTechs = {project.data.shortTechs}
-            links = {project.data.links}
+            project = {project}
           />
         ))
       }
@@ -64,11 +58,7 @@ const allProjects = await getCollection('projects')
     $$buttons.forEach((button) => {
       button.addEventListener('click', () => {
         $$projects.forEach((project) => {
-          if (button.id !== project.id) {
-            project.hidden = true
-          } else {
-            project.hidden = false
-          }
+          project.style.display = button.id === project.id ? '' : 'none'
         })
       })
     })
