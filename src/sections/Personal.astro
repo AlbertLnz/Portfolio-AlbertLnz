@@ -40,28 +40,21 @@ const { magicTrickAvailable } = Astro.props
           <GitHubScore />
         </div>
         <div class="relative h-auto flex justify-center items-center border rounded-[6px] border-[#262626] w-1/4">
-          <h3 class="z-40 self-start justify-self-start w-full p-2">Being Responsive</h3>
-          <div class="absolute h-[50%] max-h-full w-auto">
-            <a href="/ipad">
-              <Ipad svgClass="h-full" contentClass="absolute bg-slate-800 overflow-hidden" transition:name="iPad" >
-                <p>hi</p>
-              </Ipad>
-            </a>
-          </div>
+          <h3 class="absolute z-40 self-start justify-self-start w-full p-2">✨ Magic Trick</h3>
+            { magicTrickAvailable ? 
+              (
+                <a href={`/${lang}/magic`}>
+                  <Houston class="size-16"/>
+                </a>
+              ) : (
+                <a href={`/${lang}`}>
+                  <Houston class="size-16"/>
+                </a>
+              )
+            }
           <p class="absolute bottom-0 right-0 text-[#737373] text-[10px] italic p-2">Using Astro View Transitions</p>
         </div>
 
-        { magicTrickAvailable ? 
-          (
-            <a href={`/${lang}/magic`}>
-              <Houston class="size-20"/>
-            </a>
-          ) : (
-            <a href={`/${lang}`}>
-              <Houston class="size-20"/>
-            </a>
-          )
-        }
       </div>
   </div>
 
