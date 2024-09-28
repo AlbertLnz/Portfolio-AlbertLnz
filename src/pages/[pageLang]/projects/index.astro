@@ -32,8 +32,8 @@ const allProjects = await getCollection('projects')
     <ProjectsAside projects={allProjects} />
   </section>
 
-  <section id="content" class="p-0 bg-slate-600 h-full max-h-full overflow-hidden">
-    <IPad svgClass="" contentClass="bg-slate-900 p-4 flex gap-x-4">
+  <section id="content" class="p-0 h-full max-h-full overflow-hidden">
+    <IPad id="iPad" contentClass="p-4 flex gap-x-4">
       {
         allProjects.map((project) => (
           <ProjectsPageCardIPad

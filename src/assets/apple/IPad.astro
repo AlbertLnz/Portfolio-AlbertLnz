@@ -1,10 +1,10 @@
 ---
 // Original Mockup: https://www.figma.com/design/YO6UdFVeUb8oj4ik3KFg2e/iPad-Pro-Mockup-(Community)?node-id=6-3&node-type=frame&t=Hs57VrPf5855MKUV-0
 
-const { id, svgClass, svgWidth = 1382, svgHeight = 1058, contentClass, ...props } = Astro.props
+const { id, svgWidth = 1382, svgHeight = 1058, contentClass, ...props } = Astro.props
 ---
 
-<div id={id} class={`relative w-full h-full max-h-full ${svgClass}`} {...props}>
+<div id={id} class="relative w-full h-full max-h-full" {...props}>
   <svg id="iPadSVG" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg" width={svgWidth} height={svgHeight} viewBox="0 0 1382 1058" fill="none">
     <rect x="7.58325" y="1052.55" width="1044.8" height="1369.3" rx="53.0738" transform="rotate(-90 7.58325 1052.55)" fill="#0B0B0B"/>
     <rect x="5.30866" y="1054.83" width="1049.35" height="1373.85" rx="55.3484" transform="rotate(-90 5.30866 1054.83)" stroke="url(#paint0_linear_25_23)" stroke-width="4.54919"/>
@@ -39,6 +39,15 @@ const { id, svgClass, svgWidth = 1382, svgHeight = 1058, contentClass, ...props 
     <slot />
   </div>
 </div>
+
+<style>
+  #iPadContent {
+    background-image: url('/imgs/background_dark.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+</style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
