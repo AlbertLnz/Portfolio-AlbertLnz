@@ -3,7 +3,6 @@ import LinkedIn from "@/assets/rrss/LinkedIn.astro"
 import CV from "@/assets/rrss/CV.astro"
 import Gmail from "@/assets/rrss/Gmail.astro"
 import GitHubScore from '@/components/GitHubScore.astro'
-import Ipad from '@/assets/apple/IPad.astro'
 import Houston from '@/components/Houston.astro'
 import LanguageAndThemeSelector from "@/components/LanguageAndThemeSelector.astro"
 import { getLangFromUrl } from "@/i18n/utils"
@@ -63,5 +62,11 @@ const { magicTrickAvailable } = Astro.props
 <style>
   button:hover {
     color: white;
-   }
+  }
+
+  body:not(.dark) {
+    div > div {
+      border-color: var(--section-border-light)
+    }
+  }
 </style>

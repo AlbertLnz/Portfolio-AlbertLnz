@@ -6,17 +6,13 @@
 body {
   margin: 0;
   padding: 2rem;
-  background-color: #111111;
-  color: var(--text-color-dark-primary);
   font-size: 12px;
 }
 
 div > section {
   font-family: 'Outfit Variable', sans-serif;
-  background-color: #171717;
   border-radius: 8px;
   border-width: 1px;
-  border-color: #2c2c2c;
   padding: 2rem;
 }
 

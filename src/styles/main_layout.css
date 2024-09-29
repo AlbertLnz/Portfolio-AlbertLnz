@@ -5,20 +5,16 @@ body {
   grid-template-rows: repeat(4, 1fr);
   padding: 2rem;
   gap: 1rem;
-  background-color: #111111;
   overflow: hidden;
   display: grid;
-  color: var(--text-color-dark-primary);
   font-size: 12px;
 }
 
 body > section {
   font-family: 'Outfit Variable', sans-serif;
   overflow: hidden;
-  background-color: #171717;
   border-radius: 8px;
   border-width: 1px;
-  border-color: #2c2c2c;
   padding: 2rem;
   padding-top: 1.2rem;
 }
