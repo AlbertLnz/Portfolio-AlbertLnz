@@ -4,6 +4,7 @@ title: Plt2Img
 language: en
 author: AlbertLnz
 img: /imgs/projects/plt2img.webp
+svg: /imgs/projects/favicon/plt2img.svg
 shortDescription: A tool to convert Python charts to image, instantly
 longDescription: La herramienta de conversión de archivos de imagen de formato plt a formato png. Es muy útil para los usuarios de Windows que no tienen instalados los programas de conversión de imágenes. Copia directamente de ChatGPT y pégalo en **Plt2Img** para que puedas convertir tu código gráfico a formato png.
 techs: [Astro, Python]

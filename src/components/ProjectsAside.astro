@@ -8,8 +8,18 @@ const lang = getLangFromUrl(Astro.url)
 const filteredProjects = projects.filter((project) => project.data.language === lang);
 ---
 
-{
-  filteredProjects.map((project) => (
-    <button id={`project-${project.data.id}`}>{project.data.title}</button>
-  ))
-}
+<ul class="flex flex-col items-start justify-center text-xl gap-y-6">
+  {
+    filteredProjects.map((project) => (
+      <li class="flex gap-x-4">
+        <img class="size-8" src={project.data.svg} alt={project.data.title} />
+        <button
+          id={`project-${project.data.id}`}
+          class=""  
+        >
+          {project.data.title}
+        </button>
+      </li>
+    ))
+  }
+</ul>

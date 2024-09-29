@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+  <style>
+    <!-- Light Mode -->
+    .background { fill: #4A90E2; }
+    .chart { stroke: #FFFFFF; stroke-width: 2; fill: none; }
+    .line { fill: #FFFFFF; }
+
+    <!-- Dark Mode -->
+    @media (prefers-color-scheme: dark) {
+      .background { fill: #161D6F; }
+      .chart { stroke: #FFFFFF; }
+      .line { fill: #FFFFFF; }
+    }
+  </style>
+
+  <!-- Background -->
+  <rect class="background" width="100%" height="100%" rx="6"/>
+
+  <!-- Chart -->
+  <path class="chart" d="M4 12l3-3 4 4 6-6 4 4"/>
+
+  <!-- Line -->
+  <rect class="line" x="3" y="16" width="18" height="2.5"/>
+</svg>

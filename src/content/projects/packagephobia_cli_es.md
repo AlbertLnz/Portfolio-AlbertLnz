@@ -4,6 +4,7 @@ title: PackagePhobia CLI
 language: es
 author: AlbertLnz
 img: /imgs/projects/packagephobia_cli.webp
+svg: /imgs/projects/favicon/packagephobia_cli.svg
 shortDescription: PackagePhobia CLI short description
 longDescription: La **herramienta de CLI** que te permite obtener información sobre los paquetes de npm que tienes instalados en tu computadora.
 techs: [Astro, Python]
