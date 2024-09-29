@@ -1,1 +1,57 @@
-<svg {...Astro.props} xmlns="http://www.w3.org/2000/svg"viewBox="0 0 124 124" fill="none"><path fill="#fff" fill-rule="evenodd" d="M93.81 1.102c17.696 0 29.174 11.478 29.174 29.174V94.36c0 17.696-11.478 29.174-29.173 29.174H29.725C12.029 123.535.55 112.057.55 94.361V30.275C.551 12.58 12.03 1.102 29.725 1.102H93.81Z" clip-rule="evenodd"/><path fill="#fff" fill-rule="evenodd" d="M93.81 1.102c17.696 0 29.174 11.478 29.174 29.174V94.36c0 17.696-11.478 29.174-29.173 29.174H29.725C12.029 123.535.55 112.057.55 94.361V30.275C.551 12.58 12.03 1.102 29.725 1.102H93.81Z" clip-rule="evenodd"/><mask id="a" width="123" height="123" x="0" y="1" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#fff" fill-rule="evenodd" d="M93.81 1.102c17.696 0 29.174 11.478 29.174 29.174V94.36c0 17.696-11.478 29.174-29.173 29.174H29.725C12.029 123.535.55 112.057.55 94.361V30.275C.551 12.58 12.03 1.102 29.725 1.102H93.81Z" clip-rule="evenodd"/></mask><g mask="url(#a)"><path fill="url(#b)" fill-rule="evenodd" d="M20.957 83.744h8.162v39.791h-8.162v-39.79Zm0-45.912h8.162v34.69h-8.162v-34.69Zm0-15.343c0-2.233 1.831-4.042 4.08-4.042 2.255 0 4.082 1.814 4.082 4.042v4.042h-8.162V22.49Z" clip-rule="evenodd"/><path fill="#141821" d="M29.119 83.744h-8.162v4.081h8.162v-4.08ZM29.119 37.832h-8.162v4.081h8.162v-4.081Z"/><path fill="url(#c)" fill-rule="evenodd" d="m105.129 29.67-9.692 27.547 9.692 26.527H17.896V29.669h87.233ZM33.2 37.831v37.75H17.896v-37.75H33.2Z" clip-rule="evenodd"/><mask id="d" width="89" height="55" x="17" y="29" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#fff" fill-rule="evenodd" d="m105.129 29.67-9.692 27.547 9.692 26.527H17.896V29.669h87.233ZM33.2 37.831v37.75H17.896v-37.75H33.2Z" clip-rule="evenodd"/></mask><g fill-rule="evenodd" clip-rule="evenodd" mask="url(#d)"><path fill="url(#e)" d="M53.605 29.67h19.386L52.585 83.743H32.69l20.915-54.075Z"/><path fill="url(#f)" d="M72.99 29.67h12.244L67.192 83.743H52.585l20.406-54.075Z"/><path fill="url(#g)" d="M85.234 29.67 95.44 57.211 84.724 83.744H67.178l18.056-54.075Z"/><path fill="url(#h)" d="m85.205 29.638 10.231 27.579 9.672-27.58H85.205Z"/><path fill="url(#i)" d="m84.686 83.843 10.75-26.626 9.862 26.626H84.686Z"/></g></g><path stroke="#A4A4A4" stroke-width=".51" d="M93.81 1.102c17.696 0 29.174 11.478 29.174 29.174V94.36c0 17.696-11.478 29.174-29.173 29.174H29.725C12.029 123.535.55 112.057.55 94.361V30.275C.551 12.58 12.03 1.102 29.725 1.102H93.81Z" clip-rule="evenodd"/><defs><linearGradient id="b" x1="20.957" x2="29.119" y1="111.177" y2="111.177" gradientUnits="userSpaceOnUse"><stop stop-color="#5A6170"/><stop offset="1" stop-color="#3E4554"/></linearGradient><linearGradient id="c" x1="17.896" x2="17.896" y1="29.669" y2="83.744" gradientUnits="userSpaceOnUse"><stop stop-color="#FAA92A"/><stop offset="1" stop-color="#F26423"/></linearGradient><linearGradient id="e" x1="32.69" x2="32.69" y1="29.669" y2="83.744" gradientUnits="userSpaceOnUse"><stop stop-color="#F7901E"/><stop offset="1" stop-color="#F36D22"/></linearGradient><linearGradient id="f" x1="52.585" x2="52.585" y1="29.669" y2="83.744" gradientUnits="userSpaceOnUse"><stop stop-color="#F68829"/><stop offset="1" stop-color="#F2651F"/></linearGradient><linearGradient id="g" x1="67.178" x2="67.178" y1="29.669" y2="83.744" gradientUnits="userSpaceOnUse"><stop stop-color="#FAAB36"/><stop offset="1" stop-color="#F36C22"/></linearGradient><linearGradient id="h" x1="85.205" x2="85.205" y1="29.638" y2="57.217" gradientUnits="userSpaceOnUse"><stop stop-color="#F99F31"/><stop offset="1" stop-color="#F47F19"/></linearGradient><linearGradient id="i" x1="84.686" x2="84.686" y1="83.843" y2="57.217" gradientUnits="userSpaceOnUse"><stop stop-color="#F67B2A"/><stop offset="1" stop-color="#F89626"/></linearGradient></defs></svg>
+---
+const { id, ...props } = Astro.props
+---
+
+<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124" fill="none">
+<path fill="#fff" fill-rule="evenodd" d="M93.81 1.102c17.696 0 29.174 11.478 29.174 29.174V94.36c0 17.696-11.478 29.174-29.173 29.174H29.725C12.029 123.535.55 112.057.55 94.361V30.275C.551 12.58 12.03 1.102 29.725 1.102H93.81Z" clip-rule="evenodd"/>
+<path fill="#fff" fill-rule="evenodd" d="M93.81 1.102c17.696 0 29.174 11.478 29.174 29.174V94.36c0 17.696-11.478 29.174-29.173 29.174H29.725C12.029 123.535.55 112.057.55 94.361V30.275C.551 12.58 12.03 1.102 29.725 1.102H93.81Z" clip-rule="evenodd"/>
+<mask id={`flag_a_${id}`} width="123" height="123" x="0" y="1" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+   <path fill="#fff" fill-rule="evenodd" d="M93.81 1.102c17.696 0 29.174 11.478 29.174 29.174V94.36c0 17.696-11.478 29.174-29.173 29.174H29.725C12.029 123.535.55 112.057.55 94.361V30.275C.551 12.58 12.03 1.102 29.725 1.102H93.81Z" clip-rule="evenodd"/>
+</mask>
+<g mask={`url(#flag_a_${id})`}>
+   <path fill={`url(#flag_b_${id})`} fill-rule="evenodd" d="M20.957 83.744h8.162v39.791h-8.162v-39.79Zm0-45.912h8.162v34.69h-8.162v-34.69Zm0-15.343c0-2.233 1.831-4.042 4.08-4.042 2.255 0 4.082 1.814 4.082 4.042v4.042h-8.162V22.49Z" clip-rule="evenodd"/>
+   <path fill="#141821" d="M29.119 83.744h-8.162v4.081h8.162v-4.08ZM29.119 37.832h-8.162v4.081h8.162v-4.081Z"/>
+   <path fill={`url(#flag_c_${id})`} fill-rule="evenodd" d="m105.129 29.67-9.692 27.547 9.692 26.527H17.896V29.669h87.233ZM33.2 37.831v37.75H17.896v-37.75H33.2Z" clip-rule="evenodd"/>
+   <mask id={`flag_d_${id}`} width="89" height="55" x="17" y="29" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+      <path fill="#fff" fill-rule="evenodd" d="m105.129 29.67-9.692 27.547 9.692 26.527H17.896V29.669h87.233ZM33.2 37.831v37.75H17.896v-37.75H33.2Z" clip-rule="evenodd"/>
+   </mask>
+   <g fill-rule="evenodd" clip-rule="evenodd" mask={`url(#flag_d_${id})`}>
+      <path fill={`url(#flag_e_${id})`} d="M53.605 29.67h19.386L52.585 83.743H32.69l20.915-54.075Z"/>
+      <path fill={`url(#flag_f_${id})`} d="M72.99 29.67h12.244L67.192 83.743H52.585l20.406-54.075Z"/>
+      <path fill={`url(#flag_g_${id})`} d="M85.234 29.67 95.44 57.211 84.724 83.744H67.178l18.056-54.075Z"/>
+      <path fill={`url(#flag_h_${id})`} d="m85.205 29.638 10.231 27.579 9.672-27.58H85.205Z"/>
+      <path fill={`url(#flag_i_${id})`} d="m84.686 83.843 10.75-26.626 9.862 26.626H84.686Z"/>
+   </g>
+</g>
+<path stroke="#A4A4A4" stroke-width=".51" d="M93.81 1.102c17.696 0 29.174 11.478 29.174 29.174V94.36c0 17.696-11.478 29.174-29.173 29.174H29.725C12.029 123.535.55 112.057.55 94.361V30.275C.551 12.58 12.03 1.102 29.725 1.102H93.81Z" clip-rule="evenodd"/>
+<defs>
+   <linearGradient id={`flag_b_${id}`} x1="20.957" x2="29.119" y1="111.177" y2="111.177" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5A6170"/>
+      <stop offset="1" stop-color="#3E4554"/>
+   </linearGradient>
+   <linearGradient id={`flag_c_${id}`} x1="17.896" x2="17.896" y1="29.669" y2="83.744" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAA92A"/>
+      <stop offset="1" stop-color="#F26423"/>
+   </linearGradient>
+   <linearGradient id={`flag_e_${id}`} x1="32.69" x2="32.69" y1="29.669" y2="83.744" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7901E"/>
+      <stop offset="1" stop-color="#F36D22"/>
+   </linearGradient>
+   <linearGradient id={`flag_f_${id}`} x1="52.585" x2="52.585" y1="29.669" y2="83.744" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F68829"/>
+      <stop offset="1" stop-color="#F2651F"/>
+   </linearGradient>
+   <linearGradient id={`flag_g_${id}`} x1="67.178" x2="67.178" y1="29.669" y2="83.744" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAAB36"/>
+      <stop offset="1" stop-color="#F36C22"/>
+   </linearGradient>
+   <linearGradient id={`flag_h_${id}`} x1="85.205" x2="85.205" y1="29.638" y2="57.217" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F99F31"/>
+      <stop offset="1" stop-color="#F47F19"/>
+   </linearGradient>
+   <linearGradient id={`flag_i_${id}`} x1="84.686" x2="84.686" y1="83.843" y2="57.217" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F67B2A"/>
+      <stop offset="1" stop-color="#F89626"/>
+   </linearGradient>
+</defs>
+</svg>

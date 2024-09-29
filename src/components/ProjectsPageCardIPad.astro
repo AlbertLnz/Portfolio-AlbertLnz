@@ -30,7 +30,7 @@ const disableDeploy = project.data.links.deploy === null;
       disabled={disableDeploy}
     >
       <a href={project.data.links.deploy} target="_blank">
-        <Flag class="size-8" />
+        <Flag id={project.data.id} class="size-8" />
       </a>
     </button>
     </div>
@@ -62,7 +62,7 @@ const disableDeploy = project.data.links.deploy === null;
       <p class="text-xs">Home</p>
     </a>
     <a href="/en/posts" class="flex flex-col items-center justify-center gap-y-1">
-      <Blog class="size-8" />
+      <Blog id={project.data.id} class="size-8" />
       <p class="text-xs">Blog</p>
     </a>
     <a href={`projects/${path}`} class="flex flex-col items-center justify-center gap-y-1">
