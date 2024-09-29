@@ -43,8 +43,11 @@ const disableDeploy = project.data.links.deploy === null;
         project.data.techs.map((tech: string) => {
           const techObj = projectsTechs[tech]
           return (
-            <li class={`${techObj.background} p-2 size-10 rounded-lg`}>
-              {<techObj.icon />}
+            <li class="flex flex-col items-center justify-center">
+              <div class= {`${techObj.background} p-2 size-10 rounded-lg`}>
+                {<techObj.icon />}
+              </div>
+              <p class="text-[10px]">{tech}</p>
             </li>
           )
         })
