@@ -19,6 +19,7 @@ export interface Project {
     author: string
     img: string
     shortDescription: string
+    longDescription: string
     techs: string[]
     links: {
       github: string

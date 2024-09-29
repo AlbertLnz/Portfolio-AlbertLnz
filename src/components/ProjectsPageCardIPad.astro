@@ -1,56 +1,75 @@
 ---
 import { prepareCorrectSingleRoutePath } from '@/data/prepareCorrectRoutePaths'
-import { render } from 'astro:content'
-import Reminder_dark from "@/assets/apple/Reminder_dark.astro"
+import { projectsTechs } from '@/data/projectTechs'
+import Blog from '@/assets/apple/Blog.astro'
+import Home from '@/assets/apple/Home.astro'
+import GitHub from '@/assets/apple/GitHub.astro'
+import Click from '@/assets/apple/Click.astro'
+import Flag from '@/assets/apple/Flag.astro'
 
 const { project } = Astro.props
-const { Content } = await render(project)
 
 const path = prepareCorrectSingleRoutePath(project)
+const disableDeploy = project.data.links.deploy === null;
 ---
 
 <article id={`project-${project.data.id}`} class="z-20 relative grid grid-cols-[0.3fr_0.7fr] min-w-full h-full">
   
-  <div class="flex flex-col items-center justify-start">
+  <div class="flex flex-col items-center justify-start gap-y-4">
     <img
     class="size-28 rounded-lg mt-2"
-    src={'https://www.davidhechler.com/wp-content/uploads/2016/07/500x500-dummy-image.jpg'}
+    src={project.data.img}
     alt={project.data.title}
     />
-
+    <div class="flex gap-x-4">
+      <a href={project.data.links.github} target="_blank" >
+        <GitHub class="size-8" />
+      </a>
+      <button
+      class={disableDeploy ? "cursor-not-allowed" : ""}
+      disabled={disableDeploy}
+    >
+      <a href={project.data.links.deploy} target="_blank">
+        <Flag class="size-8" />
+      </a>
+    </button>
+    </div>
   </div>
 
-
-  <div class="flex flex-col justify-start items-center">
-    <p class="text-2xl">{project.data.title}</p>
-    <ul class="grid grid-cols-6">
+  <div class="flex flex-col justify-start items-center px-10">
+    <h2 class="text-2xl mb-6 font-semibold">{project.data.title}</h2>
+    <ul class="grid grid-cols-4 w-full p-4 gap-y-2">
       {
         project.data.techs.map((tech: string) => {
+          const techObj = projectsTechs[tech]
           return (
-            <li>{tech}</li>
+            <li class={`${techObj.background} p-2 size-10 rounded-lg`}>
+              {<techObj.icon />}
+            </li>
           )
         })
       }
-      <li>
-        <Reminder_dark class="size-10" />
-      </li>
     </ul>
-    <p>{project.data.links.github}</p>
-    <p>{project.data.links.deploy}</p>
   </div>
 
-  <div class="col-span-2">
-    <Content />
+  <div class="col-span-2 w-full border-2 border-[#262626] rounded-[6px] p-4 bg-black/90">
+    {project.data.longDescription}
   </div>
 
-  <button>
-    <a href={`projects/${path}`}>
-      Get more info
+  <div class="absolute w-full bottom-0 left-0 gap-x-8 right-0 rounded-t-full flex justify-self-center items-center justify-center text-center text-2xl py-2">
+    <a href="/" class="flex flex-col items-center justify-center gap-y-1">
+      <Home class="size-8" />
+      <p class="text-xs">Home</p>
     </a>
-  </button>
-
-  <h3 class="absolute bottom-0 left-0 right-0 rounded-full flex justify-self-center items-center justify-center bg-[#5E5E5E] bg-opacity-30 text-center text-2xl px-8 py-2 my-4">test</h3>
-  <p class="absolute bottom-0 right-0 p-6">{project.data.author}</p>
+    <a href="/en/posts" class="flex flex-col items-center justify-center gap-y-1">
+      <Blog class="size-8" />
+      <p class="text-xs">Blog</p>
+    </a>
+    <a href={`projects/${path}`} class="flex flex-col items-center justify-center gap-y-1">
+      <Click class="size-8" />
+      <p class="text-xs">+ Info</p>
+    </a>
+  </div>
 </article>
 
 <style>

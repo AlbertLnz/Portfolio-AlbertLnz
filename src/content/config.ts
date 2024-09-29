@@ -9,6 +9,7 @@ const projects = defineCollection({
     author: z.string(),
     img: z.string(),
     shortDescription: z.string(),
+    longDescription: z.string(),
     techs: z.array(z.string()),
     links: z.object({
       github: z.string().url(),
