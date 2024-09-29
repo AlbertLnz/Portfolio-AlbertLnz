@@ -8,33 +8,44 @@ const titleCleaned = title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').repl
 const postUrl = id+'-'+titleCleaned
 
 const { border, backgroundPosts } = blogCardAssignColor[tag as keyof typeof blogCardAssignColor]
+
+const isDark = `bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% ${backgroundPosts} border ${border}`
+const isLight = `bg-gradient-to-b from-[#EBEBF2] via-30% via-[#f2f2f2] to-100% ${backgroundPosts} border ${border}`
+// const borderColor = document.documentElement.classList.contains('dark') ? isDark : isLight
 ---
-<div id=`post-${id}` data-tag=`post-${tag}` class={`card max-h-[125px] relative overflow-hidden border ${border} hover:cursor-pointer hover:border-double hover:border-white/30 w-full h-full rounded-md m-2 group bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% ${backgroundPosts}`}>
+<div
+  id=`post-${id}`
+  data-tag=`post-${tag}`
+  class={`
+    bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% ${backgroundPosts} border ${border}
+    hover:cursor-pointer hover:border-double hover:border-white/30
+    card max-h-[125px] relative overflow-hidden w-full h-full rounded-md m-2 group
+  `}>
   
-  <h2 class="text-lg absolute top-0 m-3 z-10 opacity-50 group-hover:opacity-100">{title}</h2>
+  <h2 class="text-lg absolute top-0 m-3 z-10 opacity-50 group-hover:opacity-100 text-primary-light dark:text-primary-dark">{title}</h2>
 
   <div class="flex items-end z-0 pl-4 pt-12">
     <p
       transition:name={postUrl}
-      class="cust-font font-bold opacity-50 group-hover:opacity-100 text-6xl">
+      class="cust-font font-bold opacity-50 group-hover:opacity-100 text-6xl text-secondary-light dark:text-secondary-dark">
         {id}
     </p>
-    <p class="mb-1 ml-2 opacity-50 group-hover:opacity-80">{tag}</p>
+    <p class="mb-1 ml-2 opacity-50 group-hover:opacity-80 text-secondary-light dark:text-secondary-dark">{tag}</p>
   </div>
 
-  <p class="cust-font absolute top-0 right-0 m-2 opacity-50 group-hover:opacity-80">
+  <p class="cust-font absolute top-0 right-0 m-2 opacity-50 group-hover:opacity-80 text-secondary-light dark:text-secondary-dark">
     {date}
   </p>
 
-  <p class="absolute bottom-0 font-semibold text-xs right-0 m-2 opacity-50 group-hover:opacity-80">
-    {author}
+  <p class="absolute bottom-0 font-light text-xs right-0 m-2 opacity-50 group-hover:opacity-90 text-tertiary-light dark:text-tertiary-dark">
+    @{author}
   </p>
 
   <a href={`posts/${postUrl}`} class="absolute top-0 h-full w-full"></a>
   
   <div class="absolute bottom-[-100%] w-full flex items-center justify-center -z-10 group group-hover:bottom-0 group-hover:z-30 transition-all duration-500 ease-in-out">
     <button class="flex flex-col items-center pb-4 justify-end w-full h-full">
-        <ArrowUp class="size-4" />
+        <ArrowUp class="size-4 fill-black dark:fill-white" />
      </button>
   </div>
 </div>

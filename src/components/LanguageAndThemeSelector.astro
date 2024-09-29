@@ -15,18 +15,37 @@ const nextLang = t('nextLang')
 
 <div class="flex items-center justify-center space-x-3">
   <a href={`/${nextLang}${path}`}>
-    <button id="languageBtn" class="uppercase">{actualLang}</button>
+    <button id="languageBtn" class={`
+      text-black/80 dark:text-white/80
+      hover:text-black/90 hover:dark:text-white
+      uppercase size-4
+    `}>{actualLang}</button>
   </a>
-  <p>|</p>
+  <p class={`
+    text-black/80 dark:text-white/80
+    hover:text-black/90 hover:dark:text-white
+  `}>|</p>
   <div class="h-full flex items-center justify-center gap-x-2">
     <button id="light-theme-button">
-      <Sun class="size-4" />
+      <Sun class={`
+        stroke-black/80 dark:stroke-white/80
+        hover:stroke-black/90 hover:dark:stroke-white
+        size-4
+      `} />
     </button>
     <button id="dark-theme-button">
-      <Moon class="size-4" />
+      <Moon class={`
+        stroke-black/80 dark:stroke-white/80
+        hover:stroke-black/90 hover:dark:stroke-white
+        size-4
+      `} />
     </button>
     <button id="system-theme-button">
-      <Computer class="size-4" />
+      <Computer class={`
+        stroke-black/80 dark:stroke-white/80
+        hover:stroke-black/90 hover:dark:stroke-white
+        size-4
+      `} />
     </button>
   </div>
 </div>

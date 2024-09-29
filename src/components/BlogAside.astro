@@ -9,13 +9,13 @@ const postsTags = new Set(posts.map((post) => post.data.tag))
 ---
 
 <aside class="space-y-4">
-  <button id="asc-desc" class="flex items-center justify-center px-2 py-1 w-full rounded-md gap-x-2 bg-slate-700 transition-colors duration-500 hover:bg-green-800">
+  <button id="asc-desc" class="flex items-center justify-center px-2 py-1 w-full rounded-md gap-x-2 bg-slate-300 dark:bg-slate-700 transition-colors duration-500 hover:bg-green-400 dark:hover:bg-green-800">
     <SortNumeric class="size-6 fill-white/80" />
-    <p class="text-[16px]">Asc / Desc</p>
+    <p class="text-[16px] text-primary-light dark:text-primary-dark">Asc / Desc</p>
   </button>
-  <button id="view-all" class="flex items-center justify-center px-2 py-1 w-full rounded-md gap-x-2 bg-slate-700 transition-colors duration-500 hover:bg-green-800">
+  <button id="view-all" class="flex items-center justify-center px-2 py-1 w-full rounded-md gap-x-2 bg-slate-300 dark:bg-slate-700 transition-colors duration-500 hover:bg-green-400 dark:hover:bg-green-800">
     <TwoXTwoGrid id="gridIcon" class="size-4 fill-white/80 stroke-1 stroke-black/80"/>
-    <p class="text-[16px]">View All</p>
+    <p class="text-[16px] text-primary-light dark:text-primary-dark">View All</p>
   </button>
 
   <hr />
@@ -23,7 +23,7 @@ const postsTags = new Set(posts.map((post) => post.data.tag))
   <ul>
     {
       posts.map((post) => (
-        <li>
+        <li class="text-primary-light dark:text-primary-dark">
           <input id={`chk-post-${post.data.id}`} class="posts-checkbox" type="checkbox" checked />
           <label for={`chk-post-${post.data.id}`}>{post.data.title}</label>
         </li>
@@ -33,7 +33,7 @@ const postsTags = new Set(posts.map((post) => post.data.tag))
 
   <hr />
 
-  <ul class="space-y-2">
+  <ul class="space-y-2 text-primary-light dark:text-primary-dark">
     {Array.from(postsTags).map((tag) => {
       const colorTag = blogCardAssignColor[tag].background
 
