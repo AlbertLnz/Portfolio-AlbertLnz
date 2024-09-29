@@ -37,7 +37,7 @@ async function fetchData() {
 
 <div class="relative flex flex-col w-full h-full">
 
-  <h3 class="pb-4">
+  <h3 class="pb-4 text-secondary-light dark:text-tertiary-dark">
     <span class="">
       <a href="https://github.com/AlbertLnz" target="_blank">
         My GitHub
@@ -50,8 +50,8 @@ async function fetchData() {
     {githubScore.map((item) => {
       if (item.show) {
         return (
-          <li class="text-xs h-full flex flex-col items-center justify-start gap-y-2">
-            <p>{<item.icon class="size-5 fill-[#d1d5db]" />}</p>
+          <li class="text-primary-light dark:text-primary-dark text-xs h-full flex flex-col items-center justify-start gap-y-2">
+            <p>{<item.icon class="size-5 fill-black/90 dark:fill-[#d1d5db]" />}</p>
             <p class="font-bold">{item.value}</p>
           </li>
         )
@@ -59,6 +59,6 @@ async function fetchData() {
     })}
   </ul>
 
-  <p class="absolute bottom-0 right-0 text-[#737373] text-[10px] italic">Using Astro Server Islands</p>
+  <p class="absolute bottom-0 right-0 text-tertiary-light dark:text-tertiary-dark text-[10px] italic">Using Astro Server Islands</p>
 </div>
 

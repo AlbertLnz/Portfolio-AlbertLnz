@@ -11,20 +11,29 @@ const lang = getLangFromUrl(Astro.url)
 const { magicTrickAvailable } = Astro.props
 ---
 
-<section id="personal" transition:name="personal">
+<section
+  id="personal"
+  class={`
+    bg-section-bg-light dark:bg-section-bg-dark
+    border-2 border-section-primary-border-light dark:border-section-primary-border-dark
+  `}
+  transition:name="personal">
 
-  <div class="flex item-center justify-between text-[#737373]">
+  <div class="flex item-center justify-between text-tertiary-light dark:text-tertiary-dark">
     <h4 class="">Welcome</h4>
     <LanguageAndThemeSelector path="" />
   </div>
 
-  <div class="p-6 mx-10 space-y-4">
-      <p class="text-lg">
+  <div class="p-6 mx-4 space-y-4">
+      <p class="text-lg text-primary-light dark:text-primary-dark">
         I'm <span class="font-bold text-xl">Albert Lanza</span>, a fullstack web developer from Barcelona with +2 years of experience.
         Passionate about databases, UI/UX design and building open-source software.
       </p>
       <div class="flex h-fit gap-x-6">
-        <div class="flex flex-col w-fit p-2 border rounded-[6px] border-[#262626] space-y-4">
+        <div class={`
+          border border-section-secondary-border-light dark:border-section-secondary-border-dark
+          flex flex-col w-fit p-2 rounded-[6px] space-y-4
+        `}>
           <a href="">
             <LinkedIn class="group size-6 hover:scale-105" />
           </a>
@@ -35,11 +44,23 @@ const { magicTrickAvailable } = Astro.props
             <Gmail class="group size-6 hover:scale-105" />
           </a>
         </div>
-        <div class="flex flex-col p-2 border rounded-[6px] border-[#262626] space-y-4">
+        <div class={`
+          border border-section-secondary-border-light dark:border-section-secondary-border-dark
+          flex flex-col p-2 rounded-[6px] space-y-4
+        `}>
           <GitHubScore />
         </div>
-        <div class="relative h-auto flex justify-center items-center border rounded-[6px] border-[#262626] w-1/4">
-          <h3 class="absolute z-40 self-start justify-self-start w-full p-2">✨ Magic Trick</h3>
+        <div class={`
+          border border-section-secondary-border-light dark:border-section-secondary-border-dark
+          relative h-auto flex justify-center items-center rounded-[6px] w-1/4
+        `}>
+          <h3 class={`
+            text-secondary-light dark:text-tertiary-dark
+            absolute z-40 self-start justify-self-start w-full p-2
+            `}
+          >
+            ✨ Magic Trick
+          </h3>
             { magicTrickAvailable ? 
               (
                 <a href={`/${lang}/magic`}>
@@ -51,22 +72,10 @@ const { magicTrickAvailable } = Astro.props
                 </a>
               )
             }
-          <p class="absolute bottom-0 right-0 text-[#737373] text-[10px] italic p-2">Using Astro View Transitions</p>
+          <p class="absolute bottom-0 right-0 text-tertiary-light dark:text-tertiary-dark text-[10px] italic p-2">Using Astro View Transitions</p>
         </div>
 
       </div>
   </div>
 
 </section>
-
-<style>
-  button:hover {
-    color: white;
-  }
-
-  body:not(.dark) {
-    div > div {
-      border-color: var(--section-border-light)
-    }
-  }
-</style>

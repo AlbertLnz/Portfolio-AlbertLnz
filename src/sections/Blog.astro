@@ -11,15 +11,32 @@ const lastPost = posts[posts.length - 1]
 const path = prepareCorrectSingleRoutePath(lastPost)
 ---
 
-<section id="blog" class="relative p-0 group" transition:name="blog">
+<section
+  id="blog"
+  class={`
+    bg-section-bg-light dark:bg-section-bg-dark
+    border-2 border-section-primary-border-light dark:border-section-primary-border-dark
+    relative p-0 group
+  `}
+  transition:name="blog"
+>
   <a href={`${lang}/posts`} class="absolute h-full w-full z-0"></a>
   <div class="h-full flex flex-col justify-between p-[2rem]">
     <div class="flex">
-      <h2 class="text-3xl mr-2">Blog</h2>
-      <ArrowRightUp class="size-4 pointer-events-none transition-transform duration-300 transform group-hover:translate-x-1"/>
+      <h2 class={`
+        text-heading-light dark:text-heading-dark
+        text-3xl mr-2
+      `}>Blog</h2>
+      <ArrowRightUp class={`
+        fill-black dark:fill-white
+        size-4 pointer-events-none transition-transform duration-300 transform group-hover:translate-x-1
+      `}/>
     </div>
     <a href={`${lang}/posts/${path}`} class="z-10 w-fit">
-      <p class="ml-2 text-[#737373] hover:text-white">Latest post: {lastPost.data.title}</p>
+      <p class={`
+        text-tertiary-light hover:text-black dark:text-tertiary-dark hover:dark:text-white
+        ml-2
+      `}>Latest post: {lastPost.data.title}</p>
     </a>
   </div>
 </section>

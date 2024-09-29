@@ -6,7 +6,14 @@ import { getLangFromUrl } from '@/i18n/utils'
 const lang = getLangFromUrl(Astro.url)
 ---
 
-<section id="projects" transition:name="projects">
+<section
+  id="projects"
+  class={`
+    bg-section-bg-light dark:bg-section-bg-dark
+    border-2 border-section-primary-border-light dark:border-section-primary-border-dark
+    text-primary-light dark:text-primary-dark
+  `}
+  transition:name="projects">
   <div class="relative flex items-center">
     <Title title="Proyectos" />
     <a href={`${lang}/projects`} class="absolute right-0 z-10 hover:underline hover:underline-offset-2 hover:decoration-dotted px-2 mb-2">

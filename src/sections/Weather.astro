@@ -67,9 +67,16 @@ let iconWeather = assignIconWeatherArr.find((weather) => weather.name === descri
 if (!iconWeather) iconWeather = assignIconWeatherArr.find((weather) => weather.name === 'unknown') as typeof assignIconWeatherArr[0]
 ---
 
-<section id="weather" transition:name="weather" class="p-0 flex items-center justify-center bg-gradient-to-b from-[#074A8E] to-[#5596D8] dark:from-[#020518] dark:to-[#283555]">
+<section id="weather" transition:name="weather" class={`
+  border-none
+  bg-gradient-to-b from-[#074A8E] to-[#5596D8] dark:from-[#020518] dark:to-[#283555] 
+  p-0 flex items-center justify-center 
+`}>
 
-  <div class="grid grid-cols-[70%_30%]  rounded-[22px] w-full h-full  py-2 px-4">
+  <div class={`
+    text-white dark:text-primary-dark
+    grid grid-cols-[70%_30%]  rounded-[22px] w-full h-full py-2 px-4
+  `}>
 
     <h6 class="flex self-center text-[14px] font-semibold">{city}</h6>
     {<iconWeather.component class="size-6 flex justify-self-end" color="#fff" />}

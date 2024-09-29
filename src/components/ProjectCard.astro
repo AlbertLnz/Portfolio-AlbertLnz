@@ -18,16 +18,27 @@ const projects = await getCollection('projects')
         const projectPath = prepareCorrectSingleRoutePath(project)
 
         return (
-        <li class="relative list-none border-[1px] border-[#262626] rounded-[6px] w-full group">
-          <h3 class="px-6 mt-2 mb-1 text-lg lowercase tracking-wide">{project.data.title}</h3>
-          <p class="text-xs mx-8 text-[#A3A3A3] text-center mb-4 line-clamp-1">{project.data.shortDescription}</p>
+        <li class={`
+          border border-section-secondary-border-light dark:border-section-secondary-border-dark
+          relative list-none rounded-[6px] w-full group
+        `}>
+          <h3 class="px-6 mt-2 mb-1 text-lg font-semibold lowercase tracking-wide">{project.data.title}</h3>
+          <p class={`
+            text-secondary-light dark:text-tertiary-dark
+            text-xs mx-8 text-center mb-4 line-clamp-1
+          `}>{project.data.shortDescription}</p>
 
           <div class="flex items-center justify-center gap-x-4 mb-2">
             {
               project.data.techs.slice(0, 2).map((tech) => {
                 const techIcon = 'Astro' === tech ? <AstroIcon class="size-4" /> : <Python class="size-4" />
                 return (
-                <div class="z-50 flex items-center justify-center text-[#A3A3A3] bg-[#26262699] gap-x-1 rounded-[6px] px-2 py-0.5">
+                <div class={`
+                  bg-black/10 dark:bg-[#26262699]  
+                  text-tertiary-light dark:text-tertiary-dark
+
+                    z-50 flex items-center justify-center gap-x-1 rounded-[6px] px-2 py-0.5
+                  `}>
                   {tech}
                   {techIcon}
                 </div>
@@ -37,7 +48,7 @@ const projects = await getCollection('projects')
           </div>
 
           <a href={project.data.links.github} target="_blank" class="absolute top-3 right-3 z-50">
-            <GitHub className="size-4 fill-[#D1D5DB] hover:fill-white" />
+            <GitHub className="size-4 fill-black/80 hover:fill-black dark:fill-[#D1D5DB] dark:hover:fill-white" />
           </a>
 
           <a href={`${lang}/projects/${projectPath}`} class="absolute top-0 h-full w-full"></a>

@@ -3,7 +3,15 @@ import Figma from "@/assets/icons/Figma.astro"
 import GitHub from "@/assets/icons/GitHub.astro"
 ---
 
-<section id="portfolio" class="flex flex-col items-center justify-center w-full h-full" transition:name="portfolio">
+<section
+  id="portfolio" 
+  class={`
+    bg-section-bg-light dark:bg-section-bg-dark
+    border-2 border-section-primary-border-light dark:border-section-primary-border-dark
+    text-primary-light dark:text-primary-dark
+    flex flex-col items-center justify-center w-full h-full
+  `}
+  transition:name="portfolio">
 
   <h3 class="font-medium">Before start to coding, <span class="font-bold">design</span>.</h3>
   <h3 class="font-medium">Then, make it <span class="font-bold">real</span>.</h3>
@@ -13,7 +21,7 @@ import GitHub from "@/assets/icons/GitHub.astro"
       <Figma class="size-7" />
     </a>
     <a href="/">
-      <GitHub class="size-7 fill-[#D1D5DB] hover:fill-white" />
+      <GitHub class="size-7 fill-black/80 hover:fill-black dark:fill-[#D1D5DB] dark:hover:fill-white" />
     </a>
   </div>
 
