@@ -26,36 +26,37 @@ const MAX_TOOLS_ITEMS = 99
 </section>
 
 <script>
-  const $ = (el: string): HTMLElement | null => document.querySelector(el)
-  const $$ = (els: string): NodeListOf<Element> => document.querySelectorAll(els)
+  document.addEventListener('astro:page-load', () => {
+    const $ = (el: string): HTMLElement | null => document.querySelector(el)
+    const $$ = (els: string): NodeListOf<Element> => document.querySelectorAll(els)
 
-  const $$buttons: NodeListOf<HTMLButtonElement> = $$('[id^="toolBtn-"]') as NodeListOf<HTMLButtonElement>
-  const $backBtn: HTMLElement | null = $(`#back-btn`)
-  const $$infoContainers = $$('[id^="info-container-"]');
-  
-    $$buttons.forEach((button: HTMLButtonElement) => {
-      button.addEventListener('click', () => {
-        const $infoContainer: HTMLElement | null = $(`#info-container-${button.id}`)
-        
-          $$buttons.forEach((btn) => {
-            btn.classList.add('hidden')
-          })
+    const $$buttons: NodeListOf<HTMLButtonElement> = $$('[id^="toolBtn-"]') as NodeListOf<HTMLButtonElement>
+    const $backBtn: HTMLElement | null = $(`#back-btn`)
+    const $$infoContainers = $$('[id^="info-container-"]');
+    
+      $$buttons.forEach((button: HTMLButtonElement) => {
+        button.addEventListener('click', () => {
+          const $infoContainer: HTMLElement | null = $(`#info-container-${button.id}`)
+          
+            $$buttons.forEach((btn) => {
+              btn.classList.add('hidden')
+            })
 
-          $infoContainer?.classList.remove('hidden')
-          $infoContainer?.classList.add('flex')
-          $backBtn?.classList.remove('hidden')
+            $infoContainer?.classList.remove('hidden')
+            $infoContainer?.classList.add('flex')
+            $backBtn?.classList.remove('hidden')
+      })
+
+      $backBtn?.addEventListener('click', () => {
+        const toggleVisibility = (element: Element, show: boolean) => {
+          element.classList.toggle('hidden', !show)
+          element.classList.toggle('flex', show)
+        }
+
+        $$buttons.forEach((btn) => toggleVisibility(btn, true))
+        $$infoContainers.forEach((infoContainer) => toggleVisibility(infoContainer, false))
+        toggleVisibility($backBtn, false)
+      })
     })
-
-    $backBtn?.addEventListener('click', () => {
-      const toggleVisibility = (element: Element, show: boolean) => {
-        element.classList.toggle('hidden', !show)
-        element.classList.toggle('flex', show)
-      }
-
-      $$buttons.forEach((btn) => toggleVisibility(btn, true))
-      $$infoContainers.forEach((infoContainer) => toggleVisibility(infoContainer, false))
-      toggleVisibility($backBtn, false)
-    })
-
   })
 </script>
