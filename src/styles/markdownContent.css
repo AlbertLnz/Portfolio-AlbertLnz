@@ -1,4 +1,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* LIGHT MODE */
+body:not(.dark) #content {
+  p {
+    color: #374151;
+  }
+
+  a {
+    color: #0070f3;
+  }
+
+  h2 {
+    color: black;
+  }
+
+  li {
+    color: #a3a3a3;
+  }
+
+  blockquote {
+    background-color: #454125;
+    border-color: #454125;
+  }
+
+  &a:hover {
+    color: #0056b3;
+  }
+
+  &li > code {
+    background-color: #2f313f;
+  }
+}
+
+/* DARK MODE */
+body.dark #content {
+  p {
+    color: #d1d5db;
+  }
+
+  a {
+    color: #0070f3;
+  }
+
+  h2 {
+    color: white;
+  }
+
+  li {
+    color: #a3a3a3;
+  }
+
+  blockquote {
+    background-color: #454125;
+    border-color: #454125;
+  }
+
+  &a:hover {
+    color: #0056b3;
+  }
+
+  &li > code {
+    background-color: #2f313f;
+  }
+}
+
 .cust-font {
   font-family: 'Lora', arial;
 }
@@ -6,19 +71,13 @@
 #content h2 {
   text-decoration: underline;
   font-size: 18px;
-  color: white;
   margin-top: 2rem;
   margin-bottom: 1.2rem;
 }
 
 #content a {
-  color: #0070f3;
   text-decoration: underline;
   transition: color 0.2s ease-in-out;
-}
-
-#content a:hover {
-  color: #0056b3;
 }
 
 #content p {
@@ -29,7 +88,6 @@
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
     Liberation Mono, monospace;
   font-size: 12px;
-  background-color: #2f313f;
   padding: 0.1rem;
   border-radius: 2px;
   font-weight: 600;
@@ -47,4 +105,11 @@
   margin-left: 2rem;
   margin-top: 1rem;
   margin-bottom: -0.5rem;
+}
+
+#content > blockquote {
+  margin: 2rem 0;
+  padding: 0.5rem 0.5rem;
+  border-radius: 6px;
+  border-width: 1.5px;
 }

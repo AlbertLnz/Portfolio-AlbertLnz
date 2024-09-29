@@ -11,16 +11,16 @@ const { border, backgroundPosts } = blogCardAssignColor[tag as keyof typeof blog
 
 const isDark = `bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% ${backgroundPosts} border ${border}`
 const isLight = `bg-gradient-to-b from-[#EBEBF2] via-30% via-[#f2f2f2] to-100% ${backgroundPosts} border ${border}`
-// const borderColor = document.documentElement.classList.contains('dark') ? isDark : isLight
 ---
 <div
   id=`post-${id}`
   data-tag=`post-${tag}`
   class={`
-    bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% ${backgroundPosts} border ${border}
+    ${isDark}
     hover:cursor-pointer hover:border-double hover:border-white/30
     card max-h-[125px] relative overflow-hidden w-full h-full rounded-md m-2 group
-  `}>
+  `}
+  >
   
   <h2 class="text-lg absolute top-0 m-3 z-10 opacity-50 group-hover:opacity-100 text-primary-light dark:text-primary-dark">{title}</h2>
 
@@ -57,3 +57,11 @@ const isLight = `bg-gradient-to-b from-[#EBEBF2] via-30% via-[#f2f2f2] to-100% $
     font-family: 'Lora', arial;
   }
 </style>
+
+<script>
+  if (document.documentElement.classList.contains('dark')) {
+    document.getElementById(`post-${id}`).className = `{isDark}`;
+  } else {
+    document.getElementById(`post-${id}`).className = `{isLight}`;
+  }
+</script>

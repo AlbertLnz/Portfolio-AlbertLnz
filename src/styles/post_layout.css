@@ -13,7 +13,6 @@ body {
 body > article {
   font-family: 'Outfit Variable', sans-serif;
   border-radius: 8px;
-  border-width: 1px;
   padding: 2rem;
 }
 

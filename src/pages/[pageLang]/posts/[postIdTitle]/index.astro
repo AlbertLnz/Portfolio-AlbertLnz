@@ -20,27 +20,46 @@ const post = posts.find((post) => post.data.id === Number(id) && post.data.langu
 const { Content } = await render(post)
 
 const { backgroundPost } = blogCardAssignColor[post?.data.tag as keyof typeof blogCardAssignColor]
+const isDark = `bg-gradient-to-b ${backgroundPost} to-[120px] to-[#171717]`
 ---
 
-<PostLayout class="relative">
-  <article id="post" class={`relative overflow-hidden bg-gradient-to-b ${backgroundPost} to-[120px] to-[#171717]`}>
+<PostLayout class={`
+bg-section-bg-light dark:bg-section-bg-dark
+  relative
+`}>
+  <article id="post" class={`
+    ${isDark}
+    relative overflow-hidden
+  `}>
     <div class="flex flex-col items-center justify-center mb-12">
-      <h1 class="font-semibold text-2xl text-center">
+      <h1 class={`
+        text-primary-light dark:text-primary-dark
+        font-semibold text-2xl text-center
+      `}>
         {post.data.title}
       </h1>
-      <p class="italic">
+      <p class={`
+        text-primary-light dark:text-primary-dark
+        italic
+      `}>
         {post.data.description}
       </p>
       <h3
         transition:name={postIdTitle}
-        class="absolute top-0 left-0 p-8 cust-font font-bold opacity-50 group-hover:opacity-100 text-6xl z-0">
+        class={`
+          text-secondary-light dark:text-tertiary-dark  
+          absolute top-0 left-0 p-8 cust-font font-bold opacity-50 group-hover:opacity-100 text-6xl z-0
+        `}>
           {id}
       </h3>
     </div>
 
     <div id="content">
       <Content />
-      <footer class="pt-4 pb-2 px-8 flex justify-between items-center">
+      <footer class={`
+        text-tertiary-light dark:text-tertiary-dark
+        pt-4 pb-2 px-8 flex justify-between items-center
+      `}>
         <button class="opacity-65 hover:opacity-100 hover:font-semibold">Share</button>
         <p class="font-bold">@{post.data.author}</p>
         <button id="scrollToTop" class="opacity-65 hover:opacity-100 hover:font-semibold">Up</button>
