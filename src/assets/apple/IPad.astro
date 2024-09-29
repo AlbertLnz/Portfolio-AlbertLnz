@@ -41,11 +41,18 @@ const { id, svgWidth = 1382, svgHeight = 1058, contentClass, ...props } = Astro.
 </div>
 
 <style>
-  #iPadContent {
-    background-image: url('/imgs/background_dark.webp');
+  body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  body:not(.dark) #iPadContent {
+    background-image: url('/imgs/background_light.webp');
+  }
+
+  body.dark #iPadContent {
+    background-image: url('/imgs/background_dark.webp');
   }
 </style>
 

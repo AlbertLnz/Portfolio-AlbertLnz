@@ -37,17 +37,17 @@ const disableDeploy = project.data.links.deploy === null;
   </div>
 
   <div class="flex flex-col justify-start items-center px-10">
-    <h2 class="text-2xl mb-6 font-semibold">{project.data.title}</h2>
+    <h2 class="text-2xl mb-6 font-semibold text-primary-light dark:text-primary-dark">{project.data.title}</h2>
     <ul class="grid grid-cols-4 w-full p-4 gap-y-2">
       {
         project.data.techs.map((tech: string) => {
           const techObj = projectsTechs[tech]
           return (
-            <li class="flex flex-col items-center justify-center">
+            <li class="flex flex-col items-center justify-center group">
               <div class= {`${techObj.background} p-2 size-10 rounded-lg`}>
                 {<techObj.icon />}
               </div>
-              <p class="text-[10px]">{tech}</p>
+              <p class="text-[10px] text-secondary-light dark:text-secondary-dark group-hover:text-black/90 dark:group-hover:text-white/90">{tech}</p>
             </li>
           )
         })
@@ -55,22 +55,29 @@ const disableDeploy = project.data.links.deploy === null;
     </ul>
   </div>
 
-  <div class="col-span-2 w-full border-2 border-[#262626] rounded-[6px] p-4 bg-black/90">
+  <div class={`
+    text-secondary-light dark:text-secondary-dark
+    bg-white/70 dark:bg-black/90
+    col-span-2 w-full border-2 border-[#262626] rounded-[6px] p-4 
+  `}>
     {project.data.longDescription}
   </div>
 
-  <div class="absolute w-full bottom-0 left-0 gap-x-8 right-0 rounded-t-full flex justify-self-center items-center justify-center text-center text-2xl py-2">
-    <a href="/" class="flex flex-col items-center justify-center gap-y-1">
+  <div class={`
+    text-secondary-light dark:text-secondary-dark
+    absolute w-full bottom-0 left-0 gap-x-8 right-0 rounded-t-full flex justify-self-center items-center justify-center text-center text-2xl py-2
+  `}>
+    <a href="/" class="flex flex-col items-center justify-center gap-y-1 group">
       <Home class="size-8" />
-      <p class="text-xs">Home</p>
+      <p class="text-xs group-hover:text-black/90 dark:group-hover:text-white/90">Home</p>
     </a>
-    <a href="/en/posts" class="flex flex-col items-center justify-center gap-y-1">
+    <a href="/en/posts" class="flex flex-col items-center justify-center gap-y-1 group">
       <Blog id={project.data.id} class="size-8" />
-      <p class="text-xs">Blog</p>
+      <p class="text-xs group-hover:text-black/90 dark:group-hover:text-white/90">Blog</p>
     </a>
-    <a href={`projects/${path}`} class="flex flex-col items-center justify-center gap-y-1">
+    <a href={`projects/${path}`} class="flex flex-col items-center justify-center gap-y-1 group">
       <Click class="size-8" />
-      <p class="text-xs">+ Info</p>
+      <p class="text-xs group-hover:text-black/90 dark:group-hover:text-white/90">+ Info</p>
     </a>
   </div>
 </article>
