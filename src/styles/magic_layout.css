@@ -53,3 +53,56 @@ body > section {
   grid-column: 4 / span 7;
   grid-row: 3 / span 2;
 }
+
+/* ~~~ RESPONSIVE ~~~ */
+@media (max-width: 768px) {
+  body {
+    width: 100vw;
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1.5rem;
+    overflow: auto;
+    font-size: 12px;
+  }
+
+  body > section {
+    font-family: 'Outfit Variable', sans-serif;
+    overflow: auto;
+  }
+
+  #personal {
+    grid-column: 1;
+    grid-row: 7;
+  }
+
+  #projects {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  #work {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  #tools {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #portfolio {
+    grid-column: 1;
+    grid-row: 6;
+  }
+
+  #weather {
+    grid-column: 1;
+    grid-row: 5;
+  }
+
+  #blog {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}

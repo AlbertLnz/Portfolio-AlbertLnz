@@ -57,44 +57,49 @@ body > section {
 /* ~~~ RESPONSIVE ~~~ */
 @media (max-width: 768px) {
   body {
+    width: 100vw;
+    height: auto;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    padding: 1.5rem;
+    padding: 2rem;
     gap: 1.5rem;
+    overflow: auto;
+    display: grid;
+    font-size: 12px;
   }
 
   #personal {
     grid-column: 1;
-    grid-row: auto;
+    grid-row: 1;
   }
 
   #projects {
     grid-column: 1;
-    grid-row: auto;
+    grid-row: 2;
   }
 
   #work {
     grid-column: 1;
-    grid-row: auto;
+    grid-row: 3;
   }
 
   #tools {
     grid-column: 1;
-    grid-row: auto;
+    grid-row: 4;
   }
 
   #portfolio {
     grid-column: 1;
-    grid-row: auto;
+    grid-row: 5;
   }
 
   #weather {
     grid-column: 1;
-    grid-row: auto;
+    grid-row: 6;
   }
 
   #blog {
     grid-column: 1;
-    grid-row: auto;
+    grid-row: 7;
   }
 }
