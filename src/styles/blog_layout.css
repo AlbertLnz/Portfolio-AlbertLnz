@@ -37,3 +37,40 @@ div > section {
 }
 
 /* ~~~ RESPONSIVE ~~~ */
+@media (max-width: 768px) {
+  body {
+    margin: 0;
+    padding: 2rem;
+    font-size: 12px;
+  }
+
+  div > section {
+    font-family: 'Outfit Variable', sans-serif;
+    border-radius: 8px;
+    border-width: 1px;
+    padding: 2rem;
+  }
+
+  #blog-container {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 1rem;
+  }
+
+  #header {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #aside {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #content {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
