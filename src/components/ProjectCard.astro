@@ -9,12 +9,13 @@ import { getLangFromUrl } from "@/i18n/utils"
 
 const lang = getLangFromUrl(Astro.url)
 const projects = await getCollection('projects')
+const filteredProjects = projects.filter((project) => project.data.language === lang)
 ---
 
 <article class="">
   <ul class="flex flex-col items-center justify-start gap-y-2 w-full max-h-fit">
     {
-      projects.reverse().slice(0, 3).map((project) => {
+      filteredProjects.reverse().slice(0, 3).map((project) => {
         const projectPath = prepareCorrectSingleRoutePath(project)
 
         return (
@@ -28,7 +29,7 @@ const projects = await getCollection('projects')
             text-xs mx-8 text-center mb-4 line-clamp-1
           `}>{project.data.shortDescription}</p>
 
-          <div class="flex items-center justify-center gap-x-4 mb-2">
+          <div class="flex items-center justify-center gap-x-4 mb-2 -z-10 pointer-events-none">
             {
               project.data.techs.slice(0, 2).map((tech) => {
                 const techIcon = 'Astro' === tech ? <AstroIcon class="size-4" /> : <Python class="size-4" />
@@ -53,7 +54,7 @@ const projects = await getCollection('projects')
 
           <a href={`${lang}/projects/${projectPath}`} class="absolute top-0 h-full w-full"></a>
 
-          <ArrowRight class="absolute bottom-0 right-0 mr-3 mb-2 items-flex w-fit size-4 stroke-current group-hover:stroke-black group-hover:dark:stroke-white" />
+          <ArrowRight class="absolute -z-10 bottom-0 right-0 mr-3 mb-2 items-flex w-fit size-4 stroke-current group-hover:stroke-black group-hover:dark:stroke-white" />
         </li>
       )
       })
