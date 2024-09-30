@@ -15,7 +15,7 @@ const { magicTrickAvailable } = Astro.props
   id="personal"
   class={`
     bg-section-bg-light dark:bg-section-bg-dark
-    border-2 border-section-primary-border-light dark:border-section-primary-border-dark
+    flex flex-col border-2 border-section-primary-border-light dark:border-section-primary-border-dark
   `}
   transition:name="personal">
 
@@ -24,15 +24,15 @@ const { magicTrickAvailable } = Astro.props
     <LanguageAndThemeSelector path="" />
   </div>
 
-  <div class="p-6 mx-4 space-y-4">
+  <div class="flex-1 mx-4 space-y-4 mt-4">
       <p class="text-lg text-center md:text-left text-primary-light dark:text-primary-dark">
         I'm <span class="font-bold text-xl">Albert Lanza</span>, a fullstack web developer from Barcelona with +2 years of experience.
         Passionate about databases, UI/UX design and building open-source software.
       </p>
-      <div class="flex flex-col items-center space-y-4 md:items-stretch md:flex-row h-fit gap-x-6">
+      <div class="flex flex-col items-center space-y-4 md:space-y-0 md:items-stretch md:flex-row h-fit gap-x-6">
         <div class={`
           border border-section-secondary-border-light dark:border-section-secondary-border-dark
-          flex h-full items-center justify-center flex-row md:flex-col p-2 rounded-[6px] space-y-4
+          flex h-full items-center justify-center flex-row md:flex-col p-2 rounded-[6px] space-y-0 md:space-y-4 gap-x-4 md:gap-x-0
         `}>
           <a href="">
             <LinkedIn class="group size-6 hover:scale-105" />
@@ -46,13 +46,13 @@ const { magicTrickAvailable } = Astro.props
         </div>
         <div class={`
           border border-section-secondary-border-light dark:border-section-secondary-border-dark
-          flex flex-col p-2 rounded-[6px] space-y-4
+          flex flex-col p-2 rounded-[6px] space-y-4 items-center md:items-stretch
         `}>
           <GitHubScore />
         </div>
         <div class={`
           border border-section-secondary-border-light dark:border-section-secondary-border-dark
-          relative h-auto flex justify-center items-center rounded-[6px] w-full md:w-1/4
+          relative h-auto flex justify-center items-center rounded-[6px] w-2/3 md:w-1/4
         `}>
           <h3 class={`
             text-secondary-light dark:text-tertiary-dark
@@ -74,7 +74,6 @@ const { magicTrickAvailable } = Astro.props
             }
           <p class="absolute bottom-0 right-0 text-tertiary-light dark:text-tertiary-dark text-[10px] italic p-2">Using Astro View Transitions</p>
         </div>
-
       </div>
   </div>
 
