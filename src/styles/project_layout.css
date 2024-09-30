@@ -20,3 +20,28 @@ body > article {
 #project {
   grid-column: 2;
 }
+
+/* ~~~ RESPONSIVE ~~~ */
+@media (max-width: 768px) {
+  body {
+    margin: 0;
+    padding: 2rem;
+    font-size: 12px;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 1rem;
+    overflow-x: hidden;
+  }
+
+  body > article {
+    font-family: 'Outfit Variable', sans-serif;
+    border-radius: 8px;
+    padding: 2rem;
+  }
+
+  #project {
+    grid-column: 1;
+  }
+}

@@ -13,11 +13,11 @@ const path = prepareCorrectSingleRoutePath(project)
 const disableDeploy = project.data.links.deploy === null;
 ---
 
-<article id={`project-${project.data.id}`} class="z-20 relative grid grid-cols-[0.3fr_0.7fr] min-w-full h-full">
+<article id={`project-${project.data.id}`} class="z-20 relative grid grid-cols-2 md:grid-cols-[0.3fr_0.7fr] min-w-full h-full">
   
   <div class="flex flex-col items-center justify-start gap-y-4">
     <img
-    class="size-28 rounded-lg mt-2"
+    class="size-20 md:size-28 rounded-lg mt-2"
     src={project.data.img}
     alt={project.data.title}
     />
@@ -36,9 +36,9 @@ const disableDeploy = project.data.links.deploy === null;
     </div>
   </div>
 
-  <div class="flex flex-col justify-start items-center px-10">
-    <h2 class="text-2xl mb-6 font-semibold text-primary-light dark:text-primary-dark">{project.data.title}</h2>
-    <ul class="grid grid-cols-4 w-full p-4 gap-y-2">
+  <div class="flex flex-col justify-start items-center px-0 md:px-10">
+    <h2 class="text-lg md:text-2xl text-center mb-6 font-semibold text-primary-light dark:text-primary-dark">{project.data.title}</h2>
+    <ul class="grid grid-cols-2 md:grid-cols-4 gap-x-4 w-full p-4 gap-y-2">
       {
         project.data.techs.map((tech: string) => {
           const techObj = projectsTechs[tech]
@@ -58,6 +58,7 @@ const disableDeploy = project.data.links.deploy === null;
   <div class={`
     text-secondary-light dark:text-secondary-dark
     bg-white/70 dark:bg-black/90
+    hidden md:block
     col-span-2 w-full border-2 border-[#262626] rounded-[6px] p-4 
   `}>
     {project.data.longDescription}

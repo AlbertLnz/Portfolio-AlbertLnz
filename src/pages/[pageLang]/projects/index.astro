@@ -25,7 +25,8 @@ const allProjects = await getCollection('projects')
     class={`
       bg-section-bg-light dark:bg-section-bg-dark
       border-2 border-section-primary-border-light dark:border-section-primary-border-dark
-      grid grid-cols-[0.2fr_0.6fr_0.2fr] gap-x-2 p-0
+      flex flex-col
+      md:grid md:grid-cols-[0.2fr_0.6fr_0.2fr] md:gap-x-2 md:p-0
     `}
   >
     <a class={`
@@ -35,7 +36,7 @@ const allProjects = await getCollection('projects')
     `} href={`/${pageLang}`}>
       Back
     </a>
-    <h1 class="font-semibold text-2xl text-center py-[2rem] text-heading-light dark:text-heading-dark">AlbertLnz's Projects</h1>
+    <h1 class="font-semibold text-2xl text-center py-[1rem] md:py-[2rem] text-heading-light dark:text-heading-dark">AlbertLnz's Projects</h1>
     <LanguageAndThemeSelector path="/projects" />
   </section>
 

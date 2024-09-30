@@ -38,3 +38,40 @@ div > section {
 }
 
 /* ~~~ RESPONSIVE ~~~ */
+@media (max-width: 768px) {
+  #projects-container {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
+    gap: 1rem;
+  }
+
+  #header {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #aside {
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: 2.5rem;
+  }
+
+  #content {
+    grid-column: 1;
+    grid-row: 3;
+    rotate: -90deg;
+    transform-origin: center center;
+  }
+
+  #iPad {
+    rotate: 180deg;
+  }
+
+  #iPadContent {
+    transform-origin: top left;
+    transform: rotate(-90deg) translateX(-100%);
+  }
+}
