@@ -1,430 +1,189 @@
 ---
 id: 1
-title: Cómo crear un CLI con clack
+title: Iniciar React desde 0 sin template!
 language: es
-date: 01/01/2023
+date: 01/10/2024
 tag: Tutorial
 author: AlbertLnz
 img: post_001.jpg
 description: Post 1 description
 ---
 
-## Introduction
+## Introducción
 
-`clack/prompts` is a library that allows you to create beautiful command-line interfaces with Typescript. In this tutorial, we will learn how to create a simple CLI with clack/prompts, building a cli to create apps with custom template.
+Hay veces que quieres crear un proyecto React desde cero (o te lo piden en una entrevista de trabajo... 🤔), pero no sabes cómo empezar. En este tutorial, aprenderás a crear un proyecto React desde cero.
 
-## Prerequisites
+## Requisitos previos
 
-Before we start, make sure you have the following installed:
+Antes de comenzar, asegúrate de tener instalados los siguientes paquetes:
 
-- [Node.js 20](https://nodejs.org/en/download/).
-- Typescript knowledge.
+- [Node.js](https://nodejs.org/en/download/)
+- [NPM](https://www.npmjs.com/get-npm)
 
-## Setting up the project
+## Creando un proyecto
 
-1. Create a new directory for your project and navigate to it:
-
-```bash
-mkdir my-cli
-cd my-cli
-```
-
-2. Initialize a new Node.js project:
+1. Crea un nuevo directorio para tu proyecto y navega hasta él:
 
 ```bash
-npm init -y
+mkdir my-react-app
+cd my-react-app
 ```
 
-3. Install & setup Typescript:
-
-> I will use [pnpm](https://pnpm.io/) as package manager, but you can use npm or yarn. To install pnpm, run:
+2. Inicializa un nuevo proyecto con Vite:
 
 ```bash
-# Install globally with npm:
-npm install -g pnpm
-
-# Check version:
-pnpm --version
+npm create vite@latest
 ```
 
-- Install Typescript & Node types as dev dependencies:
+3. Ponle un nombre al proyecto:
 
 ```bash
-pnpm install typescript @types/node -E -D
+my-first-react-app
 ```
 
-- Create a `tsconfig.json` file:
+4. Seleccionar `Vanilla` como base de nuestro proyecto (recuerda que estamos iniciando un proyecto de React desde cero, sin compiladores):
 
 ```bash
-npx tsc --init
+vanilla
 ```
 
-- Update `tsconfig.json` file with custom alias and update the `target`, `module` and add `moduleResolution`:
-
-```json {4,9,14}
-{
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
-  },
-  "include": ["**/*.ts", "src/**/*.ts"],
-  "exclude": ["dist", "node_modules"]
-}
-```
-
-## Setting up ESLint
-
-1. Install `eslint` and `prettier` as dev dependencies:
+5. Seleccionar `JavaScript` (.jsx) o `TypeScript` (.tsx):
 
 ```bash
-pnpm install eslint -E -D
+JavaScript
 ```
 
-2. Create a `.eslintrc.js` file:
+## Dependencias necesarias
+
+6. Entramos en el proyecto que acabamos de crear:
 
 ```bash
-npx eslint --init
+cd my-first-react-app
 ```
 
-## Bundle with tsup
-
-**But... What is tsup? 🤔**
-
-[tsup](https://tsup.egoist.dev/) is a bundle tool created by [egoist](https://github.com/egoist) that bundles your Typescript code using [esbuild](https://esbuild.github.io/) under the hood. This will be necessary to compile and test our cli in a fast way 🚀.
-
-1. Install `tsup` as a dev dependency:
+7. Instala las dependencias necesarias:
 
 ```bash
-pnpm install tsup -E -D
+npm install
 ```
 
-2. Add a script to your `package.json` file:
+8. Instala el plugin de React necesario para que funcione en Vite:
 
-```json {6}
-{
-  "scripts": {
-    "start": "tsup && node dist/index.js"
-  }
-}
+```bash
+npm install @vitejs/plugin-react -E
 ```
 
-3. Create a custom `tsup.config.ts` in the root of your project with the following content:
+9. Y las dependencias de React:
 
-```ts
-import { defineConfig } from 'tsup'
+```bash
+npm install react react-dom -E
+```
 
-// Copy 'templates' folder to 'dist' folder:
-import { cp } from 'node:fs/promises'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+- ¿Sabias que se utiliza la etiqueta '-E' para instalar las dependencias en la versión exacta del paquete? 😉
+
+10. Ahora ya estamos listos para empezar a editor código 💪:
+
+```
+code .
+```
+
+- Shortcut para abrir con VSCode el directorio actual
+
+## Configurando Vite
+
+11. Creamos un archivo de configuración para Vite: `vite.config.js`
+
+12. En la configuración de Vite para que funcione con React en el archivo 'vite.config.js':
+
+```javascript
+// ⚡ vite.config.js
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  entryPoints: ['src/index.ts'], // 👈 Entry file
-  format: ['cjs', 'esm'],
-  dts: true,
-  clean: true,
-  shims: true,
-  outDir: 'dist', // 👈 /dist output folder
-  async onSuccess() {
-    await cp(
-      path.join(path.dirname(fileURLToPath(import.meta.url)), 'templates'), // 👈 This folder will be created in the next step on this tutorial 😉.
-      path.join('dist', 'templates'),
-      { recursive: true }
-    )
-  },
+  plugins: [react()],
 })
 ```
 
-## Let's add our custom app templates
+<a href="https://www.npmjs.com/package/@vitejs/plugin-react" target="_blank">
+  Documentación oficial de @vitejs/plugin-react
+</a>
 
-Before we start, let's create a `templates` folder in the root of our project with the following structure:
+## Punto de entrada
+
+12. Ahora, creamos la carpeta 'src' y dentro de ella, crearemos un archivo 'App.jsx':
+
+```bash
+mkdir src
+touch src/App.jsx
+```
 
 ```bash
 📁 src
-  |- 📄 index.ts
-📁 templates
-  |- // Add your templates here.
+  └──  📄 App.jsx
 ```
 
-You can add any template you want. For example, let's generate a new Next.js project in our `templates` folder:
+13. Y añadimos el inicio de un componente de React:
+
+```jsx
+// 📁 src/App.jsx
+
+import React from 'react'
+
+function App() {
+  return <h1>Hello, world!</h1>
+}
+
+export default App
+```
+
+- Puedes usar el comando `rafce` de la extensión `ES7 React` para crear el inicio de un componente de React JSX automáticamente 🤩.
+
+14. Borrar el contenido de 'main.js y cambiar la extensión del archivo 'main.js' a **'main.jsx'**
+
+15. Y también en el HTML, cambiar el script que vincula a la función de inicio de nuestro proyecto a 'main.jsx':
+
+```html
+<!-- 📁 index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/main.jsx"></script>
+    <!-- 👈 Importamos nuestro archivo principal -->
+  </body>
+</html>
+```
+
+16. Importar la función ``createRoot de React-dom y vincularlo con el elemento HTML con id 'app':
+
+```jsx
+// 📁 main.jsx
+
+import ReactDOM from 'react-dom/client'
+import App from './src/App.jsx'
+
+const root = ReactDOM.createRoot(document.getElementById('app'))
+
+root.render(<App />) // 👈 Renderizamos nuestro componente
+```
+
+17. Ahora ya podemos ejecutar nuestro proyecto:
 
 ```bash
-pnpm dlx create-next-app templates/nextjs
+npm run dev
 ```
 
-and you will see the following structure in your `templates` folder:
+## Extra!
 
-```bash
-📁 src
-  |- 📄 index.ts
-📁 templates
-  |- 📁 nextjs-app // or the name you have set in the cli of Next.js
-```
+· Puedes eliminar archivos que vienen con Vite, como 'counter.js' o sus estilos 'styles.css'.
 
-## Getting started with clack/prompts
-
-1. Install `clack/prompts`:
-
-```bash
-pnpm install @clack/prompts -E
-```
-
-2. Prepare main function in `src/index.ts`:
-
-```ts
-import * as clack from '@clack/prompts'
-
-async function main() {
-  clack.log.info('🚀 Ready')
-}
-
-main()
-```
-
-and if you run `pnpm start`, you should see the message `🚀 Ready` in your terminal.
-
-## Creating the CLI with clack utilities & Node.js functions
-
-1. We will ask the user for the project name and template to use:
-
-```ts
-// 📁 src/index.ts
-
-import * as clack from '@clack/prompts'
-
-async function main() {
-  clack.intro('🚀 Welcome to my CLI app')
-
-  const projectName = (await clack.text({
-    message: 'Enter the project name:',
-    placeholder: 'My amazing project',
-    validate(value) {
-      if (value.length === 0) return `⚠️ Project name is required`
-    },
-  })) as string
-
-  clack.outro('👋 Goodbye')
-}
-
-main()
-```
-
-2. Create a function to list the templates available:
-
-```ts
-// 📁 src/utils/readFolders.ts
-
-import * as fs from 'fs/promises'
-
-export interface FoldersAvailable {
-  value: string
-  label: string
-}
-
-export const readFolders = async (
-  path: string
-): Promise<FoldersAvailable[]> => {
-  const folderNames = await fs.readdir(path)
-  const folders = folderNames.map((folderName) => {
-    return {
-      label: folderName,
-      value: `${path}/${folderName}`,
-    }
-  })
-
-  return folders
-}
-```
-
-3. Read the folder and add option to select the template:
-
-```ts
-// 📁 src/index.ts
-
-import * as clack from '@clack/prompts'
-import { type FoldersAvailable, readFolders } from './utils/readFolders'
-
-async function main() {
-  clack.intro('🚀 Welcome to my CLI app')
-
-  const projectName = (await clack.text({
-    message: 'Enter the project name:',
-    placeholder: 'My amazing project',
-    validate(value) {
-      if (value.length === 0) return `Project name is required`
-    },
-  })) as string
-
-  let templates: FoldersAvailable[] = []
-
-  try {
-    const mainDirectory = process.cwd()
-    templates = await readFolders(`${mainDirectory}/templates`)
-  } catch (error) {
-    clack.log.error('🛑 Error reading templates folder.')
-    //@ts-ignore
-    clack.log.info(error.message as string)
-    process.exit(1)
-  }
-
-  const selectProjectType = (await clack.select({
-    message: 'Select the project:',
-    options: templates,
-  })) as string
-
-  clack.outro('👋 Goodbye')
-}
-
-main()
-```
-
-4. Copy the template to the project folder:
-
-- Create a function to copy the template:
-
-```ts
-// 📁 src/utils/copyToFolder.ts
-
-import * as fs from 'fs/promises'
-
-export const copyToFolder = async (path: string, destination: string) => {
-  const folderNames = await fs.readdir(path)
-  for (const folderName of folderNames) {
-    const source = `${path}/${folderName}`
-    const dest = `${destination}/${folderName}`
-    await fs.copyFile(source, dest)
-  }
-}
-```
-
-- Update the main function to copy the template:
-
-```ts
-// 📁 src/index.ts
-
-import * as clack from '@clack/prompts'
-import { type FoldersAvailable, readFolders } from './utils/readFolders'
-import { copyToFolder } from './utils/copyToFolder'
-
-async function main() {
-  clack.intro('🚀 Welcome to my CLI app')
-
-  const mainDirectory = process.cwd()
-
-  const projectName = (await clack.text({
-    message: 'Enter the project name:',
-    placeholder: 'My amazing project',
-    validate(value) {
-      if (value.length === 0) return `Project name is required`
-    },
-  })) as string
-
-  let templates: FoldersAvailable[] = []
-
-  try {
-    templates = await readFolders(`${mainDirectory}/templates`)
-  } catch (error) {
-    clack.log.error('🛑 Error reading templates folder.')
-    clack.log.info(error.message as string)
-    process.exit(1)
-  }
-
-  const selectProjectType = (await clack.select({
-    message: 'Select the project type:',
-    options: templates,
-  })) as string
-
-  const s = clack.spinner()
-
-  try {
-    s.start('📦 Copying files...')
-    await copyToFolder(selectProjectType, `${mainDirectory}/${projectName}`)
-  } catch (error) {
-    clack.log.error('🛑 Error copy folder.')
-    clack.log.info(error.message as string)
-    process.exit(1)
-  } finally {
-    s.stop()
-  }
-
-  clack.outro('👋 Goodbye')
-}
-
-main()
-```
-
-But... I need to create a folder before copying the files 👀. Let's create a function to create a folder:
-
-```ts
-// 📁 src/utils/createFolder.ts
-
-import * as fs from 'fs/promises'
-import * as path from 'path'
-
-const copyRecursive = async (source: string, destination: string) => {
-  const stats = await fs.lstat(source)
-
-  if (stats.isDirectory()) {
-    await fs.mkdir(destination, { recursive: true })
-    const items = await fs.readdir(source)
-
-    for (const item of items) {
-      const srcPath = path.join(source, item)
-      const destPath = path.join(destination, item)
-      await copyRecursive(srcPath, destPath)
-    }
-  } else if (stats.isFile()) {
-    await fs.copyFile(source, destination)
-  }
-}
-
-export const copyToFolder = async (source: string, destination: string) => {
-  await copyRecursive(source, destination)
-}
-```
-
-And add the function when the user select the template:
-
-```ts
-// 📁 src/index.ts
-
-try {
-  await createFolder(`${mainDirectory}/${projectName}`)
-  await copyToFolder(selectProjectType, `${mainDirectory}/${projectName}`)
-  clack.log.success('✅ Project created successfully.')
-} catch (error) {
-  clack.log.error('🛑 Error creating a project:')
-  clack.log.info(error.message as string)
-  process.exit(1)
-}
-```
-
-**Ready 🎉!** Now you can run your CLI with `pnpm start` and create a new project with your custom template.
-
-To finish, add in the first line of your `index.ts` the following:
-
-```ts
-// 📁 src/index.ts
-#!/usr/bin/env node
-// rest of the code...
-```
-
-And add a the followings scripts in your `package.json` file:
-
-```json
-{
-  "bin": {
-    "create-appcli": "dist/index.js" // 👈 Name of your cli.
-  },
-  "files": ["dist/**/*"]
-}
-```
+· Es muy recomendable utilizar un linter como [ESLint](https://eslint.org/) y un formateador de código como [Prettier](https://prettier.io/) para formatear tu código.
