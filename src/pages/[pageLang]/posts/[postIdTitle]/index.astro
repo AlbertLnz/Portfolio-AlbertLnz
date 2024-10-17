@@ -3,7 +3,6 @@ import '@/styles/markdownContent.css'
 import LanguageAndThemeSelector from '@/components/LanguageAndThemeSelector.astro'
 import PostLayout from '@/layouts/PostLayout.astro'
 import { getCollection, render } from 'astro:content'
-import { blogCardAssignColor } from '@/data/blogCardAssignColor'
 import { prepareCorrectVariousRoutesPaths } from '@/data/prepareCorrectRoutePaths'
 
 export async function getStaticPaths() {
@@ -12,40 +11,44 @@ export async function getStaticPaths() {
   return paths
 }
 
-const userTheme = Astro.request.headers.get('theme')
-
 const posts = await getCollection('posts')
 const { pageLang, postIdTitle } = Astro.params
 const [id] = postIdTitle.split('/')[0]
-const post = posts.find((post) => post.data.id === Number(id) && post.data.language === pageLang) as typeof posts[0]
+const post = posts.find(
+  (post) => post.data.id === Number(id) && post.data.language === pageLang
+) as (typeof posts)[0]
 
 const { Content } = await render(post)
-
-const { backgroundPost } = blogCardAssignColor[post?.data.tag as keyof typeof blogCardAssignColor]
-const isDark = `bg-gradient-to-b ${backgroundPost} to-[120px] to-[#171717]`
-const isLight = ''
-const bgGradient = userTheme === 'dark' ? isDark : isLight
 ---
 
-<PostLayout class={`
+<PostLayout
+  class={`
 bg-section-bg-light dark:bg-section-bg-dark
   relative
-`}>
-  <article id="post" class={`
-    ${bgGradient}
+`}
+>
+  <article
+    id='post'
+    data-tag=`post-${post.data.tag}`
+    class={`
     relative overflow-hidden
-  `}>
-    <div class="flex flex-col items-center justify-center mb-12">
-      <h1 class={`
+  `}
+  >
+    <div class='flex flex-col items-center justify-center mb-12'>
+      <h1
+        class={`
         text-primary-light dark:text-primary-dark
         font-semibold text-2xl text-center pt-[4rem] md:pt-0
-      `}>
+      `}
+      >
         {post.data.title}
       </h1>
-      <p class={`
+      <p
+        class={`
         text-primary-light dark:text-primary-dark
         italic
-      `}>
+      `}
+      >
         {post.data.description}
       </p>
       <h3
@@ -53,24 +56,34 @@ bg-section-bg-light dark:bg-section-bg-dark
         class={`
           text-secondary-light dark:text-tertiary-dark  
           absolute top-0 left-0 p-8 cust-font font-bold opacity-50 group-hover:opacity-100 text-6xl z-0
-        `}>
-          {id}
+        `}
+      >
+        {id}
       </h3>
     </div>
 
-    <div id="content">
+    <div id='content'>
       <Content />
-      <footer class={`
+      <footer
+        class={`
         text-tertiary-light dark:text-tertiary-dark
         pt-4 pb-2 px-8 flex justify-between items-center
-      `}>
-        <button class="opacity-65 hover:opacity-100 hover:font-semibold">Share</button>
-        <p class="font-bold">@{post.data.author}</p>
-        <button id="scrollToTop" class="opacity-65 hover:opacity-100 hover:font-semibold">Up</button>
+      `}
+      >
+        <button class='opacity-65 hover:opacity-100 hover:font-semibold'>
+          Share
+        </button>
+        <p class='font-bold'>@{post.data.author}</p>
+        <button
+          id='scrollToTop'
+          class='opacity-65 hover:opacity-100 hover:font-semibold'
+        >
+          Up
+        </button>
       </footer>
     </div>
 
-    <div class="absolute top-0 right-0 p-6">
+    <div class='absolute top-0 right-0 p-6'>
       <LanguageAndThemeSelector path={`/posts/`} />
     </div>
   </article>
@@ -80,7 +93,7 @@ bg-section-bg-light dark:bg-section-bg-dark
   const $ = (el: string): HTMLElement | null => document.querySelector(el)
   const $scrollToTop = $(`#scrollToTop`)
 
-  if($scrollToTop) {
+  if ($scrollToTop) {
     $scrollToTop.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
@@ -88,4 +101,12 @@ bg-section-bg-light dark:bg-section-bg-dark
       })
     })
   }
+
+  import { blogCardAssignColor } from '@/data/blogCardAssignColor'
+  import { toggleBkgGradient } from '@/data/toggleBkgGradient'
+
+  toggleBkgGradient('id', 'post', blogCardAssignColor, {
+    dark: 'bg-gradient-to-b to-[120px] to-[#171717]',
+    light: 'bg-gradient-to-b to-[120px] to-[#EBECF0]',
+  })
 </script>

@@ -1,46 +1,52 @@
 ---
-import { getCollection } from "astro:content"
-import BlogLayout from "@/layouts/BlogLayout.astro"
-import BlogCard2 from "@/components/BlogCard2.astro"
-import BlogAside from "@/components/BlogAside.astro"
-import LanguageAndThemeSelector from "@/components/LanguageAndThemeSelector.astro"
+import { getCollection } from 'astro:content'
+import BlogLayout from '@/layouts/BlogLayout.astro'
+import BlogCard2 from '@/components/BlogCard2.astro'
+import BlogAside from '@/components/BlogAside.astro'
+import LanguageAndThemeSelector from '@/components/LanguageAndThemeSelector.astro'
 
 export function getStaticPaths() {
   return [
     { params: { pageLang: 'en' } },
     { params: { pageLang: 'es' } },
     { params: { pageLang: 'ca' } },
-
   ]
 }
-const { pageLang } = Astro.params;
+const { pageLang } = Astro.params
 
 const allPosts = await getCollection('posts')
 const posts = allPosts.filter((project) => project.data.language === pageLang)
 ---
 
-<BlogLayout title="Blog" description="SEO description for blog section">
-  
+<BlogLayout title='Blog' description='SEO description for blog section'>
   <section
-    id="header"
+    id='header'
     class={`
       bg-section-bg-light dark:bg-section-bg-dark
       border-2 border-section-primary-border-light dark:border-section-primary-border-dark
       flex flex-col
       md:grid md:grid-cols-[0.2fr_0.6fr_0.2fr] md:gap-x-2 md:p-0
-    `}>
-    <a class={`
+    `}
+  >
+    <a
+      class={`
       text-heading-light dark:text-heading-dark
       hover:bg-black/10 dark:hover:bg-black/20 hover:underline
-      flex items-center justify-center rounded-l-[8px] text-lg transition-colors duration-500`} href={`/${pageLang}`}>
+      flex items-center justify-center rounded-l-[8px] text-lg transition-colors duration-500`}
+      href={`/${pageLang}`}
+    >
       Back
     </a>
-    <h1 class="font-semibold text-2xl text-center py-[1rem] md:py-[2rem] text-heading-light dark:text-heading-dark">AlbertLnz's Blog</h1>
-    <LanguageAndThemeSelector path="/posts" />
+    <h1
+      class='font-semibold text-2xl text-center py-[1rem] md:py-[2rem] text-heading-light dark:text-heading-dark'
+    >
+      AlbertLnz's Blog
+    </h1>
+    <LanguageAndThemeSelector path='/posts' />
   </section>
 
   <section
-    id="aside"
+    id='aside'
     class={`
       bg-section-bg-light dark:bg-section-bg-dark
       border-2 border-section-primary-border-light dark:border-section-primary-border-dark
@@ -50,12 +56,13 @@ const posts = allPosts.filter((project) => project.data.language === pageLang)
   </section>
 
   <section
-    id="content"
+    id='content'
     class={`
       bg-section-bg-light dark:bg-section-bg-dark
       border-2 border-section-primary-border-light dark:border-section-primary-border-dark
       grid grid-cols-1 xl:grid-cols-2 grid-flow-row place-items-start gap-6 overflow-x-hidden
-    `}>
+    `}
+  >
     {
       posts.map((project) => (
         <BlogCard2
@@ -68,5 +75,4 @@ const posts = allPosts.filter((project) => project.data.language === pageLang)
       ))
     }
   </section>
-
 </BlogLayout>

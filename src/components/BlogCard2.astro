@@ -77,5 +77,9 @@ const postUrl = id + '-' + titleCleaned
   import { blogCardAssignColor } from '@/data/blogCardAssignColor'
   import { toggleBkgGradient } from '@/data/toggleBkgGradient'
 
-  toggleBkgGradient('posts', blogCardAssignColor)
+  toggleBkgGradient('class', 'posts', blogCardAssignColor, {
+    dark: 'bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% border',
+    light:
+      'bg-gradient-to-b from-[#EBEBF2] via-30% via-[#f2f2f2] to-100% border',
+  })
 </script>
