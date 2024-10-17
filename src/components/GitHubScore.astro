@@ -1,6 +1,11 @@
 ---
-import { PRODUCTION, GITHUB_API_BASE_URL, GITHUB_README_API } from "astro:env/server"
+import {
+  PRODUCTION,
+  GITHUB_API_BASE_URL,
+  GITHUB_README_API,
+} from 'astro:env/server'
 import { githubScore } from '@/data/githubScore'
+import { homepagePersonalTranslations } from '@/i18n/translations'
 
 if (PRODUCTION) {
   await fetchData()
@@ -10,9 +15,10 @@ if (PRODUCTION) {
   })
 }
 
-
 function getLevelRankIcon(htmlString: string, option: string) {
-  const regex = new RegExp(`<text[^>]*\\sdata-testid="${option}"[^>]*>([^<]*)<\\/text>`)
+  const regex = new RegExp(
+    `<text[^>]*\\sdata-testid="${option}"[^>]*>([^<]*)<\\/text>`
+  )
   const match = htmlString.match(regex)
   return match ? match[1].trim() : null
 }
@@ -23,42 +29,51 @@ async function fetchData() {
     const data = await res.json()
     const res2 = await fetch(`${GITHUB_README_API}albertlnz`) // the rest
     const data2 = await res2.text()
-    
-    githubScore.forEach((item) => {
-      item.option === 'repositories' ? item.value = data.public_repos : item.value = getLevelRankIcon(data2, item.tagId) as string
-    })
 
+    githubScore.forEach((item) => {
+      item.option === 'repositories'
+        ? (item.value = data.public_repos)
+        : (item.value = getLevelRankIcon(data2, item.tagId) as string)
+    })
   } catch (error) {
     console.error('Error fetching data:', error)
   }
 }
 
+const { github_title_one, github_title_two, github_note } =
+  homepagePersonalTranslations(Astro.url)
 ---
 
-<div class="relative flex flex-col w-full h-full pb-8 md:pb-0">
-
-  <h3 class="pb-4 text-secondary-light dark:text-tertiary-dark">
-    <span class="">
-      <a href="https://github.com/AlbertLnz" target="_blank">
-        My GitHub
+<div class='relative flex flex-col w-full h-full pb-8 md:pb-0'>
+  <h3 class='pb-4 text-secondary-light dark:text-tertiary-dark'>
+    <span class=''>
+      <a href='https://github.com/AlbertLnz' target='_blank'>
+        {github_title_one}
       </a>
     </span>
-    Stats
+    {github_title_two}
   </h3>
 
-  <ul class="flex-1 flex gap-x-8 justify-around mx-2">
-    {githubScore.map((item) => {
-      if (item.show) {
-        return (
-          <li class="text-primary-light dark:text-primary-dark text-xs h-full flex flex-col items-center justify-start gap-y-2">
-            <p>{<item.icon class="size-5 fill-black/90 dark:fill-[#d1d5db]" />}</p>
-            <p class="font-bold">{item.value}</p>
-          </li>
-        )
-      }
-    })}
+  <ul class='flex-1 flex gap-x-8 justify-around mx-2'>
+    {
+      githubScore.map((item) => {
+        if (item.show) {
+          return (
+            <li class='text-primary-light dark:text-primary-dark text-xs h-full flex flex-col items-center justify-start gap-y-2'>
+              <p>
+                {<item.icon class='size-5 fill-black/90 dark:fill-[#d1d5db]' />}
+              </p>
+              <p class='font-bold'>{item.value}</p>
+            </li>
+          )
+        }
+      })
+    }
   </ul>
 
-  <p class="absolute bottom-0 right-0 text-tertiary-light dark:text-tertiary-dark text-[10px] italic">Using Astro Server Islands</p>
+  <p
+    class='absolute bottom-0 right-0 text-tertiary-light dark:text-tertiary-dark text-[10px] italic'
+  >
+    {github_note}
+  </p>
 </div>
-

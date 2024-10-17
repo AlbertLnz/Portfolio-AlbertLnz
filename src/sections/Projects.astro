@@ -1,23 +1,29 @@
 ---
-import Title from "@/components/Title.astro"
-import ProjectCard from "@/components/ProjectCard.astro"
+import Title from '@/components/Title.astro'
+import ProjectCard from '@/components/ProjectCard.astro'
 import { getLangFromUrl } from '@/i18n/utils'
+import { homePageProjectsTranslations } from '@/i18n/translations'
 
 const lang = getLangFromUrl(Astro.url)
+const { title, all } = homePageProjectsTranslations(Astro.url)
 ---
 
 <section
-  id="projects"
+  id='projects'
   class={`
     bg-section-bg-light dark:bg-section-bg-dark
     border-2 border-section-primary-border-light dark:border-section-primary-border-dark
     text-primary-light dark:text-primary-dark
   `}
-  transition:name="projects">
-  <div class="relative flex items-center">
-    <Title title="Proyectos" />
-    <a href={`${lang}/projects`} class="absolute right-0 z-10 hover:underline hover:underline-offset-2 hover:decoration-dotted px-2 mb-2">
-      View all projects
+  transition:name='projects'
+>
+  <div class='relative flex items-center'>
+    <Title title={title} />
+    <a
+      href={`${lang}/projects`}
+      class='absolute right-0 z-10 hover:underline hover:underline-offset-2 hover:decoration-dotted px-2 mb-2'
+    >
+      {all}
     </a>
   </div>
   <ProjectCard />

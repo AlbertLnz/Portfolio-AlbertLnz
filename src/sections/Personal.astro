@@ -6,9 +6,21 @@ import GitHubScore from '@/components/GitHubScore.astro'
 import Houston from '@/components/Houston.astro'
 import LanguageAndThemeSelector from '@/components/LanguageAndThemeSelector.astro'
 import { getLangFromUrl } from '@/i18n/utils'
+import { homepagePersonalTranslations } from '@/i18n/translations'
 
 const lang = getLangFromUrl(Astro.url)
 const { magicTrickAvailable } = Astro.props
+
+const {
+  text_intro,
+  title_one,
+  title_two,
+  title_three,
+  magic_title,
+  magic_note,
+  apologise_one,
+  apologise_two,
+} = homepagePersonalTranslations(Astro.url)
 ---
 
 <section
@@ -22,7 +34,7 @@ const { magicTrickAvailable } = Astro.props
   <div
     class='flex item-center justify-between text-tertiary-light dark:text-tertiary-dark'
   >
-    <h4>Welcome</h4>
+    <h4>{text_intro}</h4>
     <LanguageAndThemeSelector path='' />
   </div>
 
@@ -30,9 +42,8 @@ const { magicTrickAvailable } = Astro.props
     <p
       class='text-lg text-center md:text-left text-primary-light dark:text-primary-dark'
     >
-      I'm <span class='font-bold text-xl'>Albert Lanza</span>, a fullstack web
-      developer from Barcelona with +2 years of experience. Passionate about
-      databases, UI/UX design and building open-source software.
+      {title_one}
+      <span class='font-bold text-xl'>{title_two}</span>{title_three}
     </p>
     <div
       class='relative flex flex-col items-center space-y-4 md:space-y-0 md:items-stretch md:flex-row h-fit gap-x-6'
@@ -73,7 +84,7 @@ const { magicTrickAvailable } = Astro.props
             absolute z-40 self-start justify-self-start w-full p-2
             `}
         >
-          ✨ Magic Trick
+          {magic_title}
         </h3>
         {
           magicTrickAvailable ? (
@@ -89,7 +100,7 @@ const { magicTrickAvailable } = Astro.props
         <p
           class='absolute bottom-0 right-0 text-tertiary-light dark:text-tertiary-dark text-[10px] italic p-2'
         >
-          Using Astro View Transitions
+          {magic_note}
         </p>
       </div>
 
@@ -97,8 +108,9 @@ const { magicTrickAvailable } = Astro.props
         class='absolute bottom-0 right-0 text-right font-bold text-[10px] text-red-400'
       >
         <!-- Delete relative of the superior div -->
-        *This portfolio is still in development <br />
-        <span>Thanks for your patience! 🫠</span>
+        {apologise_one}
+        <br />
+        <span>{apologise_two}</span>
       </p>
     </div>
   </div>

@@ -1,13 +1,9 @@
 ---
-import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 import Title from '@/components/Title.astro'
 import WorkItem from '@/components/WorkItem.astro'
+import { homePageWorksTranslations } from '@/i18n/translations'
 
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
-
-const workTitle = t('work.title')
-const works = t('works')
+const { title, works } = homePageWorksTranslations(Astro.url)
 ---
 
 <section
@@ -19,7 +15,7 @@ const works = t('works')
   `}
   transition:name='work'
 >
-  <Title title={workTitle} />
+  <Title title={title} />
   <ol
     class='border-s-2 border-neutral-400 dark:border-neutral-800 overflow-auto ml-2'
   >
