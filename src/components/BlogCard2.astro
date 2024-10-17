@@ -1,67 +1,81 @@
 ---
 import ArrowUp from '@/assets/symbols/ArrowUp.astro'
-import { blogCardAssignColor } from '@/data/blogCardAssignColor'
 
 const { id, title, date, tag, author } = Astro.props
 
-const titleCleaned = title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\w\s-]/g, '').replaceAll(' ', '-').toLowerCase()
-const postUrl = id+'-'+titleCleaned
+const titleCleaned = title
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .replace(/[^\w\s-]/g, '')
+  .replaceAll(' ', '-')
+  .toLowerCase()
 
-const { border, backgroundPosts } = blogCardAssignColor[tag as keyof typeof blogCardAssignColor]
-
-const isDark = `bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% ${backgroundPosts} border ${border}`
-const isLight = `bg-gradient-to-b from-[#EBEBF2] via-30% via-[#f2f2f2] to-100% ${backgroundPosts} border ${border}`
+const postUrl = id + '-' + titleCleaned
 ---
+
 <div
   id=`post-${id}`
   data-tag=`post-${tag}`
   class={`
-    ${isDark}
+    posts
     hover:cursor-pointer hover:border-double hover:border-white/30
     card max-h-[125px] relative overflow-hidden w-full h-full rounded-md m-2 group
   `}
+>
+  <h2
+    class='text-lg absolute top-0 m-3 z-10 opacity-50 group-hover:opacity-100 text-primary-light dark:text-primary-dark'
   >
-  
-  <h2 class="text-lg absolute top-0 m-3 z-10 opacity-50 group-hover:opacity-100 text-primary-light dark:text-primary-dark">{title}</h2>
+    {title}
+  </h2>
 
-  <div class="flex items-end z-0 pl-4 pt-12">
+  <div class='flex items-end z-0 pl-4 pt-12'>
     <p
       transition:name={postUrl}
-      class="cust-font font-bold opacity-50 group-hover:opacity-100 text-6xl text-secondary-light dark:text-secondary-dark">
-        {id}
+      class='cust-font font-bold opacity-50 group-hover:opacity-100 text-6xl text-secondary-light dark:text-secondary-dark'
+    >
+      {id}
     </p>
-    <p class="mb-1 ml-2 opacity-50 group-hover:opacity-80 text-secondary-light dark:text-secondary-dark">{tag}</p>
+    <p
+      class='mb-1 ml-2 opacity-50 group-hover:opacity-80 text-secondary-light dark:text-secondary-dark'
+    >
+      {tag}
+    </p>
   </div>
 
-  <p class="cust-font absolute top-0 right-0 m-2 opacity-50 group-hover:opacity-80 text-secondary-light dark:text-secondary-dark">
+  <p
+    class='cust-font absolute top-0 right-0 m-2 opacity-50 group-hover:opacity-80 text-secondary-light dark:text-secondary-dark'
+  >
     {date}
   </p>
 
-  <p class="absolute bottom-0 font-light text-xs right-0 m-2 opacity-50 group-hover:opacity-90 text-tertiary-light dark:text-tertiary-dark">
+  <p
+    class='absolute bottom-0 font-light text-xs right-0 m-2 opacity-50 group-hover:opacity-90 text-tertiary-light dark:text-tertiary-dark'
+  >
     @{author}
   </p>
 
-  <a href={`posts/${postUrl}`} class="absolute top-0 h-full w-full"></a>
-  
-  <div class="absolute bottom-[-100%] w-full flex items-center justify-center -z-10 group group-hover:bottom-0 group-hover:z-30 transition-all duration-500 ease-in-out">
-    <button class="flex flex-col items-center pb-4 justify-end w-full h-full">
-        <ArrowUp class="size-4 fill-black dark:fill-white" />
-     </button>
+  <a href={`posts/${postUrl}`} class='absolute top-0 h-full w-full'></a>
+
+  <div
+    class='absolute bottom-[-100%] w-full flex items-center justify-center -z-10 group group-hover:bottom-0 group-hover:z-30 transition-all duration-500 ease-in-out'
+  >
+    <button class='flex flex-col items-center pb-4 justify-end w-full h-full'>
+      <ArrowUp class='size-4 fill-black dark:fill-white' />
+    </button>
   </div>
 </div>
 
 <style>
-/* TO-DO: IMPORT FONT */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+  /* TO-DO: IMPORT FONT */
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
   .cust-font {
     font-family: 'Lora', arial;
   }
 </style>
 
 <script>
-  if (document.documentElement.classList.contains('dark')) {
-    document.getElementById(`post-${id}`).className = `{isDark}`;
-  } else {
-    document.getElementById(`post-${id}`).className = `{isLight}`;
-  }
+  import { blogCardAssignColor } from '@/data/blogCardAssignColor'
+  import { toggleBkgGradient } from '@/data/toggleBkgGradient'
+
+  toggleBkgGradient('posts', blogCardAssignColor)
 </script>

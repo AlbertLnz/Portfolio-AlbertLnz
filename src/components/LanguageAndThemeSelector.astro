@@ -1,8 +1,8 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
-import Sun from "@/assets/symbols/Sun.astro"
-import Moon from "@/assets/symbols/Moon.astro"
-import Computer from "@/assets/symbols/Computer.astro"
+import Sun from '@/assets/symbols/Sun.astro'
+import Moon from '@/assets/symbols/Moon.astro'
+import Computer from '@/assets/symbols/Computer.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -13,39 +13,54 @@ const actualLang = t('lang')
 const nextLang = t('nextLang')
 ---
 
-<div class="flex items-center justify-center space-x-3">
+<div class='flex items-center justify-center space-x-3'>
   <a href={`/${nextLang}${path}`}>
-    <button id="languageBtn" class={`
+    <button
+      id='languageBtn'
+      class={`
       text-black/80 dark:text-white/80
       hover:text-black/90 hover:dark:text-white
       uppercase size-4
-    `}>{actualLang}</button>
+    `}
+    >
+      {actualLang}
+    </button>
   </a>
-  <p class={`
+  <p
+    class={`
     text-black/80 dark:text-white/80
     hover:text-black/90 hover:dark:text-white
-  `}>|</p>
-  <div class="h-full flex items-center justify-center gap-x-2">
-    <button id="light-theme-button">
-      <Sun class={`
+  `}
+  >
+    |
+  </p>
+  <div class='h-full flex items-center justify-center gap-x-2'>
+    <button id='light-theme-button'>
+      <Sun
+        class={`
         stroke-black/80 dark:stroke-white/80
         hover:stroke-black/90 hover:dark:stroke-white
         size-4
-      `} />
+      `}
+      />
     </button>
-    <button id="dark-theme-button">
-      <Moon class={`
+    <button id='dark-theme-button'>
+      <Moon
+        class={`
         stroke-black/80 dark:stroke-white/80
         hover:stroke-black/90 hover:dark:stroke-white
         size-4
-      `} />
+      `}
+      />
     </button>
-    <button id="system-theme-button">
-      <Computer class={`
+    <button id='system-theme-button'>
+      <Computer
+        class={`
         stroke-black/80 dark:stroke-white/80
         hover:stroke-black/90 hover:dark:stroke-white
         size-4
-      `} />
+      `}
+      />
     </button>
   </div>
 </div>
@@ -56,24 +71,26 @@ const nextLang = t('nextLang')
     const $lightThemeBtn = $(`#light-theme-button`)
     const $darkThemeBtn = $(`#dark-theme-button`)
     const $systemThemeBtn = $(`#system-theme-button`)
-  
+
     function toggleTheme(dark: boolean) {
-      dark ? document.body.classList.add("dark") : document.body.classList.remove("dark")
+      dark
+        ? document.body.classList.add('dark')
+        : document.body.classList.remove('dark')
     }
-  
-    $lightThemeBtn?.addEventListener("click", () => {
-      localStorage.setItem("theme", "light")
+
+    $lightThemeBtn?.addEventListener('click', () => {
+      localStorage.setItem('theme', 'light')
       toggleTheme(false)
     })
-  
-    $darkThemeBtn?.addEventListener("click", () => {
-      localStorage.setItem("theme", "dark")
+
+    $darkThemeBtn?.addEventListener('click', () => {
+      localStorage.setItem('theme', 'dark')
       toggleTheme(true)
     })
-  
-    $systemThemeBtn?.addEventListener("click", () => {
-      localStorage.setItem("theme", "system")
-      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches)
+
+    $systemThemeBtn?.addEventListener('click', () => {
+      localStorage.setItem('theme', 'system')
+      toggleTheme(window.matchMedia('(prefers-color-scheme: dark)').matches)
     })
   })
 </script>

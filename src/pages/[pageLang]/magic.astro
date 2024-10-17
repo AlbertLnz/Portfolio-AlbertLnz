@@ -10,22 +10,23 @@ import Blog from '@/sections/Blog.astro'
 
 export function getStaticPaths() {
   return [
-    {params: {pageLang: 'en'}},
-    {params: {pageLang: 'es'}},
-    {params: {pageLang: 'ca'}},
-  ];
+    { params: { pageLang: 'en' } },
+    { params: { pageLang: 'es' } },
+    { params: { pageLang: 'ca' } },
+  ]
 }
 // const { pageLang } = Astro.params;
 ---
 
-<Layout title="AlbertLnz portfolio" description="SEO description for my portfolio">
-
-	<Personal magicTrickAvailable={false} />
-	<Projects />
-	<Work />
-	<Tools />
-	<Portfolio />
-	<Weather />
-	<Blog />
-
+<Layout
+  title='AlbertLnz portfolio'
+  description='SEO description for my portfolio'
+>
+  <Personal magicTrickAvailable={false} />
+  <Projects />
+  <Work />
+  <Tools />
+  <Portfolio />
+  <Weather />
+  <Blog />
 </Layout>
