@@ -1,5 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+import vercel from '@astrojs/vercel/serverless';
+
 export default {
+  output: 'server',
+  adapter: vercel(),
   darkMode: ['class'],
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
