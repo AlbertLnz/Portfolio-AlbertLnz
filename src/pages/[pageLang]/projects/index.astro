@@ -79,22 +79,21 @@ const filteredProjects = allProjects.filter(
 </ProjectsLayout>
 
 <script>
-  // TO-DO: ASTRO HYDRATION
   document.addEventListener('astro:page-load', function () {
-    setTimeout(() => {
-      const $$ = (els: string): HTMLElement[] =>
-        Array.from(document.querySelectorAll(els))
+    const $$ = (els: string): NodeListOf<Element> =>
+      document.querySelectorAll(els)
 
-      const $$buttons = $$('button[id^="project-"]')
-      const $$projects = $$('article[id^="project-"]')
+    const $$buttons = $$('button[id^="project-"]')
+    const $$projects = $$('article[id^="project-"]')
 
-      $$buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-          $$projects.forEach((project) => {
-            project.style.display = button.id === project.id ? '' : 'none'
-          })
+    $$buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        $$projects.forEach((project) => {
+          const projectElement = project as HTMLElement
+          projectElement.style.display =
+            projectElement.id === button.id ? '' : 'none'
         })
       })
-    }, 0)
+    })
   })
 </script>

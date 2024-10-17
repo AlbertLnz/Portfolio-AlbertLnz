@@ -10,44 +10,52 @@ import Flag from '@/assets/apple/Flag.astro'
 const { project } = Astro.props
 
 const path = prepareCorrectSingleRoutePath(project)
-const disableDeploy = project.data.links.deploy === null;
+const disableDeploy = project.data.links.deploy === null
 ---
 
-<article id={`project-${project.data.id}`} class="z-20 relative grid grid-cols-2 md:grid-cols-[0.3fr_0.7fr] min-w-full h-full">
-  
-  <div class="flex flex-col items-center justify-start gap-y-4">
+<article
+  id={`project-${project.data.id}`}
+  class='z-20 relative grid grid-cols-2 md:grid-cols-[0.3fr_0.7fr] min-w-full h-full'
+>
+  <div class='flex flex-col items-center justify-start gap-y-4'>
     <img
-    class="size-20 md:size-28 rounded-lg mt-2"
-    src={project.data.img}
-    alt={project.data.title}
+      class='size-20 md:size-28 rounded-lg mt-2'
+      src={project.data.img}
+      alt={project.data.title}
     />
-    <div class="flex gap-x-4">
-      <a href={project.data.links.github} target="_blank" >
-        <GitHub class="size-8" />
+    <div class='flex gap-x-4'>
+      <a href={project.data.links.github} target='_blank'>
+        <GitHub class='size-8' />
       </a>
       <button
-      class={disableDeploy ? "cursor-not-allowed" : ""}
-      disabled={disableDeploy}
-    >
-      <a href={project.data.links.deploy} target="_blank">
-        <Flag id={project.data.id} class="size-8" />
-      </a>
-    </button>
+        class={disableDeploy ? 'cursor-not-allowed' : ''}
+        disabled={disableDeploy}
+      >
+        <a href={project.data.links.deploy} target='_blank'>
+          <Flag id={project.data.id} class='size-8' />
+        </a>
+      </button>
     </div>
   </div>
 
-  <div class="flex flex-col justify-start items-center px-0 md:px-10">
-    <h2 class="text-lg md:text-2xl text-center mb-6 font-semibold text-primary-light dark:text-primary-dark">{project.data.title}</h2>
-    <ul class="grid grid-cols-2 md:grid-cols-4 gap-x-4 w-full p-4 gap-y-2">
+  <div class='flex flex-col justify-start items-center px-0 md:px-10'>
+    <h2
+      class='text-lg md:text-2xl text-center mb-6 font-semibold text-primary-light dark:text-primary-dark'
+    >
+      {project.data.title}
+    </h2>
+    <ul class='grid grid-cols-2 md:grid-cols-4 gap-x-4 w-full p-4 gap-y-2'>
       {
         project.data.techs.map((tech: string) => {
           const techObj = projectsTechs[tech]
           return (
-            <li class="flex flex-col items-center justify-center group">
-              <div class= {`${techObj.background} p-2 size-10 rounded-lg`}>
+            <li class='flex flex-col items-center justify-center group'>
+              <div class={`${techObj.background} p-2 size-10 rounded-lg`}>
                 {<techObj.icon />}
               </div>
-              <p class="text-[10px] text-secondary-light dark:text-secondary-dark group-hover:text-black/90 dark:group-hover:text-white/90">{tech}</p>
+              <p class='text-[10px] text-secondary-light dark:text-secondary-dark group-hover:text-black/90 dark:group-hover:text-white/90'>
+                {tech}
+              </p>
             </li>
           )
         })
@@ -55,30 +63,52 @@ const disableDeploy = project.data.links.deploy === null;
     </ul>
   </div>
 
-  <div class={`
+  <div
+    class={`
     text-secondary-light dark:text-secondary-dark
     bg-white/70 dark:bg-black/90
     hidden md:block
     col-span-2 w-full border-2 border-[#262626] rounded-[6px] p-4 
-  `}>
+  `}
+  >
     {project.data.longDescription}
   </div>
 
-  <div class={`
+  <div
+    class={`
     text-secondary-light dark:text-secondary-dark
     absolute w-full bottom-0 left-0 gap-x-8 right-0 rounded-t-full flex justify-self-center items-center justify-center text-center text-2xl py-2
-  `}>
-    <a href="/" class="flex flex-col items-center justify-center gap-y-1 group">
-      <Home class="size-8" />
-      <p class="text-xs group-hover:text-black/90 dark:group-hover:text-white/90">Home</p>
+  `}
+  >
+    <a href='/' class='flex flex-col items-center justify-center gap-y-1 group'>
+      <Home class='size-8' />
+      <p
+        class='text-xs group-hover:text-black/90 dark:group-hover:text-white/90'
+      >
+        Home
+      </p>
     </a>
-    <a href="/en/posts" class="flex flex-col items-center justify-center gap-y-1 group">
-      <Blog id={project.data.id} class="size-8" />
-      <p class="text-xs group-hover:text-black/90 dark:group-hover:text-white/90">Blog</p>
+    <a
+      href='/en/posts'
+      class='flex flex-col items-center justify-center gap-y-1 group'
+    >
+      <Blog id={project.data.id} class='size-8' />
+      <p
+        class='text-xs group-hover:text-black/90 dark:group-hover:text-white/90'
+      >
+        Blog
+      </p>
     </a>
-    <a href={`projects/${path}`} class="flex flex-col items-center justify-center gap-y-1 group">
-      <Click class="size-8" />
-      <p class="text-xs group-hover:text-black/90 dark:group-hover:text-white/90">+ Info</p>
+    <a
+      href={`projects/${path}`}
+      class='flex flex-col items-center justify-center gap-y-1 group'
+    >
+      <Click class='size-8' />
+      <p
+        class='text-xs group-hover:text-black/90 dark:group-hover:text-white/90'
+      >
+        + Info
+      </p>
     </a>
   </div>
 </article>

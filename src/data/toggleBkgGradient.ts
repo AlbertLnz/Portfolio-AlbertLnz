@@ -22,8 +22,6 @@ export const toggleBkgGradient = (
         const { border, backgroundPosts, backgroundPost } = object[clearedTag]
         const theme = localStorage.getItem('theme')
 
-        console.log(theme)
-
         const gradientsMap = {
           class: {
             dark: `${gradients.dark} ${backgroundPosts} ${border}`,
