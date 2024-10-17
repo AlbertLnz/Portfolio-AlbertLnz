@@ -3,7 +3,7 @@ id: 4
 title: My Tracking Routes
 language: en
 author: AlbertLnz
-img: /imgs/projects/developing.webp
+img: /imgs/projects/my_tracking_routes.webp
 svg: /imgs/projects/favicon/my_tracking_routes.svg
 shortDescription: My mountain tracking routes in 3D
 longDescription: 3D map created with React and Mapbox of the mountain peaks I have visited.

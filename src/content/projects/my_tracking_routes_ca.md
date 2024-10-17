@@ -3,7 +3,7 @@ id: 4
 title: My Tracking Routes
 language: ca
 author: AlbertLnz
-img: /imgs/projects/developing.webp
+img: /imgs/projects/my_tracking_routes.webp
 svg: /imgs/projects/favicon/my_tracking_routes.svg
 shortDescription: Les meves rutes de muntanya en 3D
 longDescription: Mapa en 3D fet amb React i Mapbox dels cims de muntanya que he visitat.
