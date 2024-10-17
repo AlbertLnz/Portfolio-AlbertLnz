@@ -22,6 +22,8 @@ export const toggleBkgGradient = (
         const { border, backgroundPosts, backgroundPost } = object[clearedTag]
         const theme = localStorage.getItem('theme')
 
+        console.log(theme)
+
         const gradientsMap = {
           class: {
             dark: `${gradients.dark} ${backgroundPosts} ${border}`,
@@ -51,15 +53,21 @@ export const toggleBkgGradient = (
   const initTheme = () => {
     applyTheme()
 
-    const interval = setInterval(() => {
-      const storedTheme = localStorage.getItem('theme')
-      if (storedTheme !== null) {
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'theme') {
         applyTheme()
       }
-    }, 100)
+    })
+
+    const observer = new MutationObserver(() => {
+      const storedTheme = localStorage.getItem('theme')
+      applyTheme()
+    })
+
+    observer.observe(document.body, { attributes: true })
 
     window.addEventListener('beforeunload', () => {
-      clearInterval(interval)
+      observer.disconnect()
     })
   }
 
