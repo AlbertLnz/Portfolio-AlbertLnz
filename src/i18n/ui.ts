@@ -1,6 +1,4 @@
-import { workItemsEN } from '@/data/works_en'
-import { workItemsES } from '@/data/works_es'
-import { workItemsCA } from '@/data/works_ca'
+import { workItemsEN, workItemsES, workItemsCA } from '@/data/works'
 
 export const languages = {
   en: 'English',

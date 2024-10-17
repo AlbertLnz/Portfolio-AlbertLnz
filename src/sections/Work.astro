@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
-import Title from "@/components/Title.astro"
-import WorkItem from "@/components/WorkItem.astro"
+import Title from '@/components/Title.astro'
+import WorkItem from '@/components/WorkItem.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -11,21 +11,19 @@ const works = t('works')
 ---
 
 <section
-  id="work" 
+  id='work'
   class={`
   bg-section-bg-light dark:bg-section-bg-dark
     border-2 border-section-primary-border-light dark:border-section-primary-border-dark
     flex flex-col
   `}
-  transition:name="work">
-
+  transition:name='work'
+>
   <Title title={workTitle} />
-  <ol class="border-s-2 border-neutral-400 dark:border-neutral-800 overflow-auto ml-2">
-    {
-      works.map(work => (
-        <WorkItem {...work} />
-      ))
-    }
+  <ol
+    class='border-s-2 border-neutral-400 dark:border-neutral-800 overflow-auto ml-2'
+  >
+    {works.map((work) => <WorkItem {...work} />)}
   </ol>
 </section>
 
