@@ -2,7 +2,10 @@ export const toggleBkgGradient = (
   domElement: 'class' | 'id',
   elts: string,
   object: any,
-  gradients: object
+  gradients: {
+    dark: string
+    light: string
+  }
 ) => {
   const applyTheme = () => {
     let domElts

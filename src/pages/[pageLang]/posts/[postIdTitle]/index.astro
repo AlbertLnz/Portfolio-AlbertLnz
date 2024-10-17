@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 const posts = await getCollection('posts')
 const { pageLang, postIdTitle } = Astro.params
-const [id] = postIdTitle.split('/')[0]
+const [id] = postIdTitle!.split('/')[0]
 const post = posts.find(
   (post) => post.data.id === Number(id) && post.data.language === pageLang
 ) as (typeof posts)[0]

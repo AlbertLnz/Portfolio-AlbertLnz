@@ -1,12 +1,11 @@
 ---
 import { getCollection } from 'astro:content'
-import AstroIcon from '@/assets/icons/AstroIcon.astro'
-import Python from '@/assets/icons/Python.astro'
 import GitHub from '@/assets/icons/GitHub.astro'
 import ArrowRight from '@/assets/symbols/ArrowRight.astro'
 import { prepareCorrectSingleRoutePath } from '@/data/prepareCorrectRoutePaths'
 import { getLangFromUrl } from '@/i18n/utils'
 import { projectsTechs } from '@/data/projectTechs'
+import { type Techs } from '@/types/project.d'
 
 const lang = getLangFromUrl(Astro.url)
 const projects = await getCollection('projects')
@@ -45,7 +44,7 @@ const filteredProjects = projects.filter(
 
               <div class='flex items-center justify-center gap-x-4 mb-2 -z-10 pointer-events-none'>
                 {project.data.techs.slice(0, 2).map((tech) => {
-                  const techObj = projectsTechs[tech]
+                  const techObj = projectsTechs[tech as Techs]
 
                   return (
                     <div

@@ -6,6 +6,7 @@ import Home from '@/assets/apple/Home.astro'
 import GitHub from '@/assets/apple/GitHub.astro'
 import Click from '@/assets/apple/Click.astro'
 import Flag from '@/assets/apple/Flag.astro'
+import { type Techs } from '@/types/project.d'
 
 const { project } = Astro.props
 
@@ -47,7 +48,7 @@ const disableDeploy = project.data.links.deploy === null
     <ul class='grid grid-cols-2 md:grid-cols-4 gap-x-4 w-full p-4 gap-y-2'>
       {
         project.data.techs.map((tech: string) => {
-          const techObj = projectsTechs[tech]
+          const techObj = projectsTechs[tech as Techs]
           return (
             <li class='flex flex-col items-center justify-center group'>
               <div class={`${techObj.background} p-2 size-10 rounded-lg`}>

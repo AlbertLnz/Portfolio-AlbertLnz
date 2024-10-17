@@ -19,7 +19,7 @@ const { title, works } = homePageWorksTranslations(Astro.url)
   <ol
     class='border-s-2 border-neutral-400 dark:border-neutral-800 overflow-auto ml-2'
   >
-    {works.map((work) => <WorkItem {...work} />)}
+    {works.map((work: object[]) => <WorkItem {...work} />)}
   </ol>
 </section>
 

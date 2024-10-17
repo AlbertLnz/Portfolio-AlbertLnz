@@ -4,6 +4,26 @@ import { homePageToolsTranslations } from '@/i18n/translations'
 
 const MAX_TOOLS_ITEMS = 99
 const toolsTranslations = homePageToolsTranslations(Astro.url)
+
+type ToolNames =
+  | 'tool_note'
+  | 'astro'
+  | 'python'
+  | 'react'
+  | 'docker'
+  | 'laravel'
+  | 'express'
+  | 'git'
+  | 'figma'
+  | 'nextjs'
+  | 'rust'
+  | 'notion'
+  | 'angular'
+  | 'fastapi'
+  | 'tailwind'
+  | 'mysql'
+  | 'mongodb'
+  | 'postgresql'
 ---
 
 <section
@@ -32,7 +52,7 @@ const toolsTranslations = homePageToolsTranslations(Astro.url)
             >
               {<tool.component class='size-14' />}
               <p class='text-[11px] text-secondary-light dark:text-tertiary-dark'>
-                {toolsTranslations[`${tool.name}`]}
+                {toolsTranslations[tool.name as ToolNames]}
               </p>
             </div>
           </li>

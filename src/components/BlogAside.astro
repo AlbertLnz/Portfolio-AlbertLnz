@@ -5,17 +5,32 @@ import type { Post } from '@/content/configTypes.d.ts'
 import { blogCardAssignColor } from '@/data/blogCardAssignColor'
 const { posts }: { posts: Post[] } = Astro.props as { posts: Post[] }
 
+type BlogCardTag = 'Tutorial' | 'Snippet' | 'Theme'
+
 const postsTags = new Set(posts.map((post) => post.data.tag))
 ---
 
-<aside class="space-y-4">
-  <button id="asc-desc" class="flex items-center justify-center px-2 py-1 w-full rounded-md gap-x-2 bg-slate-300 dark:bg-slate-700 transition-colors duration-500 hover:bg-green-400 dark:hover:bg-green-800">
-    <SortNumeric class="size-6 fill-white/80" />
-    <p class="text-[16px] text-primary-light dark:text-primary-dark">Asc / Desc</p>
+<aside class='space-y-4'>
+  <button
+    id='asc-desc'
+    class='flex items-center justify-center px-2 py-1 w-full rounded-md gap-x-2 bg-slate-300 dark:bg-slate-700 transition-colors duration-500 hover:bg-green-400 dark:hover:bg-green-800'
+  >
+    <SortNumeric class='size-6 fill-white/80' />
+    <p class='text-[16px] text-primary-light dark:text-primary-dark'>
+      Asc / Desc
+    </p>
   </button>
-  <button id="view-all" class="flex items-center justify-center px-2 py-1 w-full rounded-md gap-x-2 bg-slate-300 dark:bg-slate-700 transition-colors duration-500 hover:bg-green-400 dark:hover:bg-green-800">
-    <TwoXTwoGrid id="gridIcon" class="size-4 fill-white/80 stroke-1 stroke-black/80"/>
-    <p class="text-[16px] text-primary-light dark:text-primary-dark">View All</p>
+  <button
+    id='view-all'
+    class='flex items-center justify-center px-2 py-1 w-full rounded-md gap-x-2 bg-slate-300 dark:bg-slate-700 transition-colors duration-500 hover:bg-green-400 dark:hover:bg-green-800'
+  >
+    <TwoXTwoGrid
+      id='gridIcon'
+      class='size-4 fill-white/80 stroke-1 stroke-black/80'
+    />
+    <p class='text-[16px] text-primary-light dark:text-primary-dark'>
+      View All
+    </p>
   </button>
 
   <hr />
@@ -23,8 +38,13 @@ const postsTags = new Set(posts.map((post) => post.data.tag))
   <ul>
     {
       posts.map((post) => (
-        <li class="text-primary-light dark:text-primary-dark">
-          <input id={`chk-post-${post.data.id}`} class="posts-checkbox" type="checkbox" checked />
+        <li class='text-primary-light dark:text-primary-dark'>
+          <input
+            id={`chk-post-${post.data.id}`}
+            class='posts-checkbox'
+            type='checkbox'
+            checked
+          />
           <label for={`chk-post-${post.data.id}`}>{post.data.title}</label>
         </li>
       ))
@@ -33,24 +53,31 @@ const postsTags = new Set(posts.map((post) => post.data.tag))
 
   <hr />
 
-  <ul class="space-y-2 text-primary-light dark:text-primary-dark">
-    {Array.from(postsTags).map((tag) => {
-      const colorTag = blogCardAssignColor[tag].background
+  <ul class='space-y-2 text-primary-light dark:text-primary-dark'>
+    {
+      Array.from(postsTags).map((tag) => {
+        const colorTag = blogCardAssignColor[tag as BlogCardTag].background
 
-      return (
-      <li class="flex items-center gap-x-2">
-        <div class={`size-2 rounded-full ${colorTag}`}></div>
-        <input id={`chk-tag-post-${tag}`} class="posts-tags-checkbox" type="checkbox" checked />
-        <label for={`chk-tag-post-${tag}`}>{tag}</label>
-      </li>
-    )
-    })}
+        return (
+          <li class='flex items-center gap-x-2'>
+            <div class={`size-2 rounded-full ${colorTag}`} />
+            <input
+              id={`chk-tag-post-${tag}`}
+              class='posts-tags-checkbox'
+              type='checkbox'
+              checked
+            />
+            <label for={`chk-tag-post-${tag}`}>{tag}</label>
+          </li>
+        )
+      })
+    }
   </ul>
-
 </aside>
 
 <style>
-  .posts-checkbox, .posts-tags-checkbox {
+  .posts-checkbox,
+  .posts-tags-checkbox {
     display: none;
   }
 
@@ -76,15 +103,16 @@ const postsTags = new Set(posts.map((post) => post.data.tag))
 
   .posts-checkbox:not(:checked) + label::after,
   .posts-tags-checkbox:not(:checked) + label::after {
-      transform: translateY(-50%) translateX(0);
+    transform: translateY(-50%) translateX(0);
   }
 </style>
 
 <script>
   document.addEventListener('astro:page-load', () => {
     const $ = (el: string): HTMLElement | null => document.querySelector(el)
-    const $$ = (els: string): NodeListOf<Element> => document.querySelectorAll(els)
-  
+    const $$ = (els: string): NodeListOf<Element> =>
+      document.querySelectorAll(els)
+
     const $gridIcon = $(`#gridIcon`)
 
     const $section = $(`#content`)
@@ -92,18 +120,22 @@ const postsTags = new Set(posts.map((post) => post.data.tag))
     const $viewAllBtn = $(`#view-all`)
 
     const $$allPosts = $$('.card')
-    const $$postCheckboxes = $$('.posts-checkbox') as NodeListOf<HTMLInputElement>
-    const $$postTagsCheckboxes = $$('.posts-tags-checkbox') as NodeListOf<HTMLInputElement>
-  
+    const $$postCheckboxes = $$(
+      '.posts-checkbox'
+    ) as NodeListOf<HTMLInputElement>
+    const $$postTagsCheckboxes = $$(
+      '.posts-tags-checkbox'
+    ) as NodeListOf<HTMLInputElement>
+
     // REVERSE posts
     $ascDescBtn?.addEventListener('click', () => {
       const $$posts = $$('.card')
       const reversedposts = Array.from($$posts).reverse()
-        reversedposts.forEach((post) => {
-          $section?.appendChild(post)
-        })
+      reversedposts.forEach((post) => {
+        $section?.appendChild(post)
+      })
     })
-  
+
     // VIEW ALL
     $viewAllBtn?.addEventListener('click', () => {
       $$allPosts.forEach((post) => {
@@ -115,20 +147,22 @@ const postsTags = new Set(posts.map((post) => post.data.tag))
       $$postTagsCheckboxes.forEach((checkbox) => {
         checkbox.checked = true
       })
-  })
-  
+    })
+
     function updatePostsVisibility() {
       const $$posts = $$('.card')
-  
+
       $$posts.forEach((post) => {
         const postElement = post as HTMLElement
-        
+
         const postCheckbox = $(`#chk-${post.id}`) as HTMLInputElement
         const isPostChecked = postCheckbox && postCheckbox.checked
-  
-        const tagCheckbox = $(`#chk-tag-${postElement.dataset.tag}`) as HTMLInputElement
+
+        const tagCheckbox = $(
+          `#chk-tag-${postElement.dataset.tag}`
+        ) as HTMLInputElement
         const isTagChecked = tagCheckbox && tagCheckbox.checked
-  
+
         if (isPostChecked && isTagChecked) {
           postElement.removeAttribute('hidden')
         } else {
@@ -136,13 +170,13 @@ const postsTags = new Set(posts.map((post) => post.data.tag))
         }
       })
     }
-  
+
     $$postCheckboxes.forEach((checkbox) => {
       checkbox.addEventListener('click', () => {
         updatePostsVisibility()
       })
     })
-  
+
     $$postTagsCheckboxes.forEach((checkbox) => {
       checkbox.addEventListener('click', () => {
         updatePostsVisibility()
