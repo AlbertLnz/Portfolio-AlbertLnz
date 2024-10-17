@@ -1,27 +1,25 @@
 ---
-import type { Project } from "@/content/configTypes"
-import { getLangFromUrl } from "@/i18n/utils"
+import type { Project } from '@/content/configTypes'
+import { getLangFromUrl } from '@/i18n/utils'
 
-const { projects }: { projects: Project[] } = Astro.props as { projects: Project[] }
+const { projects }: { projects: Project[] } = Astro.props as {
+  projects: Project[]
+}
 const lang = getLangFromUrl(Astro.url)
-
-const filteredProjects = projects.filter((project) => project.data.language === lang);
 ---
 
-<ul class="flex flex-col items-start justify-center text-xl gap-y-6">
+<ul class='flex flex-col items-start justify-center text-xl gap-y-6'>
   {
-    filteredProjects.map((project) => (
-      <li class={`
+    projects.map((project) => (
+      <li
+        class={`
         text-secondary-light dark:text-secondary-dark
         hover:text-black/90 dark:hover:text-white/90
         flex gap-x-4
-      `}>
-        <img class="size-8" src={project.data.svg} alt={project.data.title} />
-        <button
-          id={`project-${project.data.id}`}
-        >
-          {project.data.title}
-        </button>
+      `}
+      >
+        <img class='size-8' src={project.data.svg} alt={project.data.title} />
+        <button id={`project-${project.data.id}`}>{project.data.title}</button>
       </li>
     ))
   }

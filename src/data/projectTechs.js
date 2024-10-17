@@ -1,6 +1,12 @@
 import AstroIcon from '@/assets/icons/AstroIcon.astro'
 import Python from '@/assets/icons/Python.astro'
 import Git from '@/assets/icons/Git.astro'
+import Node from '@/assets/icons/Node.astro'
+import React from '@/assets/icons/React.astro'
+import NextJS from '@/assets/icons/NextJS.astro'
+import TypeScript from '@/assets/icons/TypeScript.astro'
+import JavaScript from '@/assets/icons/JavaScript.astro'
+import Deno from '@/assets/icons/Deno.astro'
 
 export const projectsTechs = {
   Astro: {
@@ -14,5 +20,29 @@ export const projectsTechs = {
   Git: {
     icon: Git,
     background: 'bg-[#F05032]',
+  },
+  Node: {
+    icon: Node,
+    background: 'bg-[#FFF]',
+  },
+  React: {
+    icon: React,
+    background: 'bg-[#FFF]',
+  },
+  NextJS: {
+    icon: NextJS,
+    background: 'bg-[#FFF]',
+  },
+  TypeScript: {
+    icon: TypeScript,
+    background: 'bg-[#FFF]',
+  },
+  JavaScript: {
+    icon: JavaScript,
+    background: 'bg-[#FFF]',
+  },
+  Deno: {
+    icon: Deno,
+    background: 'bg-[#000]',
   },
 }

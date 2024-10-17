@@ -5,12 +5,12 @@ language: ca
 author: AlbertLnz
 img: /imgs/projects/fixitnow.webp
 svg: /imgs/projects/favicon/fixitnow.svg
-shortDescription: FixItNow short description
-longDescription: La herramienta que te permite corregir errores de código en tus proyectos. **Es muy útil para los usuarios** de Windows que no tienen instalados los programas de corrección de errores.
-techs: [Astro, Python]
+shortDescription: Codi de programació fàcil amb errors, resoldreu ara!
+longDescription: (DEVELOPING) Plataforma d'aprenentatge enfocada en millorar els fundaments de programació mitjançant breus problemes de codi. Ideal per principiants i programadors experimentats per tal de practicar y enfortir habilitats en un entorn interactiu.
+techs: [NextJS, Deno, React, TypeScript]
 links:
   github: https://github.com/AlbertLnz/fixitnow
   deploy:
 ---
 
-La herramienta que te permite corregir errores de código en tus proyectos. **Es muy útil para los usuarios** de Windows que no tienen instalados los programas de corrección de errores. +++++++++++++
+DEVELOPING
