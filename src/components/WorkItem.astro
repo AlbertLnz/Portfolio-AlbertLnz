@@ -1,30 +1,47 @@
 ---
-import { getLangFromUrl } from "@/i18n/utils"
+import { getLangFromUrl } from '@/i18n/utils'
 
 const { company, title, period, link } = Astro.props
 
 const lang = getLangFromUrl(Astro.url)
 
-const titleStyle = title === 'Current available to work' ? '#22C55E' : '#D1D5DB'
+const titleStyle =
+  title === 'Current available to work' ||
+  title === 'Actualmente buscando trabajo' ||
+  title === 'Actualmente buscant treball'
+    ? 'font-semibold underline underline-offset-2	text-[#22C55E]'
+    : 'text-[#111827] dark:text-[#A3A3A3]'
 ---
 
-<li class="h-auto mb-4">
-  <div class="relative top-0 mt-2 space-x-3 flex items-center justify-center w-fit h-fit">
-    <div class="absolute -start-[6.5px] h-3 w-3 rounded-full border border-neutral-500 bg-neutral-200 dark:border-neutral-600 dark:bg-neutral-800"></div>
-    <time class="text-xs dark:text-primary-dark font-semibold">{period}</time>
+<li class='h-auto mb-4'>
+  <div
+    class='relative top-0 mt-2 space-x-3 flex items-center justify-center w-fit h-fit'
+  >
+    <div
+      class='absolute -start-[6.5px] h-3 w-3 rounded-full border border-neutral-500 bg-neutral-200 dark:border-neutral-600 dark:bg-neutral-800'
+    >
+    </div>
+    <time class='text-xs dark:text-primary-dark font-semibold'>{period}</time>
   </div>
 
-  <div class="ml-3.5 mt-3 flex items-center justify-start gap-x-1">
-    <h3 class={`
-       dark:text-neutral-400
-      text-[${titleStyle}]
-      text-xs
-    `}>{title}</h3>
-    <a href={link} target="_blank" rel="noopener" class="group text-pretty text-sm">
-      <span class={`
+  <div class='ml-3.5 mt-3 flex items-center justify-start gap-x-1'>
+    <h3 class={`${titleStyle} text-xs`}>
+      {title}
+    </h3>
+    <a
+      href={link}
+      target='_blank'
+      rel='noopener'
+      class='group text-pretty text-sm'
+    >
+      <span
+        class={`
       text-tertiary-light dark:text-tertiary-dark
         text-[10px] italic
-      `}>({company})</span>
+      `}
+      >
+        ({company})
+      </span>
     </a>
   </div>
 </li>
