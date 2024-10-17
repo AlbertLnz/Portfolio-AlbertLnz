@@ -7,6 +7,7 @@ import NextJS from '@/assets/icons/NextJS.astro'
 import TypeScript from '@/assets/icons/TypeScript.astro'
 import JavaScript from '@/assets/icons/JavaScript.astro'
 import Deno from '@/assets/icons/Deno.astro'
+import Laravel from '@/assets/icons/Laravel.astro'
 
 export const projectsTechs = {
   Astro: {
@@ -43,6 +44,10 @@ export const projectsTechs = {
   },
   Deno: {
     icon: Deno,
+    background: 'bg-[#000]',
+  },
+  Laravel: {
+    icon: Laravel,
     background: 'bg-[#000]',
   },
 }
