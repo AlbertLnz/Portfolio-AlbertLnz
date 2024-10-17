@@ -8,6 +8,9 @@ import TypeScript from '@/assets/icons/TypeScript.astro'
 import JavaScript from '@/assets/icons/JavaScript.astro'
 import Deno from '@/assets/icons/Deno.astro'
 import Laravel from '@/assets/icons/Laravel.astro'
+import MySQL from '@/assets/icons/MySQL.astro'
+import Spring from '@/assets/icons/Spring.astro'
+import Java from '@/assets/icons/Java.astro'
 
 export const projectsTechs = {
   Astro: {
@@ -48,6 +51,18 @@ export const projectsTechs = {
   },
   Laravel: {
     icon: Laravel,
+    background: 'bg-[#000]',
+  },
+  Java: {
+    icon: Java,
+    background: 'bg-[#000]',
+  },
+  Spring: {
+    icon: Spring,
+    background: 'bg-[#000]',
+  },
+  MySQL: {
+    icon: MySQL,
     background: 'bg-[#000]',
   },
 }

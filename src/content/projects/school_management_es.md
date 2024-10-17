@@ -5,7 +5,7 @@ language: es
 author: AlbertLnz
 img: /imgs/projects/school_management.webp
 svg: /imgs/projects/favicon/school_management.svg
-shortDescription: Aplicacióm para gestionar las notas de una escuela
+shortDescription: Aplicación para gestionar las notas de una escuela
 longDescription: Aplicación Fullstack hecha en el Backend con Laravel 11 mediante una API REST y en el Frontend mediante vistas Blade combinadas con JavaScript que permite gestionar las notas de una escuela.
 techs: [Laravel, JavaScript]
 links:
