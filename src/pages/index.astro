@@ -1,0 +1,42 @@
+---
+import "@fontsource-variable/outfit";
+import "../../globals.css";
+
+import Navbar2 from "@/components/Navbar2";
+import PagesSlider from "@/components/PagesSlider";
+// import tools from '@/data/tools'
+// import Tools from '../components/Tools'
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+
+  <style>
+    /* Default light theme */
+    :root {
+      color-scheme: light;
+      background-color: white;
+      color: black;
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        background-color: black;
+        color: white;
+      }
+    }
+  </style>
+
+  <body class="w-full bg-[#FFFFFF] dark:bg-[#171717]">
+    <Navbar2 client:load />
+    <PagesSlider client:load />
+  </body>
+</html>

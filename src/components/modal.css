@@ -1,0 +1,30 @@
+/* Modal (r0R5, r1R5 ...) */
+#\:r1R5\: {
+  margin: 0;
+  border-radius: 20px 20px 0 0;
+  max-width: 100%;
+  margin: 0 auto;
+  width: 60%;
+  height: 40%;
+  background-color: #18181B;
+}
+
+.ToggleGroupItem {
+  width: 40%;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.toggle button {
+  background-color: #E5E5E5;
+  display: flex;
+  place-items: center;
+  justify-content: start;
+}
+
+.toggle button[aria-pressed="true"] {
+  background-color: #f0f0f0;
+  color: black;
+  resize: vertical;
+}

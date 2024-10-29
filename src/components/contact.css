@@ -1,0 +1,22 @@
+a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+.rrss::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px; 
+  background-color: #818cf8;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease-in-out;
+}
+
+.rrss:hover::after {
+  transform: scaleX(1);
+}

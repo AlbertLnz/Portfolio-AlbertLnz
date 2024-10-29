@@ -1,0 +1,15 @@
+.settings_accordion h2 {
+  height: 100%;
+}
+
+.settings_accordion h2 button {
+  padding: 0;
+  display: flex;
+  align-self: center;
+}
+
+.settings_accordion section {
+  border-radius: 0 0 20px 20px;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}

@@ -1,0 +1,16 @@
+#darkTheme, #lightTheme, #systemTheme {
+  background-color: #111827;
+  color: white;
+}
+#darkTheme[aria-checked="true"], #lightTheme[aria-checked="true"], #systemTheme[aria-checked="true"] {
+  background-color: #6f69e9;
+}
+
+
+#englishLanguage, #spanishLanguage, #catalanLanguage {
+  background-color: #111827;
+  color: white; 
+}
+#englishLanguage[aria-checked="true"], #spanishLanguage[aria-checked="true"], #catalanLanguage[aria-checked="true"] {
+  background-color: #6f69e9;
+}
