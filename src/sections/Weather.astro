@@ -185,14 +185,3 @@ if (!iconWeather)
     scheduleUpdate()
   })
 </script>
-
-<script>
-  document.addEventListener('astro:page-load', () => {
-    // Do it with: X-Vercel-IP-City
-    fetch('https://ipinfo.io/json')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data)
-      })
-  })
-</script>
