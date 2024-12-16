@@ -27,9 +27,16 @@ const { Content } = await render(project)
     id='project'
     class={`
   bg-section-bg-light dark:bg-section-bg-dark
-    relative overflow-hidden
+    relative
   `}
   >
+    <a
+      href={`/${pageLang}/projects`}
+      class='absolute top-2 left-0 -translate-x-[140%] transform z-20 text-lg dark:text-primary-dark dark:hover:text-white'
+    >
+      Back
+    </a>
+
     <div class='flex flex-col items-center justify-center mb-12'>
       <h1
         class={`
