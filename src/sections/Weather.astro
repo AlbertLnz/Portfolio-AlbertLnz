@@ -1,7 +1,6 @@
 ---
 import {
   PRODUCTION,
-  IP_INFO_API,
   OPEN_WEATHER_API_URL,
   OPEN_WEATHER_API_KEY,
 } from 'astro:env/server'
@@ -20,8 +19,6 @@ if (PRODUCTION) {
   const headers = Astro.request.headers
   city = headers.get('x-vercel-ip-city') || city
 
-  console.log('TEST HEADERS', headers)
-
   const weatherData = await fetchWeatherData(city)
   if (weatherData) {
     ;({
@@ -37,6 +34,7 @@ if (PRODUCTION) {
 } else {
   timestamp = 1727244822
   timezone = 7200
+  city = 'Ashburn'
   temp = 36.6
   wind = 4.63
   humidity = 41
