@@ -23,7 +23,7 @@ const postUrl = id + '-' + titleCleaned
   `}
 >
   <h2
-    class='text-lg absolute top-0 m-3 z-10 opacity-50 group-hover:opacity-100 text-primary-light dark:text-primary-dark'
+    class='text-lg absolute top-0 m-3 opacity-50 group-hover:opacity-100 text-primary-light dark:text-primary-dark'
   >
     {title}
   </h2>
@@ -57,7 +57,7 @@ const postUrl = id + '-' + titleCleaned
   <a href={`posts/${postUrl}`} class='absolute top-0 h-full w-full'></a>
 
   <div
-    class='absolute bottom-[-100%] w-full flex items-center justify-center -z-10 group group-hover:bottom-0 group-hover:z-30 transition-all duration-500 ease-in-out'
+    class='absolute bottom-[-100%] w-full flex items-center justify-center pointer-events-none -z-10 group group-hover:bottom-0 group-hover:z-30 transition-all duration-500 ease-in-out'
   >
     <button class='flex flex-col items-center pb-4 justify-end w-full h-full'>
       <ArrowUp class='size-4 fill-black dark:fill-white' />
