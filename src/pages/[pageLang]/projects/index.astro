@@ -2,9 +2,13 @@
 import LanguageAndThemeSelector from '@/components/LanguageAndThemeSelector.astro'
 import ProjectsLayout from '@/layouts/ProjectsLayout.astro'
 import { getCollection } from 'astro:content'
-import IPad from '@/assets/apple/IPad.astro'
-import ProjectsPageCardIPad from '@/components/ProjectsPageCardIPad.astro'
 import ProjectsAside from '@/components/ProjectsAside.astro'
+import GitHub from '@/assets/icons/GitHub.astro'
+import { prepareCorrectSingleRoutePath } from '@/data/prepareCorrectRoutePaths'
+import { projectsTechs } from '@/data/projectTechs'
+import { type Techs } from '@/types/project.d'
+import Tooltip from '@/components/Tooltip.astro'
+import { projectsPageTranslations } from '@/i18n/translations'
 
 export function getStaticPaths() {
   return [
@@ -13,6 +17,8 @@ export function getStaticPaths() {
     { params: { pageLang: 'ca' } },
   ]
 }
+
+const { deploy_tooltip, info_readme } = projectsPageTranslations(Astro.url)
 
 const { pageLang } = Astro.params
 const allProjects = await getCollection('projects')
@@ -68,31 +74,93 @@ const filteredProjects = allProjects.filter(
       p-0 h-full max-h-full overflow-hidden
     `}
   >
-    <IPad id='iPad' contentClass='p-4 flex gap-x-4'>
-      {
-        filteredProjects.map((project) => (
-          <ProjectsPageCardIPad project={project} />
-        ))
-      }
-    </IPad>
+    {
+      filteredProjects.map((project) => (
+        <article
+          id={`project-${project.data.id}`}
+          class='hidden relative p-6 overflow-hidden flex-col items-center justify-around text-secondary-light dark:text-secondary-dark'
+          data-project
+        >
+          <div class='mb-6 flex items-center justify-between w-full'>
+            <h2 class='text-center text-4xl font-bold text-heading-light dark:text-heading-dark mx-auto'>
+              <Tooltip tooltipTxt={project.data.links.deploy || deploy_tooltip}>
+                <a
+                  href={project.data.links.deploy}
+                  target='_blank'
+                  class='hover:cursor-pointer hover:underline'
+                >
+                  {project.data.title}
+                </a>
+              </Tooltip>
+            </h2>
+            <a href={project.data.links.github} target='_blank' class='mr-6'>
+              <GitHub class='size-8 fill-black/90 hover:fill-black dark:fill-white/90 dark:hover:fill-white' />
+            </a>
+          </div>
+          <div class='flex w-full'>
+            <img
+              src={project.data.img}
+              alt={project.data.title}
+              class='size-52 rounded-lg'
+            />
+            <div class='flex flex-col flex-1 justify-between px-4 py-2 leading-relaxed tracking-wide'>
+              <p>{project.data.longDescription}</p>
+              <p class='text-base'>
+                {info_readme}{' '}
+                <span class='hover:underline hover:text-black/90 dark:hover:text-white/90'>
+                  <a
+                    href={`projects/${prepareCorrectSingleRoutePath(project)}`}
+                  >
+                    Readme
+                  </a>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class='flex flex-col w-full mt-4 p-2'>
+            <h4 class='text-2xl font-semibold mb-2'>Techs</h4>
+            <ul class='flex ml-2 gap-x-6 text-base font-light'>
+              {project.data.techs.map((tech: string) => {
+                const techObj = projectsTechs[tech as Techs]
+                return (
+                  <li class='flex items-center justify-center gap-x-1'>
+                    {<techObj.icon class='size-6' />}
+                    {tech}
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </article>
+      ))
+    }
   </section>
 </ProjectsLayout>
 
 <script>
   document.addEventListener('astro:page-load', function () {
-    const $$ = (els: string): NodeListOf<Element> =>
-      document.querySelectorAll(els)
+    const $$ = (els: string): NodeListOf<HTMLElement> =>
+      document.querySelectorAll<HTMLElement>(els)
 
-    const $$buttons = $$('button[id^="project-"]')
-    const $$projects = $$('article[id^="project-"]')
+    const articles = $$('article[data-project]')
+    const buttons = $$('button[id^="project-"]')
 
-    $$buttons.forEach((button) => {
+    if (articles.length > 0) {
+      const lastProject = articles[articles.length - 1]
+      lastProject.style.display = 'flex'
+    }
+
+    buttons.forEach((button) => {
       button.addEventListener('click', () => {
-        $$projects.forEach((project) => {
-          const projectElement = project as HTMLElement
-          projectElement.style.display =
-            projectElement.id === button.id ? '' : 'none'
+        const projectId = button.id.replace('project-', '')
+
+        articles.forEach((article) => {
+          article.style.display =
+            article.id === `project-${projectId}` ? 'flex' : 'none'
         })
+
+        buttons.forEach((btn) => btn.classList.remove('active'))
+        button.classList.add('active')
       })
     })
   })

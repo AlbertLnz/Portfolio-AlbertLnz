@@ -6,8 +6,8 @@ author: AlbertLnz
 img: /imgs/projects/plt2img.webp
 svg: /imgs/projects/favicon/plt2img.svg
 shortDescription: From Python charts to image, instantly
-longDescription: Plt2Img is a web tool that converts Matplotlib code into images. Ideal for developers and data scientists who want to generate visualizations from Python code without needing to run the code locally.
-techs: [Astro, Python]
+longDescription: Plt2Img is a web tool that transforms Matplotlib code into high-quality images, making it perfect for developers and data scientists. It's especially ideal for those leveraging AI to generate Matplotlib code, as the platform seamlessly converts the code into optimized PNG images without requiring local execution. This streamlines the creation of visualizations, offering a fast and efficient workflow for data representation.
+techs: [Astro, Python, Render]
 links:
   github: https://github.com/AlbertLnz/plt2img
   deploy: https://plt2img.online

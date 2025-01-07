@@ -11,58 +11,77 @@ import Laravel from '@/assets/icons/Laravel.astro'
 import MySQL from '@/assets/icons/MySQL.astro'
 import Spring from '@/assets/icons/Spring.astro'
 import Java from '@/assets/icons/Java.astro'
+import Mapbox from '@/assets/icons/Mapbox.astro'
+import Netlify from '@/assets/icons/Netlify.astro'
+import SQLite from '@/assets/icons/SQLite.astro'
+import MariaDB from '@/assets/icons/MariaDB.astro'
+import Render from '@/assets/icons/Render.astro'
+import Npm from '@/assets/icons/Npm.astro'
+import Crates from '@/assets/icons/Crates.astro'
+import Rust from '@/assets/icons/Rust.astro'
 
 export const projectsTechs = {
   Astro: {
     icon: AstroIcon,
-    background: 'bg-gradient-to-l from-[#bc52ee1a] to-[#3245ff4d]',
   },
   Python: {
     icon: Python,
-    background: 'bg-gradient-to-r from-[#306998] to-[#ffe873]',
   },
   Git: {
     icon: Git,
-    background: 'bg-[#F05032]',
   },
   Node: {
     icon: Node,
-    background: 'bg-[#FFF]',
   },
   React: {
     icon: React,
-    background: 'bg-[#FFF]',
   },
   NextJS: {
     icon: NextJS,
-    background: 'bg-[#FFF]',
   },
   TypeScript: {
     icon: TypeScript,
-    background: 'bg-[#FFF]',
   },
   JavaScript: {
     icon: JavaScript,
-    background: 'bg-[#FFF]',
   },
   Deno: {
     icon: Deno,
-    background: 'bg-[#000]',
   },
   Laravel: {
     icon: Laravel,
-    background: 'bg-[#000]',
   },
   Java: {
     icon: Java,
-    background: 'bg-[#000]',
   },
   Spring: {
     icon: Spring,
-    background: 'bg-[#000]',
   },
   MySQL: {
     icon: MySQL,
-    background: 'bg-[#000]',
+  },
+  Mapbox: {
+    icon: Mapbox,
+  },
+  Netlify: {
+    icon: Netlify,
+  },
+  SQLite: {
+    icon: SQLite,
+  },
+  MariaDB: {
+    icon: MariaDB,
+  },
+  Render: {
+    icon: Render,
+  },
+  NPM: {
+    icon: Npm,
+  },
+  Crates: {
+    icon: Crates,
+  },
+  Rust: {
+    icon: Rust,
   },
 }

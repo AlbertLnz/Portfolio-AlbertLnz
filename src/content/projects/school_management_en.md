@@ -6,8 +6,8 @@ author: AlbertLnz
 img: /imgs/projects/school_management.webp
 svg: /imgs/projects/favicon/school_management.svg
 shortDescription: School management application
-longDescription: Fullstack application built with Laravel 11 on the Backend using a REST API, and Blade views combined with JavaScript on the Frontend, allowing the management of school grades.
-techs: [Laravel, JavaScript]
+longDescription: A full-stack application designed for managing school grades, built with Laravel 11 on the backend utilizing a REST API and SQLite for database management. The frontend combines Blade views with JavaScript to deliver a seamless and interactive user experience. This application ensures efficient data handling, scalability, and ease of use for educational institutions.
+techs: [Laravel, SQLite, JavaScript]
 links:
   github: https://github.com/AlbertLnz/school-management
   deploy:

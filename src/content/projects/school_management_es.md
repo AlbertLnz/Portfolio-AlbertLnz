@@ -6,8 +6,8 @@ author: AlbertLnz
 img: /imgs/projects/school_management.webp
 svg: /imgs/projects/favicon/school_management.svg
 shortDescription: Aplicación para gestionar las notas de una escuela
-longDescription: Aplicación Fullstack hecha en el Backend con Laravel 11 mediante una API REST y en el Frontend mediante vistas Blade combinadas con JavaScript que permite gestionar las notas de una escuela.
-techs: [Laravel, JavaScript]
+longDescription: Una aplicación de pila completa diseñada para gestionar las calificaciones escolares, construida con Laravel 11 en el backend utilizando una API REST y SQLite para la gestión de bases de datos. El frontend combina vistas Blade con JavaScript para ofrecer una experiencia de usuario fluida e interactiva. Esta aplicación garantiza un manejo eficiente de los datos, escalabilidad y facilidad de uso para las instituciones educativas.
+techs: [Laravel, SQLite, JavaScript]
 links:
   github: https://github.com/AlbertLnz/school-management
   deploy:

@@ -11,15 +11,14 @@ const lang = getLangFromUrl(Astro.url)
 <ul class='flex flex-col items-start justify-center text-xl gap-y-6'>
   {
     projects.map((project) => (
-      <li
-        class={`
-        text-secondary-light dark:text-secondary-dark
-        hover:text-black/90 dark:hover:text-white/90
-        flex gap-x-4
-      `}
-      >
+      <li class='flex gap-x-4'>
         <img class='size-8' src={project.data.svg} alt={project.data.title} />
-        <button id={`project-${project.data.id}`}>{project.data.title}</button>
+        <button
+          id={`project-${project.data.id}`}
+          class='text-secondary-light dark:text-secondary-dark hover:text-black/90 dark:hover:text-white/90'
+        >
+          {project.data.title}
+        </button>
       </li>
     ))
   }

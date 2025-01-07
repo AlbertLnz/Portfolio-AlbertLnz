@@ -19,7 +19,7 @@ div > section {
 #projects-container {
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto 1fr;
   height: calc(100vh - 4rem);
   gap: 1rem;

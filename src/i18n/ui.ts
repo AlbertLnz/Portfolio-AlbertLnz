@@ -75,6 +75,10 @@ export const ui = {
       text_three: 'Then, make it',
       text_four: 'real',
     },
+    projects_page: {
+      deploy_tooltip: '❌ Not deployed yet',
+      info_readme: 'See more info in',
+    },
   },
   es: {
     lang: 'es',
@@ -142,6 +146,10 @@ export const ui = {
       text_three: 'Después, házlo',
       text_four: 'realidad',
     },
+    projects_page: {
+      deploy_tooltip: '❌ Aún no desplegado',
+      info_readme: 'Ver más información en el',
+    },
   },
   ca: {
     lang: 'ca',
@@ -208,6 +216,10 @@ export const ui = {
       text_two: 'dissenya',
       text_three: 'Després, fes-ho',
       text_four: 'realitat',
+    },
+    projects_page: {
+      deploy_tooltip: '❌ Encara no desplegat',
+      info_readme: 'Veure més informació en el',
     },
   },
 } as const

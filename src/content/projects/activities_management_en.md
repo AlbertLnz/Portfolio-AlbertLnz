@@ -6,7 +6,7 @@ author: AlbertLnz
 img: /imgs/projects/activities_management.webp
 svg: /imgs/projects/favicon/activities_management.svg
 shortDescription: Spring REST API for managing activities and events
-longDescription: Backend application built with Java Spring Boot and MariaDB (SQL) to efficiently, scalably and securely manage the creation of activities. It follows best practices and leverages libraries like JPA, Lombok and Jackson
+longDescription: A robust backend application developed with Java Spring Boot and MariaDB, designed to efficiently, scalably, and securely manage activity creation. Built following industry best practices, it incorporates powerful libraries such as JPA for seamless database interactions, Lombok for cleaner code, and Jackson for effective JSON processing, ensuring a high-performance and maintainable solution.
 techs: [Java, Spring, MySQL]
 links:
   github: https://github.com/AlbertLnz/activities-management-api

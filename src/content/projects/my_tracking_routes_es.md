@@ -6,8 +6,8 @@ author: AlbertLnz
 img: /imgs/projects/my_tracking_routes.webp
 svg: /imgs/projects/favicon/my_tracking_routes.svg
 shortDescription: Mis rutas de montaña en 3D
-longDescription: Mapa en 3D hecho con React y Mapbox de las cimas de montaña que he visitado.
-techs: [React]
+longDescription: Un mapa interactivo en 3D desarrollado con React y Mapbox, diseñado para mostrar mis aventuras en la montaña en detalle. Este proyecto destaca las cumbres que he alcanzado e incluye un seguimiento preciso de las rutas que he tomado, ofreciendo una representación visual precisa y atractiva de mis experiencias de senderismo. El mapa captura la elevación, el recorrido y el viaje en general, proporcionando una manera única de explorar y revivir cada aventura en impresionante 3D.
+techs: [React, Mapbox, Netlify]
 links:
   github: https://github.com/AlbertLnz/my-routes-mapbox
   deploy: https://albertlnz-routes.netlify.app/

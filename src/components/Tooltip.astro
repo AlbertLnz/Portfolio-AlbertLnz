@@ -1,0 +1,32 @@
+---
+export interface Props {
+  tooltipTxt?: string
+}
+---
+
+<div class='group relative inline-block tooltip-container'>
+  <slot />
+  <span
+    class='absolute text-xs font-extralight tracking-wide mt-2 invisible group-hover:visible opacity-0 group-hover:opacity-100 whitespace-nowrap transition bg-blue-800 dark:bg-blue-950 text-white py-1 px-2 rounded'
+  >
+    {Astro.props.tooltipTxt}
+  </span>
+</div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const tooltipContainers = document.querySelectorAll('.tooltip-container')
+
+    tooltipContainers.forEach((container) => {
+      const tooltip = container.querySelector('span')
+
+      if (!tooltip) return
+
+      container.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = container.getBoundingClientRect()
+        tooltip.style.left = `${e.clientX - rect.left + 10}px`
+        tooltip.style.top = `${e.clientY - rect.top + 5}px`
+      })
+    })
+  })
+</script>
