@@ -112,7 +112,7 @@ export const projectsPageTranslations = (url) => {
   const lang = getLangFromUrl(url)
   const t = useTranslations(lang)
 
-  const { deploy_tooltip, info_readme } = t('projects_page')
+  const { deploy_tooltip, info_readme, techs_title } = t('projects_page')
 
-  return { deploy_tooltip, info_readme }
+  return { deploy_tooltip, info_readme, techs_title }
 }

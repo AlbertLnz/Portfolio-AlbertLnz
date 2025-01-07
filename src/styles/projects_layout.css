@@ -62,16 +62,6 @@ div > section {
   #content {
     grid-column: 1;
     grid-row: 3;
-    rotate: -90deg;
     transform-origin: center center;
-  }
-
-  #iPad {
-    rotate: 180deg;
-  }
-
-  #iPadContent {
-    transform-origin: top left;
-    transform: rotate(-90deg) translateX(-100%);
   }
 }

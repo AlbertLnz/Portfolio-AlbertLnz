@@ -78,6 +78,7 @@ export const ui = {
     projects_page: {
       deploy_tooltip: '❌ Not deployed yet',
       info_readme: 'See more info in',
+      techs_title: 'Technologies',
     },
   },
   es: {
@@ -149,6 +150,7 @@ export const ui = {
     projects_page: {
       deploy_tooltip: '❌ Aún no desplegado',
       info_readme: 'Ver más información en el',
+      techs_title: 'Tecnologías',
     },
   },
   ca: {
@@ -220,6 +222,7 @@ export const ui = {
     projects_page: {
       deploy_tooltip: '❌ Encara no desplegat',
       info_readme: 'Veure més informació en el',
+      techs_title: 'Tecnologies',
     },
   },
 } as const
