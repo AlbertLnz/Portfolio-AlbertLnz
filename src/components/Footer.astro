@@ -1,0 +1,21 @@
+---
+const { page } = Astro.props
+---
+
+<footer
+  class={`
+text-tertiary-light dark:text-tertiary-dark
+pt-4 pb-2 px-8 flex justify-between items-center
+`}
+>
+  <button class='opacity-65 hover:opacity-100 hover:font-semibold'>
+    Share
+  </button>
+  <p class='font-bold'>@{page.data.author}</p>
+  <button
+    id='scrollToTop'
+    class='opacity-65 hover:opacity-100 hover:font-semibold'
+  >
+    Up
+  </button>
+</footer>

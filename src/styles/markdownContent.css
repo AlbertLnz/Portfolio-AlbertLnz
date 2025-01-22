@@ -42,7 +42,9 @@ body.dark #content {
     color: #0070f3;
   }
 
-  h2 {
+  h1,
+  h2,
+  h3 {
     color: white;
   }
 
@@ -62,15 +64,33 @@ body.dark #content {
   &li > code {
     background-color: #2f313f;
   }
+
+  table {
+    color: white;
+  }
 }
 
 .cust-font {
   font-family: 'Lora', arial;
 }
 
+#content h1 {
+  font-size: 22px;
+  margin-top: 2rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
 #content h2 {
   text-decoration: underline;
   font-size: 18px;
+  margin-top: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+#content h3 {
+  text-decoration: underline;
+  font-size: 14px;
   margin-top: 2rem;
   margin-bottom: 1.2rem;
 }
@@ -84,9 +104,19 @@ body.dark #content {
   font-size: 14px;
 }
 
+#content a > img {
+  margin-top: 0.6rem;
+}
+
 #content li > code {
-  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
-    Liberation Mono, monospace;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace;
   font-size: 12px;
   padding: 0.1rem;
   border-radius: 2px;
@@ -112,4 +142,30 @@ body.dark #content {
   padding: 0.5rem 0.5rem;
   border-radius: 6px;
   border-width: 1.5px;
+}
+
+#content > table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 12px;
+}
+
+#content > table th,
+#content > table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+#content > table th {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#content > table caption {
+  caption-side: top;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }

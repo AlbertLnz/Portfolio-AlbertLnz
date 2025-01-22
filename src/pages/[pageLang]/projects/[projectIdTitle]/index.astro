@@ -1,6 +1,7 @@
 ---
 import '@/styles/markdownContent.css'
 import LanguageAndThemeSelector from '@/components/LanguageAndThemeSelector.astro'
+import Footer from '@/components/Footer.astro'
 import ProjectLayout from '@/layouts/ProjectLayout.astro'
 import { getCollection, render } from 'astro:content'
 import { prepareCorrectVariousRoutesPaths } from '@/data/prepareCorrectRoutePaths'
@@ -66,23 +67,7 @@ const { Content } = await render(project)
 
     <div id='content'>
       <Content />
-      <footer
-        class={`
-        text-tertiary-light dark:text-tertiary-dark
-        pt-4 pb-2 px-8 flex justify-between items-center
-      `}
-      >
-        <button class='opacity-65 hover:opacity-100 hover:font-semibold'>
-          Share
-        </button>
-        <p class='font-bold'>@{project.data.author}</p>
-        <button
-          id='scrollToTop'
-          class='opacity-65 hover:opacity-100 hover:font-semibold'
-        >
-          Up
-        </button>
-      </footer>
+      <Footer page={project} />
     </div>
 
     <div class='absolute top-0 right-0 p-6'>
