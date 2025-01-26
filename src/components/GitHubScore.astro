@@ -45,12 +45,14 @@ const { github_title_one, github_title_two, github_note } =
 ---
 
 <div class='relative flex flex-col w-full h-full pb-8 md:pb-0'>
-  <h3 class='pb-4 text-secondary-light dark:text-tertiary-dark'>
-    <span class=''>
-      <a href='https://github.com/AlbertLnz' target='_blank'>
-        {github_title_one}
-      </a>
-    </span>
+  <h3 class='pb-4 inline-flex text-secondary-light dark:text-tertiary-dark'>
+    <a
+      class='hover:underline underline-offset-2 decoration-dashed'
+      href='https://github.com/AlbertLnz'
+      target='_blank'
+    >
+      {github_title_one}
+    </a>
     {github_title_two}
   </h3>
 
