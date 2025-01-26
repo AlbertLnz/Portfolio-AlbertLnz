@@ -14,7 +14,7 @@ const filteredProjects = projects.filter(
 )
 ---
 
-<article class=''>
+<article>
   <ul class='flex flex-col items-center justify-start gap-y-2 w-full max-h-fit'>
     {
       filteredProjects
@@ -27,7 +27,7 @@ const filteredProjects = projects.filter(
             <li
               class={`
           border border-section-secondary-border-light dark:border-section-secondary-border-dark
-          relative list-none rounded-[6px] w-full group
+          relative list-none rounded-[6px] w-full group hover:bg-gray-300/30 dark:hover:bg-black/20
         `}
             >
               <h3 class='px-6 mt-2 mb-1 text-lg font-semibold lowercase tracking-wide'>
