@@ -26,18 +26,19 @@ const filteredProjects = projects.filter(
           return (
             <li
               class={`
-          border border-section-secondary-border-light dark:border-section-secondary-border-dark
-          relative list-none rounded-[6px] w-full group hover:bg-gray-300/30 dark:hover:bg-black/20
-        `}
+                bg-white/20 dark:bg-black/40 hover:bg-white/40 dark:hover:bg-black/80
+                border border-section-secondary-border-light dark:border-section-secondary-border-dark
+                relative list-none rounded-[6px] w-full group
+              `}
             >
-              <h3 class='px-6 mt-2 mb-1 text-lg font-semibold lowercase tracking-wide'>
+              <h3 class='px-6 mt-2 mb-1 text-lg font-semibold lowercase tracking-wide group-hover:text-black/90 dark:group-hover:text-white/90'>
                 {project.data.title}
               </h3>
               <p
                 class={`
-            text-secondary-light dark:text-tertiary-dark
-            text-xs mx-8 text-center mb-4 line-clamp-1
-          `}
+                text-secondary-light/80 dark:text-tertiary-dark group-hover:text-secondary-light dark:group-hover:text-white/60
+                  text-xs mx-8 text-center mb-4 line-clamp-1
+                `}
               >
                 {project.data.shortDescription}
               </p>
@@ -49,11 +50,10 @@ const filteredProjects = projects.filter(
                   return (
                     <div
                       class={`
-                  bg-black/10 dark:bg-[#26262699]  
-                  text-tertiary-light dark:text-tertiary-dark
-
-                    z-50 flex items-center justify-center gap-x-1 rounded-[6px] px-2 py-0.5
-                  `}
+                        bg-black/10 dark:bg-[#22222299]  
+                        text-tertiary-light dark:text-tertiary-dark
+                        z-50 flex items-center justify-center gap-x-1 rounded-[6px] px-2 py-0.5
+                      `}
                     >
                       {tech}
                       {techObj && <techObj.icon class='size-3' />}
@@ -75,7 +75,7 @@ const filteredProjects = projects.filter(
                 class='absolute top-0 h-full w-full'
               />
 
-              <ArrowRight class='absolute -z-10 bottom-0 right-0 mr-3 mb-2 items-flex w-fit size-4 stroke-current group-hover:stroke-black group-hover:dark:stroke-white' />
+              <ArrowRight class='absolute z-20 pointer-events-none bottom-0 right-0 mr-3 mb-2 items-flex w-fit size-4 stroke-current group-hover:stroke-black group-hover:dark:stroke-white' />
             </li>
           )
         })

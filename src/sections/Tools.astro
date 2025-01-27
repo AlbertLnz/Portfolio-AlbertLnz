@@ -2,9 +2,6 @@
 import { tools } from '@/data/tools'
 import { homePageToolsTranslations } from '@/i18n/translations'
 
-const MAX_TOOLS_ITEMS = 99
-const toolsTranslations = homePageToolsTranslations(Astro.url)
-
 type ToolNames =
   | 'tool_note'
   | 'astro'
@@ -24,15 +21,18 @@ type ToolNames =
   | 'mysql'
   | 'mongodb'
   | 'postgresql'
+
+const MAX_TOOLS_ITEMS = 99
+const toolsTranslations = homePageToolsTranslations(Astro.url)
 ---
 
 <section
   id='tools'
   class={`
-    bg-section-bg-light dark:bg-section-bg-dark
+    bg-section-bg-light/80 hover:bg-gray-200/70 dark:bg-black/80 dark:hover:bg-black/50
     border-2 border-section-primary-border-light dark:border-section-primary-border-dark
-    relative
   `}
+  transition:name='tools'
 >
   <ul class='flex flex-wrap w-full h-full'>
     {
