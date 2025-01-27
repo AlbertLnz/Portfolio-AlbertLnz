@@ -1,16 +1,23 @@
 ---
 const { page } = Astro.props
+
+const urlPath = Astro.url.pathname
+const title = page.data.title.replaceAll(' ', '%20')
 ---
 
 <footer
   class={`
-text-tertiary-light dark:text-tertiary-dark
-pt-4 pb-2 px-8 flex justify-between items-center
-`}
+  text-tertiary-light dark:text-tertiary-dark
+    pt-4 pb-2 px-8 flex justify-between items-center
+  `}
 >
-  <button class='opacity-65 hover:opacity-100 hover:font-semibold'>
+  <a
+    href=`http://www.linkedin.com/shareArticle?mini=true&url=https://albertlnz.dev${urlPath}&title=${title}&source=albertlnz.dev`
+    target='_blank'
+    class='opacity-65 hover:opacity-100 hover:font-semibold'
+  >
     Share
-  </button>
+  </a>
   <p class='font-bold'>@{page.data.author}</p>
   <button
     id='scrollToTop'
@@ -19,3 +26,14 @@ pt-4 pb-2 px-8 flex justify-between items-center
     Up
   </button>
 </footer>
+
+<script>
+  const upBtn = document.getElementById('scrollToTop')
+
+  upBtn?.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  })
+</script>
