@@ -1,8 +1,8 @@
 ---
-import { getCollection } from "astro:content"
-import ArrowRightUp from "@/assets/symbols/ArrowRightUp.astro"
+import { getCollection } from 'astro:content'
+import ArrowRightUp from '@/assets/symbols/ArrowRightUp.astro'
 import { getLangFromUrl } from '../i18n/utils'
-import { prepareCorrectSingleRoutePath } from "@/data/prepareCorrectRoutePaths"
+import { prepareCorrectSingleRoutePath } from '@/data/prepareCorrectRoutePaths'
 
 const lang = getLangFromUrl(Astro.url)
 const allPosts = await getCollection('posts')
@@ -12,31 +12,41 @@ const path = prepareCorrectSingleRoutePath(lastPost)
 ---
 
 <section
-  id="blog"
+  id='blog'
   class={`
     bg-section-bg-light dark:bg-section-bg-dark
     border-2 border-section-primary-border-light dark:border-section-primary-border-dark
     relative p-0 group
   `}
-  transition:name="blog"
+  transition:name='blog'
 >
-  <a href={`${lang}/posts`} class="absolute h-full w-full z-0"></a>
-  <div class="h-full flex flex-col justify-between p-[2rem]">
-    <div class="flex">
-      <h2 class={`
+  <a href={`${lang}/posts`} class='absolute h-full w-full z-0'></a>
+  <div class='h-full flex flex-col justify-between p-[2rem]'>
+    <div class='flex'>
+      <h2
+        class={`
         text-heading-light dark:text-heading-dark
         text-3xl mr-2
-      `}>Blog</h2>
-      <ArrowRightUp class={`
+      `}
+      >
+        Blog
+      </h2>
+      <ArrowRightUp
+        class={`
         fill-black dark:fill-white
         size-4 pointer-events-none transition-transform duration-300 transform group-hover:translate-x-1
-      `}/>
+      `}
+      />
     </div>
-    <a href={`${lang}/posts/${path}`} class="z-10 w-fit">
-      <p class={`
-        text-tertiary-light hover:text-black dark:text-tertiary-dark hover:dark:text-white
+    <a href={`${lang}/posts/${path}`} class='z-10 w-fit'>
+      <p
+        class={`
+        text-tertiary-light hover:text-heading-light dark:text-tertiary-dark hover:dark:text-white
         ml-2
-      `}>Latest post: {lastPost.data.title}</p>
+      `}
+      >
+        Latest post: {lastPost.data.title}
+      </p>
     </a>
   </div>
 </section>
