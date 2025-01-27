@@ -45,7 +45,7 @@ const postsTags = new Set(posts.map((post) => post.data.tag))
             type='checkbox'
             checked
           />
-          <label for={`chk-post-${post.data.id}`}>{post.data.title}</label>
+          <label for={`chk-post-${post.data.id}`}>· {post.data.title}</label>
         </li>
       ))
     }
@@ -97,7 +97,7 @@ const postsTags = new Set(posts.map((post) => post.data.tag))
     height: 100%;
     opacity: 30%;
     background: rgb(232, 55, 55);
-    transform: translateY(-50%) translateX(-100%);
+    transform: translateY(-50%) translateX(-110%);
     transition: transform 0.4s ease;
   }
 

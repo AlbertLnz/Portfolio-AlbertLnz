@@ -18,12 +18,12 @@ const postUrl = id + '-' + titleCleaned
   data-tag=`post-${tag}`
   class={`
     posts
-    hover:cursor-pointer hover:border-double hover:border-white/30
+    hover:cursor-pointer
     card max-h-[125px] relative overflow-hidden w-full h-full rounded-md m-2 group
   `}
 >
   <h2
-    class='text-lg absolute top-0 m-3 opacity-50 group-hover:opacity-100 text-primary-light dark:text-primary-dark'
+    class='text-lg absolute top-0 m-3 text-primary-light group-hover:text-secondary-ligh dark:text-primary-dark group-hover:dark:text-white'
   >
     {title}
   </h2>
@@ -31,7 +31,7 @@ const postUrl = id + '-' + titleCleaned
   <div class='flex items-end z-0 pl-4 pt-12'>
     <p
       transition:name={postUrl}
-      class='cust-font font-bold opacity-50 group-hover:opacity-100 text-6xl text-secondary-light dark:text-secondary-dark'
+      class='cust-font font-bold text-6xl text-secondary-light dark:text-secondary-dark'
     >
       {id}
     </p>
@@ -43,13 +43,13 @@ const postUrl = id + '-' + titleCleaned
   </div>
 
   <p
-    class='cust-font absolute top-0 right-0 m-2 opacity-50 group-hover:opacity-80 text-secondary-light dark:text-secondary-dark'
+    class='cust-font absolute top-0 right-0 m-2 opacity-50 group-hover:opacity-80 text-primary-light group-hover:text-secondary-light dark:text-secondary-dark group-hover:dark:text-white'
   >
     {date}
   </p>
 
   <p
-    class='absolute bottom-0 font-light text-xs right-0 m-2 opacity-50 group-hover:opacity-90 text-tertiary-light dark:text-tertiary-dark'
+    class='absolute bottom-0 font-light text-xs right-0 m-2 opacity-50 group-hover:opacity-90 text-white dark:text-tertiary-dark'
   >
     @{author}
   </p>
@@ -60,7 +60,7 @@ const postUrl = id + '-' + titleCleaned
     class='absolute bottom-[-100%] w-full flex items-center justify-center pointer-events-none -z-10 group group-hover:bottom-0 group-hover:z-30 transition-all duration-500 ease-in-out'
   >
     <button class='flex flex-col items-center pb-4 justify-end w-full h-full'>
-      <ArrowUp class='size-4 fill-black dark:fill-white' />
+      <ArrowUp class='size-4' />
     </button>
   </div>
 </div>
@@ -80,6 +80,6 @@ const postUrl = id + '-' + titleCleaned
   toggleBkgGradient('class', 'posts', blogCardAssignColor, {
     dark: 'bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% border',
     light:
-      'bg-gradient-to-b from-[#EBEBF2] via-30% via-[#f2f2f2] to-100% border',
+      'bg-gradient-to-b from-[#E2E8F0] via-10% via-[#E2E8F0] to-100% border',
   })
 </script>

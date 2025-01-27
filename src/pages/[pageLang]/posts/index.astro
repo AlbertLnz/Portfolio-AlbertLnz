@@ -22,11 +22,12 @@ const posts = allPosts.filter((project) => project.data.language === pageLang)
   <section
     id='header'
     class={`
-      bg-section-bg-light dark:bg-section-bg-dark
+      bg-section-bg-light/80 hover:bg-gray-200/70 dark:bg-black/80 dark:hover:bg-black/50
       border-2 border-section-primary-border-light dark:border-section-primary-border-dark
       flex flex-col
       md:grid md:grid-cols-[0.2fr_0.6fr_0.2fr] md:gap-x-2 md:p-0
     `}
+    transition:name='header'
   >
     <a
       class={`
@@ -48,9 +49,11 @@ const posts = allPosts.filter((project) => project.data.language === pageLang)
   <section
     id='aside'
     class={`
-      bg-section-bg-light dark:bg-section-bg-dark
+      bg-section-bg-light/80 hover:bg-gray-200/70 dark:bg-black/80 dark:hover:bg-black/50
       border-2 border-section-primary-border-light dark:border-section-primary-border-dark
+      h-fit
     `}
+    transition:name='aside'
   >
     <BlogAside posts={posts} />
   </section>
@@ -58,10 +61,11 @@ const posts = allPosts.filter((project) => project.data.language === pageLang)
   <section
     id='content'
     class={`
-      bg-section-bg-light dark:bg-section-bg-dark
+      bg-section-bg-light/80 hover:bg-gray-200/70 dark:bg-black/80 dark:hover:bg-black/50
       border-2 border-section-primary-border-light dark:border-section-primary-border-dark
       grid grid-cols-1 xl:grid-cols-2 grid-flow-row place-items-start gap-6 overflow-x-hidden
     `}
+    transition:name='content'
   >
     {
       posts.map((project) => (
