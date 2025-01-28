@@ -33,11 +33,12 @@ const filteredProjects = allProjects.filter(
   <section
     id='header'
     class={`
-      bg-section-bg-light dark:bg-section-bg-dark
+      bg-section-bg-light/80 hover:bg-gray-200/70 dark:bg-black/80 dark:hover:bg-black/50
       border-2 border-section-primary-border-light dark:border-section-primary-border-dark
       flex flex-col
       md:grid md:grid-cols-[0.2fr_0.6fr_0.2fr] md:gap-x-2 md:p-0
     `}
+    transition:name='header'
   >
     <a
       class={`
@@ -60,10 +61,11 @@ const filteredProjects = allProjects.filter(
   <section
     id='aside'
     class={`
-      bg-section-bg-light dark:bg-section-bg-dark
+      bg-section-bg-light/80 hover:bg-gray-200/70 dark:bg-black/80 dark:hover:bg-black/50
       border-2 border-section-primary-border-light dark:border-section-primary-border-dark
       flex flex-col
     `}
+    transition:name='aside'
   >
     <ProjectsAside projects={filteredProjects} />
   </section>
@@ -71,10 +73,11 @@ const filteredProjects = allProjects.filter(
   <section
     id='content'
     class={`
-      bg-section-bg-light dark:bg-section-bg-dark
+      bg-section-bg-light/80 hover:bg-gray-200/70 dark:bg-black/80 dark:hover:bg-black/50
       border-2 border-section-primary-border-light dark:border-section-primary-border-dark
       p-0 h-full max-h-full overflow-hidden
     `}
+    transition:name='content'
   >
     {
       filteredProjects.map((project) => (
