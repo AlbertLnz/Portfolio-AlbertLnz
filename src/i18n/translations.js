@@ -116,3 +116,12 @@ export const projectsPageTranslations = (url) => {
 
   return { deploy_tooltip, info_readme, techs_title }
 }
+
+export const blogAsideTranslations = (url) => {
+  const lang = getLangFromUrl(url)
+  const t = useTranslations(lang)
+
+  const { sorting, all } = t('projects_aside')
+
+  return { sorting, all }
+}

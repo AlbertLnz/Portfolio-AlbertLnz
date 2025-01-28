@@ -80,6 +80,10 @@ export const ui = {
       info_readme: 'See more info in',
       techs_title: 'Technologies',
     },
+    projects_aside: {
+      sorting: 'Asc / Desc',
+      all: 'View all',
+    },
   },
   es: {
     lang: 'es',
@@ -152,6 +156,10 @@ export const ui = {
       info_readme: 'Ver más información en el',
       techs_title: 'Tecnologías',
     },
+    projects_aside: {
+      sorting: 'Asc / Desc',
+      all: 'Ver todos',
+    },
   },
   ca: {
     lang: 'ca',
@@ -223,6 +231,10 @@ export const ui = {
       deploy_tooltip: '❌ Encara no desplegat',
       info_readme: 'Veure més informació en el',
       techs_title: 'Tecnologies',
+    },
+    projects_aside: {
+      sorting: 'Asc / Desc',
+      all: 'Veure tots',
     },
   },
 } as const

@@ -3,37 +3,41 @@ import SortNumeric from '@/assets/symbols/SortNumeric.astro'
 import TwoXTwoGrid from '@/assets/symbols/TwoXTwoGrid.astro'
 import type { Post } from '@/content/configTypes.d.ts'
 import { blogCardAssignColor } from '@/data/blogCardAssignColor'
+import { blogAsideTranslations } from '@/i18n/translations'
+
 const { posts }: { posts: Post[] } = Astro.props as { posts: Post[] }
 
 type BlogCardTag = 'Tutorial' | 'Snippet' | 'Theme'
 
 const postsTags = new Set(posts.map((post) => post.data.tag))
+
+const { sorting, all } = blogAsideTranslations(Astro.url)
 ---
 
 <aside class='space-y-4'>
   <button
     id='asc-desc'
-    class='flex items-center justify-center px-2 py-1 w-full rounded-md gap-x-2 bg-slate-300 dark:bg-slate-700 transition-colors duration-500 hover:bg-green-400 dark:hover:bg-green-800'
+    class='flex items-center justify-center px-2 py-1 w-full rounded-md gap-x-2 bg-gray-400/80 dark:bg-slate-700 border border-gray-400/80 transition-colors duration-500 hover:bg-green-500/70 dark:hover:bg-green-800/90'
   >
-    <SortNumeric class='size-6 fill-white/80' />
+    <SortNumeric class='size-6 fill-black/60 dark:fill-white/80' />
     <p class='text-[16px] text-primary-light dark:text-primary-dark'>
-      Asc / Desc
+      {sorting}
     </p>
   </button>
   <button
     id='view-all'
-    class='flex items-center justify-center px-2 py-1 w-full rounded-md gap-x-2 bg-slate-300 dark:bg-slate-700 transition-colors duration-500 hover:bg-green-400 dark:hover:bg-green-800'
+    class='flex items-center justify-center px-2 py-1 w-full rounded-md gap-x-2 bg-gray-400/80 dark:bg-slate-700 border border-gray-400/80 transition-colors duration-500 hover:bg-blue-500/70 dark:hover:bg-blue-800/70'
   >
     <TwoXTwoGrid
       id='gridIcon'
-      class='size-4 fill-white/80 stroke-1 stroke-black/80'
+      class='size-4 fill-black/60 dark:fill-white/80 stroke-1'
     />
     <p class='text-[16px] text-primary-light dark:text-primary-dark'>
-      View All
+      {all}
     </p>
   </button>
 
-  <hr />
+  <hr class='border-0.5 border-slate-400 dark:border-white/80' />
 
   <ul>
     {
@@ -51,7 +55,7 @@ const postsTags = new Set(posts.map((post) => post.data.tag))
     }
   </ul>
 
-  <hr />
+  <hr class='border-0.5 border-slate-400 dark:border-white/80' />
 
   <ul class='space-y-2 text-primary-light dark:text-primary-dark'>
     {
