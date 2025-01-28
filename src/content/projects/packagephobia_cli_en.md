@@ -4,7 +4,7 @@ title: PackagePhobia CLI
 language: en
 author: AlbertLnz
 img: /imgs/projects/packagephobia_cli.webp
-svg: /imgs/projects/favicon/packagephobia_cli.svg
+svgComponentName: PackagePhobiaCLI
 shortDescription: Check NPM package through command-line
 longDescription: PackagePhobia CLI is a lightweight Node.js command-line tool, weighing just 15.9 kB, designed to help developers quickly check the install size, dependencies, and other essential details of their favorite packages. Built for efficiency and simplicity, it leverages powerful dependencies like @clack/prompts (v0.8.0) for user-friendly prompts, cli-table3 (v0.6.5) for clear tabular data presentation, commander (v12.1.0) for robust command-line argument parsing, and picocolors (v1.1.0) for lightweight, colorful output formatting. This compact yet feature-rich tool is perfect for assessing the impact of packages on your projects effortlessly.
 techs: [JavaScript, Node, NPM]

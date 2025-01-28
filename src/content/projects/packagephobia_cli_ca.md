@@ -4,7 +4,7 @@ title: PackagePhobia CLI
 language: ca
 author: AlbertLnz
 img: /imgs/projects/packagephobia_cli.webp
-svg: /imgs/projects/favicon/packagephobia_cli.svg
+svgComponentName: PackagePhobiaCLI
 shortDescription: Revisa paquets de NPM des de la terminal
 longDescription: PackagePhobia CLI és una eina lleugera de línia de comandes en Node.js, que pesa només 15.9 kB, dissenyada per ajudar els desenvolupadors a comprovar ràpidament la mida d'instal·lació, les dependències i altres detalls essencials dels seus paquets preferits. Construïda per a l'eficiència i simplicitat, aprofita dependències potents com @clack/prompts (v0.8.0) per sol·licitar entrades d'usuari de manera amigable, cli-table3 (v0.6.5) per a una presentació clara de les dades en taules, commander (v12.1.0) per a un anàlisi robust dels arguments de la línia de comandes, i picocolors (v1.1.0) per a un format d'eixida lleuger i colorit. Aquesta eina compacta però rica en funcionalitats és perfecta per avaluar l'impacte dels paquets en els teus projectes de manera fàcil.
 techs: [JavaScript, Node, NPM]

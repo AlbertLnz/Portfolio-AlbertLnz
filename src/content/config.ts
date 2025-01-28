@@ -8,7 +8,7 @@ const projects = defineCollection({
     language: z.string(),
     author: z.string(),
     img: z.string(),
-    svg: z.string(),
+    svgComponentName: z.string(),
     shortDescription: z.string(),
     longDescription: z.string(),
     techs: z.array(z.string()),

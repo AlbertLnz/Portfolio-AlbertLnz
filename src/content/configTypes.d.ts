@@ -20,7 +20,7 @@ export interface Project {
     img: string
     shortDescription: string
     longDescription: string
-    svg: string
+    svgComponentName: string
     techs: string[]
     links: {
       github: string

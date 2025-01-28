@@ -4,7 +4,7 @@ title: Spring Initializr CLI
 language: en
 author: AlbertLnz
 img: /imgs/projects/spring_initializr_cli.webp
-svg: /imgs/projects/favicon/spring_initializr_cli.svg
+svgComponentName: SpringInitializrCLI
 shortDescription: Spring Initializr CLI, extremely fast start-up
 longDescription: Spring Initializr CLI is a command-line tool built in Rust that allows developers to quickly and easily create new Spring Boot projects directly from the terminal. This tool is connected to the Spring Initializr API and enables you to generate a Spring Boot project with all the initial configurations you need without having to interact with the Spring Initializr web interface.
 techs: [Rust, Crates]

@@ -4,7 +4,7 @@ title: My Tracking Routes
 language: ca
 author: AlbertLnz
 img: /imgs/projects/my_tracking_routes.webp
-svg: /imgs/projects/favicon/my_tracking_routes.svg
+svgComponentName: MyTrackingRoutes
 shortDescription: Les meves rutes de muntanya en 3D
 longDescription: Un mapa interactiu en 3D desenvolupat amb React i Mapbox, dissenyat per mostrar les meves aventures muntanyenques en detall. Aquest projecte destaca els cims que he assolit i inclou un seguiment precís de les rutes que he pres, oferint una representació visual precisa i atractiva de les meves experiències de senderisme. El mapa captura l'elevació, el camí i el viatge en general, proporcionant una manera única d'explorar i reviure cada aventura en impressionant 3D.
 techs: [React, Mapbox, Netlify]

@@ -4,7 +4,7 @@ title: Plt2Img
 language: es
 author: AlbertLnz
 img: /imgs/projects/plt2img.webp
-svg: /imgs/projects/favicon/plt2img.svg
+svgComponentName: Plt2Img
 shortDescription: De gráficos de Python a imagen, al instante
 longDescription: Plt2Img es una herramienta web que transforma el código de Matplotlib en imágenes de alta calidad, lo que la hace perfecta para desarrolladores y científicos de datos. Es especialmente ideal para aquellos que utilizan inteligencia artificial para generar código de Matplotlib, ya que la plataforma convierte el código en imágenes PNG optimizadas sin necesidad de ejecución local. Esto agiliza la creación de visualizaciones, ofreciendo un flujo de trabajo rápido y eficiente para la representación de datos.
 techs: [Astro, Python, Render]

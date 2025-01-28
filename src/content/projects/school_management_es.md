@@ -4,7 +4,7 @@ title: School Management
 language: es
 author: AlbertLnz
 img: /imgs/projects/school_management.webp
-svg: /imgs/projects/favicon/school_management.svg
+svgComponentName: SchoolManagement
 shortDescription: Aplicación para gestionar las notas de una escuela
 longDescription: Una aplicación de pila completa diseñada para gestionar las calificaciones escolares, construida con Laravel 11 en el backend utilizando una API REST y SQLite para la gestión de bases de datos. El frontend combina vistas Blade con JavaScript para ofrecer una experiencia de usuario fluida e interactiva. Esta aplicación garantiza un manejo eficiente de los datos, escalabilidad y facilidad de uso para las instituciones educativas.
 techs: [Laravel, SQLite, JavaScript]

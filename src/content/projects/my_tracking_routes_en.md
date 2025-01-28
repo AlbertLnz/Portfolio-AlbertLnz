@@ -4,7 +4,7 @@ title: My Tracking Routes
 language: en
 author: AlbertLnz
 img: /imgs/projects/my_tracking_routes.webp
-svg: /imgs/projects/favicon/my_tracking_routes.svg
+svgComponentName: MyTrackingRoutes
 shortDescription: My mountain tracking routes in 3D
 longDescription: An interactive 3D map developed using React and Mapbox, designed to showcase my mountain adventures in detail. This project highlights the peaks I've reached and includes precise tracking of the routes I've taken, offering an accurate and engaging visual representation of my hiking experiences. The map captures the elevation, path, and overall journey, providing a unique way to explore and relive each adventure in stunning 3D.
 techs: [React, Mapbox, Netlify]
