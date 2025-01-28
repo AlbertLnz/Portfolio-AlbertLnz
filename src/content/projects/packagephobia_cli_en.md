@@ -110,9 +110,3 @@ links:
 <a href="https://i.pinimg.com/736x/b9/d6/ec/b9d6ec7cd26587c7e01336b93a723876.jpg">
   <img src="http://ForTheBadge.com/images/badges/built-with-love.svg" alt="Love" width="120" height="auto">
 </a>
-
-<div align="center">
-
-**[⬆ Back to Top](#📟-packagephobia-cli-📟)**
-
-</div>

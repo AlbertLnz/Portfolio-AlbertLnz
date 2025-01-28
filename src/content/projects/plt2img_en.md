@@ -17,8 +17,6 @@ links:
 
 # Plt2Img Converter
 
-<img width='70%' src='https://github.com/AlbertLnz/plt2img/blob/master/website_image.webp' alt='Plt2Img website' />
-
 [![Astro][Astro]][Astro-url] [![Python][Python]][Python-url] [![Docker][Docker]][Docker-url]
 
 [Astro]: https://img.shields.io/badge/astro-FF5D01?style=for-the-badge&logo=astro&logoColor=white
