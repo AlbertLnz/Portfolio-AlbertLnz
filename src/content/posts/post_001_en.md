@@ -2,11 +2,11 @@
 id: 1
 title: Start React from 0 without template!
 language: en
-date: 01/10/2024
+date: 01/01/2025
 tag: Tutorial
 author: AlbertLnz
 img: post_001.jpg
-description: Post 1 description
+description: Create a React project from scratch.
 ---
 
 ## Introduction
@@ -147,7 +147,7 @@ export default App
 ```html
 <!-- 📁 index.html -->
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
