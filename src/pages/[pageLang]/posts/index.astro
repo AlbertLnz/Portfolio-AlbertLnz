@@ -22,8 +22,8 @@ const posts = allPosts.filter((project) => project.data.language === pageLang)
   <section
     id='header'
     class={`
-      bg-section-bg-light/80 hover:bg-gray-200/70 dark:bg-black/80 dark:hover:bg-black/50
-      border-2 border-section-primary-border-light dark:border-section-primary-border-dark
+      bg-blue-100/40 hover:bg-blue-200/40 dark:bg-black/80 dark:hover:bg-black/50
+      border-2 border-blue-800/10 dark:border-section-primary-border-dark
       flex flex-col
       md:grid md:grid-cols-[0.2fr_0.6fr_0.2fr] md:gap-x-2 md:p-0
     `}
@@ -32,7 +32,7 @@ const posts = allPosts.filter((project) => project.data.language === pageLang)
     <a
       class={`
       text-heading-light dark:text-heading-dark
-      hover:bg-black/10 dark:hover:bg-black/20 hover:underline
+      hover:bg-black/5 dark:hover:bg-black/30 hover:underline
       flex items-center justify-center rounded-l-[8px] text-lg transition-colors duration-500`}
       href={`/${pageLang}`}
     >
@@ -49,8 +49,8 @@ const posts = allPosts.filter((project) => project.data.language === pageLang)
   <section
     id='aside'
     class={`
-      bg-section-bg-light/80 hover:bg-gray-200/70 dark:bg-black/80 dark:hover:bg-black/50
-      border-2 border-section-primary-border-light dark:border-section-primary-border-dark
+      bg-blue-100/40 hover:bg-blue-200/40 dark:bg-black/80 dark:hover:bg-black/50
+      border-2 border-blue-800/10 dark:border-section-primary-border-dark
       h-fit
     `}
     transition:name='aside'
@@ -61,8 +61,8 @@ const posts = allPosts.filter((project) => project.data.language === pageLang)
   <section
     id='content'
     class={`
-      bg-section-bg-light/80 hover:bg-gray-200/70 dark:bg-black/80 dark:hover:bg-black/50
-      border-2 border-section-primary-border-light dark:border-section-primary-border-dark
+      bg-blue-100/40 hover:bg-blue-200/40 dark:bg-black/80 dark:hover:bg-black/50
+      border-2 border-blue-800/10 dark:border-section-primary-border-dark
       grid grid-cols-1 xl:grid-cols-2 grid-flow-row place-items-start gap-6 overflow-x-hidden h-fit
     `}
     transition:name='content'
