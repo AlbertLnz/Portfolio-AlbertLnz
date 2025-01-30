@@ -1,123 +1,85 @@
 ---
-// UNNUSED COMPONENT
+import ArrowUp from '@/assets/symbols/ArrowUp.astro'
 
-const { id } = Astro.props
+const { id, title, date, tag, author } = Astro.props
+
+const titleCleaned = title
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .replace(/[^\w\s-]/g, '')
+  .replaceAll(' ', '-')
+  .toLowerCase()
+
+const postUrl = id + '-' + titleCleaned
 ---
 
-<div id=`post-${id}` class="card">
-  <div class="box bg-gradient-to-b from-[#283037] to-[#465058]">
-    <div class="content">
-       <div class="iconBox">
-          <div class="iconItem">
-            {id}
-          </div>
-          <div class="title">
-            title
-          </div>
-       </div>
-       content
-    </div>
+<div
+  id=`post-${id}`
+  data-tag=`post-${tag}`
+  class={`
+    posts
+    hover:cursor-pointer
+    card max-h-[125px] relative overflow-hidden w-full h-full rounded-md m-2 group
+  `}
+>
+  <h2
+    class='text-lg absolute top-0 m-3 text-primary-light group-hover:text-secondary-ligh dark:text-primary-dark group-hover:dark:text-white'
+  >
+    {title}
+  </h2>
+
+  <div class='flex items-end z-0 pl-4 pt-12'>
+    <p
+      transition:name={postUrl}
+      class='cust-font font-bold text-6xl text-secondary-light dark:text-secondary-dark'
+    >
+      {id}
+    </p>
+    <p
+      class='mb-1 ml-2 opacity-50 group-hover:opacity-80 text-secondary-light dark:text-secondary-dark'
+    >
+      {tag}
+    </p>
+  </div>
+
+  <p
+    class='cust-font absolute top-0 right-0 m-2 opacity-50 group-hover:opacity-80 text-primary-light group-hover:text-secondary-light dark:text-secondary-dark group-hover:dark:text-white'
+  >
+    {date}
+  </p>
+
+  <p
+    class='absolute bottom-0 font-light text-xs right-0 m-2 opacity-50 group-hover:opacity-90 text-white dark:text-tertiary-dark'
+  >
+    @{author}
+  </p>
+
+  <a href={`posts/${postUrl}`} class='absolute top-0 h-full w-full'></a>
+
+  <div
+    class='absolute bottom-[-100%] w-full flex items-center justify-center pointer-events-none -z-10 group group-hover:bottom-0 group-hover:z-30 transition-all duration-500 ease-in-out'
+  >
+    <button class='flex flex-col items-center pb-4 justify-end w-full h-full'>
+      <ArrowUp class='size-4' />
+    </button>
   </div>
 </div>
 
-
 <style>
-  :root {
-    --backBgCard: #171717;
-    --sizeIconBox: 50px;
-    --sizeIconItem: 30px;
-    --remainingSpace: 10px;
-    --sizeIconItemBorderRadius: 3px;
-    --invertRadius: 20px;
+  /* TO-DO: IMPORT FONT */
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+  .cust-font {
+    font-family: 'Lora', arial;
   }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-  }
-
-
-  .card {
-    position: relative;
-    width: 400px;
-    height: 200px;
-    background-color: var(--backBgCard);
-    border-radius: var(--invertRadius);
-    overflow: hidden;
-  }
-
-  .card .box {
-    position: absolute;
-    inset: 10px;
-    background-color: var(--backBgCard);
-    border-radius: 10px;
-  }
-
-  .card .box .content {
-    position: absolute;
-    width: var(--sizeIconBox);
-    height: var(--sizeIconBox);
-    background-color: var(--backBgCard);
-    border-bottom-right-radius: var(--invertRadius);
-    transition: 0.5s;
-    z-index: 10;
-  }
-
-  .card .box .content::before {
-    content: '';
-    position: absolute;
-    bottom: calc(-1 * var(--invertRadius));
-    left: 0;
-    width: var(--invertRadius);
-    height: var(--invertRadius);
-    background-color: 000000;
-    border-top-left-radius: var(--invertRadius);
-    box-shadow: -5px -5px 0 5px var(--backBgCard);
-  }
-
-  .card .box .content::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: calc(-1 * var(--invertRadius));
-    width: var(--invertRadius);
-    height: var(--invertRadius);
-    background-color: 000000;
-    border-top-left-radius: var(--invertRadius);
-    box-shadow: -5px -5px 0 5px var(--backBgCard);
-  }
-
-  .card .box .content .iconBox {
-    postion: relative;
-    height: var(--sizeIconBox);
-    width: var(--sizeIconBox);
-  }
-
-  .card .box .content .iconBox .iconItem {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--sizeIconItem);
-    height: var(--sizeIconItem);
-    left: var(--remainingSpace);
-    top: var(--remainingSpace);
-    background-color: red;
-    border-radius: var(--sizeIconItemBorderRadius);
-    z-index: 10;
-  }
-
-  .card .box .content .iconBox .title {
-    position: absolute;
-    left: var(--sizeIconBox);
-    height: var(--sizeIconBox);
-    width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
 </style>
+
+<script>
+  import { blogCardAssignColor } from '@/data/blogCardAssignColor'
+  import { toggleBkgGradient } from '@/data/toggleBkgGradient'
+
+  toggleBkgGradient('class', 'posts', blogCardAssignColor, {
+    dark: 'bg-gradient-to-b from-[#171717] via-30% via-[#171717] to-100% border',
+    light:
+      'bg-gradient-to-b from-[#E2E8F0] via-10% via-[#E2E8F0] to-100% border',
+  })
+</script>

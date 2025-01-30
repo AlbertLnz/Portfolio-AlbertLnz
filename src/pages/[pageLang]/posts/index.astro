@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import BlogLayout from '@/layouts/BlogLayout.astro'
-import BlogCard2 from '@/components/BlogCard2.astro'
+import BlogCard from '@/components/BlogCard.astro'
 import BlogAside from '@/components/BlogAside.astro'
 import LanguageAndThemeSelector from '@/components/LanguageAndThemeSelector.astro'
 
@@ -69,7 +69,7 @@ const posts = allPosts.filter((project) => project.data.language === pageLang)
   >
     {
       posts.map((project) => (
-        <BlogCard2
+        <BlogCard
           id={project.data.id}
           title={project.data.title}
           date={project.data.date}
