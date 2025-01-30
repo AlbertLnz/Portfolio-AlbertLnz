@@ -15,7 +15,11 @@ export function getStaticPaths() {
     { params: { pageLang: 'ca' } },
   ]
 }
-// const { pageLang } = Astro.params;
+const { pageLang } = Astro.params
+
+if (pageLang !== 'en' && pageLang !== 'es' && pageLang !== 'ca') {
+  return Astro.redirect(`/404`)
+}
 ---
 
 <Layout

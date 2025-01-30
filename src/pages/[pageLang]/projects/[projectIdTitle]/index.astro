@@ -20,6 +20,8 @@ const project = projects.find(
     project.data.id === Number(id) && project.data.language === pageLang
 ) as (typeof projects)[0]
 
+if (!project) return Astro.redirect(`/${pageLang}/404`)
+
 const { Content } = await render(project)
 ---
 

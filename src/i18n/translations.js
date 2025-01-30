@@ -125,3 +125,12 @@ export const blogAsideTranslations = (url) => {
 
   return { sorting, all }
 }
+
+export const errorPageTranslations = (url) => {
+  const lang = getLangFromUrl(url)
+  const t = useTranslations(lang)
+
+  const { title, text, go_back, homepage } = t('error_page')
+
+  return { title, text, go_back, homepage }
+}

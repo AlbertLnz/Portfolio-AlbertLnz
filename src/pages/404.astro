@@ -1,0 +1,74 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import LanguageAndThemeSelector from '@/components/LanguageAndThemeSelector.astro'
+import { errorPageTranslations } from '@/i18n/translations'
+
+export function getStaticPaths() {
+  return [
+    { params: { pageLang: 'en' } },
+    { params: { pageLang: 'es' } },
+    { params: { pageLang: 'ca' } },
+  ]
+}
+
+const { title, text, go_back, homepage } = errorPageTranslations(Astro.url)
+---
+
+<Layout
+  title='AlbertLnz portfolio'
+  description='SEO description for my portfolio'
+>
+  <main
+    class='flex items-center justify-center h-screen w-screen dark:text-white/80'
+  >
+    <section
+      id='container-404'
+      class='size-[80%] bg-red-500/90 dark:bg-red-800 rounded-xl flex items-center justify-center'
+      transition:name='container-404'
+    >
+      <div class='absolute top-0 right-0 p-6'>
+        <LanguageAndThemeSelector path={''} />
+      </div>
+
+      <div class='flex flex-col items-center justify-center gap-y-8'>
+        <h3 class='text-5xl font-bold'>{title}</h3>
+        <p class='text-md italic'>
+          {text}
+        </p>
+      </div>
+
+      <div
+        class='absolute bottom-0 left-1/2 -translate-x-1/2 pb-8 font-semibold'
+      >
+        <p>{go_back} <a href='/' class='hover:underline'>{homepage}</a></p>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* ~~~ GRAINY BCKGS SECTIONS (MAGIC) ~~~ */
+  #container-404 {
+    position: relative;
+  }
+
+  #container-404::before {
+    content: '';
+    position: absolute;
+    border-radius: 0.75rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 182px;
+    opacity: 0.5;
+    z-index: -1;
+  }
+
+  body.dark #container-404::before {
+    opacity: 0.2;
+  }
+</style>

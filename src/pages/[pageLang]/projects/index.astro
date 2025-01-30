@@ -9,6 +9,7 @@ import { projectsTechs } from '@/data/projectTechs'
 import { type Techs } from '@/types/project.d'
 import Tooltip from '@/components/Tooltip.astro'
 import { projectsPageTranslations } from '@/i18n/translations'
+import { redirectToDefaultLocale } from 'astro:i18n'
 
 export function getStaticPaths() {
   return [

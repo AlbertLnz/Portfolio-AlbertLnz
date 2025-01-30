@@ -84,6 +84,12 @@ export const ui = {
       sorting: 'Asc / Desc',
       all: 'View all',
     },
+    error_page: {
+      title: '404 - Page not found',
+      text: 'The page you are looking for does not exist.',
+      go_back: 'Go back to the',
+      homepage: 'homepage',
+    },
   },
   es: {
     lang: 'es',
@@ -160,6 +166,12 @@ export const ui = {
       sorting: 'Asc / Desc',
       all: 'Ver todos',
     },
+    error_page: {
+      title: '404 - Página no encontrada',
+      text: 'La página que estás buscando no existe.',
+      go_back: 'Volver a la',
+      homepage: 'página de inicio',
+    },
   },
   ca: {
     lang: 'ca',
@@ -235,6 +247,12 @@ export const ui = {
     projects_aside: {
       sorting: 'Asc / Desc',
       all: 'Veure tots',
+    },
+    error_page: {
+      title: '404 - Pàgina no trobada',
+      text: 'La pàgina que estàs buscant no existeix.',
+      go_back: 'Tornar a la',
+      homepage: "pàgina d'inici",
     },
   },
 } as const
