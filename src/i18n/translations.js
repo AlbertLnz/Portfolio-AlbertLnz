@@ -130,7 +130,25 @@ export const errorPageTranslations = (url) => {
   const lang = getLangFromUrl(url)
   const t = useTranslations(lang)
 
-  const { title, text, go_back, homepage } = t('error_page')
+  const {
+    title,
+    text,
+    go_back,
+    homepage,
+    projects,
+    posts,
+    info1_404,
+    info2_404,
+  } = t('error_page')
 
-  return { title, text, go_back, homepage }
+  return {
+    title,
+    text,
+    go_back,
+    homepage,
+    projects,
+    posts,
+    info1_404,
+    info2_404,
+  }
 }

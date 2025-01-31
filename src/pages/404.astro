@@ -11,7 +11,21 @@ export function getStaticPaths() {
   ]
 }
 
-const { title, text, go_back, homepage } = errorPageTranslations(Astro.url)
+let lang = Astro.url.pathname.split('/')[1]
+
+const validLangs = ['en', 'es', 'ca']
+lang = validLangs.includes(lang) ? lang : 'en'
+
+const {
+  title,
+  text,
+  go_back,
+  homepage,
+  projects,
+  posts,
+  info1_404,
+  info2_404,
+} = errorPageTranslations(Astro.url)
 ---
 
 <Layout
@@ -23,25 +37,80 @@ const { title, text, go_back, homepage } = errorPageTranslations(Astro.url)
   >
     <section
       id='container-404'
-      class='size-[80%] bg-red-500/90 dark:bg-red-800 rounded-xl flex items-center justify-center'
+      class='size-[80%] bg-red-500/90 dark:bg-red-800 rounded-xl px-10'
       transition:name='container-404'
     >
       <div class='absolute top-0 right-0 p-6'>
-        <LanguageAndThemeSelector path={''} />
+        <LanguageAndThemeSelector path='/404' />
       </div>
 
-      <div class='flex flex-col items-center justify-center gap-y-8'>
-        <h3 class='text-5xl font-bold'>{title}</h3>
-        <p class='text-md italic'>
-          {text}
-        </p>
+      <div class='grid grid-cols-2 h-full py-[10%] gap-x-10'>
+        <div
+          class='h-full flex flex-col justify-between items-center py-[10%] text-center'
+        >
+          <p class='text-8xl font-extrabold opacity-40'>404</p>
+          <h1
+            class='flex-1 flex items-center justify-center text-5xl font-bold overflow-hidden text-ellipsis whitespace-nowrap'
+          >
+            {title}
+          </h1>
+          <p class='text-md italic'>
+            {text}
+          </p>
+        </div>
+        <ul
+          class='h-full flex flex-col justify-between items-center py-[10%] text-xl gap-y-4'
+        >
+          <li
+            class='group bg-gray-200/30 hover:bg-gray-200/60 dark:bg-gray-900/40 dark:hover:bg-gray-900/70 size-full font-bold flex items-center justify-center rounded-lg transition-all duration-200 ease-in'
+          >
+            <a
+              href={`/${lang}`}
+              class='size-full flex items-center justify-center'
+            >
+              {go_back}&nbsp<span class='group-hover:underline'>
+                {homepage}
+              </span>
+            </a>
+          </li>
+          <li
+            class='group bg-gray-200/30 hover:bg-gray-200/60 dark:bg-gray-900/40 dark:hover:bg-gray-900/70 size-full font-bold flex items-center justify-center rounded-lg transition-all duration-200 ease-in'
+          >
+            <a
+              href={`/${lang}/projects`}
+              class='size-full flex items-center justify-center'
+            >
+              {go_back}&nbsp<span class='group-hover:underline'>
+                {projects}
+              </span>
+            </a>
+          </li>
+          <li
+            class='group bg-gray-200/30 hover:bg-gray-200/60 dark:bg-gray-900/40 dark:hover:bg-gray-900/70 size-full font-bold flex items-center justify-center rounded-lg transition-all duration-200 ease-in'
+          >
+            <a
+              href={`/${lang}/posts`}
+              class='size-full flex items-center justify-center'
+            >
+              {go_back}&nbsp<span class='group-hover:underline'>{posts}</span>
+            </a>
+          </li>
+        </ul>
       </div>
 
-      <div
-        class='absolute bottom-0 left-1/2 -translate-x-1/2 pb-8 font-semibold'
+      <p
+        class='absolute bottom-5 left-0 right-0 text-center text-sm opacity-40 hover:opacity-90 transition-all duration-200 ease-in'
       >
-        <p>{go_back} <a href='/' class='hover:underline'>{homepage}</a></p>
-      </div>
+        {info1_404}<span>
+          <a
+            href='https://http.cat/status/404'
+            target='_blank'
+            class='hover:underline'
+          >
+            {info2_404}
+          </a>
+        </span>
+      </p>
     </section>
   </main>
 </Layout>
