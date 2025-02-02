@@ -14,7 +14,7 @@ export const workItemsEN = [
   {
     company: 'IT Academy',
     title: 'React Frontend Developer',
-    period: 'Sept 22 - Nov 23',
+    period: 'Jun 23 - Nov 23',
     link: 'https://www.barcelonactiva.cat/itacademy',
   },
 ]
@@ -35,7 +35,7 @@ export const workItemsES = [
   {
     company: 'IT Academy',
     title: 'Desarrollador Frontend React',
-    period: 'Sept 22 - Nov 23',
+    period: 'Jun 23 - Nov 23',
     link: 'https://www.barcelonactiva.cat/itacademy',
   },
 ]
@@ -56,7 +56,7 @@ export const workItemsCA = [
   {
     company: 'IT Academy',
     title: 'Desenvolupador Frontend React',
-    period: 'Set 22 - Nov 23',
+    period: 'Jun 23 - Nov 23',
     link: 'https://www.barcelonactiva.cat/itacademy',
   },
 ]
