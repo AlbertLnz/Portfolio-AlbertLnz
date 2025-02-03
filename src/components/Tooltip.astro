@@ -22,10 +22,11 @@ export interface Props {
 
       if (!tooltip) return
 
-      container.addEventListener('mousemove', (e: MouseEvent) => {
+      container.addEventListener('mousemove', (e) => {
+        const event = e as MouseEvent
         const rect = container.getBoundingClientRect()
-        tooltip.style.left = `${e.clientX - rect.left + 10}px`
-        tooltip.style.top = `${e.clientY - rect.top + 5}px`
+        tooltip.style.left = `${event.clientX - rect.left + 10}px`
+        tooltip.style.top = `${event.clientY - rect.top + 5}px`
       })
     })
   })
