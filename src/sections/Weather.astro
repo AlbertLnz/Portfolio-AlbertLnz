@@ -17,7 +17,7 @@ let timestamp,
 
 if (PRODUCTION) {
   const headers = Astro.request.headers
-  city = headers.get('x-vercel-ip-city') || city
+  city = decodeURIComponent(headers.get('x-vercel-ip-city') || city)
 
   const weatherData = await fetchWeatherData(city)
   if (weatherData) {
@@ -34,7 +34,7 @@ if (PRODUCTION) {
 } else {
   timestamp = 1727244822
   timezone = 3600
-  city = 'Ashburn'
+  city = 'Cerdanyola del Vallès'
   temp = 36.6
   wind = 4.63
   humidity = 41
