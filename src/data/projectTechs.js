@@ -19,6 +19,10 @@ import Render from '@/assets/icons/Render.astro'
 import Npm from '@/assets/icons/Npm.astro'
 import Crates from '@/assets/icons/Crates.astro'
 import Rust from '@/assets/icons/Rust.astro'
+import Preact from '@/assets/icons/Preact.astro'
+import Tailwind from '@/assets/icons/Tailwind.astro'
+import Canvas from '@/assets/icons/Canvas.astro'
+import Cloudinary from '@/assets/icons/Cloudinary.astro'
 
 export const projectsTechs = {
   Astro: {
@@ -83,5 +87,17 @@ export const projectsTechs = {
   },
   Rust: {
     icon: Rust,
+  },
+  Preact: {
+    icon: Preact,
+  },
+  Tailwind: {
+    icon: Tailwind,
+  },
+  Canvas: {
+    icon: Canvas,
+  },
+  Cloudinary: {
+    icon: Cloudinary,
   },
 }
