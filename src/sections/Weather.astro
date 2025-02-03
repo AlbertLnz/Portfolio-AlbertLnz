@@ -99,10 +99,12 @@ if (!iconWeather)
   <div
     class={`
     text-white dark:text-primary-dark
-    grid grid-cols-[70%_30%]  rounded-[22px] w-full h-full py-2 px-4
+    grid grid-cols-[70%_30%] rounded-[22px] w-full h-full py-2 px-4 gap-y-2 md:gap-y-0
   `}
   >
-    <h6 class='flex self-center text-[14px] font-semibold'>{city}</h6>
+    <h6 class='flex self-center text-[14px] font-semibold mt-2 md:mt-0'>
+      {city}
+    </h6>
     {
       (
         <iconWeather.component
@@ -131,7 +133,7 @@ if (!iconWeather)
     <p class='text-[10px] flex justify-self-end self-center'></p>
 
     <div
-      class='flex items-center justify-center place-content-center rounded-full bg-[#336BA3] dark:bg-[#0E1730] col-span-2 relative'
+      class='h-[2px] flex items-center justify-center place-content-center rounded-full bg-[#336BA3] dark:bg-[#0E1730] col-span-2 relative'
     >
       <div
         id='progressBar'

@@ -10,6 +10,7 @@ import { type Techs } from '@/types/project.d'
 import Tooltip from '@/components/Tooltip.astro'
 import { projectsPageTranslations } from '@/i18n/translations'
 import { redirectToDefaultLocale } from 'astro:i18n'
+import GitHubLogoFull from '@/assets/github/GitHubLogoFull.astro'
 
 export function getStaticPaths() {
   return [
@@ -45,7 +46,7 @@ const filteredProjects = allProjects.filter(
       class={`
       text-heading-light dark:text-heading-dark
       hover:bg-black/5 dark:hover:bg-black/30 hover:underline
-      flex items-center justify-center rounded-l-[8px] text-lg transition-colors duration-500
+      flex items-center justify-center rounded-[8px] md:rounded-l-[8px] md:rounded-r-none text-lg transition-colors duration-500
     `}
       href={`/${pageLang}`}
     >
@@ -87,7 +88,7 @@ const filteredProjects = allProjects.filter(
           class='hidden relative p-6 overflow-hidden flex-col items-center justify-around text-secondary-light dark:text-secondary-dark'
           data-project
         >
-          <div class='mb-6 flex items-center justify-between w-full'>
+          <div class='flex flex-col md:flex-row gap-y-4 md:gap-y-0 items-center justify-between w-full mb-6'>
             <h2 class='text-center text-4xl font-bold text-heading-light dark:text-heading-dark mx-auto'>
               <Tooltip tooltipTxt={project.data.links.deploy || deploy_tooltip}>
                 <a
@@ -99,11 +100,16 @@ const filteredProjects = allProjects.filter(
                 </a>
               </Tooltip>
             </h2>
-            <a href={project.data.links.github} target='_blank' class='mr-6'>
-              <GitHub class='size-8 fill-black/90 hover:fill-black dark:fill-white/90 dark:hover:fill-white' />
+            <a
+              href={project.data.links.github}
+              target='_blank'
+              class='mr-0 md:mr-6'
+            >
+              <GitHub class='hidden md:block size-8 fill-black/90 hover:fill-black dark:fill-white/90 dark:hover:fill-white' />
+              <GitHubLogoFull class='block md:hidden w-32 my-4 fill-black/90 hover:fill-black dark:fill-white/90 dark:hover:fill-white' />
             </a>
           </div>
-          <div class='flex w-full'>
+          <div class='flex flex-col md:flex-row items-center md:items-stretch gap-y-4 md:gap-y-0'>
             <img
               src={project.data.img}
               alt={project.data.title}
@@ -111,7 +117,7 @@ const filteredProjects = allProjects.filter(
             />
             <div class='flex flex-col flex-1 justify-between px-4 py-2 leading-relaxed tracking-wide'>
               <p>{project.data.longDescription}</p>
-              <p class='text-base'>
+              <p class='text-base mt-10 md:mt-0'>
                 {info_readme}{' '}
                 <span class='hover:underline hover:text-black/90 dark:hover:text-white/90'>
                   <a
@@ -124,8 +130,8 @@ const filteredProjects = allProjects.filter(
             </div>
           </div>
           <div class='flex flex-col w-full mt-4 p-2'>
-            <h4 class='text-2xl font-semibold mb-2'>{techs_title}</h4>
-            <ul class='flex ml-2 gap-x-6 text-base font-light'>
+            <h4 class='text-2xl font-semibold mb-3'>{techs_title}</h4>
+            <ul class='flex flex-wrap ml-2 gap-6 text-base font-light'>
               {project.data.techs.map((tech: string) => {
                 const techObj = projectsTechs[tech as Techs]
                 return (

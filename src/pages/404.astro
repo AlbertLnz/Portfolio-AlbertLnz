@@ -40,17 +40,17 @@ const {
       class='size-[80%] bg-red-500/90 dark:bg-red-800 rounded-xl px-10'
       transition:name='container-404'
     >
-      <div class='absolute top-0 right-0 p-6'>
+      <div class='absolute top-0 right-0 md:left-auto p-6'>
         <LanguageAndThemeSelector path='/404' />
       </div>
 
-      <div class='grid grid-cols-2 h-full py-[10%] gap-x-10'>
+      <div class='grid md:grid-cols-2 h-full py-[20%] md:py-[10%] gap-x-10'>
         <div
           class='h-full flex flex-col justify-between items-center py-[10%] text-center'
         >
-          <p class='text-8xl font-extrabold opacity-40'>404</p>
+          <p class='text-8xl font-extrabold opacity-40 mt-8 md:mt-0'>404</p>
           <h1
-            class='flex-1 flex items-center justify-center text-5xl font-bold overflow-hidden text-ellipsis whitespace-nowrap'
+            class='flex-1 flex items-center justify-center text-5xl font-bold overflow-hidden text-ellipsis md:whitespace-nowrap'
           >
             {title}
           </h1>

@@ -19,16 +19,16 @@ const postUrl = id + '-' + titleCleaned
   class={`
     posts
     hover:cursor-pointer
-    card max-h-[125px] relative overflow-hidden w-full h-full rounded-md m-2 group
+    card max-h-auto relative overflow-hidden w-full h-full rounded-md m-2 group
   `}
 >
   <h2
-    class='text-lg absolute top-0 m-3 text-primary-light group-hover:text-secondary-ligh dark:text-primary-dark group-hover:dark:text-white'
+    class='text-lg px-6 pt-6 pb-3 md:px-3 md:pt-3 md:pb-1.5 text-primary-light group-hover:text-secondary-ligh dark:text-primary-dark group-hover:dark:text-white'
   >
     {title}
   </h2>
 
-  <div class='flex items-end z-0 pl-4 pt-12'>
+  <div class='flex items-end z-0 pl-8 md:pl-4'>
     <p
       transition:name={postUrl}
       class='cust-font font-bold text-6xl text-secondary-light dark:text-secondary-dark'
