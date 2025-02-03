@@ -75,6 +75,17 @@ export const ui = {
       text_three: 'Then, make it',
       text_four: 'real',
     },
+    homepage_weather: {
+      windTitle: 'Wind',
+      humidityTitle: 'Humidity',
+    },
+    homepage_blog: {
+      title: 'Blog',
+      latest: 'Latest post',
+    },
+    pages_header: {
+      back: 'Back',
+    },
     projects_page: {
       deploy_tooltip: '❌ Not deployed yet',
       info_readme: 'See more info in',
@@ -161,6 +172,17 @@ export const ui = {
       text_three: 'Después, házlo',
       text_four: 'realidad',
     },
+    homepage_weather: {
+      windTitle: 'Viento',
+      humidityTitle: 'Humedad',
+    },
+    homepage_blog: {
+      title: 'Blog',
+      latest: 'Último post',
+    },
+    pages_header: {
+      back: 'Atrás',
+    },
     projects_page: {
       deploy_tooltip: '❌ Aún no desplegado',
       info_readme: 'Ver más información en el',
@@ -246,6 +268,17 @@ export const ui = {
       text_two: 'dissenya',
       text_three: 'Després, fes-ho',
       text_four: 'realitat',
+    },
+    homepage_weather: {
+      windTitle: 'Vent',
+      humidityTitle: 'Humitat',
+    },
+    homepage_blog: {
+      title: 'Blog',
+      latest: 'Últim post',
+    },
+    pages_header: {
+      back: 'Enrere',
     },
     projects_page: {
       deploy_tooltip: '❌ Encara no desplegat',

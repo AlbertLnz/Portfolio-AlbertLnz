@@ -5,6 +5,7 @@ import {
   OPEN_WEATHER_API_KEY,
 } from 'astro:env/server'
 import { assignIconWeatherArr } from '@/data/weatherIcon.js'
+import { homePageWeatherTranslations } from '@/i18n/translations'
 
 let timestamp,
   timezone,
@@ -85,6 +86,8 @@ if (!iconWeather)
   iconWeather = assignIconWeatherArr.find(
     (weather) => weather.name === 'unknown'
   ) as (typeof assignIconWeatherArr)[0]
+
+const { windTitle, humidityTitle } = homePageWeatherTranslations(Astro.url)
 ---
 
 <section
@@ -117,10 +120,10 @@ if (!iconWeather)
     <h5 class='ml-1 text-[24px] font-bold'>{roundTemp}º</h5>
     <p class='flex justify-self-end self-start font-medium'>{mainWeather}</p>
 
-    <p class='ml-1 text-[10px] flex self-center'>· Wind:</p>
+    <p class='ml-1 text-[10px] flex self-center'>· {windTitle}:</p>
     <p class='text-[10px] flex justify-self-end self-center'>{wind} m/s</p>
 
-    <p class='ml-1 text-[10px] flex self-center'>· Humidity:</p>
+    <p class='ml-1 text-[10px] flex self-center'>· {humidityTitle}:</p>
     <p class='text-[10px] flex justify-self-end self-center'>{humidity} %</p>
 
     <p class='ml-1 text-[10px] flex self-center'>

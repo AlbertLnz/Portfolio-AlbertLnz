@@ -8,8 +8,10 @@ import { prepareCorrectSingleRoutePath } from '@/data/prepareCorrectRoutePaths'
 import { projectsTechs } from '@/data/projectTechs'
 import { type Techs } from '@/types/project.d'
 import Tooltip from '@/components/Tooltip.astro'
-import { projectsPageTranslations } from '@/i18n/translations'
-import { redirectToDefaultLocale } from 'astro:i18n'
+import {
+  pagesHeaderTranslations,
+  projectsPageTranslations,
+} from '@/i18n/translations'
 import GitHubLogoFull from '@/assets/github/GitHubLogoFull.astro'
 
 export function getStaticPaths() {
@@ -29,6 +31,7 @@ const allProjects = await getCollection('projects')
 const filteredProjects = allProjects.filter(
   (project) => project.data.language === pageLang
 )
+const { back } = pagesHeaderTranslations(Astro.url)
 ---
 
 <ProjectsLayout>
@@ -50,7 +53,7 @@ const filteredProjects = allProjects.filter(
     `}
       href={`/${pageLang}`}
     >
-      Back
+      {back}
     </a>
     <h1
       class='font-semibold text-2xl text-center py-[1rem] md:py-[2rem] text-heading-light dark:text-heading-dark'

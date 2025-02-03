@@ -3,12 +3,14 @@ import { getCollection } from 'astro:content'
 import ArrowRightUp from '@/assets/symbols/ArrowRightUp.astro'
 import { getLangFromUrl } from '../i18n/utils'
 import { prepareCorrectSingleRoutePath } from '@/data/prepareCorrectRoutePaths'
+import { homePageBlogTranslations } from '@/i18n/translations'
 
 const lang = getLangFromUrl(Astro.url)
 const allPosts = await getCollection('posts')
 const posts = allPosts.filter((post) => post.data.language === lang)
 const lastPost = posts[posts.length - 1]
 const path = prepareCorrectSingleRoutePath(lastPost)
+const { title, latest } = homePageBlogTranslations(Astro.url)
 ---
 
 <section
@@ -29,7 +31,7 @@ const path = prepareCorrectSingleRoutePath(lastPost)
         text-3xl mr-2
       `}
       >
-        Blog
+        {title}
       </h2>
       <ArrowRightUp
         class={`
@@ -45,7 +47,7 @@ const path = prepareCorrectSingleRoutePath(lastPost)
         ml-2 mt-2 md:mt-0
       `}
       >
-        Latest post: {lastPost.data.title}
+        {latest}: {lastPost.data.title}
       </p>
     </a>
   </div>

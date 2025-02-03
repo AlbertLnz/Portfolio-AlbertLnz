@@ -108,6 +108,33 @@ export const homePagePortfolioTranslations = (url) => {
   return { text_one, text_two, text_three, text_four }
 }
 
+export const homePageWeatherTranslations = (url) => {
+  const lang = getLangFromUrl(url)
+  const t = useTranslations(lang)
+
+  const { windTitle, humidityTitle } = t('homepage_weather')
+
+  return { windTitle, humidityTitle }
+}
+
+export const homePageBlogTranslations = (url) => {
+  const lang = getLangFromUrl(url)
+  const t = useTranslations(lang)
+
+  const { title, latest } = t('homepage_blog')
+
+  return { title, latest }
+}
+
+export const pagesHeaderTranslations = (url) => {
+  const lang = getLangFromUrl(url)
+  const t = useTranslations(lang)
+
+  const { back } = t('pages_header')
+
+  return { back }
+}
+
 export const projectsPageTranslations = (url) => {
   const lang = getLangFromUrl(url)
   const t = useTranslations(lang)

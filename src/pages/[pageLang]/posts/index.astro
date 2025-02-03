@@ -4,6 +4,7 @@ import BlogLayout from '@/layouts/BlogLayout.astro'
 import BlogCard from '@/components/BlogCard.astro'
 import BlogAside from '@/components/BlogAside.astro'
 import LanguageAndThemeSelector from '@/components/LanguageAndThemeSelector.astro'
+import { pagesHeaderTranslations } from '@/i18n/translations'
 
 export function getStaticPaths() {
   return [
@@ -16,6 +17,7 @@ const { pageLang } = Astro.params
 
 const allPosts = await getCollection('posts')
 const posts = allPosts.filter((project) => project.data.language === pageLang)
+const { back } = pagesHeaderTranslations(Astro.url)
 ---
 
 <BlogLayout title='Blog' description='SEO description for blog section'>
@@ -36,7 +38,7 @@ const posts = allPosts.filter((project) => project.data.language === pageLang)
       flex items-center justify-center rounded-[8px] md:rounded-l-[8px] md:rounded-r-none text-lg transition-colors duration-500`}
       href={`/${pageLang}`}
     >
-      Back
+      {back}
     </a>
     <h1
       class='font-semibold text-2xl text-center py-[1rem] md:py-[2rem] text-heading-light dark:text-heading-dark'
