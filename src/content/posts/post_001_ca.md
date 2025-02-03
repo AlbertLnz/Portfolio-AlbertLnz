@@ -2,11 +2,11 @@
 id: 1
 title: Iniciar React desde 0 sense template!
 language: ca
-date: 01/10/2024
+date: 01/01/2025
 tag: Tutorial
 author: AlbertLnz
 img: post_001.jpg
-description: Post 1 description
+description: Crea un projecte React des de zero.
 ---
 
 ## Introducció
@@ -147,7 +147,7 @@ export default App
 ```html
 <!-- 📁 index.html -->
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
