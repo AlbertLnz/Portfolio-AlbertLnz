@@ -34,7 +34,7 @@ const toolsTranslations = homePageToolsTranslations(Astro.url)
   `}
   transition:name='tools'
 >
-  <ul class='flex flex-wrap w-full h-full'>
+  <ul class='flex flex-wrap w-full h-full mb-6 md:mb-0'>
     {
       tools.slice(0, MAX_TOOLS_ITEMS).map((tool) => (
         <li>
