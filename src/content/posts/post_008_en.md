@@ -2,7 +2,7 @@
 id: 8
 title: Talking about virtual environments
 language: en
-date: 02/19/2025
+date: 19/02/2025
 tag: Tutorial
 author: AlbertLnz
 img: post_008.jpg
