@@ -1,6 +1,7 @@
 import BrokenClouds from '@/assets/weather/BrokenClouds.astro'
 import ClearSkyDay from '@/assets/weather/ClearSky_day.astro'
 import ClearSkyNight from '@/assets/weather/ClearSky_night.astro'
+import Drizzle from '@/assets/weather/Drizzle.astro'
 import FewCloudsDay from '@/assets/weather/FewClouds_day.astro'
 import FewCloudsNight from '@/assets/weather/FewClouds_night.astro'
 import Mist from '@/assets/weather/Mist.astro'
@@ -64,5 +65,19 @@ export const assignIconWeatherArr = [
   {
     name: 'unknown',
     component: Unknown,
+  },
+  {
+    name: [
+      'light intensity drizzle',
+      'drizzle',
+      'heavy intensity drizzle',
+      'light intensity drizzle rain',
+      'drizzle rain',
+      'heavy intensity drizzle rain',
+      'shower rain and drizzle',
+      'heavy shower rain and drizzle',
+      'shower drizzle',
+    ],
+    component: Drizzle,
   },
 ]

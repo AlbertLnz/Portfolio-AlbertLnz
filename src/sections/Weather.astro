@@ -39,8 +39,8 @@ if (PRODUCTION) {
   temp = 36.6
   wind = 4.63
   humidity = 41
-  mainWeather = 'Mist'
-  descriptWeather = 'few clouds'
+  mainWeather = 'Drizzle'
+  descriptWeather = 'heavy intensity drizzle'
 }
 
 async function fetchWeatherData(city: string) {
@@ -79,8 +79,8 @@ if (iconsWithDoubleIcons.includes(descriptWeather)) {
   descriptWeatherFilter = descriptWeather
 }
 
-let iconWeather = assignIconWeatherArr.find(
-  (weather) => weather.name === descriptWeatherFilter
+let iconWeather = assignIconWeatherArr.find((weather) =>
+  weather.name.includes(descriptWeatherFilter)
 ) as (typeof assignIconWeatherArr)[0]
 if (!iconWeather)
   iconWeather = assignIconWeatherArr.find(
