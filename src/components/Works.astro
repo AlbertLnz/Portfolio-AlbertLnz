@@ -1,0 +1,31 @@
+---
+import WorkItem from '@/components/WorkItem.astro'
+import type { IWork } from '@/types/Work'
+
+const myWorks: IWork[] = [
+  {
+    title: 'Backend Developer',
+    paragraph:
+      'and team member in a management system project. Led the migration from CodeIgniter 3 to Laravel 10 with PHP 8.2 and MySQL. Worked with automated testing using PHPUnit and version control with Git and GitLab.',
+    skills: ['React', 'Organization', 'Laravel'],
+    skills_urls: ['https://react.dev', '', 'https://laravel.com', '', ''],
+    company: 'No Country',
+    company_url: 'https://www.nocountry.com',
+    period: '10/2023 - 06/2024',
+  },
+  {
+    title: 'Frontend Developer',
+    paragraph:
+      'and team member in a management system project. Led the migration from CodeIgniter 3 to Laravel 10 with PHP 8.2 and MySQL. Worked with automated testing using PHPUnit and version control with Git and GitLab.',
+    skills: ['React', 'Organization', 'Laravel'],
+    skills_urls: ['https://react.dev', '', 'https://laravel.com', '', ''],
+    company: 'IT Academy',
+    company_url: 'https://www.nocountry.com',
+    period: '06/2023 - 10/2023',
+  },
+]
+---
+
+<section>
+  {myWorks.map((work) => <WorkItem {...work} />)}
+</section>

@@ -1,0 +1,41 @@
+---
+import React from '@/assets/svgs/skills/React.astro'
+import Laravel from '@/assets/svgs/skills/Laravel.astro'
+import Organization from '@/assets/svgs/skills/Organization.astro'
+
+const { skill, skillUrl } = Astro.props as {
+  skill: 'React' | 'Laravel'
+  skillUrl: string
+}
+
+type IconKey = 'React' | 'Laravel' | 'Organization'
+const icons: Record<IconKey, (props: { class?: string }) => any> = {
+  React,
+  Laravel,
+  Organization,
+}
+
+const Icon = icons[skill]
+---
+
+<li
+  class='bg-gradient-to-r from-[#0A0A0A] to-90% to-[#0A0A0A]/80 px-2 py-1 rounded-full text-xs font-extralight'
+>
+  {
+    skillUrl.length > 0 ? (
+      <a href={skillUrl} target='_blank' class='h-full flex gap-x-2'>
+        <Icon class='size-4' />
+        <p class='text-transparent bg-gradient-to-b from-primary-text-dark from-30% to-[#919492] bg-clip-text'>
+          {skill}
+        </p>
+      </a>
+    ) : (
+      <p class='h-full flex gap-x-2'>
+        <Icon class='size-4' />
+        <span class='text-transparent bg-gradient-to-b from-primary-text-dark from-30% to-[#919492] bg-clip-text'>
+          {skill}
+        </span>
+      </p>
+    )
+  }
+</li>

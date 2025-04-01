@@ -1,0 +1,38 @@
+---
+import ListItemBadge from '@/components/ListItemBadge.astro'
+import type { IWork } from '@/types/Work'
+
+const { title, paragraph, skills, skills_urls, company, company_url, period } =
+  Astro.props as IWork
+---
+
+<article class='my-4 p-2.5 border border-[#F5FAF7]/5 rounded-[20px]'>
+  <div class='bg-[#161717] rounded-[10px] p-3.5'>
+    <h2 class='text-lg font-medium leading-[1.4]'>
+      {title}
+      <span class='text-base font-normal text-secondary-text-dark'>
+        {paragraph}
+      </span>
+    </h2>
+
+    <div class='flex items-center justify-between pt-6'>
+      <ul class='flex items-center justify-start gap-x-2'>
+        {
+          skills.map((skill, index) => (
+            <ListItemBadge skill={skill} skillUrl={skills_urls[index]} />
+          ))
+        }
+      </ul>
+
+      <p class='text-xs italic font-extralight'>
+        <a
+          href={company_url}
+          target='_blank'
+          class='decoration-dashed hover:underline'
+        >
+          {company}
+        </a> | {period}
+      </p>
+    </div>
+  </div>
+</article>
