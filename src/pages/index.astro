@@ -2,13 +2,23 @@
 import Layout from '@/layouts/Layout.astro'
 import Header from '@/components/Header.astro'
 import AboutMe from '@/components/AboutMe.astro'
+import TitleSection from '@/components/TitleSection.astro'
 ---
 
 <Layout>
   <Header />
   <AboutMe />
-  <h2>Works</h2>
-  <h2>Projects</h2>
-  <h2>Stack</h2>
-  <h2>Blog</h2>
+
+  <TitleSection
+    title='Works.'
+    subtitle='You can download my CV right here.'
+    icon='works'
+  />
+  <TitleSection
+    title='Projects.'
+    subtitle='My personal projects.'
+    icon='projects'
+  />
+  <TitleSection title='Stack.' subtitle='The tech stack I use.' icon='stack' />
+  <TitleSection title='Blog.' subtitle='My personal blog.' icon='blog' />
 </Layout>
