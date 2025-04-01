@@ -5,4 +5,61 @@
 
   --color-primary-text-dark: #f5faf7;
   --color-secondary-text-dark: #8f9391;
+
+  --font-geist: 'Geist';
+  --font-fallback: system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
+    'Noto Sans', helvetica, arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji';
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-VariableFont_wght.woff2') format('woff2');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hind Madurai';
+  src: url('/fonts/hind-madurai-latin-300-normal.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hind Madurai';
+  src: url('/fonts/hind-madurai-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hind Madurai';
+  src: url('/fonts/hind-madurai-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hind Madurai';
+  src: url('/fonts/hind-madurai-latin-600-normal.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hind Madurai';
+  src: url('/fonts/hind-madurai-latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  font-family: 'Hind Madurai', var(--font-fallback);
 }
