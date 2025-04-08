@@ -1,0 +1,74 @@
+---
+import StackItem from './StackItem.astro'
+import Angular from '@/assets/svgs/skills/Angular.astro'
+import AstroC from '@/assets/svgs/skills/AstroC.astro'
+import Codeigniter from '@/assets/svgs/skills/Codeigniter.astro'
+import Django from '@/assets/svgs/skills/Django.astro'
+import Docker from '@/assets/svgs/skills/Docker.astro'
+import Expressjs from '@/assets/svgs/skills/Expressjs.astro'
+import FastAPI from '@/assets/svgs/skills/FastAPI.astro'
+import Flask from '@/assets/svgs/skills/Flask.astro'
+import Git from '@/assets/svgs/skills/Git.astro'
+import Java from '@/assets/svgs/skills/Java.astro'
+import JavaScript from '@/assets/svgs/skills/JavaScript.astro'
+import Laravel from '@/assets/svgs/skills/Laravel.astro'
+import MariaDB from '@/assets/svgs/skills/MariaDB.astro'
+import MongoDB from '@/assets/svgs/skills/MongoDB.astro'
+import MySQL from '@/assets/svgs/skills/MySQL.astro'
+import NextJS from '@/assets/svgs/skills/NextJS.astro'
+import Nodejs from '@/assets/svgs/skills/Nodejs.astro'
+import PHP from '@/assets/svgs/skills/PHP.astro'
+import PostgreSQL from '@/assets/svgs/skills/PostgreSQL.astro'
+import Preact from '@/assets/svgs/skills/Preact.astro'
+import Python from '@/assets/svgs/skills/Python.astro'
+import React from '@/assets/svgs/skills/React.astro'
+import Rust from '@/assets/svgs/skills/Rust.astro'
+import SpringBoot from '@/assets/svgs/skills/SpringBoot.astro'
+import SQLite from '@/assets/svgs/skills/SQLite.astro'
+import Svelte from '@/assets/svgs/skills/Svelte.astro'
+import TypeScript from '@/assets/svgs/skills/TypeScript.astro'
+
+const myStack = [
+  ['PHP', PHP, '#E9D5FF, #A78BFA, #6D28D9'],
+  ['JavaScript', JavaScript, '#fef08a, #fde047, #eab308'],
+  ['Python', Python, '#306998, #FFD43B, #4B8BBE'],
+  ['Java', Java, '#D34F38, #F87C2A, #9E2A2F'],
+  ['Rust', Rust, '#dea584, #8b4513, #5b3a29'],
+  ['Django', Django, '#092e20, #2d6a4f, #81c7b4'],
+  ['Flask', Flask, '#343434, #D5D5D5, #FF5733'],
+  ['Laravel', Laravel, '#fecdd3, #fda4af, #e11d48'],
+  ['Codeigniter', Codeigniter, '#e34f26, #f16c2e, #f48b2e'],
+  ['React', React, '#e0f2fe, #7dd3fc, #0ea5e9'],
+  ['Angular', Angular, '#DD1B16, #B62C24, #A43549'],
+  ['TypeScript', TypeScript, '#2f74c0, #61dbfb, #0044cc'],
+  ['Preact', Preact, '#000000, #61dafb, #3b3b3b'],
+  ['NextJS', NextJS, '#000000, #ffffff, #8c8c8c'],
+  ['Astro', AstroC, '#ff5c8e, #00d8ff, #12c2e9'],
+  ['Svelte', Svelte, '#ff3e00, #f7a8b8, #f0f0f0'],
+  ['Node.js', Nodejs, '#68a063, #3c873a, #8cc54e'],
+  ['Express', Expressjs, '#000000, #95a5a6, #16a085'],
+  ['Spring Boot', SpringBoot, '#6db33f, #0f4c2f, #94bf83'],
+  ['MySQL', MySQL, '#00758f, #339db5, #48c9b0'],
+  ['MariaDB', MariaDB, '#003d63, #4f9b8f, #6bb7b1'],
+  ['SQLite', SQLite, '#003b46, #00a9b6, #f2f2f2'],
+  ['PostgreSQL', PostgreSQL, '#336791, #6590b1, #75a5cc'],
+  ['MongoDB', MongoDB, '#4caf50, #1a7431, #91d1ab'],
+  ['FastAPI', FastAPI, '#009688, #40c4ff, #00796b'],
+  ['Docker', Docker, '#2496ed, #0db7ed, #48c5f0'],
+  ['Git', Git, '#f34f29, #e04e39, #9e2a2f'],
+]
+---
+
+<section>
+  <ul class='flex flex-wrap gap-2 py-4 pl-4'>
+    {
+      myStack.map((stack) => (
+        <StackItem
+          stack={stack[0]}
+          StackLogo={stack[1]}
+          stackColors={stack[2]}
+        />
+      ))
+    }
+  </ul>
+</section>
