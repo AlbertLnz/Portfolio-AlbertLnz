@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+import ListItemBadge from '@/components/ListItemBadge.astro'
+
+const { title, description, imgPath, imgAlt, deployUrl, techs, techsUrls } =
+  Astro.props as {
+    title: string
+    description: string
+    imgPath: string
+    imgAlt: string
+    deployUrl: string
+    techs: string[]
+    techsUrls: string[]
+  }
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/imgs/*.{jpeg,jpg,png,webp}'
+)
+---
+
+<article class='flex flex-col gap-y-1 border border-white/5 rounded-xl p-1'>
+  <a href={deployUrl} target='_blank'>
+    <Image src={images[imgPath]()} alt={imgAlt} />
+  </a>
+  <h3 class='text-xl font-medium'>{title}</h3>
+  <p class='text-[#8F9391] font-light'>{description}</p>
+
+  <ul class='flex gap-x-1'>
+    {
+      techs.map((skill, index) => (
+        <ListItemBadge skill={skill} skillUrl={techsUrls[index]} />
+      ))
+    }
+  </ul>
+</article>

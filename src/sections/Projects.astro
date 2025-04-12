@@ -1,0 +1,32 @@
+---
+import ProjectItem from '@/components/ProjectItem.astro'
+
+const myProjects = [
+  [
+    'PkgPhobia CLI',
+    'description',
+    '/src/assets/imgs/Spring_Initializr_CLI.webp',
+    'deploy',
+    ['Laravel', 'React'],
+    ['https://laravel.com', 'https://react.dev'],
+  ],
+]
+---
+
+<section>
+  <ul class='flex flex-wrap gap-2 py-4 pl-4'>
+    {
+      myProjects.map((project) => (
+        <ProjectItem
+          title={project[0]}
+          description={project[1]}
+          imgPath={project[2]}
+          imgAlt={`${project[0]}_project_image`}
+          deployUrl={project[3]}
+          techs={project[4]}
+          techsUrls={project[5]}
+        />
+      ))
+    }
+  </ul>
+</section>

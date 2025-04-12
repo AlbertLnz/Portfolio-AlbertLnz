@@ -1,17 +1,95 @@
 ---
-import React from '@/assets/svgs/skills/React.astro'
+import Angular from '@/assets/svgs/skills/Angular.astro'
+// import AstroC from '@/assets/svgs/skills/AstroC.astro'
+import Codeigniter from '@/assets/svgs/skills/Codeigniter.astro'
+import Django from '@/assets/svgs/skills/Django.astro'
+import Expressjs from '@/assets/svgs/skills/Expressjs.astro'
+import FastAPI from '@/assets/svgs/skills/FastAPI.astro'
+import Flask from '@/assets/svgs/skills/Flask.astro'
+import Git from '@/assets/svgs/skills/Git.astro'
+import Java from '@/assets/svgs/skills/Java.astro'
+import JavaScript from '@/assets/svgs/skills/JavaScript.astro'
 import Laravel from '@/assets/svgs/skills/Laravel.astro'
+import MariaDB from '@/assets/svgs/skills/MariaDB.astro'
+import MongoDB from '@/assets/svgs/skills/MongoDB.astro'
+import MySQL from '@/assets/svgs/skills/MySQL.astro'
+import NextJS from '@/assets/svgs/skills/NextJS.astro'
+import Nodejs from '@/assets/svgs/skills/Nodejs.astro'
+import PHP from '@/assets/svgs/skills/PHP.astro'
+import PostgreSQL from '@/assets/svgs/skills/PostgreSQL.astro'
+import Preact from '@/assets/svgs/skills/Preact.astro'
+import Python from '@/assets/svgs/skills/Python.astro'
+import React from '@/assets/svgs/skills/React.astro'
+import Rust from '@/assets/svgs/skills/Rust.astro'
+import SpringBoot from '@/assets/svgs/skills/SpringBoot.astro'
+import SQLite from '@/assets/svgs/skills/SQLite.astro'
+import Svelte from '@/assets/svgs/skills/Svelte.astro'
+import TypeScript from '@/assets/svgs/skills/TypeScript.astro'
 import Organization from '@/assets/svgs/skills/Organization.astro'
 
+type Techs =
+  | 'Angular'
+  // | 'AstroC'
+  | 'Codeigniter'
+  | 'Django'
+  | 'Expressjs'
+  | 'FastAPI'
+  | 'Flask'
+  | 'Git'
+  | 'Java'
+  | 'JavaScript'
+  | 'Laravel'
+  | 'MariaDB'
+  | 'MongoDB'
+  | 'MySQL'
+  | 'NextJS'
+  | 'Nodejs'
+  | 'PHP'
+  | 'PostgreSQL'
+  | 'Preact'
+  | 'Python'
+  | 'React'
+  | 'Rust'
+  | 'SpringBoot'
+  | 'SQLite'
+  | 'Svelte'
+  | 'TypeScript'
+
+type Skills = 'Organization'
+
 const { skill, skillUrl } = Astro.props as {
-  skill: 'React' | 'Laravel'
+  skill: Techs | Skills
   skillUrl: string
 }
 
-type IconKey = 'React' | 'Laravel' | 'Organization'
+type IconKey = Techs | Skills
 const icons: Record<IconKey, (props: { class?: string }) => any> = {
-  React,
+  Angular,
+  // AstroC,
+  Codeigniter,
+  Django,
+  Expressjs,
+  FastAPI,
+  Flask,
+  Git,
+  Java,
+  JavaScript,
   Laravel,
+  MariaDB,
+  MongoDB,
+  MySQL,
+  NextJS,
+  Nodejs,
+  PHP,
+  PostgreSQL,
+  Preact,
+  Python,
+  React,
+  Rust,
+  SpringBoot,
+  SQLite,
+  Svelte,
+  TypeScript,
   Organization,
 }
 
@@ -19,12 +97,12 @@ const Icon = icons[skill]
 ---
 
 <li
-  class='bg-gradient-to-r from-[#0A0A0A] to-90% to-[#0A0A0A]/80 px-2 py-1 rounded-full text-xs font-extralight'
+  class='bg-gradient-to-r from-[#0A0A0A] to-90% to-[#0A0A0A]/80 w-fit px-2 py-1 rounded-full text-xs font-extralight'
 >
   {
     skillUrl.length > 0 ? (
       <a href={skillUrl} target='_blank' class='h-full flex gap-x-2'>
-        <Icon class='size-4' />
+        {Icon && <Icon class='size-4' />}
         <p class='text-transparent bg-gradient-to-b from-primary-text-dark from-30% to-[#919492] bg-clip-text'>
           {skill}
         </p>
