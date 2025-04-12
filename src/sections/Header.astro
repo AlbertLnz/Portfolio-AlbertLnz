@@ -4,7 +4,7 @@ import LinkedIn from '@/assets/svgs/LinkedIn.astro'
 ---
 
 <header
-  class='flex sticky top-0 font-geist items-center justify-between max-w-full'
+  class='flex sticky top-0 font-geist items-center justify-between max-w-full pt-4'
 >
   <div
     class='flex items-center justify-between gap-x-6 px-6 py-4 border border-primary-text/5 dark:border-primary-text-dark/5 border-opacity-5 rounded-[20px]'
@@ -53,6 +53,34 @@ import LinkedIn from '@/assets/svgs/LinkedIn.astro'
     </div>
   </div>
 </header>
+
+<style>
+  :root {
+    --header-bg: #f4f1f8;
+  }
+
+  body.dark {
+    --header-bg: #0e0f0f;
+  }
+  header {
+    background: transparent;
+    animation: header-blur-scroll 0.3s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 250px;
+  }
+
+  @keyframes header-blur-scroll {
+    0% {
+      backdrop-filter: blur(0px);
+      background: transparent;
+    }
+    100% {
+      backdrop-filter: blur(10px);
+      background: var(--header-bg);
+      padding-bottom: 1rem;
+    }
+  }
+</style>
 
 <script>
   const toggleThemeBtn = document.querySelector('.toggle-theme')
