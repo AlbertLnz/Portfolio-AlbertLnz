@@ -3,6 +3,7 @@ import works from '@/assets/svgs/works.astro'
 import projects from '@/assets/svgs/projects.astro'
 import stack from '@/assets/svgs/stack.astro'
 import blog from '@/assets/svgs/blog.astro'
+import CV from '@/assets/svgs/cv.astro'
 
 const { id, title, subtitle, icon } = Astro.props as {
   id: string
@@ -25,9 +26,20 @@ const Icon = icons[icon]
 <section id={id} class='flex items-center justify-start gap-x-2'>
   <Icon class='size-6 text-secondary-text dark:text-secondary-text-dark' />
   <h2
-    class='text-geist text-2xl text-secondary-text dark:text-secondary-text-dark font-medium'
+    class='flex gap-2 items-baseline text-geist text-2xl text-secondary-text dark:text-secondary-text-dark font-medium'
   >
     {title}
-    <span class='text-sm font-extralight'>{subtitle}</span>
+    <span class='text-sm font-extralight'>
+      {subtitle}
+      {
+        id === 'works' ? (
+          <span class='inline-flex pl-1'>
+            <a href='/CV - Albert Lanza (ES).pdf' download>
+              <CV class='size-4' />
+            </a>
+          </span>
+        ) : null
+      }
+    </span>
   </h2>
 </section>
