@@ -1,10 +1,19 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-primary-bckg-dark: #0e0f0f;
-
   --color-primary-text-dark: #f5faf7;
   --color-secondary-text-dark: #8f9391;
+  --color-work-bckg-dark: #27272a;
+  --color-footer-bckg-dark: #0a0a0a;
+
+  --color-primary-bckg: #f4f1f8;
+  --color-primary-text: #111;
+  --color-secondary-text: #333;
+  --color-work-bckg: #fdfdfd;
+  --color-footer-bckg: #dddddd;
 
   --font-geist: 'Geist';
   --font-fallback: system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',

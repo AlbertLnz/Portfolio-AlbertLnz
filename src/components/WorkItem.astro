@@ -6,8 +6,10 @@ const { title, paragraph, skills, skills_urls, company, company_url, period } =
   Astro.props as IWork
 ---
 
-<article class='my-4 p-2.5 border border-[#F5FAF7]/5 rounded-[20px]'>
-  <div class='bg-[#161717] rounded-[10px] p-3.5'>
+<article
+  class='my-4 p-2.5 border border-primary-text/5 dark:border-primary-text-dark/5 rounded-[20px]'
+>
+  <div class='bg-work-bckg dark:bg-work-bckg-dark rounded-[10px] p-3.5'>
     <h2 class='text-lg font-medium leading-[1.4]'>
       {title}
       <span class='text-base font-normal text-secondary-text-dark'>

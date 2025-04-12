@@ -17,12 +17,17 @@ const { stack, StackLogo, stackColors } = Astro.props as {
 
 <style>
   :root {
-    --fg: #f5faf770;
+    --border-color: #808080;
+    --hover-border-color: #4e4e4e;
     --ease-out: cubic-bezier(0.5, 1, 0.89, 1);
     --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
     --border-radius: 10px;
     --opacity-no-hover: 0.7;
-    --opacity-hover: 1;
+  }
+
+  :root body.dark {
+    --border-color: #27272a;
+    --hover-border-color: #f5faf770;
   }
 
   .card {
@@ -33,7 +38,7 @@ const { stack, StackLogo, stackColors } = Astro.props as {
     padding: 2px 10px;
     justify-items: start;
     align-items: center;
-    border: 1px solid #27272a;
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     isolation: isolate;
     transition: border-color 200ms var(--ease-out);
@@ -45,7 +50,7 @@ const { stack, StackLogo, stackColors } = Astro.props as {
       height: 100%;
       z-index: -1;
       pointer-events: none;
-      opacity: 0.7;
+      opacity: var(--opacity-no-hover);
       border-radius: var(--border-radius);
     }
 
@@ -68,12 +73,12 @@ const { stack, StackLogo, stackColors } = Astro.props as {
     }
 
     &:where(:hover, :focus-within) {
-      border-color: var(--active-color, var(--fg));
+      border-color: var(--active-color, var(--hover-border-color));
       transition: border-color 800ms var(--ease-in-out);
     }
 
     &:where(:hover, :focus-within) svg {
-      color: var(--active-color, var(--fg));
+      color: var(--active-color, var(--hover-border-color));
       scale: 1.1;
       transition: 300ms var(--ease-in-out);
     }

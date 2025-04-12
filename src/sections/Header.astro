@@ -1,5 +1,5 @@
 ---
-import GitHub from '@/assets/svgs/GitHub.astro'
+import ToggleTheme from '@/assets/svgs/toggleTheme.astro'
 import LinkedIn from '@/assets/svgs/LinkedIn.astro'
 ---
 
@@ -7,7 +7,7 @@ import LinkedIn from '@/assets/svgs/LinkedIn.astro'
   class='flex sticky top-0 font-geist items-center justify-between max-w-full'
 >
   <div
-    class='flex items-center justify-between gap-x-6 px-6 py-4 border border-[#F5FAF7]/5 border-opacity-5 rounded-[20px]'
+    class='flex items-center justify-between gap-x-6 px-6 py-4 border border-primary-text/5 dark:border-primary-text-dark/5 border-opacity-5 rounded-[20px]'
   >
     <a href='#'>
       <h1 class='font-medium cursor-pointer'>Albert Lanza</h1>
@@ -28,11 +28,11 @@ import LinkedIn from '@/assets/svgs/LinkedIn.astro'
   </div>
 
   <div
-    class='flex items-center justify-center gap-x-4 p-2 pr-4 border border-[#F5FAF7]/5 rounded-[20px]'
+    class='flex items-center justify-center gap-x-4 p-2 pr-4 border border-primary-text/5 dark:border-primary-text-dark/5 rounded-[20px]'
   >
     <a
       href='mailto:albert.lnz.rio@gmail.com'
-      class='cursor-pointer bg-[#161717] px-4 py-2 border-[#F5FAF7]/5 rounded-[10px] hover:text-white'
+      class='cursor-pointer bg-[#ddd] dark:bg-[#161717] px-4 py-2 border-primary-text/5 dark:border-primary-text-dark/5 rounded-[10px] dark:hover:text-white'
     >
       <h2>Let's chat</h2>
     </a>
@@ -40,9 +40,25 @@ import LinkedIn from '@/assets/svgs/LinkedIn.astro'
       <a href='https://www.linkedin.com/in/albert-lanza-rio/' target='_blank'>
         <LinkedIn class='size-5' />
       </a>
-      <a href='https://github.com/albertlnz' target='_blank'>
-        <GitHub class='size-5' />
-      </a>
+      <ToggleTheme
+        class='toggle-theme fill-primary-text dark:fill-white size-5 cursor-pointer transition-transform duration-300 ease-in-out transform origin-center'
+      />
     </div>
   </div>
 </header>
+
+<script>
+  const toggleThemeBtn = document.querySelector('.toggle-theme')
+
+  toggleThemeBtn?.addEventListener('click', () => {
+    toggleThemeBtn.classList.toggle('rotate-180')
+
+    if (document.body.classList.contains('dark')) {
+      document.body.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
+    } else {
+      document.body.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
+    }
+  })
+</script>

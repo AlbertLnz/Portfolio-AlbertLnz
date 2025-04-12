@@ -19,12 +19,16 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 )
 ---
 
-<article class='flex flex-col gap-y-1 border border-white/5 rounded-xl p-1'>
+<article
+  class='flex flex-col gap-y-1 border border-primary-text/5 dark:border-primary-text-dark/5 border-opacity-5 rounded-xl p-1'
+>
   <a href={deployUrl} target='_blank'>
     <Image src={images[imgPath]()} alt={imgAlt} />
   </a>
   <h3 class='text-xl font-medium'>{title}</h3>
-  <p class='text-[#8F9391] font-light'>{description}</p>
+  <p class='text-secondary-text dark:text-secondary-text-dark font-light'>
+    {description}
+  </p>
 
   <ul class='flex gap-x-1'>
     {

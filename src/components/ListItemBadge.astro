@@ -97,20 +97,20 @@ const Icon = icons[skill]
 ---
 
 <li
-  class='bg-gradient-to-r from-[#0A0A0A] to-90% to-[#0A0A0A]/80 w-fit px-2 py-1 rounded-full text-xs font-extralight'
+  class='bg-gradient-to-r from-[#DDDDDD] dark:from-[#0A0A0A] to-90% to-[#DDDDDD] dark:to-[#0A0A0A]/80 w-fit px-2 py-1 rounded-full text-xs font-extralight'
 >
   {
     skillUrl.length > 0 ? (
       <a href={skillUrl} target='_blank' class='h-full flex gap-x-2'>
         {Icon && <Icon class='size-4' />}
-        <p class='text-transparent bg-gradient-to-b from-primary-text-dark from-30% to-[#919492] bg-clip-text'>
+        <p class='text-transparent bg-gradient-to-b from-primary-text dark:from-primary-text-dark from-30% to-primary-text/70 dark:to-primary-text-dark/70 bg-clip-text'>
           {skill}
         </p>
       </a>
     ) : (
       <p class='h-full flex gap-x-2'>
         <Icon class='size-4' />
-        <span class='text-transparent bg-gradient-to-b from-primary-text-dark from-30% to-[#919492] bg-clip-text'>
+        <span class='text-transparent bg-gradient-to-b from-primary-text dark:from-primary-text-dark from-30% to-primary-text/70 dark:to-primary-text-dark/70 bg-clip-text'>
           {skill}
         </span>
       </p>
