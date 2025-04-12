@@ -4,7 +4,8 @@ import projects from '@/assets/svgs/projects.astro'
 import stack from '@/assets/svgs/stack.astro'
 import blog from '@/assets/svgs/blog.astro'
 
-const { title, subtitle, icon } = Astro.props as {
+const { id, title, subtitle, icon } = Astro.props as {
+  id: string
   title: string
   subtitle: string
   icon: IconKey
@@ -21,7 +22,7 @@ const icons: Record<IconKey, (props: { class?: string }) => any> = {
 const Icon = icons[icon]
 ---
 
-<div class='flex items-center justify-start gap-x-2'>
+<section id={id} class='flex items-center justify-start gap-x-2'>
   <Icon class='size-6 text-secondary-text dark:text-secondary-text-dark' />
   <h2
     class='text-geist text-2xl text-secondary-text dark:text-secondary-text-dark font-medium'
@@ -29,4 +30,4 @@ const Icon = icons[icon]
     {title}
     <span class='text-sm font-extralight'>{subtitle}</span>
   </h2>
-</div>
+</section>

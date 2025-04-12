@@ -9,21 +9,28 @@ import LinkedIn from '@/assets/svgs/LinkedIn.astro'
   <div
     class='flex items-center justify-between gap-x-6 px-6 py-4 border border-primary-text/5 dark:border-primary-text-dark/5 border-opacity-5 rounded-[20px]'
   >
-    <a href='#'>
-      <h1 class='font-medium cursor-pointer'>Albert Lanza</h1>
+    <h1 id='name' class='font-medium cursor-pointer'>Albert Lanza</h1>
+    <span class='text-secondary-text dark:text-secondary-text-dark'>/</span>
+    <a href='#works'>
+      <h3
+        class='text-secondary-text dark:text-secondary-text-dark cursor-pointer'
+      >
+        Works
+      </h3>
     </a>
-    <span class='text-secondary-text-dark'>/</span>
-    <a href='#'>
-      <h3 class='text-secondary-text-dark cursor-pointer'>Works</h3>
+    <a href='#projects'>
+      <h3
+        class='text-secondary-text dark:text-secondary-text-dark cursor-pointer'
+      >
+        Projects
+      </h3>
     </a>
-    <a href='#'>
-      <h3 class='text-secondary-text-dark cursor-pointer'>Projects</h3>
-    </a>
-    <a href='#'>
-      <h3 class='text-secondary-text-dark cursor-pointer'>Stack</h3>
-    </a>
-    <a href='#'>
-      <h3 class='text-secondary-text-dark cursor-pointer'>Blog</h3>
+    <a href='#stack'>
+      <h3
+        class='text-secondary-text dark:text-secondary-text-dark cursor-pointer'
+      >
+        Stack
+      </h3>
     </a>
   </div>
 
@@ -49,7 +56,6 @@ import LinkedIn from '@/assets/svgs/LinkedIn.astro'
 
 <script>
   const toggleThemeBtn = document.querySelector('.toggle-theme')
-
   toggleThemeBtn?.addEventListener('click', () => {
     toggleThemeBtn.classList.toggle('rotate-180')
 
@@ -59,6 +65,17 @@ import LinkedIn from '@/assets/svgs/LinkedIn.astro'
     } else {
       document.body.classList.add('dark')
       localStorage.setItem('theme', 'dark')
+    }
+  })
+
+  const nameHeading = document.querySelector('#name')
+  nameHeading?.addEventListener('click', () => {
+    document.documentElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname)
     }
   })
 </script>

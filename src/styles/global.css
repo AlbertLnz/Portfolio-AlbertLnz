@@ -71,4 +71,5 @@
 
 html {
   font-family: 'Hind Madurai', var(--font-fallback);
+  scroll-behavior: smooth;
 }
