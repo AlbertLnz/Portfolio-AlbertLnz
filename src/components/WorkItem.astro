@@ -20,7 +20,9 @@ const { title, paragraph, skills, skills_urls, company, company_url, period } =
     </h2>
 
     <div class='flex items-center justify-between pt-6'>
-      <ul class='flex items-center justify-start gap-x-2'>
+      <ul
+        class='flex flex-wrap items-center justify-start gap-2 pr-4 max-w-[75%]'
+      >
         {
           skills.map((skill, index) => (
             <ListItemBadge skill={skill} skillUrl={skills_urls[index]} />
@@ -28,7 +30,7 @@ const { title, paragraph, skills, skills_urls, company, company_url, period } =
         }
       </ul>
 
-      <p class='text-xs italic font-extralight'>
+      <p class='text-xs italic font-extralight self-end pb-1.5 pr-1.5'>
         <a
           href={company_url}
           target='_blank'

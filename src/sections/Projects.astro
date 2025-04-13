@@ -3,18 +3,54 @@ import ProjectItem from '@/components/ProjectItem.astro'
 
 const myProjects = [
   [
+    'ML AlbertLnz',
+    'Machine Learning basics, a gathered collection of ML basics.',
+    '/src/assets/imgs/ML_albertlnz.webp',
+    '',
+    ['Angular', 'Python'],
+    ['https://angular.dev', 'https://www.python.org'],
+  ],
+  [
     'PkgPhobia CLI',
-    'description',
+    'Check NPM package through the command line.',
+    '/src/assets/imgs/PkgPhobia_CLI.webp',
+    'https://www.npmjs.com/package/pkg-phobia-cli',
+    ['JavaScript', 'Nodejs'],
+    ['https://www.javascript.com', 'https://nodejs.org'],
+  ],
+  [
+    'Plt2Img',
+    'Graphs from Python code to image, instantly.',
+    '/src/assets/imgs/Plt2Img.webp',
+    'https://plt2img.online/',
+    ['AstroC', 'Python', 'Flask'],
+    [
+      'https://astro.build',
+      'https://www.python.org',
+      'https://flask.palletsprojects.com',
+    ],
+  ],
+  [
+    'Spring Initializr CLI',
+    'Spring Initializr CLI, extremely fast start-up for Spring Boot projects.',
     '/src/assets/imgs/Spring_Initializr_CLI.webp',
-    'deploy',
-    ['Laravel', 'React'],
-    ['https://laravel.com', 'https://react.dev'],
+    'https://crates.io/crates/spring-initializr-cli',
+    ['Rust', 'SpringBoot'],
+    ['https://www.rust-lang.org', 'https://spring.io'],
+  ],
+  [
+    "Where's Midu?",
+    "Hackathon Halloween 'Where's Waldo' game.",
+    '/src/assets/imgs/Wheres_midu.webp',
+    'https://www.wheres-midu.site/es',
+    ['AstroC', 'Preact'],
+    ['https://astro.build', 'https://preactjs.com'],
   ],
 ]
 ---
 
 <section>
-  <ul class='flex flex-wrap gap-2 py-4 pl-4'>
+  <ul class='flex flex-wrap justify-between py-4 gap-y-4'>
     {
       myProjects.map((project) => (
         <ProjectItem
