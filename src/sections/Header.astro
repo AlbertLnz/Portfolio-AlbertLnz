@@ -11,23 +11,26 @@ import LinkedIn from '@/assets/svgs/LinkedIn.astro'
   >
     <h1 id='name' class='font-medium cursor-pointer'>Albert Lanza</h1>
     <span class='text-secondary-text dark:text-secondary-text-dark'>/</span>
-    <a href='#works'>
+    <a href='#works' class='header-section-link'>
       <h3
-        class='text-secondary-text dark:text-secondary-text-dark cursor-pointer'
+        class='text-secondary-text dark:text-secondary-text-dark cursor-pointer
+        hover:text-primary-text dark:hover:text-primary-text-dark transition-colors duration-300'
       >
         Works
       </h3>
     </a>
-    <a href='#projects'>
+    <a href='#projects' class='header-section-link'>
       <h3
-        class='text-secondary-text dark:text-secondary-text-dark cursor-pointer'
+        class='text-secondary-text dark:text-secondary-text-dark cursor-pointer
+        hover:text-primary-text dark:hover:text-primary-text-dark transition-colors duration-300'
       >
         Projects
       </h3>
     </a>
-    <a href='#stack'>
+    <a href='#stack' class='header-section-link'>
       <h3
-        class='text-secondary-text dark:text-secondary-text-dark cursor-pointer'
+        class='text-secondary-text dark:text-secondary-text-dark cursor-pointer
+        hover:text-primary-text dark:hover:text-primary-text-dark transition-colors duration-300'
       >
         Stack
       </h3>
@@ -55,6 +58,7 @@ import LinkedIn from '@/assets/svgs/LinkedIn.astro'
 </header>
 
 <style>
+  /* HEADER BACKGROUND BLUR ANIMATION ON SCROLL */
   :root {
     --header-bg: #f4f1f8;
   }
@@ -79,6 +83,21 @@ import LinkedIn from '@/assets/svgs/LinkedIn.astro'
       background: var(--header-bg);
       padding-bottom: 1rem;
     }
+  }
+
+  /* HOVER UNDERLINE ANIMATION */
+  .header-section-link {
+    color: inherit;
+    text-decoration: none;
+    background: linear-gradient(to right, currentColor, currentColor);
+    background-size: 0 0.05em;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+  }
+
+  .header-section-link:hover {
+    background-size: 100% 0.05em;
   }
 </style>
 
