@@ -1,0 +1,26 @@
+---
+const { Icon, skillText, colorKey } = Astro.props as {
+  Icon: any
+  skillText: string
+  colorKey: ColorKey
+}
+
+type ColorKey = keyof typeof colorClasses
+const colorClasses = {
+  leadership: 'hover:after:bg-[#84BB43]',
+  problemSolving: 'hover:after:bg-[#A3D5E5]',
+  timeManagement: 'hover:after:bg-[#7C4289]',
+}
+---
+
+<p>
+  <span
+    class={`relative flex items-center justify-center gap-x-2 text-xs font-extralight px-2 py-1
+      before:content-[''] before:absolute before:z-[-1] before:top-full before:left-[0px] before:w-[calc(100%+2px)] before:h-[1px] before:transition-all before:duration-400
+      after:content-[''] after:absolute after:z-[-1] after:top-0 after:left-[0px] after:w-[1px] after:h-full after:transition-all after:duration-400
+      hover:after:w-full ${colorClasses[colorKey]} hover:after:opacity-20`}
+  >
+    <Icon class='size-3 text-primary-text dark:text-primary-text-dark' />
+    {skillText}
+  </span>
+</p>

@@ -1,8 +1,36 @@
+---
+import SkillHighlight from '@/components/SkillHighlight.astro'
+import EffectiveCommunication from '@/assets/svgs/skills/EffectiveCommunication.astro'
+import Adaptability from '@/assets/svgs/skills/Adaptability.astro'
+import Leadership from '@/assets/svgs/skills/Leadership.astro'
+import ProblemSolving from '@/assets/svgs/skills/ProblemSolving.astro'
+import TimeManagement from '@/assets/svgs/skills/TimeManagement.astro'
+---
+
 <div class='flex justify-center items-center py-12 gap-x-6'>
   <img src='albert_lanza.webp' alt='Albert Lanza profile picture' />
-  <p>
-    I'm Albert Lanza, a fullstack web developer from Barcelona with +2 years of
-    experience. Passionate about databases, UI/UX design and building
-    open-source software.
-  </p>
+  <div class='flex flex-col gap-y-2'>
+    <p>
+      I'm Albert Lanza, a fullstack web developer from Barcelona with +2 years
+      of experience. Passionate about databases, UI/UX design and building
+      open-source software.
+    </p>
+    <div class='flex justify-start items-center gap-x-2'>
+      <SkillHighlight
+        Icon={Leadership}
+        skillText='Leadership'
+        colorKey='leadership'
+      />
+      <SkillHighlight
+        Icon={ProblemSolving}
+        skillText='Problem Solving'
+        colorKey='problemSolving'
+      />
+      <SkillHighlight
+        Icon={TimeManagement}
+        skillText='Time Management'
+        colorKey='timeManagement'
+      />
+    </div>
+  </div>
 </div>
