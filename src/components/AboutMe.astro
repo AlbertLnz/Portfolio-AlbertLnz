@@ -3,15 +3,19 @@ import SkillHighlight from '@/components/SkillHighlight.astro'
 import Leadership from '@/assets/svgs/skills/Leadership.astro'
 import ProblemSolving from '@/assets/svgs/skills/ProblemSolving.astro'
 import TimeManagement from '@/assets/svgs/skills/TimeManagement.astro'
+import Badge from '@/components/Badge.astro'
 ---
 
 <div class='flex justify-center items-center py-12 gap-x-6'>
   <img
     src='albert_lanza.webp'
-    class='size-32 rounded-full border border-primary-text/20 dark:border-primary-text-dark/20'
+    class='size-40 rounded-full border border-primary-text/20 dark:border-primary-text-dark/20'
     alt='Albert Lanza profile picture'
   />
-  <div class='flex flex-col gap-y-2'>
+  <div class='flex flex-col justify-between h-36'>
+    <Badge>
+      <p class='text-sm'>Available for work</p>
+    </Badge>
     <p class='max-w-[95%]'>
       I'm Albert Lanza, a fullstack web developer from Barcelona with +2 years
       of experience. Passionate about databases, UI/UX design and building
