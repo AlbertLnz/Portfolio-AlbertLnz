@@ -1,0 +1,60 @@
+---
+import Github from '@/assets/svgs/GitHub.astro'
+import Commit from '@/assets/svgs/hero/Commit.astro'
+import PullRequest from '@/assets/svgs/hero/PullRequest.astro'
+import Ranking from '@/assets/svgs/hero/Ranking.astro'
+import Repository from '@/assets/svgs/hero/Repository.astro'
+import Star from '@/assets/svgs/hero/Star.astro'
+import HeroItem from '@/components/HeroItem.astro'
+import HeroSeparator from '@/components/HeroSeparator.astro'
+import { githubScore } from '@/data/githubScore'
+import fetchGitHubAPIData from '@/lib/githubScoreAPI'
+
+import {
+  PRODUCTION,
+  GITHUB_API_BASE_URL,
+  GITHUB_README_API,
+} from 'astro:env/server'
+
+if (PRODUCTION) {
+  await fetchGitHubAPIData(githubScore, GITHUB_API_BASE_URL, GITHUB_README_API)
+}
+---
+
+<section
+  class='flex w-full justify-between px-8 py-4 mb-12 text-sm rounded-[10px]
+  bg-radial from-20%
+  from-[#FFFFFF] to-[#f7f8f9]
+  dark:from-[#0E0F0F] dark:to-[#161717]
+  border border-primary-text/5 dark:border-primary-text-dark/5'
+>
+  <a
+    href='https://github.com/albertlnz'
+    target='_blank'
+    class='flex flex-col items-center justify-between gap-y-2'
+  >
+    <Github class='size-7' />
+    <p class='font-light text-secondary-text dark:text-secondary-text-dark'>
+      GitHub
+    </p>
+  </a>
+
+  <HeroSeparator />
+  <HeroItem Icon={Ranking} value={githubScore[0].value} label='Ranking' />
+  <HeroSeparator />
+  <HeroItem
+    Icon={Repository}
+    value={githubScore[1].value}
+    label='Repositories'
+  />
+  <HeroSeparator />
+  <HeroItem Icon={Star} value={githubScore[2].value} label='Stars' />
+  <HeroSeparator />
+  <HeroItem Icon={Commit} value={githubScore[3].value} label='Commits' />
+  <HeroSeparator />
+  <HeroItem
+    Icon={PullRequest}
+    value={githubScore[4].value}
+    label='Pull Requests'
+  />
+</section>

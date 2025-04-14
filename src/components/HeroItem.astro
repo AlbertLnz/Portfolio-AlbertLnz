@@ -1,0 +1,17 @@
+---
+const { Icon, value, label } = Astro.props as {
+  Icon: any
+  value: string
+  label: string
+}
+---
+
+<div class='flex flex-col items-center justify-center gap-y-2'>
+  <p class='inline-flex items-center justify-center gap-x-4'>
+    <Icon class='size-6 text-secondary-text dark:text-secondary-text-dark' />
+    <span class='text-2xl font-bold'>{value}</span>
+  </p>
+  <p class='font-extralight text-secondary-text dark:text-secondary-text-dark'>
+    {label}
+  </p>
+</div>
