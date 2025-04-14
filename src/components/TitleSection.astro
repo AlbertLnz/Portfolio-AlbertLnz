@@ -21,9 +21,14 @@ const icons: Record<IconKey, (props: { class?: string }) => any> = {
 }
 
 const Icon = icons[icon]
+
+const lastSectionId = 'stack' // Add 'scroll-mt-24' unless it's the last section
 ---
 
-<section id={id} class='flex items-center justify-start gap-x-2'>
+<section
+  id={id}
+  class=`flex items-center justify-start gap-x-2 ${lastSectionId !== id ? 'scroll-mt-24' : 'mt-12'}`
+>
   <Icon class='size-6 text-secondary-text dark:text-secondary-text-dark' />
   <h2
     class='flex gap-2 items-baseline text-geist text-2xl text-secondary-text dark:text-secondary-text-dark font-medium'
