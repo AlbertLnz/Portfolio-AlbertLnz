@@ -76,6 +76,12 @@ import '@/styles/global.css'
   <body
     class='bg-primary-bckg text-primary-text dark:bg-primary-bckg-dark dark:text-primary-text-dark'
   >
+    <div
+      class='absolute top-0 -z-50 size-full
+      bg-primary-bckg bg-[radial-gradient(ellipse_75%_75%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]
+      dark:bg-primary-bckg-dark dark:bg-[radial-gradient(ellipse_75%_75%_at_50%_-20%,rgba(120,119,198,0.3),rgba(0,0,0,0))]'
+    >
+    </div>
     <main class='max-w-3xl min-h-screen mx-auto px-8'>
       <slot />
     </main>
@@ -96,3 +102,5 @@ import '@/styles/global.css'
     document.body.classList.add('dark')
   }
 </script>
+
+<style></style>
