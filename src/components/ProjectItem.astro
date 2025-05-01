@@ -20,7 +20,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 ---
 
 <article
-  class='relative flex flex-col gap-y-2 bg-primary-bckg dark:bg-primary-bckg-dark border border-primary-text/5 dark:border-primary-text-dark/5 border-opacity-5 rounded-[20px] p-2.5 w-[calc(50%-0.5rem)] transition-all duration-200 ease-in-out hover:scale-[1.02]'
+  class='relative flex flex-col gap-y-2 bg-primary-bckg dark:bg-primary-bckg-dark border border-primary-text/5 dark:border-primary-text-dark/5 border-opacity-5 rounded-[20px] p-2.5 md:w-[calc(50%-0.5rem)] transition-all duration-200 ease-in-out hover:scale-[1.02]'
 >
   <a href={deployUrl} target='_blank'>
     <Image src={images[imgPath]()} class='w-full rounded-[10px]' alt={imgAlt} />

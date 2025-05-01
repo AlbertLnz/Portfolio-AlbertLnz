@@ -19,9 +19,9 @@ const { title, paragraph, skills, skills_urls, company, company_url, period } =
       </span>
     </h2>
 
-    <div class='flex items-center justify-between pt-6'>
+    <div class='flex flex-wrap items-center justify-between pt-6'>
       <ul
-        class='flex flex-wrap items-center justify-start gap-2 pr-4 max-w-[75%]'
+        class='flex flex-wrap items-center justify-start gap-2 pr-4 md:max-w-[75%]'
       >
         {
           skills.map((skill, index) => (
@@ -30,7 +30,9 @@ const { title, paragraph, skills, skills_urls, company, company_url, period } =
         }
       </ul>
 
-      <p class='text-xs italic font-extralight self-end pb-1.5 pr-1.5'>
+      <p
+        class='text-xs italic font-extralight self-end pb-1.5 pr-1.5 mt-8 md:mt-0 w-full md:w-fit text-end md:text-center'
+      >
         <a
           href={company_url}
           target='_blank'

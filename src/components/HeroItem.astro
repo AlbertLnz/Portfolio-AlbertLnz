@@ -1,12 +1,30 @@
 ---
-const { Icon, value, label } = Astro.props as {
+const {
+  Icon,
+  value,
+  label,
+  colSpanNumberSm = 1,
+  colSpanNumberMd = 1,
+  activeBorderRight = true,
+} = Astro.props as {
   Icon: any
   value: string
   label: string
+  colSpanNumberSm: number
+  colSpanNumberMd: number
+  activeBorderRight: boolean
 }
+
+// w-[1px] h-auto rounded-full bg-primary-text/15 dark:bg-primary-text-dark/15 z-20
+
+const colSpan = `col-span-${colSpanNumberSm} md:col-span-${colSpanNumberMd}`
+
+const borders = `${activeBorderRight ? 'md:border-r border-primary-text/15 dark:border-primary-text-dark/15' : ''}`
 ---
 
-<div class='flex flex-col items-center justify-center gap-y-2'>
+<div
+  class=`${colSpan} ${borders} flex flex-col items-center justify-center gap-y-2`
+>
   <p class='inline-flex items-center justify-center gap-x-4'>
     <Icon class='size-6 text-secondary-text dark:text-secondary-text-dark' />
     <span class='text-2xl font-bold'>{value}</span>

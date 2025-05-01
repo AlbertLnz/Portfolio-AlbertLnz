@@ -6,7 +6,6 @@ import Ranking from '@/assets/svgs/hero/Ranking.astro'
 import Repository from '@/assets/svgs/hero/Repository.astro'
 import Star from '@/assets/svgs/hero/Star.astro'
 import HeroItem from '@/components/HeroItem.astro'
-import HeroSeparator from '@/components/HeroSeparator.astro'
 import { githubScore } from '@/data/githubScore'
 import fetchGitHubAPIData from '@/lib/githubScoreAPI'
 
@@ -22,7 +21,7 @@ if (PRODUCTION) {
 ---
 
 <section
-  class='flex w-full justify-between px-8 py-4 mb-12 text-sm rounded-[10px]
+  class='grid grid-cols-2 md:grid-cols-[fit-content(100%)_repeat(5,minmax(0,1fr))] gap-2 w-full justify-between px-6 py-4 mb-12 text-sm rounded-[10px]
   bg-radial from-20%
   from-[#FFFFFF] to-[#f7f8f9]
   dark:from-[#0E0F0F] dark:to-[#161717]
@@ -31,7 +30,7 @@ if (PRODUCTION) {
   <a
     href='https://github.com/albertlnz'
     target='_blank'
-    class='flex flex-col items-center justify-between gap-y-2'
+    class='col-span-2 md:col-span-1 flex flex-col items-center justify-between md:pr-6 gap-y-2 border-b md:border-b-0 md:border-r border-primary-text/15 dark:border-primary-text-dark/15'
   >
     <Github class='size-7' />
     <p class='font-light text-secondary-text dark:text-secondary-text-dark'>
@@ -39,22 +38,19 @@ if (PRODUCTION) {
     </p>
   </a>
 
-  <HeroSeparator />
   <HeroItem Icon={Ranking} value={githubScore[0].value} label='Ranking' />
-  <HeroSeparator />
   <HeroItem
     Icon={Repository}
     value={githubScore[1].value}
     label='Repositories'
   />
-  <HeroSeparator />
   <HeroItem Icon={Star} value={githubScore[2].value} label='Stars' />
-  <HeroSeparator />
   <HeroItem Icon={Commit} value={githubScore[3].value} label='Commits' />
-  <HeroSeparator />
   <HeroItem
     Icon={PullRequest}
     value={githubScore[4].value}
     label='Pull Requests'
+    colSpanNumberSm={1}
+    activeBorderRight={false}
   />
 </section>
