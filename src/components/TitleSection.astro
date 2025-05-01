@@ -52,3 +52,17 @@ const lastSectionId = 'stack' // Add 'scroll-mt-24' unless it's the last section
     }
   </p>
 </section>
+
+<style>
+  :root {
+    --header-offset-mobile: 8rem;
+  }
+
+  @media (max-width: 768px) {
+    #works,
+    #projects,
+    #stack {
+      scroll-margin-top: var(--header-offset-mobile);
+    }
+  }
+</style>
