@@ -1,8 +1,9 @@
 ---
-const { Icon, skillText, colorKey } = Astro.props as {
+const { Icon, skillText, colorKey, customClass } = Astro.props as {
   Icon: any
   skillText: string
   colorKey: ColorKey
+  customClass: string
 }
 
 type ColorKey = keyof typeof colorClasses
@@ -15,7 +16,7 @@ const colorClasses = {
 
 <p>
   <span
-    class={`relative flex items-center justify-center gap-x-2 text-xs font-extralight px-2 py-1
+    class={`relative flex items-center justify-center gap-x-2 text-xs font-extralight px-2 py-1 ${customClass}
       before:content-[''] before:absolute before:z-[-1] before:top-full before:left-[0px] before:w-[calc(100%+2px)] before:h-[1px] before:transition-all before:duration-400
       after:content-[''] after:absolute after:z-[-1] after:top-0 after:left-[0px] after:w-[1px] after:h-full after:transition-all after:duration-400
       hover:after:w-full ${colorClasses[colorKey]} hover:after:opacity-20`}
