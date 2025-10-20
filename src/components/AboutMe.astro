@@ -1,9 +1,16 @@
 ---
 import SkillHighlight from '@/components/SkillHighlight.astro'
+import Badge from '@/components/Badge.astro'
+
+import AttentionToDetail from '@/assets/svgs/skills/AttentionToDetail.astro'
+import CriticalThinking from '@/assets/svgs/skills/CriticalThinking.astro'
+import DataCleaning from '@/assets/svgs/skills/DataCleaning.astro'
+import DataVisualization from '@/assets/svgs/skills/DataVisualization.astro'
 import Leadership from '@/assets/svgs/skills/Leadership.astro'
 import ProblemSolving from '@/assets/svgs/skills/ProblemSolving.astro'
+import PresentationSkills from '@/assets/svgs/skills/PresentationSkills.astro'
+import TeamWork from '@/assets/svgs/skills/TeamWork.astro'
 import TimeManagement from '@/assets/svgs/skills/TimeManagement.astro'
-import Badge from '@/components/Badge.astro'
 ---
 
 <div
@@ -48,8 +55,8 @@ import Badge from '@/components/Badge.astro'
     <!-- <div class='flex justify-start items-center gap-x-2'> -->
     <div class='grid grid-cols-3 md:grid-cols-[auto_auto_auto] gap-2'>
       <SkillHighlight
-        Icon={Leadership}
-        skillText='Leadership'
+        Icon={CriticalThinking}
+        skillText='Critical Thinking'
         colorKey='leadership'
         customClass=''
       />
@@ -60,8 +67,8 @@ import Badge from '@/components/Badge.astro'
         customClass=''
       />
       <SkillHighlight
-        Icon={TimeManagement}
-        skillText='Time Management'
+        Icon={DataCleaning}
+        skillText='Data Cleaning'
         colorKey='timeManagement'
         customClass=''
       />
