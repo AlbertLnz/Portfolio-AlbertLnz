@@ -1,11 +1,30 @@
+---
+const { status } = Astro.props as {
+  status: 'occupied' | 'available'
+}
+
+const borderStatusColor = {
+  available:
+    'bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]',
+  occupied:
+    'bg-[conic-gradient(from_90deg_at_50%_50%,#FF1A1A_0%,#D70000_50%,#FF1A1A_100%)]',
+}
+
+const bgStatusColor = {
+  available: 'text-green-800 bg-green-100 dark:bg-gray-800 dark:text-white/80',
+  occupied:
+    'text-red-800 bg-red-100 dark:bg-red-300 dark:text-black/70 font-semibold',
+}
+---
+
 <div class='flex items-center animate-blink'>
   <span class='relative inline-flex overflow-hidden rounded-full p-[1px]'>
     <span
-      class='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]'
+      class=`absolute inset-[-1000%] animate-[spin_2s_linear_infinite] ${borderStatusColor[status]}`
     >
     </span>
     <div
-      class='inline-flex items-center justify-center w-full px-3 py-1 text-sm text-green-800 bg-green-100 rounded-full dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap'
+      class={`${bgStatusColor[status]} inline-flex items-center justify-center w-full px-3 py-1 text-sm rounded-full backdrop-blur-3xl whitespace-nowrap`}
     >
       <slot />
     </div>
