@@ -2,8 +2,16 @@
 import ListItemBadge from '@/components/ListItemBadge.astro'
 import type { IWork } from '@/types/Work'
 
-const { title, paragraph, skills, skills_urls, company, company_url, period } =
-  Astro.props as IWork
+const {
+  title,
+  paragraph,
+  skills,
+  skills_urls,
+  company,
+  company_url,
+  Company_logo,
+  period,
+} = Astro.props as IWork
 ---
 
 <article
@@ -21,7 +29,7 @@ const { title, paragraph, skills, skills_urls, company, company_url, period } =
 
     <div class='flex flex-wrap items-center justify-between pt-6'>
       <ul
-        class='flex flex-wrap items-center justify-start gap-2 pr-4 md:max-w-[75%]'
+        class='flex flex-wrap items-center justify-start gap-2 pr-4 md:max-w-[70%]'
       >
         {
           skills.map((skill, index) => (
@@ -31,15 +39,19 @@ const { title, paragraph, skills, skills_urls, company, company_url, period } =
       </ul>
 
       <p
-        class='text-xs italic font-extralight self-end pb-1.5 pr-1.5 mt-8 md:mt-0 w-full md:w-fit text-end md:text-center'
+        class='flex items-end text-xs italic font-extralight self-end pb-1.5 pr-1.5 mt-8 md:mt-0 w-full md:w-fit text-end md:text-center'
       >
         <a
           href={company_url}
           target='_blank'
-          class='decoration-dashed hover:underline'
+          class='flex justify-self-end decoration-dashed hover:underline'
         >
+          <Company_logo class='mr-2 size-4' />
           {company}
-        </a> | {period}
+        </a>
+        <span class='ml-1'>
+          | {period}
+        </span>
       </p>
     </div>
   </div>

@@ -1,6 +1,9 @@
 ---
 import WorkItem from '@/components/WorkItem.astro'
 import type { IWork } from '@/types/Work'
+import BancSabadell from '@/assets/svgs/works/BancSabadell.astro'
+import IT from '@/assets/svgs/works/IT.astro'
+import NoCountry from '@/assets/svgs/works/NoCountry.astro'
 
 const myWorks: IWork[] = [
   {
@@ -16,6 +19,7 @@ const myWorks: IWork[] = [
     ],
     company: 'Banco Sabadell',
     company_url: 'https://www.grupbancsabadell.com/corp/es/inicio.html',
+    Company_logo: BancSabadell,
     period: '06/2025 - nowadays',
   },
   {
@@ -44,6 +48,7 @@ const myWorks: IWork[] = [
     ],
     company: 'No Country',
     company_url: 'https://www.nocountry.tech',
+    Company_logo: NoCountry,
     period: '10/2023 - 06/2024',
   },
   {
@@ -72,6 +77,7 @@ const myWorks: IWork[] = [
     ],
     company: 'IT Academy',
     company_url: 'https://www.barcelonactiva.cat/es/itacademy',
+    Company_logo: IT,
     period: '06/2023 - 10/2023',
   },
 ]
