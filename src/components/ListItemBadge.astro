@@ -2,7 +2,11 @@
 import Access from '@/assets/svgs/skills/Access.astro'
 import Angular from '@/assets/svgs/skills/Angular.astro'
 import AstroC from '@/assets/svgs/skills/AstroC.astro'
+import AttentionToDetail from '@/assets/svgs/skills/AttentionToDetail.astro'
 import Codeigniter from '@/assets/svgs/skills/Codeigniter.astro'
+import CriticalThinking from '@/assets/svgs/skills/CriticalThinking.astro'
+import DataCleaning from '@/assets/svgs/skills/DataCleaning.astro'
+import DataVisualization from '@/assets/svgs/skills/DataVisualization.astro'
 import Django from '@/assets/svgs/skills/Django.astro'
 import Excel from '@/assets/svgs/skills/Excel.astro'
 import Expressjs from '@/assets/svgs/skills/Expressjs.astro'
@@ -37,7 +41,9 @@ import ContinousLearning from '@/assets/svgs/skills/ContinousLearning.astro'
 import EffectiveCommunication from '@/assets/svgs/skills/EffectiveCommunication.astro'
 import Leadership from '@/assets/svgs/skills/Leadership.astro'
 import Organization from '@/assets/svgs/skills/Organization.astro'
+import PresentationSkills from '@/assets/svgs/skills/PresentationSkills.astro'
 import ProblemSolving from '@/assets/svgs/skills/ProblemSolving.astro'
+import TeamWork from '@/assets/svgs/skills/TeamWork.astro'
 import TimeManagement from '@/assets/svgs/skills/TimeManagement.astro'
 
 type Techs =
@@ -76,13 +82,19 @@ type Techs =
   | 'Vitest'
 
 type Skills =
+  | 'AttentionToDetail'
   | 'Adaptability'
   | 'ContinousLearning'
+  | 'CriticalThinking'
+  | 'DataCleaning'
+  | 'DataVisualization'
   | 'EffectiveCommunication'
   | 'Leadership'
   | 'Organization'
   | 'ProblemSolving'
   | 'TimeManagement'
+  | 'PresentationSkills'
+  | 'TeamWork'
 
 const { skill, skillUrl } = Astro.props as {
   skill: Techs | Skills
@@ -131,6 +143,12 @@ const icons: Record<IconKey, (props: { class?: string }) => any> = {
   Organization,
   ProblemSolving,
   TimeManagement,
+  PresentationSkills,
+  TeamWork,
+  AttentionToDetail,
+  CriticalThinking,
+  DataCleaning,
+  DataVisualization,
 }
 
 const skillJoinStr = skill.replace(' ', '')
