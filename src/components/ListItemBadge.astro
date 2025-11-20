@@ -14,6 +14,7 @@ import FastAPI from '@/assets/svgs/skills/FastAPI.astro'
 import Flask from '@/assets/svgs/skills/Flask.astro'
 import Git from '@/assets/svgs/skills/Git.astro'
 import GitLab from '@/assets/svgs/skills/GitLab.astro'
+import HTML from '@/assets/svgs/skills/HTML.astro'
 import Java from '@/assets/svgs/skills/Java.astro'
 import JavaScript from '@/assets/svgs/skills/JavaScript.astro'
 import Laravel from '@/assets/svgs/skills/Laravel.astro'
@@ -23,6 +24,7 @@ import MongoDB from '@/assets/svgs/skills/MongoDB.astro'
 import MySQL from '@/assets/svgs/skills/MySQL.astro'
 import NextJS from '@/assets/svgs/skills/NextJS.astro'
 import Nodejs from '@/assets/svgs/skills/Nodejs.astro'
+import Playwright from '@/assets/svgs/skills/Playwright.astro'
 import PHP from '@/assets/svgs/skills/PHP.astro'
 import PostgreSQL from '@/assets/svgs/skills/PostgreSQL.astro'
 import PowerBI from '@/assets/svgs/skills/PowerBI.astro'
@@ -58,6 +60,7 @@ type Techs =
   | 'Flask'
   | 'Git'
   | 'GitLab'
+  | 'HTML'
   | 'Java'
   | 'JavaScript'
   | 'Laravel'
@@ -67,6 +70,7 @@ type Techs =
   | 'MySQL'
   | 'NextJS'
   | 'Nodejs'
+  | 'Playwright'
   | 'PHP'
   | 'PostgreSQL'
   | 'PowerBI'
@@ -114,6 +118,7 @@ const icons: Record<IconKey, (props: { class?: string }) => any> = {
   Flask,
   Git,
   GitLab,
+  HTML,
   Java,
   JavaScript,
   Laravel,
@@ -124,6 +129,7 @@ const icons: Record<IconKey, (props: { class?: string }) => any> = {
   NextJS,
   Nodejs,
   PHP,
+  Playwright,
   PostgreSQL,
   PowerBI,
   Preact,
