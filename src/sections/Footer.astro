@@ -1,6 +1,8 @@
 ---
 import GitHub from '@/assets/svgs/GitHub.astro'
 import Figma from '@/assets/svgs/Figma.astro'
+
+const year = new Date().getFullYear()
 ---
 
 <footer
@@ -15,7 +17,7 @@ import Figma from '@/assets/svgs/Figma.astro'
   <p
     class='text-secondary-text dark:text-secondary-text-dark text-xs font-extralight order-2 md:order-none mb-6 md:mb-0'
   >
-    © 2025 | All rights reserved
+    © {year} | All rights reserved
   </p>
   <p
     class='text-secondary-text dark:text-secondary-text-dark text-xs font-extralight order-4 md:order-none mb-6 md:mb-0'
